@@ -2513,17 +2513,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-  * Bootstrap v4.5.0 (https://getbootstrap.com/)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * Bootstrap v4.6.0 (https://getbootstrap.com/)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? factory(exports, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")) :
   undefined;
 }(this, (function (exports, $, Popper) { 'use strict';
 
-  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
-  Popper = Popper && Object.prototype.hasOwnProperty.call(Popper, 'default') ? Popper['default'] : Popper;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var $__default = /*#__PURE__*/_interopDefaultLegacy($);
+  var Popper__default = /*#__PURE__*/_interopDefaultLegacy(Popper);
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -2541,53 +2543,22 @@ __webpack_require__.r(__webpack_exports__);
     return Constructor;
   }
 
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
+  function _extends() {
+    _extends = Object.assign || function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
 
-    return obj;
-  }
-
-  function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly) symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-      keys.push.apply(keys, symbols);
-    }
-
-    return keys;
-  }
-
-  function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-
-      if (i % 2) {
-        ownKeys(Object(source), true).forEach(function (key) {
-          _defineProperty(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        ownKeys(Object(source)).forEach(function (key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
       }
-    }
 
-    return target;
+      return target;
+    };
+
+    return _extends.apply(this, arguments);
   }
 
   function _inheritsLoose(subClass, superClass) {
@@ -2598,8 +2569,8 @@ __webpack_require__.r(__webpack_exports__);
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.5.0): util.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Bootstrap (v4.6.0): util.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
   /**
@@ -2625,7 +2596,7 @@ __webpack_require__.r(__webpack_exports__);
       bindType: TRANSITION_END,
       delegateType: TRANSITION_END,
       handle: function handle(event) {
-        if ($(event.target).is(this)) {
+        if ($__default['default'](event.target).is(this)) {
           return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         }
 
@@ -2638,7 +2609,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     var called = false;
-    $(this).one(Util.TRANSITION_END, function () {
+    $__default['default'](this).one(Util.TRANSITION_END, function () {
       called = true;
     });
     setTimeout(function () {
@@ -2650,8 +2621,8 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   function setTransitionEndSupport() {
-    $.fn.emulateTransitionEnd = transitionEndEmulator;
-    $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+    $__default['default'].fn.emulateTransitionEnd = transitionEndEmulator;
+    $__default['default'].event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
   }
   /**
    * --------------------------------------------------------------------------
@@ -2664,7 +2635,6 @@ __webpack_require__.r(__webpack_exports__);
     TRANSITION_END: 'bsTransitionEnd',
     getUID: function getUID(prefix) {
       do {
-        // eslint-disable-next-line no-bitwise
         prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
       } while (document.getElementById(prefix));
 
@@ -2680,7 +2650,7 @@ __webpack_require__.r(__webpack_exports__);
 
       try {
         return document.querySelector(selector) ? selector : null;
-      } catch (err) {
+      } catch (_) {
         return null;
       }
     },
@@ -2690,8 +2660,8 @@ __webpack_require__.r(__webpack_exports__);
       } // Get transition-duration of the element
 
 
-      var transitionDuration = $(element).css('transition-duration');
-      var transitionDelay = $(element).css('transition-delay');
+      var transitionDuration = $__default['default'](element).css('transition-duration');
+      var transitionDelay = $__default['default'](element).css('transition-delay');
       var floatTransitionDuration = parseFloat(transitionDuration);
       var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
 
@@ -2708,9 +2678,8 @@ __webpack_require__.r(__webpack_exports__);
       return element.offsetHeight;
     },
     triggerTransitionEnd: function triggerTransitionEnd(element) {
-      $(element).trigger(TRANSITION_END);
+      $__default['default'](element).trigger(TRANSITION_END);
     },
-    // TODO: Remove in v5
     supportsTransitionEnd: function supportsTransitionEnd() {
       return Boolean(TRANSITION_END);
     },
@@ -2753,11 +2722,11 @@ __webpack_require__.r(__webpack_exports__);
       return Util.findShadowRoot(element.parentNode);
     },
     jQueryDetection: function jQueryDetection() {
-      if (typeof $ === 'undefined') {
+      if (typeof $__default['default'] === 'undefined') {
         throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
       }
 
-      var version = $.fn.jquery.split(' ')[0].split('.');
+      var version = $__default['default'].fn.jquery.split(' ')[0].split('.');
       var minMajor = 1;
       var ltMajor = 2;
       var minMinor = 9;
@@ -2779,11 +2748,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME = 'alert';
-  var VERSION = '4.5.0';
+  var VERSION = '4.6.0';
   var DATA_KEY = 'bs.alert';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  var JQUERY_NO_CONFLICT = $__default['default'].fn[NAME];
   var SELECTOR_DISMISS = '[data-dismiss="alert"]';
   var EVENT_CLOSE = "close" + EVENT_KEY;
   var EVENT_CLOSED = "closed" + EVENT_KEY;
@@ -2823,7 +2792,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.dispose = function dispose() {
-      $.removeData(this._element, DATA_KEY);
+      $__default['default'].removeData(this._element, DATA_KEY);
       this._element = null;
     } // Private
     ;
@@ -2837,43 +2806,43 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (!parent) {
-        parent = $(element).closest("." + CLASS_NAME_ALERT)[0];
+        parent = $__default['default'](element).closest("." + CLASS_NAME_ALERT)[0];
       }
 
       return parent;
     };
 
     _proto._triggerCloseEvent = function _triggerCloseEvent(element) {
-      var closeEvent = $.Event(EVENT_CLOSE);
-      $(element).trigger(closeEvent);
+      var closeEvent = $__default['default'].Event(EVENT_CLOSE);
+      $__default['default'](element).trigger(closeEvent);
       return closeEvent;
     };
 
     _proto._removeElement = function _removeElement(element) {
       var _this = this;
 
-      $(element).removeClass(CLASS_NAME_SHOW);
+      $__default['default'](element).removeClass(CLASS_NAME_SHOW);
 
-      if (!$(element).hasClass(CLASS_NAME_FADE)) {
+      if (!$__default['default'](element).hasClass(CLASS_NAME_FADE)) {
         this._destroyElement(element);
 
         return;
       }
 
       var transitionDuration = Util.getTransitionDurationFromElement(element);
-      $(element).one(Util.TRANSITION_END, function (event) {
+      $__default['default'](element).one(Util.TRANSITION_END, function (event) {
         return _this._destroyElement(element, event);
       }).emulateTransitionEnd(transitionDuration);
     };
 
     _proto._destroyElement = function _destroyElement(element) {
-      $(element).detach().trigger(EVENT_CLOSED).remove();
+      $__default['default'](element).detach().trigger(EVENT_CLOSED).remove();
     } // Static
     ;
 
     Alert._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var $element = $(this);
+        var $element = $__default['default'](this);
         var data = $element.data(DATA_KEY);
 
         if (!data) {
@@ -2913,18 +2882,18 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $(document).on(EVENT_CLICK_DATA_API, SELECTOR_DISMISS, Alert._handleDismiss(new Alert()));
+  $__default['default'](document).on(EVENT_CLICK_DATA_API, SELECTOR_DISMISS, Alert._handleDismiss(new Alert()));
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME] = Alert._jQueryInterface;
-  $.fn[NAME].Constructor = Alert;
+  $__default['default'].fn[NAME] = Alert._jQueryInterface;
+  $__default['default'].fn[NAME].Constructor = Alert;
 
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
+  $__default['default'].fn[NAME].noConflict = function () {
+    $__default['default'].fn[NAME] = JQUERY_NO_CONFLICT;
     return Alert._jQueryInterface;
   };
 
@@ -2935,11 +2904,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$1 = 'button';
-  var VERSION$1 = '4.5.0';
+  var VERSION$1 = '4.6.0';
   var DATA_KEY$1 = 'bs.button';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
-  var JQUERY_NO_CONFLICT$1 = $.fn[NAME$1];
+  var JQUERY_NO_CONFLICT$1 = $__default['default'].fn[NAME$1];
   var CLASS_NAME_ACTIVE = 'active';
   var CLASS_NAME_BUTTON = 'btn';
   var CLASS_NAME_FOCUS = 'focus';
@@ -2962,6 +2931,7 @@ __webpack_require__.r(__webpack_exports__);
   var Button = /*#__PURE__*/function () {
     function Button(element) {
       this._element = element;
+      this.shouldAvoidTriggerChange = false;
     } // Getters
 
 
@@ -2971,7 +2941,7 @@ __webpack_require__.r(__webpack_exports__);
     _proto.toggle = function toggle() {
       var triggerChangeEvent = true;
       var addAriaPressed = true;
-      var rootElement = $(this._element).closest(SELECTOR_DATA_TOGGLES)[0];
+      var rootElement = $__default['default'](this._element).closest(SELECTOR_DATA_TOGGLES)[0];
 
       if (rootElement) {
         var input = this._element.querySelector(SELECTOR_INPUT);
@@ -2984,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
               var activeElement = rootElement.querySelector(SELECTOR_ACTIVE);
 
               if (activeElement) {
-                $(activeElement).removeClass(CLASS_NAME_ACTIVE);
+                $__default['default'](activeElement).removeClass(CLASS_NAME_ACTIVE);
               }
             }
           }
@@ -2995,7 +2965,9 @@ __webpack_require__.r(__webpack_exports__);
               input.checked = !this._element.classList.contains(CLASS_NAME_ACTIVE);
             }
 
-            $(input).trigger('change');
+            if (!this.shouldAvoidTriggerChange) {
+              $__default['default'](input).trigger('change');
+            }
           }
 
           input.focus();
@@ -3009,25 +2981,28 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         if (triggerChangeEvent) {
-          $(this._element).toggleClass(CLASS_NAME_ACTIVE);
+          $__default['default'](this._element).toggleClass(CLASS_NAME_ACTIVE);
         }
       }
     };
 
     _proto.dispose = function dispose() {
-      $.removeData(this._element, DATA_KEY$1);
+      $__default['default'].removeData(this._element, DATA_KEY$1);
       this._element = null;
     } // Static
     ;
 
-    Button._jQueryInterface = function _jQueryInterface(config) {
+    Button._jQueryInterface = function _jQueryInterface(config, avoidTriggerChange) {
       return this.each(function () {
-        var data = $(this).data(DATA_KEY$1);
+        var $element = $__default['default'](this);
+        var data = $element.data(DATA_KEY$1);
 
         if (!data) {
           data = new Button(this);
-          $(this).data(DATA_KEY$1, data);
+          $element.data(DATA_KEY$1, data);
         }
+
+        data.shouldAvoidTriggerChange = avoidTriggerChange;
 
         if (config === 'toggle') {
           data[config]();
@@ -3051,12 +3026,12 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $(document).on(EVENT_CLICK_DATA_API$1, SELECTOR_DATA_TOGGLE_CARROT, function (event) {
+  $__default['default'](document).on(EVENT_CLICK_DATA_API$1, SELECTOR_DATA_TOGGLE_CARROT, function (event) {
     var button = event.target;
     var initialButton = button;
 
-    if (!$(button).hasClass(CLASS_NAME_BUTTON)) {
-      button = $(button).closest(SELECTOR_BUTTON)[0];
+    if (!$__default['default'](button).hasClass(CLASS_NAME_BUTTON)) {
+      button = $__default['default'](button).closest(SELECTOR_BUTTON)[0];
     }
 
     if (!button || button.hasAttribute('disabled') || button.classList.contains('disabled')) {
@@ -3070,17 +3045,15 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      if (initialButton.tagName === 'LABEL' && inputBtn && inputBtn.type === 'checkbox') {
-        event.preventDefault(); // work around event sent to label and input
+      if (initialButton.tagName === 'INPUT' || button.tagName !== 'LABEL') {
+        Button._jQueryInterface.call($__default['default'](button), 'toggle', initialButton.tagName === 'INPUT');
       }
-
-      Button._jQueryInterface.call($(button), 'toggle');
     }
   }).on(EVENT_FOCUS_BLUR_DATA_API, SELECTOR_DATA_TOGGLE_CARROT, function (event) {
-    var button = $(event.target).closest(SELECTOR_BUTTON)[0];
-    $(button).toggleClass(CLASS_NAME_FOCUS, /^focus(in)?$/.test(event.type));
+    var button = $__default['default'](event.target).closest(SELECTOR_BUTTON)[0];
+    $__default['default'](button).toggleClass(CLASS_NAME_FOCUS, /^focus(in)?$/.test(event.type));
   });
-  $(window).on(EVENT_LOAD_DATA_API, function () {
+  $__default['default'](window).on(EVENT_LOAD_DATA_API, function () {
     // ensure correct active class is set to match the controls' actual values/states
     // find all checkboxes/readio buttons inside data-toggle groups
     var buttons = [].slice.call(document.querySelectorAll(SELECTOR_DATA_TOGGLES_BUTTONS));
@@ -3115,11 +3088,11 @@ __webpack_require__.r(__webpack_exports__);
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$1] = Button._jQueryInterface;
-  $.fn[NAME$1].Constructor = Button;
+  $__default['default'].fn[NAME$1] = Button._jQueryInterface;
+  $__default['default'].fn[NAME$1].Constructor = Button;
 
-  $.fn[NAME$1].noConflict = function () {
-    $.fn[NAME$1] = JQUERY_NO_CONFLICT$1;
+  $__default['default'].fn[NAME$1].noConflict = function () {
+    $__default['default'].fn[NAME$1] = JQUERY_NO_CONFLICT$1;
     return Button._jQueryInterface;
   };
 
@@ -3130,11 +3103,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$2 = 'carousel';
-  var VERSION$2 = '4.5.0';
+  var VERSION$2 = '4.6.0';
   var DATA_KEY$2 = 'bs.carousel';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
-  var JQUERY_NO_CONFLICT$2 = $.fn[NAME$2];
+  var JQUERY_NO_CONFLICT$2 = $__default['default'].fn[NAME$2];
   var ARROW_LEFT_KEYCODE = 37; // KeyboardEvent.which value for left arrow key
 
   var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
@@ -3231,9 +3204,10 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.nextWhenVisible = function nextWhenVisible() {
-      // Don't call next when the page isn't visible
+      var $element = $__default['default'](this._element); // Don't call next when the page isn't visible
       // or the carousel or its parent isn't visible
-      if (!document.hidden && $(this._element).is(':visible') && $(this._element).css('visibility') !== 'hidden') {
+
+      if (!document.hidden && $element.is(':visible') && $element.css('visibility') !== 'hidden') {
         this.next();
       }
     };
@@ -3269,6 +3243,8 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this._config.interval && !this._isPaused) {
+        this._updateInterval();
+
         this._interval = setInterval((document.visibilityState ? this.nextWhenVisible : this.next).bind(this), this._config.interval);
       }
     };
@@ -3285,7 +3261,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this._isSliding) {
-        $(this._element).one(EVENT_SLID, function () {
+        $__default['default'](this._element).one(EVENT_SLID, function () {
           return _this.to(index);
         });
         return;
@@ -3303,8 +3279,8 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.dispose = function dispose() {
-      $(this._element).off(EVENT_KEY$2);
-      $.removeData(this._element, DATA_KEY$2);
+      $__default['default'](this._element).off(EVENT_KEY$2);
+      $__default['default'].removeData(this._element, DATA_KEY$2);
       this._items = null;
       this._config = null;
       this._element = null;
@@ -3317,7 +3293,7 @@ __webpack_require__.r(__webpack_exports__);
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2(_objectSpread2({}, Default), config);
+      config = _extends({}, Default, config);
       Util.typeCheckConfig(NAME$2, config, DefaultType);
       return config;
     };
@@ -3346,13 +3322,13 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this._config.keyboard) {
-        $(this._element).on(EVENT_KEYDOWN, function (event) {
+        $__default['default'](this._element).on(EVENT_KEYDOWN, function (event) {
           return _this2._keydown(event);
         });
       }
 
       if (this._config.pause === 'hover') {
-        $(this._element).on(EVENT_MOUSEENTER, function (event) {
+        $__default['default'](this._element).on(EVENT_MOUSEENTER, function (event) {
           return _this2.pause(event);
         }).on(EVENT_MOUSELEAVE, function (event) {
           return _this2.cycle(event);
@@ -3415,27 +3391,27 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
 
-      $(this._element.querySelectorAll(SELECTOR_ITEM_IMG)).on(EVENT_DRAG_START, function (e) {
+      $__default['default'](this._element.querySelectorAll(SELECTOR_ITEM_IMG)).on(EVENT_DRAG_START, function (e) {
         return e.preventDefault();
       });
 
       if (this._pointerEvent) {
-        $(this._element).on(EVENT_POINTERDOWN, function (event) {
+        $__default['default'](this._element).on(EVENT_POINTERDOWN, function (event) {
           return start(event);
         });
-        $(this._element).on(EVENT_POINTERUP, function (event) {
+        $__default['default'](this._element).on(EVENT_POINTERUP, function (event) {
           return end(event);
         });
 
         this._element.classList.add(CLASS_NAME_POINTER_EVENT);
       } else {
-        $(this._element).on(EVENT_TOUCHSTART, function (event) {
+        $__default['default'](this._element).on(EVENT_TOUCHSTART, function (event) {
           return start(event);
         });
-        $(this._element).on(EVENT_TOUCHMOVE, function (event) {
+        $__default['default'](this._element).on(EVENT_TOUCHMOVE, function (event) {
           return move(event);
         });
-        $(this._element).on(EVENT_TOUCHEND, function (event) {
+        $__default['default'](this._element).on(EVENT_TOUCHEND, function (event) {
           return end(event);
         });
       }
@@ -3487,26 +3463,43 @@ __webpack_require__.r(__webpack_exports__);
 
       var fromIndex = this._getItemIndex(this._element.querySelector(SELECTOR_ACTIVE_ITEM));
 
-      var slideEvent = $.Event(EVENT_SLIDE, {
+      var slideEvent = $__default['default'].Event(EVENT_SLIDE, {
         relatedTarget: relatedTarget,
         direction: eventDirectionName,
         from: fromIndex,
         to: targetIndex
       });
-      $(this._element).trigger(slideEvent);
+      $__default['default'](this._element).trigger(slideEvent);
       return slideEvent;
     };
 
     _proto._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
       if (this._indicatorsElement) {
         var indicators = [].slice.call(this._indicatorsElement.querySelectorAll(SELECTOR_ACTIVE$1));
-        $(indicators).removeClass(CLASS_NAME_ACTIVE$1);
+        $__default['default'](indicators).removeClass(CLASS_NAME_ACTIVE$1);
 
         var nextIndicator = this._indicatorsElement.children[this._getItemIndex(element)];
 
         if (nextIndicator) {
-          $(nextIndicator).addClass(CLASS_NAME_ACTIVE$1);
+          $__default['default'](nextIndicator).addClass(CLASS_NAME_ACTIVE$1);
         }
+      }
+    };
+
+    _proto._updateInterval = function _updateInterval() {
+      var element = this._activeElement || this._element.querySelector(SELECTOR_ACTIVE_ITEM);
+
+      if (!element) {
+        return;
+      }
+
+      var elementInterval = parseInt(element.getAttribute('data-interval'), 10);
+
+      if (elementInterval) {
+        this._config.defaultInterval = this._config.defaultInterval || this._config.interval;
+        this._config.interval = elementInterval;
+      } else {
+        this._config.interval = this._config.defaultInterval || this._config.interval;
       }
     };
 
@@ -3536,7 +3529,7 @@ __webpack_require__.r(__webpack_exports__);
         eventDirectionName = DIRECTION_RIGHT;
       }
 
-      if (nextElement && $(nextElement).hasClass(CLASS_NAME_ACTIVE$1)) {
+      if (nextElement && $__default['default'](nextElement).hasClass(CLASS_NAME_ACTIVE$1)) {
         this._isSliding = false;
         return;
       }
@@ -3560,41 +3553,33 @@ __webpack_require__.r(__webpack_exports__);
 
       this._setActiveIndicatorElement(nextElement);
 
-      var slidEvent = $.Event(EVENT_SLID, {
+      this._activeElement = nextElement;
+      var slidEvent = $__default['default'].Event(EVENT_SLID, {
         relatedTarget: nextElement,
         direction: eventDirectionName,
         from: activeElementIndex,
         to: nextElementIndex
       });
 
-      if ($(this._element).hasClass(CLASS_NAME_SLIDE)) {
-        $(nextElement).addClass(orderClassName);
+      if ($__default['default'](this._element).hasClass(CLASS_NAME_SLIDE)) {
+        $__default['default'](nextElement).addClass(orderClassName);
         Util.reflow(nextElement);
-        $(activeElement).addClass(directionalClassName);
-        $(nextElement).addClass(directionalClassName);
-        var nextElementInterval = parseInt(nextElement.getAttribute('data-interval'), 10);
-
-        if (nextElementInterval) {
-          this._config.defaultInterval = this._config.defaultInterval || this._config.interval;
-          this._config.interval = nextElementInterval;
-        } else {
-          this._config.interval = this._config.defaultInterval || this._config.interval;
-        }
-
+        $__default['default'](activeElement).addClass(directionalClassName);
+        $__default['default'](nextElement).addClass(directionalClassName);
         var transitionDuration = Util.getTransitionDurationFromElement(activeElement);
-        $(activeElement).one(Util.TRANSITION_END, function () {
-          $(nextElement).removeClass(directionalClassName + " " + orderClassName).addClass(CLASS_NAME_ACTIVE$1);
-          $(activeElement).removeClass(CLASS_NAME_ACTIVE$1 + " " + orderClassName + " " + directionalClassName);
+        $__default['default'](activeElement).one(Util.TRANSITION_END, function () {
+          $__default['default'](nextElement).removeClass(directionalClassName + " " + orderClassName).addClass(CLASS_NAME_ACTIVE$1);
+          $__default['default'](activeElement).removeClass(CLASS_NAME_ACTIVE$1 + " " + orderClassName + " " + directionalClassName);
           _this4._isSliding = false;
           setTimeout(function () {
-            return $(_this4._element).trigger(slidEvent);
+            return $__default['default'](_this4._element).trigger(slidEvent);
           }, 0);
         }).emulateTransitionEnd(transitionDuration);
       } else {
-        $(activeElement).removeClass(CLASS_NAME_ACTIVE$1);
-        $(nextElement).addClass(CLASS_NAME_ACTIVE$1);
+        $__default['default'](activeElement).removeClass(CLASS_NAME_ACTIVE$1);
+        $__default['default'](nextElement).addClass(CLASS_NAME_ACTIVE$1);
         this._isSliding = false;
-        $(this._element).trigger(slidEvent);
+        $__default['default'](this._element).trigger(slidEvent);
       }
 
       if (isCycling) {
@@ -3605,19 +3590,19 @@ __webpack_require__.r(__webpack_exports__);
 
     Carousel._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var data = $(this).data(DATA_KEY$2);
+        var data = $__default['default'](this).data(DATA_KEY$2);
 
-        var _config = _objectSpread2(_objectSpread2({}, Default), $(this).data());
+        var _config = _extends({}, Default, $__default['default'](this).data());
 
         if (typeof config === 'object') {
-          _config = _objectSpread2(_objectSpread2({}, _config), config);
+          _config = _extends({}, _config, config);
         }
 
         var action = typeof config === 'string' ? config : _config.slide;
 
         if (!data) {
           data = new Carousel(this, _config);
-          $(this).data(DATA_KEY$2, data);
+          $__default['default'](this).data(DATA_KEY$2, data);
         }
 
         if (typeof config === 'number') {
@@ -3642,13 +3627,13 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      var target = $(selector)[0];
+      var target = $__default['default'](selector)[0];
 
-      if (!target || !$(target).hasClass(CLASS_NAME_CAROUSEL)) {
+      if (!target || !$__default['default'](target).hasClass(CLASS_NAME_CAROUSEL)) {
         return;
       }
 
-      var config = _objectSpread2(_objectSpread2({}, $(target).data()), $(this).data());
+      var config = _extends({}, $__default['default'](target).data(), $__default['default'](this).data());
 
       var slideIndex = this.getAttribute('data-slide-to');
 
@@ -3656,10 +3641,10 @@ __webpack_require__.r(__webpack_exports__);
         config.interval = false;
       }
 
-      Carousel._jQueryInterface.call($(target), config);
+      Carousel._jQueryInterface.call($__default['default'](target), config);
 
       if (slideIndex) {
-        $(target).data(DATA_KEY$2).to(slideIndex);
+        $__default['default'](target).data(DATA_KEY$2).to(slideIndex);
       }
 
       event.preventDefault();
@@ -3686,12 +3671,12 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $(document).on(EVENT_CLICK_DATA_API$2, SELECTOR_DATA_SLIDE, Carousel._dataApiClickHandler);
-  $(window).on(EVENT_LOAD_DATA_API$1, function () {
+  $__default['default'](document).on(EVENT_CLICK_DATA_API$2, SELECTOR_DATA_SLIDE, Carousel._dataApiClickHandler);
+  $__default['default'](window).on(EVENT_LOAD_DATA_API$1, function () {
     var carousels = [].slice.call(document.querySelectorAll(SELECTOR_DATA_RIDE));
 
     for (var i = 0, len = carousels.length; i < len; i++) {
-      var $carousel = $(carousels[i]);
+      var $carousel = $__default['default'](carousels[i]);
 
       Carousel._jQueryInterface.call($carousel, $carousel.data());
     }
@@ -3702,11 +3687,11 @@ __webpack_require__.r(__webpack_exports__);
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$2] = Carousel._jQueryInterface;
-  $.fn[NAME$2].Constructor = Carousel;
+  $__default['default'].fn[NAME$2] = Carousel._jQueryInterface;
+  $__default['default'].fn[NAME$2].Constructor = Carousel;
 
-  $.fn[NAME$2].noConflict = function () {
-    $.fn[NAME$2] = JQUERY_NO_CONFLICT$2;
+  $__default['default'].fn[NAME$2].noConflict = function () {
+    $__default['default'].fn[NAME$2] = JQUERY_NO_CONFLICT$2;
     return Carousel._jQueryInterface;
   };
 
@@ -3717,11 +3702,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$3 = 'collapse';
-  var VERSION$3 = '4.5.0';
+  var VERSION$3 = '4.6.0';
   var DATA_KEY$3 = 'bs.collapse';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
-  var JQUERY_NO_CONFLICT$3 = $.fn[NAME$3];
+  var JQUERY_NO_CONFLICT$3 = $__default['default'].fn[NAME$3];
   var Default$1 = {
     toggle: true,
     parent: ''
@@ -3787,7 +3772,7 @@ __webpack_require__.r(__webpack_exports__);
 
     // Public
     _proto.toggle = function toggle() {
-      if ($(this._element).hasClass(CLASS_NAME_SHOW$1)) {
+      if ($__default['default'](this._element).hasClass(CLASS_NAME_SHOW$1)) {
         this.hide();
       } else {
         this.show();
@@ -3797,7 +3782,7 @@ __webpack_require__.r(__webpack_exports__);
     _proto.show = function show() {
       var _this = this;
 
-      if (this._isTransitioning || $(this._element).hasClass(CLASS_NAME_SHOW$1)) {
+      if (this._isTransitioning || $__default['default'](this._element).hasClass(CLASS_NAME_SHOW$1)) {
         return;
       }
 
@@ -3819,64 +3804,64 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (actives) {
-        activesData = $(actives).not(this._selector).data(DATA_KEY$3);
+        activesData = $__default['default'](actives).not(this._selector).data(DATA_KEY$3);
 
         if (activesData && activesData._isTransitioning) {
           return;
         }
       }
 
-      var startEvent = $.Event(EVENT_SHOW);
-      $(this._element).trigger(startEvent);
+      var startEvent = $__default['default'].Event(EVENT_SHOW);
+      $__default['default'](this._element).trigger(startEvent);
 
       if (startEvent.isDefaultPrevented()) {
         return;
       }
 
       if (actives) {
-        Collapse._jQueryInterface.call($(actives).not(this._selector), 'hide');
+        Collapse._jQueryInterface.call($__default['default'](actives).not(this._selector), 'hide');
 
         if (!activesData) {
-          $(actives).data(DATA_KEY$3, null);
+          $__default['default'](actives).data(DATA_KEY$3, null);
         }
       }
 
       var dimension = this._getDimension();
 
-      $(this._element).removeClass(CLASS_NAME_COLLAPSE).addClass(CLASS_NAME_COLLAPSING);
+      $__default['default'](this._element).removeClass(CLASS_NAME_COLLAPSE).addClass(CLASS_NAME_COLLAPSING);
       this._element.style[dimension] = 0;
 
       if (this._triggerArray.length) {
-        $(this._triggerArray).removeClass(CLASS_NAME_COLLAPSED).attr('aria-expanded', true);
+        $__default['default'](this._triggerArray).removeClass(CLASS_NAME_COLLAPSED).attr('aria-expanded', true);
       }
 
       this.setTransitioning(true);
 
       var complete = function complete() {
-        $(_this._element).removeClass(CLASS_NAME_COLLAPSING).addClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$1);
+        $__default['default'](_this._element).removeClass(CLASS_NAME_COLLAPSING).addClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$1);
         _this._element.style[dimension] = '';
 
         _this.setTransitioning(false);
 
-        $(_this._element).trigger(EVENT_SHOWN);
+        $__default['default'](_this._element).trigger(EVENT_SHOWN);
       };
 
       var capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
       var scrollSize = "scroll" + capitalizedDimension;
       var transitionDuration = Util.getTransitionDurationFromElement(this._element);
-      $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+      $__default['default'](this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       this._element.style[dimension] = this._element[scrollSize] + "px";
     };
 
     _proto.hide = function hide() {
       var _this2 = this;
 
-      if (this._isTransitioning || !$(this._element).hasClass(CLASS_NAME_SHOW$1)) {
+      if (this._isTransitioning || !$__default['default'](this._element).hasClass(CLASS_NAME_SHOW$1)) {
         return;
       }
 
-      var startEvent = $.Event(EVENT_HIDE);
-      $(this._element).trigger(startEvent);
+      var startEvent = $__default['default'].Event(EVENT_HIDE);
+      $__default['default'](this._element).trigger(startEvent);
 
       if (startEvent.isDefaultPrevented()) {
         return;
@@ -3886,7 +3871,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this._element.style[dimension] = this._element.getBoundingClientRect()[dimension] + "px";
       Util.reflow(this._element);
-      $(this._element).addClass(CLASS_NAME_COLLAPSING).removeClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$1);
+      $__default['default'](this._element).addClass(CLASS_NAME_COLLAPSING).removeClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$1);
       var triggerArrayLength = this._triggerArray.length;
 
       if (triggerArrayLength > 0) {
@@ -3895,10 +3880,10 @@ __webpack_require__.r(__webpack_exports__);
           var selector = Util.getSelectorFromElement(trigger);
 
           if (selector !== null) {
-            var $elem = $([].slice.call(document.querySelectorAll(selector)));
+            var $elem = $__default['default']([].slice.call(document.querySelectorAll(selector)));
 
             if (!$elem.hasClass(CLASS_NAME_SHOW$1)) {
-              $(trigger).addClass(CLASS_NAME_COLLAPSED).attr('aria-expanded', false);
+              $__default['default'](trigger).addClass(CLASS_NAME_COLLAPSED).attr('aria-expanded', false);
             }
           }
         }
@@ -3909,12 +3894,12 @@ __webpack_require__.r(__webpack_exports__);
       var complete = function complete() {
         _this2.setTransitioning(false);
 
-        $(_this2._element).removeClass(CLASS_NAME_COLLAPSING).addClass(CLASS_NAME_COLLAPSE).trigger(EVENT_HIDDEN);
+        $__default['default'](_this2._element).removeClass(CLASS_NAME_COLLAPSING).addClass(CLASS_NAME_COLLAPSE).trigger(EVENT_HIDDEN);
       };
 
       this._element.style[dimension] = '';
       var transitionDuration = Util.getTransitionDurationFromElement(this._element);
-      $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+      $__default['default'](this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
     };
 
     _proto.setTransitioning = function setTransitioning(isTransitioning) {
@@ -3922,7 +3907,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.dispose = function dispose() {
-      $.removeData(this._element, DATA_KEY$3);
+      $__default['default'].removeData(this._element, DATA_KEY$3);
       this._config = null;
       this._parent = null;
       this._element = null;
@@ -3932,7 +3917,7 @@ __webpack_require__.r(__webpack_exports__);
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2(_objectSpread2({}, Default$1), config);
+      config = _extends({}, Default$1, config);
       config.toggle = Boolean(config.toggle); // Coerce string values
 
       Util.typeCheckConfig(NAME$3, config, DefaultType$1);
@@ -3940,7 +3925,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto._getDimension = function _getDimension() {
-      var hasWidth = $(this._element).hasClass(DIMENSION_WIDTH);
+      var hasWidth = $__default['default'](this._element).hasClass(DIMENSION_WIDTH);
       return hasWidth ? DIMENSION_WIDTH : DIMENSION_HEIGHT;
     };
 
@@ -3961,17 +3946,17 @@ __webpack_require__.r(__webpack_exports__);
 
       var selector = "[data-toggle=\"collapse\"][data-parent=\"" + this._config.parent + "\"]";
       var children = [].slice.call(parent.querySelectorAll(selector));
-      $(children).each(function (i, element) {
+      $__default['default'](children).each(function (i, element) {
         _this3._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
       });
       return parent;
     };
 
     _proto._addAriaAndCollapsedClass = function _addAriaAndCollapsedClass(element, triggerArray) {
-      var isOpen = $(element).hasClass(CLASS_NAME_SHOW$1);
+      var isOpen = $__default['default'](element).hasClass(CLASS_NAME_SHOW$1);
 
       if (triggerArray.length) {
-        $(triggerArray).toggleClass(CLASS_NAME_COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
+        $__default['default'](triggerArray).toggleClass(CLASS_NAME_COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
       }
     } // Static
     ;
@@ -3983,10 +3968,10 @@ __webpack_require__.r(__webpack_exports__);
 
     Collapse._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var $this = $(this);
-        var data = $this.data(DATA_KEY$3);
+        var $element = $__default['default'](this);
+        var data = $element.data(DATA_KEY$3);
 
-        var _config = _objectSpread2(_objectSpread2(_objectSpread2({}, Default$1), $this.data()), typeof config === 'object' && config ? config : {});
+        var _config = _extends({}, Default$1, $element.data(), typeof config === 'object' && config ? config : {});
 
         if (!data && _config.toggle && typeof config === 'string' && /show|hide/.test(config)) {
           _config.toggle = false;
@@ -3994,7 +3979,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (!data) {
           data = new Collapse(this, _config);
-          $this.data(DATA_KEY$3, data);
+          $element.data(DATA_KEY$3, data);
         }
 
         if (typeof config === 'string') {
@@ -4028,17 +4013,17 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $(document).on(EVENT_CLICK_DATA_API$3, SELECTOR_DATA_TOGGLE$1, function (event) {
+  $__default['default'](document).on(EVENT_CLICK_DATA_API$3, SELECTOR_DATA_TOGGLE$1, function (event) {
     // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
     if (event.currentTarget.tagName === 'A') {
       event.preventDefault();
     }
 
-    var $trigger = $(this);
+    var $trigger = $__default['default'](this);
     var selector = Util.getSelectorFromElement(this);
     var selectors = [].slice.call(document.querySelectorAll(selector));
-    $(selectors).each(function () {
-      var $target = $(this);
+    $__default['default'](selectors).each(function () {
+      var $target = $__default['default'](this);
       var data = $target.data(DATA_KEY$3);
       var config = data ? 'toggle' : $trigger.data();
 
@@ -4051,11 +4036,11 @@ __webpack_require__.r(__webpack_exports__);
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$3] = Collapse._jQueryInterface;
-  $.fn[NAME$3].Constructor = Collapse;
+  $__default['default'].fn[NAME$3] = Collapse._jQueryInterface;
+  $__default['default'].fn[NAME$3].Constructor = Collapse;
 
-  $.fn[NAME$3].noConflict = function () {
-    $.fn[NAME$3] = JQUERY_NO_CONFLICT$3;
+  $__default['default'].fn[NAME$3].noConflict = function () {
+    $__default['default'].fn[NAME$3] = JQUERY_NO_CONFLICT$3;
     return Collapse._jQueryInterface;
   };
 
@@ -4066,11 +4051,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$4 = 'dropdown';
-  var VERSION$4 = '4.5.0';
+  var VERSION$4 = '4.6.0';
   var DATA_KEY$4 = 'bs.dropdown';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
-  var JQUERY_NO_CONFLICT$4 = $.fn[NAME$4];
+  var JQUERY_NO_CONFLICT$4 = $__default['default'].fn[NAME$4];
   var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 
   var SPACE_KEYCODE = 32; // KeyboardEvent.which value for space key
@@ -4148,11 +4133,11 @@ __webpack_require__.r(__webpack_exports__);
 
     // Public
     _proto.toggle = function toggle() {
-      if (this._element.disabled || $(this._element).hasClass(CLASS_NAME_DISABLED)) {
+      if (this._element.disabled || $__default['default'](this._element).hasClass(CLASS_NAME_DISABLED)) {
         return;
       }
 
-      var isActive = $(this._menu).hasClass(CLASS_NAME_SHOW$2);
+      var isActive = $__default['default'](this._menu).hasClass(CLASS_NAME_SHOW$2);
 
       Dropdown._clearMenus();
 
@@ -4168,22 +4153,22 @@ __webpack_require__.r(__webpack_exports__);
         usePopper = false;
       }
 
-      if (this._element.disabled || $(this._element).hasClass(CLASS_NAME_DISABLED) || $(this._menu).hasClass(CLASS_NAME_SHOW$2)) {
+      if (this._element.disabled || $__default['default'](this._element).hasClass(CLASS_NAME_DISABLED) || $__default['default'](this._menu).hasClass(CLASS_NAME_SHOW$2)) {
         return;
       }
 
       var relatedTarget = {
         relatedTarget: this._element
       };
-      var showEvent = $.Event(EVENT_SHOW$1, relatedTarget);
+      var showEvent = $__default['default'].Event(EVENT_SHOW$1, relatedTarget);
 
       var parent = Dropdown._getParentFromElement(this._element);
 
-      $(parent).trigger(showEvent);
+      $__default['default'](parent).trigger(showEvent);
 
       if (showEvent.isDefaultPrevented()) {
         return;
-      } // Disable totally Popper.js for Dropdown in Navbar
+      } // Totally disable Popper for Dropdowns in Navbar
 
 
       if (!this._inNavbar && usePopper) {
@@ -4191,8 +4176,8 @@ __webpack_require__.r(__webpack_exports__);
          * Check for Popper dependency
          * Popper - https://popper.js.org
          */
-        if (typeof Popper === 'undefined') {
-          throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org/)');
+        if (typeof Popper__default['default'] === 'undefined') {
+          throw new TypeError('Bootstrap\'s dropdowns require Popper (https://popper.js.org)');
         }
 
         var referenceElement = this._element;
@@ -4211,41 +4196,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
         if (this._config.boundary !== 'scrollParent') {
-          $(parent).addClass(CLASS_NAME_POSITION_STATIC);
+          $__default['default'](parent).addClass(CLASS_NAME_POSITION_STATIC);
         }
 
-        this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
+        this._popper = new Popper__default['default'](referenceElement, this._menu, this._getPopperConfig());
       } // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
 
-      if ('ontouchstart' in document.documentElement && $(parent).closest(SELECTOR_NAVBAR_NAV).length === 0) {
-        $(document.body).children().on('mouseover', null, $.noop);
+      if ('ontouchstart' in document.documentElement && $__default['default'](parent).closest(SELECTOR_NAVBAR_NAV).length === 0) {
+        $__default['default'](document.body).children().on('mouseover', null, $__default['default'].noop);
       }
 
       this._element.focus();
 
       this._element.setAttribute('aria-expanded', true);
 
-      $(this._menu).toggleClass(CLASS_NAME_SHOW$2);
-      $(parent).toggleClass(CLASS_NAME_SHOW$2).trigger($.Event(EVENT_SHOWN$1, relatedTarget));
+      $__default['default'](this._menu).toggleClass(CLASS_NAME_SHOW$2);
+      $__default['default'](parent).toggleClass(CLASS_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_SHOWN$1, relatedTarget));
     };
 
     _proto.hide = function hide() {
-      if (this._element.disabled || $(this._element).hasClass(CLASS_NAME_DISABLED) || !$(this._menu).hasClass(CLASS_NAME_SHOW$2)) {
+      if (this._element.disabled || $__default['default'](this._element).hasClass(CLASS_NAME_DISABLED) || !$__default['default'](this._menu).hasClass(CLASS_NAME_SHOW$2)) {
         return;
       }
 
       var relatedTarget = {
         relatedTarget: this._element
       };
-      var hideEvent = $.Event(EVENT_HIDE$1, relatedTarget);
+      var hideEvent = $__default['default'].Event(EVENT_HIDE$1, relatedTarget);
 
       var parent = Dropdown._getParentFromElement(this._element);
 
-      $(parent).trigger(hideEvent);
+      $__default['default'](parent).trigger(hideEvent);
 
       if (hideEvent.isDefaultPrevented()) {
         return;
@@ -4255,13 +4240,13 @@ __webpack_require__.r(__webpack_exports__);
         this._popper.destroy();
       }
 
-      $(this._menu).toggleClass(CLASS_NAME_SHOW$2);
-      $(parent).toggleClass(CLASS_NAME_SHOW$2).trigger($.Event(EVENT_HIDDEN$1, relatedTarget));
+      $__default['default'](this._menu).toggleClass(CLASS_NAME_SHOW$2);
+      $__default['default'](parent).toggleClass(CLASS_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_HIDDEN$1, relatedTarget));
     };
 
     _proto.dispose = function dispose() {
-      $.removeData(this._element, DATA_KEY$4);
-      $(this._element).off(EVENT_KEY$4);
+      $__default['default'].removeData(this._element, DATA_KEY$4);
+      $__default['default'](this._element).off(EVENT_KEY$4);
       this._element = null;
       this._menu = null;
 
@@ -4284,7 +4269,7 @@ __webpack_require__.r(__webpack_exports__);
     _proto._addEventListeners = function _addEventListeners() {
       var _this = this;
 
-      $(this._element).on(EVENT_CLICK, function (event) {
+      $__default['default'](this._element).on(EVENT_CLICK, function (event) {
         event.preventDefault();
         event.stopPropagation();
 
@@ -4293,7 +4278,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2(_objectSpread2(_objectSpread2({}, this.constructor.Default), $(this._element).data()), config);
+      config = _extends({}, this.constructor.Default, $__default['default'](this._element).data(), config);
       Util.typeCheckConfig(NAME$4, config, this.constructor.DefaultType);
       return config;
     };
@@ -4311,16 +4296,16 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto._getPlacement = function _getPlacement() {
-      var $parentDropdown = $(this._element.parentNode);
+      var $parentDropdown = $__default['default'](this._element.parentNode);
       var placement = PLACEMENT_BOTTOM; // Handle dropup
 
       if ($parentDropdown.hasClass(CLASS_NAME_DROPUP)) {
-        placement = $(this._menu).hasClass(CLASS_NAME_MENURIGHT) ? PLACEMENT_TOPEND : PLACEMENT_TOP;
+        placement = $__default['default'](this._menu).hasClass(CLASS_NAME_MENURIGHT) ? PLACEMENT_TOPEND : PLACEMENT_TOP;
       } else if ($parentDropdown.hasClass(CLASS_NAME_DROPRIGHT)) {
         placement = PLACEMENT_RIGHT;
       } else if ($parentDropdown.hasClass(CLASS_NAME_DROPLEFT)) {
         placement = PLACEMENT_LEFT;
-      } else if ($(this._menu).hasClass(CLASS_NAME_MENURIGHT)) {
+      } else if ($__default['default'](this._menu).hasClass(CLASS_NAME_MENURIGHT)) {
         placement = PLACEMENT_BOTTOMEND;
       }
 
@@ -4328,7 +4313,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto._detectNavbar = function _detectNavbar() {
-      return $(this._element).closest('.navbar').length > 0;
+      return $__default['default'](this._element).closest('.navbar').length > 0;
     };
 
     _proto._getOffset = function _getOffset() {
@@ -4338,7 +4323,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (typeof this._config.offset === 'function') {
         offset.fn = function (data) {
-          data.offsets = _objectSpread2(_objectSpread2({}, data.offsets), _this2._config.offset(data.offsets, _this2._element) || {});
+          data.offsets = _extends({}, data.offsets, _this2._config.offset(data.offsets, _this2._element) || {});
           return data;
         };
       } else {
@@ -4360,7 +4345,7 @@ __webpack_require__.r(__webpack_exports__);
             boundariesElement: this._config.boundary
           }
         }
-      }; // Disable Popper.js if we have a static display
+      }; // Disable Popper if we have a static display
 
       if (this._config.display === 'static') {
         popperConfig.modifiers.applyStyle = {
@@ -4368,19 +4353,19 @@ __webpack_require__.r(__webpack_exports__);
         };
       }
 
-      return _objectSpread2(_objectSpread2({}, popperConfig), this._config.popperConfig);
+      return _extends({}, popperConfig, this._config.popperConfig);
     } // Static
     ;
 
     Dropdown._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var data = $(this).data(DATA_KEY$4);
+        var data = $__default['default'](this).data(DATA_KEY$4);
 
         var _config = typeof config === 'object' ? config : null;
 
         if (!data) {
           data = new Dropdown(this, _config);
-          $(this).data(DATA_KEY$4, data);
+          $__default['default'](this).data(DATA_KEY$4, data);
         }
 
         if (typeof config === 'string') {
@@ -4403,7 +4388,7 @@ __webpack_require__.r(__webpack_exports__);
       for (var i = 0, len = toggles.length; i < len; i++) {
         var parent = Dropdown._getParentFromElement(toggles[i]);
 
-        var context = $(toggles[i]).data(DATA_KEY$4);
+        var context = $__default['default'](toggles[i]).data(DATA_KEY$4);
         var relatedTarget = {
           relatedTarget: toggles[i]
         };
@@ -4418,16 +4403,16 @@ __webpack_require__.r(__webpack_exports__);
 
         var dropdownMenu = context._menu;
 
-        if (!$(parent).hasClass(CLASS_NAME_SHOW$2)) {
+        if (!$__default['default'](parent).hasClass(CLASS_NAME_SHOW$2)) {
           continue;
         }
 
-        if (event && (event.type === 'click' && /input|textarea/i.test(event.target.tagName) || event.type === 'keyup' && event.which === TAB_KEYCODE) && $.contains(parent, event.target)) {
+        if (event && (event.type === 'click' && /input|textarea/i.test(event.target.tagName) || event.type === 'keyup' && event.which === TAB_KEYCODE) && $__default['default'].contains(parent, event.target)) {
           continue;
         }
 
-        var hideEvent = $.Event(EVENT_HIDE$1, relatedTarget);
-        $(parent).trigger(hideEvent);
+        var hideEvent = $__default['default'].Event(EVENT_HIDE$1, relatedTarget);
+        $__default['default'](parent).trigger(hideEvent);
 
         if (hideEvent.isDefaultPrevented()) {
           continue;
@@ -4436,7 +4421,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
         if ('ontouchstart' in document.documentElement) {
-          $(document.body).children().off('mouseover', null, $.noop);
+          $__default['default'](document.body).children().off('mouseover', null, $__default['default'].noop);
         }
 
         toggles[i].setAttribute('aria-expanded', 'false');
@@ -4445,8 +4430,8 @@ __webpack_require__.r(__webpack_exports__);
           context._popper.destroy();
         }
 
-        $(dropdownMenu).removeClass(CLASS_NAME_SHOW$2);
-        $(parent).removeClass(CLASS_NAME_SHOW$2).trigger($.Event(EVENT_HIDDEN$1, relatedTarget));
+        $__default['default'](dropdownMenu).removeClass(CLASS_NAME_SHOW$2);
+        $__default['default'](parent).removeClass(CLASS_NAME_SHOW$2).trigger($__default['default'].Event(EVENT_HIDDEN$1, relatedTarget));
       }
     };
 
@@ -4470,17 +4455,17 @@ __webpack_require__.r(__webpack_exports__);
       //  - If key is other than escape
       //    - If key is not up or down => not a dropdown command
       //    - If trigger inside the menu => not a dropdown command
-      if (/input|textarea/i.test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $(event.target).closest(SELECTOR_MENU).length) : !REGEXP_KEYDOWN.test(event.which)) {
+      if (/input|textarea/i.test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $__default['default'](event.target).closest(SELECTOR_MENU).length) : !REGEXP_KEYDOWN.test(event.which)) {
         return;
       }
 
-      if (this.disabled || $(this).hasClass(CLASS_NAME_DISABLED)) {
+      if (this.disabled || $__default['default'](this).hasClass(CLASS_NAME_DISABLED)) {
         return;
       }
 
       var parent = Dropdown._getParentFromElement(this);
 
-      var isActive = $(parent).hasClass(CLASS_NAME_SHOW$2);
+      var isActive = $__default['default'](parent).hasClass(CLASS_NAME_SHOW$2);
 
       if (!isActive && event.which === ESCAPE_KEYCODE) {
         return;
@@ -4489,17 +4474,17 @@ __webpack_require__.r(__webpack_exports__);
       event.preventDefault();
       event.stopPropagation();
 
-      if (!isActive || isActive && (event.which === ESCAPE_KEYCODE || event.which === SPACE_KEYCODE)) {
+      if (!isActive || event.which === ESCAPE_KEYCODE || event.which === SPACE_KEYCODE) {
         if (event.which === ESCAPE_KEYCODE) {
-          $(parent.querySelector(SELECTOR_DATA_TOGGLE$2)).trigger('focus');
+          $__default['default'](parent.querySelector(SELECTOR_DATA_TOGGLE$2)).trigger('focus');
         }
 
-        $(this).trigger('click');
+        $__default['default'](this).trigger('click');
         return;
       }
 
       var items = [].slice.call(parent.querySelectorAll(SELECTOR_VISIBLE_ITEMS)).filter(function (item) {
-        return $(item).is(':visible');
+        return $__default['default'](item).is(':visible');
       });
 
       if (items.length === 0) {
@@ -4551,11 +4536,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $(document).on(EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE$2, Dropdown._dataApiKeydownHandler).on(EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown._dataApiKeydownHandler).on(EVENT_CLICK_DATA_API$4 + " " + EVENT_KEYUP_DATA_API, Dropdown._clearMenus).on(EVENT_CLICK_DATA_API$4, SELECTOR_DATA_TOGGLE$2, function (event) {
+  $__default['default'](document).on(EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE$2, Dropdown._dataApiKeydownHandler).on(EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown._dataApiKeydownHandler).on(EVENT_CLICK_DATA_API$4 + " " + EVENT_KEYUP_DATA_API, Dropdown._clearMenus).on(EVENT_CLICK_DATA_API$4, SELECTOR_DATA_TOGGLE$2, function (event) {
     event.preventDefault();
     event.stopPropagation();
 
-    Dropdown._jQueryInterface.call($(this), 'toggle');
+    Dropdown._jQueryInterface.call($__default['default'](this), 'toggle');
   }).on(EVENT_CLICK_DATA_API$4, SELECTOR_FORM_CHILD, function (e) {
     e.stopPropagation();
   });
@@ -4565,11 +4550,11 @@ __webpack_require__.r(__webpack_exports__);
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$4] = Dropdown._jQueryInterface;
-  $.fn[NAME$4].Constructor = Dropdown;
+  $__default['default'].fn[NAME$4] = Dropdown._jQueryInterface;
+  $__default['default'].fn[NAME$4].Constructor = Dropdown;
 
-  $.fn[NAME$4].noConflict = function () {
-    $.fn[NAME$4] = JQUERY_NO_CONFLICT$4;
+  $__default['default'].fn[NAME$4].noConflict = function () {
+    $__default['default'].fn[NAME$4] = JQUERY_NO_CONFLICT$4;
     return Dropdown._jQueryInterface;
   };
 
@@ -4580,11 +4565,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$5 = 'modal';
-  var VERSION$5 = '4.5.0';
+  var VERSION$5 = '4.6.0';
   var DATA_KEY$5 = 'bs.modal';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
-  var JQUERY_NO_CONFLICT$5 = $.fn[NAME$5];
+  var JQUERY_NO_CONFLICT$5 = $__default['default'].fn[NAME$5];
   var ESCAPE_KEYCODE$1 = 27; // KeyboardEvent.which value for Escape (Esc) key
 
   var Default$3 = {
@@ -4658,14 +4643,14 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      if ($(this._element).hasClass(CLASS_NAME_FADE$1)) {
+      if ($__default['default'](this._element).hasClass(CLASS_NAME_FADE$1)) {
         this._isTransitioning = true;
       }
 
-      var showEvent = $.Event(EVENT_SHOW$2, {
+      var showEvent = $__default['default'].Event(EVENT_SHOW$2, {
         relatedTarget: relatedTarget
       });
-      $(this._element).trigger(showEvent);
+      $__default['default'](this._element).trigger(showEvent);
 
       if (this._isShown || showEvent.isDefaultPrevented()) {
         return;
@@ -4683,12 +4668,12 @@ __webpack_require__.r(__webpack_exports__);
 
       this._setResizeEvent();
 
-      $(this._element).on(EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, function (event) {
+      $__default['default'](this._element).on(EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, function (event) {
         return _this.hide(event);
       });
-      $(this._dialog).on(EVENT_MOUSEDOWN_DISMISS, function () {
-        $(_this._element).one(EVENT_MOUSEUP_DISMISS, function (event) {
-          if ($(event.target).is(_this._element)) {
+      $__default['default'](this._dialog).on(EVENT_MOUSEDOWN_DISMISS, function () {
+        $__default['default'](_this._element).one(EVENT_MOUSEUP_DISMISS, function (event) {
+          if ($__default['default'](event.target).is(_this._element)) {
             _this._ignoreBackdropClick = true;
           }
         });
@@ -4710,15 +4695,15 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      var hideEvent = $.Event(EVENT_HIDE$2);
-      $(this._element).trigger(hideEvent);
+      var hideEvent = $__default['default'].Event(EVENT_HIDE$2);
+      $__default['default'](this._element).trigger(hideEvent);
 
       if (!this._isShown || hideEvent.isDefaultPrevented()) {
         return;
       }
 
       this._isShown = false;
-      var transition = $(this._element).hasClass(CLASS_NAME_FADE$1);
+      var transition = $__default['default'](this._element).hasClass(CLASS_NAME_FADE$1);
 
       if (transition) {
         this._isTransitioning = true;
@@ -4728,14 +4713,14 @@ __webpack_require__.r(__webpack_exports__);
 
       this._setResizeEvent();
 
-      $(document).off(EVENT_FOCUSIN);
-      $(this._element).removeClass(CLASS_NAME_SHOW$3);
-      $(this._element).off(EVENT_CLICK_DISMISS);
-      $(this._dialog).off(EVENT_MOUSEDOWN_DISMISS);
+      $__default['default'](document).off(EVENT_FOCUSIN);
+      $__default['default'](this._element).removeClass(CLASS_NAME_SHOW$3);
+      $__default['default'](this._element).off(EVENT_CLICK_DISMISS);
+      $__default['default'](this._dialog).off(EVENT_MOUSEDOWN_DISMISS);
 
       if (transition) {
         var transitionDuration = Util.getTransitionDurationFromElement(this._element);
-        $(this._element).one(Util.TRANSITION_END, function (event) {
+        $__default['default'](this._element).one(Util.TRANSITION_END, function (event) {
           return _this2._hideModal(event);
         }).emulateTransitionEnd(transitionDuration);
       } else {
@@ -4745,7 +4730,7 @@ __webpack_require__.r(__webpack_exports__);
 
     _proto.dispose = function dispose() {
       [window, this._element, this._dialog].forEach(function (htmlElement) {
-        return $(htmlElement).off(EVENT_KEY$5);
+        return $__default['default'](htmlElement).off(EVENT_KEY$5);
       });
       /**
        * `document` has 2 events `EVENT_FOCUSIN` and `EVENT_CLICK_DATA_API`
@@ -4753,8 +4738,8 @@ __webpack_require__.r(__webpack_exports__);
        * It will remove `EVENT_CLICK_DATA_API` event that should remain
        */
 
-      $(document).off(EVENT_FOCUSIN);
-      $.removeData(this._element, DATA_KEY$5);
+      $__default['default'](document).off(EVENT_FOCUSIN);
+      $__default['default'].removeData(this._element, DATA_KEY$5);
       this._config = null;
       this._element = null;
       this._dialog = null;
@@ -4772,7 +4757,7 @@ __webpack_require__.r(__webpack_exports__);
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2(_objectSpread2({}, Default$3), config);
+      config = _extends({}, Default$3, config);
       Util.typeCheckConfig(NAME$5, config, DefaultType$3);
       return config;
     };
@@ -4780,31 +4765,40 @@ __webpack_require__.r(__webpack_exports__);
     _proto._triggerBackdropTransition = function _triggerBackdropTransition() {
       var _this3 = this;
 
-      if (this._config.backdrop === 'static') {
-        var hideEventPrevented = $.Event(EVENT_HIDE_PREVENTED);
-        $(this._element).trigger(hideEventPrevented);
+      var hideEventPrevented = $__default['default'].Event(EVENT_HIDE_PREVENTED);
+      $__default['default'](this._element).trigger(hideEventPrevented);
 
-        if (hideEventPrevented.defaultPrevented) {
-          return;
-        }
-
-        this._element.classList.add(CLASS_NAME_STATIC);
-
-        var modalTransitionDuration = Util.getTransitionDurationFromElement(this._element);
-        $(this._element).one(Util.TRANSITION_END, function () {
-          _this3._element.classList.remove(CLASS_NAME_STATIC);
-        }).emulateTransitionEnd(modalTransitionDuration);
-
-        this._element.focus();
-      } else {
-        this.hide();
+      if (hideEventPrevented.isDefaultPrevented()) {
+        return;
       }
+
+      var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+
+      if (!isModalOverflowing) {
+        this._element.style.overflowY = 'hidden';
+      }
+
+      this._element.classList.add(CLASS_NAME_STATIC);
+
+      var modalTransitionDuration = Util.getTransitionDurationFromElement(this._dialog);
+      $__default['default'](this._element).off(Util.TRANSITION_END);
+      $__default['default'](this._element).one(Util.TRANSITION_END, function () {
+        _this3._element.classList.remove(CLASS_NAME_STATIC);
+
+        if (!isModalOverflowing) {
+          $__default['default'](_this3._element).one(Util.TRANSITION_END, function () {
+            _this3._element.style.overflowY = '';
+          }).emulateTransitionEnd(_this3._element, modalTransitionDuration);
+        }
+      }).emulateTransitionEnd(modalTransitionDuration);
+
+      this._element.focus();
     };
 
     _proto._showElement = function _showElement(relatedTarget) {
       var _this4 = this;
 
-      var transition = $(this._element).hasClass(CLASS_NAME_FADE$1);
+      var transition = $__default['default'](this._element).hasClass(CLASS_NAME_FADE$1);
       var modalBody = this._dialog ? this._dialog.querySelector(SELECTOR_MODAL_BODY) : null;
 
       if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
@@ -4818,7 +4812,9 @@ __webpack_require__.r(__webpack_exports__);
 
       this._element.setAttribute('aria-modal', true);
 
-      if ($(this._dialog).hasClass(CLASS_NAME_SCROLLABLE) && modalBody) {
+      this._element.setAttribute('role', 'dialog');
+
+      if ($__default['default'](this._dialog).hasClass(CLASS_NAME_SCROLLABLE) && modalBody) {
         modalBody.scrollTop = 0;
       } else {
         this._element.scrollTop = 0;
@@ -4828,13 +4824,13 @@ __webpack_require__.r(__webpack_exports__);
         Util.reflow(this._element);
       }
 
-      $(this._element).addClass(CLASS_NAME_SHOW$3);
+      $__default['default'](this._element).addClass(CLASS_NAME_SHOW$3);
 
       if (this._config.focus) {
         this._enforceFocus();
       }
 
-      var shownEvent = $.Event(EVENT_SHOWN$2, {
+      var shownEvent = $__default['default'].Event(EVENT_SHOWN$2, {
         relatedTarget: relatedTarget
       });
 
@@ -4844,12 +4840,12 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         _this4._isTransitioning = false;
-        $(_this4._element).trigger(shownEvent);
+        $__default['default'](_this4._element).trigger(shownEvent);
       };
 
       if (transition) {
         var transitionDuration = Util.getTransitionDurationFromElement(this._dialog);
-        $(this._dialog).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
+        $__default['default'](this._dialog).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
       } else {
         transitionComplete();
       }
@@ -4858,9 +4854,9 @@ __webpack_require__.r(__webpack_exports__);
     _proto._enforceFocus = function _enforceFocus() {
       var _this5 = this;
 
-      $(document).off(EVENT_FOCUSIN) // Guard against infinite focus loop
+      $__default['default'](document).off(EVENT_FOCUSIN) // Guard against infinite focus loop
       .on(EVENT_FOCUSIN, function (event) {
-        if (document !== event.target && _this5._element !== event.target && $(_this5._element).has(event.target).length === 0) {
+        if (document !== event.target && _this5._element !== event.target && $__default['default'](_this5._element).has(event.target).length === 0) {
           _this5._element.focus();
         }
       });
@@ -4870,7 +4866,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this6 = this;
 
       if (this._isShown) {
-        $(this._element).on(EVENT_KEYDOWN_DISMISS, function (event) {
+        $__default['default'](this._element).on(EVENT_KEYDOWN_DISMISS, function (event) {
           if (_this6._config.keyboard && event.which === ESCAPE_KEYCODE$1) {
             event.preventDefault();
 
@@ -4880,7 +4876,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       } else if (!this._isShown) {
-        $(this._element).off(EVENT_KEYDOWN_DISMISS);
+        $__default['default'](this._element).off(EVENT_KEYDOWN_DISMISS);
       }
     };
 
@@ -4888,11 +4884,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this7 = this;
 
       if (this._isShown) {
-        $(window).on(EVENT_RESIZE, function (event) {
+        $__default['default'](window).on(EVENT_RESIZE, function (event) {
           return _this7.handleUpdate(event);
         });
       } else {
-        $(window).off(EVENT_RESIZE);
+        $__default['default'](window).off(EVENT_RESIZE);
       }
     };
 
@@ -4905,22 +4901,24 @@ __webpack_require__.r(__webpack_exports__);
 
       this._element.removeAttribute('aria-modal');
 
+      this._element.removeAttribute('role');
+
       this._isTransitioning = false;
 
       this._showBackdrop(function () {
-        $(document.body).removeClass(CLASS_NAME_OPEN);
+        $__default['default'](document.body).removeClass(CLASS_NAME_OPEN);
 
         _this8._resetAdjustments();
 
         _this8._resetScrollbar();
 
-        $(_this8._element).trigger(EVENT_HIDDEN$2);
+        $__default['default'](_this8._element).trigger(EVENT_HIDDEN$2);
       });
     };
 
     _proto._removeBackdrop = function _removeBackdrop() {
       if (this._backdrop) {
-        $(this._backdrop).remove();
+        $__default['default'](this._backdrop).remove();
         this._backdrop = null;
       }
     };
@@ -4928,7 +4926,7 @@ __webpack_require__.r(__webpack_exports__);
     _proto._showBackdrop = function _showBackdrop(callback) {
       var _this9 = this;
 
-      var animate = $(this._element).hasClass(CLASS_NAME_FADE$1) ? CLASS_NAME_FADE$1 : '';
+      var animate = $__default['default'](this._element).hasClass(CLASS_NAME_FADE$1) ? CLASS_NAME_FADE$1 : '';
 
       if (this._isShown && this._config.backdrop) {
         this._backdrop = document.createElement('div');
@@ -4938,8 +4936,8 @@ __webpack_require__.r(__webpack_exports__);
           this._backdrop.classList.add(animate);
         }
 
-        $(this._backdrop).appendTo(document.body);
-        $(this._element).on(EVENT_CLICK_DISMISS, function (event) {
+        $__default['default'](this._backdrop).appendTo(document.body);
+        $__default['default'](this._element).on(EVENT_CLICK_DISMISS, function (event) {
           if (_this9._ignoreBackdropClick) {
             _this9._ignoreBackdropClick = false;
             return;
@@ -4949,14 +4947,18 @@ __webpack_require__.r(__webpack_exports__);
             return;
           }
 
-          _this9._triggerBackdropTransition();
+          if (_this9._config.backdrop === 'static') {
+            _this9._triggerBackdropTransition();
+          } else {
+            _this9.hide();
+          }
         });
 
         if (animate) {
           Util.reflow(this._backdrop);
         }
 
-        $(this._backdrop).addClass(CLASS_NAME_SHOW$3);
+        $__default['default'](this._backdrop).addClass(CLASS_NAME_SHOW$3);
 
         if (!callback) {
           return;
@@ -4968,9 +4970,9 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         var backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
-        $(this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(backdropTransitionDuration);
+        $__default['default'](this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(backdropTransitionDuration);
       } else if (!this._isShown && this._backdrop) {
-        $(this._backdrop).removeClass(CLASS_NAME_SHOW$3);
+        $__default['default'](this._backdrop).removeClass(CLASS_NAME_SHOW$3);
 
         var callbackRemove = function callbackRemove() {
           _this9._removeBackdrop();
@@ -4980,10 +4982,10 @@ __webpack_require__.r(__webpack_exports__);
           }
         };
 
-        if ($(this._element).hasClass(CLASS_NAME_FADE$1)) {
+        if ($__default['default'](this._element).hasClass(CLASS_NAME_FADE$1)) {
           var _backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
 
-          $(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);
+          $__default['default'](this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);
         } else {
           callbackRemove();
         }
@@ -5028,46 +5030,46 @@ __webpack_require__.r(__webpack_exports__);
         var fixedContent = [].slice.call(document.querySelectorAll(SELECTOR_FIXED_CONTENT));
         var stickyContent = [].slice.call(document.querySelectorAll(SELECTOR_STICKY_CONTENT)); // Adjust fixed content padding
 
-        $(fixedContent).each(function (index, element) {
+        $__default['default'](fixedContent).each(function (index, element) {
           var actualPadding = element.style.paddingRight;
-          var calculatedPadding = $(element).css('padding-right');
-          $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this10._scrollbarWidth + "px");
+          var calculatedPadding = $__default['default'](element).css('padding-right');
+          $__default['default'](element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this10._scrollbarWidth + "px");
         }); // Adjust sticky content margin
 
-        $(stickyContent).each(function (index, element) {
+        $__default['default'](stickyContent).each(function (index, element) {
           var actualMargin = element.style.marginRight;
-          var calculatedMargin = $(element).css('margin-right');
-          $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this10._scrollbarWidth + "px");
+          var calculatedMargin = $__default['default'](element).css('margin-right');
+          $__default['default'](element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this10._scrollbarWidth + "px");
         }); // Adjust body padding
 
         var actualPadding = document.body.style.paddingRight;
-        var calculatedPadding = $(document.body).css('padding-right');
-        $(document.body).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + this._scrollbarWidth + "px");
+        var calculatedPadding = $__default['default'](document.body).css('padding-right');
+        $__default['default'](document.body).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + this._scrollbarWidth + "px");
       }
 
-      $(document.body).addClass(CLASS_NAME_OPEN);
+      $__default['default'](document.body).addClass(CLASS_NAME_OPEN);
     };
 
     _proto._resetScrollbar = function _resetScrollbar() {
       // Restore fixed content padding
       var fixedContent = [].slice.call(document.querySelectorAll(SELECTOR_FIXED_CONTENT));
-      $(fixedContent).each(function (index, element) {
-        var padding = $(element).data('padding-right');
-        $(element).removeData('padding-right');
+      $__default['default'](fixedContent).each(function (index, element) {
+        var padding = $__default['default'](element).data('padding-right');
+        $__default['default'](element).removeData('padding-right');
         element.style.paddingRight = padding ? padding : '';
       }); // Restore sticky content
 
       var elements = [].slice.call(document.querySelectorAll("" + SELECTOR_STICKY_CONTENT));
-      $(elements).each(function (index, element) {
-        var margin = $(element).data('margin-right');
+      $__default['default'](elements).each(function (index, element) {
+        var margin = $__default['default'](element).data('margin-right');
 
         if (typeof margin !== 'undefined') {
-          $(element).css('margin-right', margin).removeData('margin-right');
+          $__default['default'](element).css('margin-right', margin).removeData('margin-right');
         }
       }); // Restore body padding
 
-      var padding = $(document.body).data('padding-right');
-      $(document.body).removeData('padding-right');
+      var padding = $__default['default'](document.body).data('padding-right');
+      $__default['default'](document.body).removeData('padding-right');
       document.body.style.paddingRight = padding ? padding : '';
     };
 
@@ -5084,13 +5086,13 @@ __webpack_require__.r(__webpack_exports__);
 
     Modal._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
       return this.each(function () {
-        var data = $(this).data(DATA_KEY$5);
+        var data = $__default['default'](this).data(DATA_KEY$5);
 
-        var _config = _objectSpread2(_objectSpread2(_objectSpread2({}, Default$3), $(this).data()), typeof config === 'object' && config ? config : {});
+        var _config = _extends({}, Default$3, $__default['default'](this).data(), typeof config === 'object' && config ? config : {});
 
         if (!data) {
           data = new Modal(this, _config);
-          $(this).data(DATA_KEY$5, data);
+          $__default['default'](this).data(DATA_KEY$5, data);
         }
 
         if (typeof config === 'string') {
@@ -5126,7 +5128,7 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $(document).on(EVENT_CLICK_DATA_API$5, SELECTOR_DATA_TOGGLE$3, function (event) {
+  $__default['default'](document).on(EVENT_CLICK_DATA_API$5, SELECTOR_DATA_TOGGLE$3, function (event) {
     var _this11 = this;
 
     var target;
@@ -5136,26 +5138,26 @@ __webpack_require__.r(__webpack_exports__);
       target = document.querySelector(selector);
     }
 
-    var config = $(target).data(DATA_KEY$5) ? 'toggle' : _objectSpread2(_objectSpread2({}, $(target).data()), $(this).data());
+    var config = $__default['default'](target).data(DATA_KEY$5) ? 'toggle' : _extends({}, $__default['default'](target).data(), $__default['default'](this).data());
 
     if (this.tagName === 'A' || this.tagName === 'AREA') {
       event.preventDefault();
     }
 
-    var $target = $(target).one(EVENT_SHOW$2, function (showEvent) {
+    var $target = $__default['default'](target).one(EVENT_SHOW$2, function (showEvent) {
       if (showEvent.isDefaultPrevented()) {
         // Only register focus restorer if modal will actually get shown
         return;
       }
 
       $target.one(EVENT_HIDDEN$2, function () {
-        if ($(_this11).is(':visible')) {
+        if ($__default['default'](_this11).is(':visible')) {
           _this11.focus();
         }
       });
     });
 
-    Modal._jQueryInterface.call($(target), config, this);
+    Modal._jQueryInterface.call($__default['default'](target), config, this);
   });
   /**
    * ------------------------------------------------------------------------
@@ -5163,18 +5165,18 @@ __webpack_require__.r(__webpack_exports__);
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$5] = Modal._jQueryInterface;
-  $.fn[NAME$5].Constructor = Modal;
+  $__default['default'].fn[NAME$5] = Modal._jQueryInterface;
+  $__default['default'].fn[NAME$5].Constructor = Modal;
 
-  $.fn[NAME$5].noConflict = function () {
-    $.fn[NAME$5] = JQUERY_NO_CONFLICT$5;
+  $__default['default'].fn[NAME$5].noConflict = function () {
+    $__default['default'].fn[NAME$5] = JQUERY_NO_CONFLICT$5;
     return Modal._jQueryInterface;
   };
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.5.0): tools/sanitizer.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Bootstrap (v4.6.0): tools/sanitizer.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
   var uriAttrs = ['background', 'cite', 'href', 'itemtype', 'longdesc', 'poster', 'src', 'xlink:href'];
@@ -5299,10 +5301,10 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$6 = 'tooltip';
-  var VERSION$6 = '4.5.0';
+  var VERSION$6 = '4.6.0';
   var DATA_KEY$6 = 'bs.tooltip';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
-  var JQUERY_NO_CONFLICT$6 = $.fn[NAME$6];
+  var JQUERY_NO_CONFLICT$6 = $__default['default'].fn[NAME$6];
   var CLASS_PREFIX = 'bs-tooltip';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
@@ -5319,6 +5321,7 @@ __webpack_require__.r(__webpack_exports__);
     container: '(string|element|boolean)',
     fallbackPlacement: '(string|array)',
     boundary: '(string|element)',
+    customClass: '(string|function)',
     sanitize: 'boolean',
     sanitizeFn: '(null|function)',
     whiteList: 'object',
@@ -5344,6 +5347,7 @@ __webpack_require__.r(__webpack_exports__);
     container: false,
     fallbackPlacement: 'flip',
     boundary: 'scrollParent',
+    customClass: '',
     sanitize: true,
     sanitizeFn: null,
     whiteList: DefaultWhitelist,
@@ -5379,8 +5383,8 @@ __webpack_require__.r(__webpack_exports__);
 
   var Tooltip = /*#__PURE__*/function () {
     function Tooltip(element, config) {
-      if (typeof Popper === 'undefined') {
-        throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)');
+      if (typeof Popper__default['default'] === 'undefined') {
+        throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org)');
       } // private
 
 
@@ -5420,11 +5424,11 @@ __webpack_require__.r(__webpack_exports__);
 
       if (event) {
         var dataKey = this.constructor.DATA_KEY;
-        var context = $(event.currentTarget).data(dataKey);
+        var context = $__default['default'](event.currentTarget).data(dataKey);
 
         if (!context) {
           context = new this.constructor(event.currentTarget, this._getDelegateConfig());
-          $(event.currentTarget).data(dataKey, context);
+          $__default['default'](event.currentTarget).data(dataKey, context);
         }
 
         context._activeTrigger.click = !context._activeTrigger.click;
@@ -5435,7 +5439,7 @@ __webpack_require__.r(__webpack_exports__);
           context._leave(null, context);
         }
       } else {
-        if ($(this.getTipElement()).hasClass(CLASS_NAME_SHOW$4)) {
+        if ($__default['default'](this.getTipElement()).hasClass(CLASS_NAME_SHOW$4)) {
           this._leave(null, this);
 
           return;
@@ -5447,12 +5451,12 @@ __webpack_require__.r(__webpack_exports__);
 
     _proto.dispose = function dispose() {
       clearTimeout(this._timeout);
-      $.removeData(this.element, this.constructor.DATA_KEY);
-      $(this.element).off(this.constructor.EVENT_KEY);
-      $(this.element).closest('.modal').off('hide.bs.modal', this._hideModalHandler);
+      $__default['default'].removeData(this.element, this.constructor.DATA_KEY);
+      $__default['default'](this.element).off(this.constructor.EVENT_KEY);
+      $__default['default'](this.element).closest('.modal').off('hide.bs.modal', this._hideModalHandler);
 
       if (this.tip) {
-        $(this.tip).remove();
+        $__default['default'](this.tip).remove();
       }
 
       this._isEnabled = null;
@@ -5473,16 +5477,16 @@ __webpack_require__.r(__webpack_exports__);
     _proto.show = function show() {
       var _this = this;
 
-      if ($(this.element).css('display') === 'none') {
+      if ($__default['default'](this.element).css('display') === 'none') {
         throw new Error('Please use show on visible elements');
       }
 
-      var showEvent = $.Event(this.constructor.Event.SHOW);
+      var showEvent = $__default['default'].Event(this.constructor.Event.SHOW);
 
       if (this.isWithContent() && this._isEnabled) {
-        $(this.element).trigger(showEvent);
+        $__default['default'](this.element).trigger(showEvent);
         var shadowRoot = Util.findShadowRoot(this.element);
-        var isInTheDom = $.contains(shadowRoot !== null ? shadowRoot : this.element.ownerDocument.documentElement, this.element);
+        var isInTheDom = $__default['default'].contains(shadowRoot !== null ? shadowRoot : this.element.ownerDocument.documentElement, this.element);
 
         if (showEvent.isDefaultPrevented() || !isInTheDom) {
           return;
@@ -5495,7 +5499,7 @@ __webpack_require__.r(__webpack_exports__);
         this.setContent();
 
         if (this.config.animation) {
-          $(tip).addClass(CLASS_NAME_FADE$2);
+          $__default['default'](tip).addClass(CLASS_NAME_FADE$2);
         }
 
         var placement = typeof this.config.placement === 'function' ? this.config.placement.call(this, tip, this.element) : this.config.placement;
@@ -5506,21 +5510,22 @@ __webpack_require__.r(__webpack_exports__);
 
         var container = this._getContainer();
 
-        $(tip).data(this.constructor.DATA_KEY, this);
+        $__default['default'](tip).data(this.constructor.DATA_KEY, this);
 
-        if (!$.contains(this.element.ownerDocument.documentElement, this.tip)) {
-          $(tip).appendTo(container);
+        if (!$__default['default'].contains(this.element.ownerDocument.documentElement, this.tip)) {
+          $__default['default'](tip).appendTo(container);
         }
 
-        $(this.element).trigger(this.constructor.Event.INSERTED);
-        this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
-        $(tip).addClass(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we add extra
+        $__default['default'](this.element).trigger(this.constructor.Event.INSERTED);
+        this._popper = new Popper__default['default'](this.element, tip, this._getPopperConfig(attachment));
+        $__default['default'](tip).addClass(CLASS_NAME_SHOW$4);
+        $__default['default'](tip).addClass(this.config.customClass); // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
         if ('ontouchstart' in document.documentElement) {
-          $(document.body).children().on('mouseover', null, $.noop);
+          $__default['default'](document.body).children().on('mouseover', null, $__default['default'].noop);
         }
 
         var complete = function complete() {
@@ -5530,16 +5535,16 @@ __webpack_require__.r(__webpack_exports__);
 
           var prevHoverState = _this._hoverState;
           _this._hoverState = null;
-          $(_this.element).trigger(_this.constructor.Event.SHOWN);
+          $__default['default'](_this.element).trigger(_this.constructor.Event.SHOWN);
 
           if (prevHoverState === HOVER_STATE_OUT) {
             _this._leave(null, _this);
           }
         };
 
-        if ($(this.tip).hasClass(CLASS_NAME_FADE$2)) {
+        if ($__default['default'](this.tip).hasClass(CLASS_NAME_FADE$2)) {
           var transitionDuration = Util.getTransitionDurationFromElement(this.tip);
-          $(this.tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+          $__default['default'](this.tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
         } else {
           complete();
         }
@@ -5550,7 +5555,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var tip = this.getTipElement();
-      var hideEvent = $.Event(this.constructor.Event.HIDE);
+      var hideEvent = $__default['default'].Event(this.constructor.Event.HIDE);
 
       var complete = function complete() {
         if (_this2._hoverState !== HOVER_STATE_SHOW && tip.parentNode) {
@@ -5561,7 +5566,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.element.removeAttribute('aria-describedby');
 
-        $(_this2.element).trigger(_this2.constructor.Event.HIDDEN);
+        $__default['default'](_this2.element).trigger(_this2.constructor.Event.HIDDEN);
 
         if (_this2._popper !== null) {
           _this2._popper.destroy();
@@ -5572,26 +5577,26 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
 
-      $(this.element).trigger(hideEvent);
+      $__default['default'](this.element).trigger(hideEvent);
 
       if (hideEvent.isDefaultPrevented()) {
         return;
       }
 
-      $(tip).removeClass(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we remove the extra
+      $__default['default'](tip).removeClass(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we remove the extra
       // empty mouseover listeners we added for iOS support
 
       if ('ontouchstart' in document.documentElement) {
-        $(document.body).children().off('mouseover', null, $.noop);
+        $__default['default'](document.body).children().off('mouseover', null, $__default['default'].noop);
       }
 
       this._activeTrigger[TRIGGER_CLICK] = false;
       this._activeTrigger[TRIGGER_FOCUS] = false;
       this._activeTrigger[TRIGGER_HOVER] = false;
 
-      if ($(this.tip).hasClass(CLASS_NAME_FADE$2)) {
+      if ($__default['default'](this.tip).hasClass(CLASS_NAME_FADE$2)) {
         var transitionDuration = Util.getTransitionDurationFromElement(tip);
-        $(tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+        $__default['default'](tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       } else {
         complete();
       }
@@ -5611,29 +5616,29 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.addAttachmentClass = function addAttachmentClass(attachment) {
-      $(this.getTipElement()).addClass(CLASS_PREFIX + "-" + attachment);
+      $__default['default'](this.getTipElement()).addClass(CLASS_PREFIX + "-" + attachment);
     };
 
     _proto.getTipElement = function getTipElement() {
-      this.tip = this.tip || $(this.config.template)[0];
+      this.tip = this.tip || $__default['default'](this.config.template)[0];
       return this.tip;
     };
 
     _proto.setContent = function setContent() {
       var tip = this.getTipElement();
-      this.setElementContent($(tip.querySelectorAll(SELECTOR_TOOLTIP_INNER)), this.getTitle());
-      $(tip).removeClass(CLASS_NAME_FADE$2 + " " + CLASS_NAME_SHOW$4);
+      this.setElementContent($__default['default'](tip.querySelectorAll(SELECTOR_TOOLTIP_INNER)), this.getTitle());
+      $__default['default'](tip).removeClass(CLASS_NAME_FADE$2 + " " + CLASS_NAME_SHOW$4);
     };
 
     _proto.setElementContent = function setElementContent($element, content) {
       if (typeof content === 'object' && (content.nodeType || content.jquery)) {
         // Content is a DOM node or a jQuery
         if (this.config.html) {
-          if (!$(content).parent().is($element)) {
+          if (!$__default['default'](content).parent().is($element)) {
             $element.empty().append(content);
           }
         } else {
-          $element.text($(content).text());
+          $element.text($__default['default'](content).text());
         }
 
         return;
@@ -5687,7 +5692,7 @@ __webpack_require__.r(__webpack_exports__);
           return _this3._handlePopperPlacementChange(data);
         }
       };
-      return _objectSpread2(_objectSpread2({}, defaultBsConfig), this.config.popperConfig);
+      return _extends({}, defaultBsConfig, this.config.popperConfig);
     };
 
     _proto._getOffset = function _getOffset() {
@@ -5697,7 +5702,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (typeof this.config.offset === 'function') {
         offset.fn = function (data) {
-          data.offsets = _objectSpread2(_objectSpread2({}, data.offsets), _this4.config.offset(data.offsets, _this4.element) || {});
+          data.offsets = _extends({}, data.offsets, _this4.config.offset(data.offsets, _this4.element) || {});
           return data;
         };
       } else {
@@ -5713,10 +5718,10 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (Util.isElement(this.config.container)) {
-        return $(this.config.container);
+        return $__default['default'](this.config.container);
       }
 
-      return $(document).find(this.config.container);
+      return $__default['default'](document).find(this.config.container);
     };
 
     _proto._getAttachment = function _getAttachment(placement) {
@@ -5729,13 +5734,13 @@ __webpack_require__.r(__webpack_exports__);
       var triggers = this.config.trigger.split(' ');
       triggers.forEach(function (trigger) {
         if (trigger === 'click') {
-          $(_this5.element).on(_this5.constructor.Event.CLICK, _this5.config.selector, function (event) {
+          $__default['default'](_this5.element).on(_this5.constructor.Event.CLICK, _this5.config.selector, function (event) {
             return _this5.toggle(event);
           });
         } else if (trigger !== TRIGGER_MANUAL) {
           var eventIn = trigger === TRIGGER_HOVER ? _this5.constructor.Event.MOUSEENTER : _this5.constructor.Event.FOCUSIN;
           var eventOut = trigger === TRIGGER_HOVER ? _this5.constructor.Event.MOUSELEAVE : _this5.constructor.Event.FOCUSOUT;
-          $(_this5.element).on(eventIn, _this5.config.selector, function (event) {
+          $__default['default'](_this5.element).on(eventIn, _this5.config.selector, function (event) {
             return _this5._enter(event);
           }).on(eventOut, _this5.config.selector, function (event) {
             return _this5._leave(event);
@@ -5749,10 +5754,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
 
-      $(this.element).closest('.modal').on('hide.bs.modal', this._hideModalHandler);
+      $__default['default'](this.element).closest('.modal').on('hide.bs.modal', this._hideModalHandler);
 
       if (this.config.selector) {
-        this.config = _objectSpread2(_objectSpread2({}, this.config), {}, {
+        this.config = _extends({}, this.config, {
           trigger: 'manual',
           selector: ''
         });
@@ -5772,18 +5777,18 @@ __webpack_require__.r(__webpack_exports__);
 
     _proto._enter = function _enter(event, context) {
       var dataKey = this.constructor.DATA_KEY;
-      context = context || $(event.currentTarget).data(dataKey);
+      context = context || $__default['default'](event.currentTarget).data(dataKey);
 
       if (!context) {
         context = new this.constructor(event.currentTarget, this._getDelegateConfig());
-        $(event.currentTarget).data(dataKey, context);
+        $__default['default'](event.currentTarget).data(dataKey, context);
       }
 
       if (event) {
         context._activeTrigger[event.type === 'focusin' ? TRIGGER_FOCUS : TRIGGER_HOVER] = true;
       }
 
-      if ($(context.getTipElement()).hasClass(CLASS_NAME_SHOW$4) || context._hoverState === HOVER_STATE_SHOW) {
+      if ($__default['default'](context.getTipElement()).hasClass(CLASS_NAME_SHOW$4) || context._hoverState === HOVER_STATE_SHOW) {
         context._hoverState = HOVER_STATE_SHOW;
         return;
       }
@@ -5805,11 +5810,11 @@ __webpack_require__.r(__webpack_exports__);
 
     _proto._leave = function _leave(event, context) {
       var dataKey = this.constructor.DATA_KEY;
-      context = context || $(event.currentTarget).data(dataKey);
+      context = context || $__default['default'](event.currentTarget).data(dataKey);
 
       if (!context) {
         context = new this.constructor(event.currentTarget, this._getDelegateConfig());
-        $(event.currentTarget).data(dataKey, context);
+        $__default['default'](event.currentTarget).data(dataKey, context);
       }
 
       if (event) {
@@ -5846,13 +5851,13 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto._getConfig = function _getConfig(config) {
-      var dataAttributes = $(this.element).data();
+      var dataAttributes = $__default['default'](this.element).data();
       Object.keys(dataAttributes).forEach(function (dataAttr) {
         if (DISALLOWED_ATTRIBUTES.indexOf(dataAttr) !== -1) {
           delete dataAttributes[dataAttr];
         }
       });
-      config = _objectSpread2(_objectSpread2(_objectSpread2({}, this.constructor.Default), dataAttributes), typeof config === 'object' && config ? config : {});
+      config = _extends({}, this.constructor.Default, dataAttributes, typeof config === 'object' && config ? config : {});
 
       if (typeof config.delay === 'number') {
         config.delay = {
@@ -5893,7 +5898,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto._cleanTipClass = function _cleanTipClass() {
-      var $tip = $(this.getTipElement());
+      var $tip = $__default['default'](this.getTipElement());
       var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
 
       if (tabClass !== null && tabClass.length) {
@@ -5917,7 +5922,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      $(tip).removeClass(CLASS_NAME_FADE$2);
+      $__default['default'](tip).removeClass(CLASS_NAME_FADE$2);
       this.config.animation = false;
       this.hide();
       this.show();
@@ -5927,7 +5932,8 @@ __webpack_require__.r(__webpack_exports__);
 
     Tooltip._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var data = $(this).data(DATA_KEY$6);
+        var $element = $__default['default'](this);
+        var data = $element.data(DATA_KEY$6);
 
         var _config = typeof config === 'object' && config;
 
@@ -5937,7 +5943,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (!data) {
           data = new Tooltip(this, _config);
-          $(this).data(DATA_KEY$6, data);
+          $element.data(DATA_KEY$6, data);
         }
 
         if (typeof config === 'string') {
@@ -5996,11 +6002,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $.fn[NAME$6] = Tooltip._jQueryInterface;
-  $.fn[NAME$6].Constructor = Tooltip;
+  $__default['default'].fn[NAME$6] = Tooltip._jQueryInterface;
+  $__default['default'].fn[NAME$6].Constructor = Tooltip;
 
-  $.fn[NAME$6].noConflict = function () {
-    $.fn[NAME$6] = JQUERY_NO_CONFLICT$6;
+  $__default['default'].fn[NAME$6].noConflict = function () {
+    $__default['default'].fn[NAME$6] = JQUERY_NO_CONFLICT$6;
     return Tooltip._jQueryInterface;
   };
 
@@ -6011,21 +6017,21 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$7 = 'popover';
-  var VERSION$7 = '4.5.0';
+  var VERSION$7 = '4.6.0';
   var DATA_KEY$7 = 'bs.popover';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
-  var JQUERY_NO_CONFLICT$7 = $.fn[NAME$7];
+  var JQUERY_NO_CONFLICT$7 = $__default['default'].fn[NAME$7];
   var CLASS_PREFIX$1 = 'bs-popover';
   var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'g');
 
-  var Default$5 = _objectSpread2(_objectSpread2({}, Tooltip.Default), {}, {
+  var Default$5 = _extends({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
     template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
   });
 
-  var DefaultType$5 = _objectSpread2(_objectSpread2({}, Tooltip.DefaultType), {}, {
+  var DefaultType$5 = _extends({}, Tooltip.DefaultType, {
     content: '(string|element|function)'
   });
 
@@ -6066,16 +6072,16 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.addAttachmentClass = function addAttachmentClass(attachment) {
-      $(this.getTipElement()).addClass(CLASS_PREFIX$1 + "-" + attachment);
+      $__default['default'](this.getTipElement()).addClass(CLASS_PREFIX$1 + "-" + attachment);
     };
 
     _proto.getTipElement = function getTipElement() {
-      this.tip = this.tip || $(this.config.template)[0];
+      this.tip = this.tip || $__default['default'](this.config.template)[0];
       return this.tip;
     };
 
     _proto.setContent = function setContent() {
-      var $tip = $(this.getTipElement()); // We use append for html objects to maintain js events
+      var $tip = $__default['default'](this.getTipElement()); // We use append for html objects to maintain js events
 
       this.setElementContent($tip.find(SELECTOR_TITLE), this.getTitle());
 
@@ -6095,7 +6101,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto._cleanTipClass = function _cleanTipClass() {
-      var $tip = $(this.getTipElement());
+      var $tip = $__default['default'](this.getTipElement());
       var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX$1);
 
       if (tabClass !== null && tabClass.length > 0) {
@@ -6106,7 +6112,7 @@ __webpack_require__.r(__webpack_exports__);
 
     Popover._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var data = $(this).data(DATA_KEY$7);
+        var data = $__default['default'](this).data(DATA_KEY$7);
 
         var _config = typeof config === 'object' ? config : null;
 
@@ -6116,7 +6122,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (!data) {
           data = new Popover(this, _config);
-          $(this).data(DATA_KEY$7, data);
+          $__default['default'](this).data(DATA_KEY$7, data);
         }
 
         if (typeof config === 'string') {
@@ -6176,11 +6182,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $.fn[NAME$7] = Popover._jQueryInterface;
-  $.fn[NAME$7].Constructor = Popover;
+  $__default['default'].fn[NAME$7] = Popover._jQueryInterface;
+  $__default['default'].fn[NAME$7].Constructor = Popover;
 
-  $.fn[NAME$7].noConflict = function () {
-    $.fn[NAME$7] = JQUERY_NO_CONFLICT$7;
+  $__default['default'].fn[NAME$7].noConflict = function () {
+    $__default['default'].fn[NAME$7] = JQUERY_NO_CONFLICT$7;
     return Popover._jQueryInterface;
   };
 
@@ -6191,11 +6197,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$8 = 'scrollspy';
-  var VERSION$8 = '4.5.0';
+  var VERSION$8 = '4.6.0';
   var DATA_KEY$8 = 'bs.scrollspy';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
   var DATA_API_KEY$6 = '.data-api';
-  var JQUERY_NO_CONFLICT$8 = $.fn[NAME$8];
+  var JQUERY_NO_CONFLICT$8 = $__default['default'].fn[NAME$8];
   var Default$6 = {
     offset: 10,
     method: 'auto',
@@ -6239,7 +6245,7 @@ __webpack_require__.r(__webpack_exports__);
       this._targets = [];
       this._activeTarget = null;
       this._scrollHeight = 0;
-      $(this._scrollElement).on(EVENT_SCROLL, function (event) {
+      $__default['default'](this._scrollElement).on(EVENT_SCROLL, function (event) {
         return _this._process(event);
       });
       this.refresh();
@@ -6274,7 +6280,7 @@ __webpack_require__.r(__webpack_exports__);
 
           if (targetBCR.width || targetBCR.height) {
             // TODO (fat): remove sketch reliance on jQuery position/offset
-            return [$(target)[offsetMethod]().top + offsetBase, targetSelector];
+            return [$__default['default'](target)[offsetMethod]().top + offsetBase, targetSelector];
           }
         }
 
@@ -6291,8 +6297,8 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.dispose = function dispose() {
-      $.removeData(this._element, DATA_KEY$8);
-      $(this._scrollElement).off(EVENT_KEY$8);
+      $__default['default'].removeData(this._element, DATA_KEY$8);
+      $__default['default'](this._scrollElement).off(EVENT_KEY$8);
       this._element = null;
       this._scrollElement = null;
       this._config = null;
@@ -6305,14 +6311,14 @@ __webpack_require__.r(__webpack_exports__);
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2(_objectSpread2({}, Default$6), typeof config === 'object' && config ? config : {});
+      config = _extends({}, Default$6, typeof config === 'object' && config ? config : {});
 
       if (typeof config.target !== 'string' && Util.isElement(config.target)) {
-        var id = $(config.target).attr('id');
+        var id = $__default['default'](config.target).attr('id');
 
         if (!id) {
           id = Util.getUID(NAME$8);
-          $(config.target).attr('id', id);
+          $__default['default'](config.target).attr('id', id);
         }
 
         config.target = "#" + id;
@@ -6381,7 +6387,7 @@ __webpack_require__.r(__webpack_exports__);
         return selector + "[data-target=\"" + target + "\"]," + selector + "[href=\"" + target + "\"]";
       });
 
-      var $link = $([].slice.call(document.querySelectorAll(queries.join(','))));
+      var $link = $__default['default']([].slice.call(document.querySelectorAll(queries.join(','))));
 
       if ($link.hasClass(CLASS_NAME_DROPDOWN_ITEM)) {
         $link.closest(SELECTOR_DROPDOWN).find(SELECTOR_DROPDOWN_TOGGLE).addClass(CLASS_NAME_ACTIVE$2);
@@ -6396,7 +6402,7 @@ __webpack_require__.r(__webpack_exports__);
         $link.parents(SELECTOR_NAV_LIST_GROUP).prev(SELECTOR_NAV_ITEMS).children(SELECTOR_NAV_LINKS).addClass(CLASS_NAME_ACTIVE$2);
       }
 
-      $(this._scrollElement).trigger(EVENT_ACTIVATE, {
+      $__default['default'](this._scrollElement).trigger(EVENT_ACTIVATE, {
         relatedTarget: target
       });
     };
@@ -6412,13 +6418,13 @@ __webpack_require__.r(__webpack_exports__);
 
     ScrollSpy._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var data = $(this).data(DATA_KEY$8);
+        var data = $__default['default'](this).data(DATA_KEY$8);
 
         var _config = typeof config === 'object' && config;
 
         if (!data) {
           data = new ScrollSpy(this, _config);
-          $(this).data(DATA_KEY$8, data);
+          $__default['default'](this).data(DATA_KEY$8, data);
         }
 
         if (typeof config === 'string') {
@@ -6452,12 +6458,12 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $(window).on(EVENT_LOAD_DATA_API$2, function () {
+  $__default['default'](window).on(EVENT_LOAD_DATA_API$2, function () {
     var scrollSpys = [].slice.call(document.querySelectorAll(SELECTOR_DATA_SPY));
     var scrollSpysLength = scrollSpys.length;
 
     for (var i = scrollSpysLength; i--;) {
-      var $spy = $(scrollSpys[i]);
+      var $spy = $__default['default'](scrollSpys[i]);
 
       ScrollSpy._jQueryInterface.call($spy, $spy.data());
     }
@@ -6468,11 +6474,11 @@ __webpack_require__.r(__webpack_exports__);
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$8] = ScrollSpy._jQueryInterface;
-  $.fn[NAME$8].Constructor = ScrollSpy;
+  $__default['default'].fn[NAME$8] = ScrollSpy._jQueryInterface;
+  $__default['default'].fn[NAME$8].Constructor = ScrollSpy;
 
-  $.fn[NAME$8].noConflict = function () {
-    $.fn[NAME$8] = JQUERY_NO_CONFLICT$8;
+  $__default['default'].fn[NAME$8].noConflict = function () {
+    $__default['default'].fn[NAME$8] = JQUERY_NO_CONFLICT$8;
     return ScrollSpy._jQueryInterface;
   };
 
@@ -6483,11 +6489,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$9 = 'tab';
-  var VERSION$9 = '4.5.0';
+  var VERSION$9 = '4.6.0';
   var DATA_KEY$9 = 'bs.tab';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
   var DATA_API_KEY$7 = '.data-api';
-  var JQUERY_NO_CONFLICT$9 = $.fn[NAME$9];
+  var JQUERY_NO_CONFLICT$9 = $__default['default'].fn[NAME$9];
   var EVENT_HIDE$3 = "hide" + EVENT_KEY$9;
   var EVENT_HIDDEN$3 = "hidden" + EVENT_KEY$9;
   var EVENT_SHOW$3 = "show" + EVENT_KEY$9;
@@ -6523,33 +6529,33 @@ __webpack_require__.r(__webpack_exports__);
     _proto.show = function show() {
       var _this = this;
 
-      if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $(this._element).hasClass(CLASS_NAME_ACTIVE$3) || $(this._element).hasClass(CLASS_NAME_DISABLED$1)) {
+      if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $__default['default'](this._element).hasClass(CLASS_NAME_ACTIVE$3) || $__default['default'](this._element).hasClass(CLASS_NAME_DISABLED$1)) {
         return;
       }
 
       var target;
       var previous;
-      var listElement = $(this._element).closest(SELECTOR_NAV_LIST_GROUP$1)[0];
+      var listElement = $__default['default'](this._element).closest(SELECTOR_NAV_LIST_GROUP$1)[0];
       var selector = Util.getSelectorFromElement(this._element);
 
       if (listElement) {
         var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? SELECTOR_ACTIVE_UL : SELECTOR_ACTIVE$2;
-        previous = $.makeArray($(listElement).find(itemSelector));
+        previous = $__default['default'].makeArray($__default['default'](listElement).find(itemSelector));
         previous = previous[previous.length - 1];
       }
 
-      var hideEvent = $.Event(EVENT_HIDE$3, {
+      var hideEvent = $__default['default'].Event(EVENT_HIDE$3, {
         relatedTarget: this._element
       });
-      var showEvent = $.Event(EVENT_SHOW$3, {
+      var showEvent = $__default['default'].Event(EVENT_SHOW$3, {
         relatedTarget: previous
       });
 
       if (previous) {
-        $(previous).trigger(hideEvent);
+        $__default['default'](previous).trigger(hideEvent);
       }
 
-      $(this._element).trigger(showEvent);
+      $__default['default'](this._element).trigger(showEvent);
 
       if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) {
         return;
@@ -6562,14 +6568,14 @@ __webpack_require__.r(__webpack_exports__);
       this._activate(this._element, listElement);
 
       var complete = function complete() {
-        var hiddenEvent = $.Event(EVENT_HIDDEN$3, {
+        var hiddenEvent = $__default['default'].Event(EVENT_HIDDEN$3, {
           relatedTarget: _this._element
         });
-        var shownEvent = $.Event(EVENT_SHOWN$3, {
+        var shownEvent = $__default['default'].Event(EVENT_SHOWN$3, {
           relatedTarget: previous
         });
-        $(previous).trigger(hiddenEvent);
-        $(_this._element).trigger(shownEvent);
+        $__default['default'](previous).trigger(hiddenEvent);
+        $__default['default'](_this._element).trigger(shownEvent);
       };
 
       if (target) {
@@ -6580,7 +6586,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.dispose = function dispose() {
-      $.removeData(this._element, DATA_KEY$9);
+      $__default['default'].removeData(this._element, DATA_KEY$9);
       this._element = null;
     } // Private
     ;
@@ -6588,9 +6594,9 @@ __webpack_require__.r(__webpack_exports__);
     _proto._activate = function _activate(element, container, callback) {
       var _this2 = this;
 
-      var activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? $(container).find(SELECTOR_ACTIVE_UL) : $(container).children(SELECTOR_ACTIVE$2);
+      var activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? $__default['default'](container).find(SELECTOR_ACTIVE_UL) : $__default['default'](container).children(SELECTOR_ACTIVE$2);
       var active = activeElements[0];
-      var isTransitioning = callback && active && $(active).hasClass(CLASS_NAME_FADE$4);
+      var isTransitioning = callback && active && $__default['default'](active).hasClass(CLASS_NAME_FADE$4);
 
       var complete = function complete() {
         return _this2._transitionComplete(element, active, callback);
@@ -6598,7 +6604,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (active && isTransitioning) {
         var transitionDuration = Util.getTransitionDurationFromElement(active);
-        $(active).removeClass(CLASS_NAME_SHOW$6).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+        $__default['default'](active).removeClass(CLASS_NAME_SHOW$6).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       } else {
         complete();
       }
@@ -6606,11 +6612,11 @@ __webpack_require__.r(__webpack_exports__);
 
     _proto._transitionComplete = function _transitionComplete(element, active, callback) {
       if (active) {
-        $(active).removeClass(CLASS_NAME_ACTIVE$3);
-        var dropdownChild = $(active.parentNode).find(SELECTOR_DROPDOWN_ACTIVE_CHILD)[0];
+        $__default['default'](active).removeClass(CLASS_NAME_ACTIVE$3);
+        var dropdownChild = $__default['default'](active.parentNode).find(SELECTOR_DROPDOWN_ACTIVE_CHILD)[0];
 
         if (dropdownChild) {
-          $(dropdownChild).removeClass(CLASS_NAME_ACTIVE$3);
+          $__default['default'](dropdownChild).removeClass(CLASS_NAME_ACTIVE$3);
         }
 
         if (active.getAttribute('role') === 'tab') {
@@ -6618,7 +6624,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      $(element).addClass(CLASS_NAME_ACTIVE$3);
+      $__default['default'](element).addClass(CLASS_NAME_ACTIVE$3);
 
       if (element.getAttribute('role') === 'tab') {
         element.setAttribute('aria-selected', true);
@@ -6630,12 +6636,12 @@ __webpack_require__.r(__webpack_exports__);
         element.classList.add(CLASS_NAME_SHOW$6);
       }
 
-      if (element.parentNode && $(element.parentNode).hasClass(CLASS_NAME_DROPDOWN_MENU)) {
-        var dropdownElement = $(element).closest(SELECTOR_DROPDOWN$1)[0];
+      if (element.parentNode && $__default['default'](element.parentNode).hasClass(CLASS_NAME_DROPDOWN_MENU)) {
+        var dropdownElement = $__default['default'](element).closest(SELECTOR_DROPDOWN$1)[0];
 
         if (dropdownElement) {
           var dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(SELECTOR_DROPDOWN_TOGGLE$1));
-          $(dropdownToggleList).addClass(CLASS_NAME_ACTIVE$3);
+          $__default['default'](dropdownToggleList).addClass(CLASS_NAME_ACTIVE$3);
         }
 
         element.setAttribute('aria-expanded', true);
@@ -6649,7 +6655,7 @@ __webpack_require__.r(__webpack_exports__);
 
     Tab._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var $this = $(this);
+        var $this = $__default['default'](this);
         var data = $this.data(DATA_KEY$9);
 
         if (!data) {
@@ -6683,10 +6689,10 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $(document).on(EVENT_CLICK_DATA_API$6, SELECTOR_DATA_TOGGLE$4, function (event) {
+  $__default['default'](document).on(EVENT_CLICK_DATA_API$6, SELECTOR_DATA_TOGGLE$4, function (event) {
     event.preventDefault();
 
-    Tab._jQueryInterface.call($(this), 'show');
+    Tab._jQueryInterface.call($__default['default'](this), 'show');
   });
   /**
    * ------------------------------------------------------------------------
@@ -6694,11 +6700,11 @@ __webpack_require__.r(__webpack_exports__);
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$9] = Tab._jQueryInterface;
-  $.fn[NAME$9].Constructor = Tab;
+  $__default['default'].fn[NAME$9] = Tab._jQueryInterface;
+  $__default['default'].fn[NAME$9].Constructor = Tab;
 
-  $.fn[NAME$9].noConflict = function () {
-    $.fn[NAME$9] = JQUERY_NO_CONFLICT$9;
+  $__default['default'].fn[NAME$9].noConflict = function () {
+    $__default['default'].fn[NAME$9] = JQUERY_NO_CONFLICT$9;
     return Tab._jQueryInterface;
   };
 
@@ -6709,10 +6715,10 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME$a = 'toast';
-  var VERSION$a = '4.5.0';
+  var VERSION$a = '4.6.0';
   var DATA_KEY$a = 'bs.toast';
   var EVENT_KEY$a = "." + DATA_KEY$a;
-  var JQUERY_NO_CONFLICT$a = $.fn[NAME$a];
+  var JQUERY_NO_CONFLICT$a = $__default['default'].fn[NAME$a];
   var EVENT_CLICK_DISMISS$1 = "click.dismiss" + EVENT_KEY$a;
   var EVENT_HIDE$4 = "hide" + EVENT_KEY$a;
   var EVENT_HIDDEN$4 = "hidden" + EVENT_KEY$a;
@@ -6755,12 +6761,14 @@ __webpack_require__.r(__webpack_exports__);
     _proto.show = function show() {
       var _this = this;
 
-      var showEvent = $.Event(EVENT_SHOW$4);
-      $(this._element).trigger(showEvent);
+      var showEvent = $__default['default'].Event(EVENT_SHOW$4);
+      $__default['default'](this._element).trigger(showEvent);
 
       if (showEvent.isDefaultPrevented()) {
         return;
       }
+
+      this._clearTimeout();
 
       if (this._config.animation) {
         this._element.classList.add(CLASS_NAME_FADE$5);
@@ -6771,7 +6779,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this._element.classList.add(CLASS_NAME_SHOW$7);
 
-        $(_this._element).trigger(EVENT_SHOWN$4);
+        $__default['default'](_this._element).trigger(EVENT_SHOWN$4);
 
         if (_this._config.autohide) {
           _this._timeout = setTimeout(function () {
@@ -6788,7 +6796,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this._config.animation) {
         var transitionDuration = Util.getTransitionDurationFromElement(this._element);
-        $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+        $__default['default'](this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       } else {
         complete();
       }
@@ -6799,8 +6807,8 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      var hideEvent = $.Event(EVENT_HIDE$4);
-      $(this._element).trigger(hideEvent);
+      var hideEvent = $__default['default'].Event(EVENT_HIDE$4);
+      $__default['default'](this._element).trigger(hideEvent);
 
       if (hideEvent.isDefaultPrevented()) {
         return;
@@ -6810,22 +6818,21 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto.dispose = function dispose() {
-      clearTimeout(this._timeout);
-      this._timeout = null;
+      this._clearTimeout();
 
       if (this._element.classList.contains(CLASS_NAME_SHOW$7)) {
         this._element.classList.remove(CLASS_NAME_SHOW$7);
       }
 
-      $(this._element).off(EVENT_CLICK_DISMISS$1);
-      $.removeData(this._element, DATA_KEY$a);
+      $__default['default'](this._element).off(EVENT_CLICK_DISMISS$1);
+      $__default['default'].removeData(this._element, DATA_KEY$a);
       this._element = null;
       this._config = null;
     } // Private
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2(_objectSpread2(_objectSpread2({}, Default$7), $(this._element).data()), typeof config === 'object' && config ? config : {});
+      config = _extends({}, Default$7, $__default['default'](this._element).data(), typeof config === 'object' && config ? config : {});
       Util.typeCheckConfig(NAME$a, config, this.constructor.DefaultType);
       return config;
     };
@@ -6833,7 +6840,7 @@ __webpack_require__.r(__webpack_exports__);
     _proto._setListeners = function _setListeners() {
       var _this2 = this;
 
-      $(this._element).on(EVENT_CLICK_DISMISS$1, SELECTOR_DATA_DISMISS$1, function () {
+      $__default['default'](this._element).on(EVENT_CLICK_DISMISS$1, SELECTOR_DATA_DISMISS$1, function () {
         return _this2.hide();
       });
     };
@@ -6844,23 +6851,28 @@ __webpack_require__.r(__webpack_exports__);
       var complete = function complete() {
         _this3._element.classList.add(CLASS_NAME_HIDE);
 
-        $(_this3._element).trigger(EVENT_HIDDEN$4);
+        $__default['default'](_this3._element).trigger(EVENT_HIDDEN$4);
       };
 
       this._element.classList.remove(CLASS_NAME_SHOW$7);
 
       if (this._config.animation) {
         var transitionDuration = Util.getTransitionDurationFromElement(this._element);
-        $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+        $__default['default'](this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       } else {
         complete();
       }
+    };
+
+    _proto._clearTimeout = function _clearTimeout() {
+      clearTimeout(this._timeout);
+      this._timeout = null;
     } // Static
     ;
 
     Toast._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        var $element = $(this);
+        var $element = $__default['default'](this);
         var data = $element.data(DATA_KEY$a);
 
         var _config = typeof config === 'object' && config;
@@ -6906,11 +6918,11 @@ __webpack_require__.r(__webpack_exports__);
    */
 
 
-  $.fn[NAME$a] = Toast._jQueryInterface;
-  $.fn[NAME$a].Constructor = Toast;
+  $__default['default'].fn[NAME$a] = Toast._jQueryInterface;
+  $__default['default'].fn[NAME$a].Constructor = Toast;
 
-  $.fn[NAME$a].noConflict = function () {
-    $.fn[NAME$a] = JQUERY_NO_CONFLICT$a;
+  $__default['default'].fn[NAME$a].noConflict = function () {
+    $__default['default'].fn[NAME$a] = JQUERY_NO_CONFLICT$a;
     return Toast._jQueryInterface;
   };
 
@@ -6943,17 +6955,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery JavaScript Library v3.5.1
+ * jQuery JavaScript Library v3.6.0
  * https://jquery.com/
  *
  * Includes Sizzle.js
  * https://sizzlejs.com/
  *
- * Copyright JS Foundation and other contributors
+ * Copyright OpenJS Foundation and other contributors
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2020-05-04T22:49Z
+ * Date: 2021-03-02T17:08Z
  */
 ( function( global, factory ) {
 
@@ -7020,12 +7032,16 @@ var support = {};
 
 var isFunction = function isFunction( obj ) {
 
-      // Support: Chrome <=57, Firefox <=52
-      // In some browsers, typeof returns "function" for HTML <object> elements
-      // (i.e., `typeof document.createElement( "object" ) === "function"`).
-      // We don't want to classify *any* DOM node as a function.
-      return typeof obj === "function" && typeof obj.nodeType !== "number";
-  };
+		// Support: Chrome <=57, Firefox <=52
+		// In some browsers, typeof returns "function" for HTML <object> elements
+		// (i.e., `typeof document.createElement( "object" ) === "function"`).
+		// We don't want to classify *any* DOM node as a function.
+		// Support: QtWeb <=3.8.5, WebKit <=534.34, wkhtmltopdf tool <=0.12.5
+		// Plus for old WebKit, typeof returns "function" for HTML collections
+		// (e.g., `typeof document.getElementsByTagName("div") === "function"`). (gh-4756)
+		return typeof obj === "function" && typeof obj.nodeType !== "number" &&
+			typeof obj.item !== "function";
+	};
 
 
 var isWindow = function isWindow( obj ) {
@@ -7091,7 +7107,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.5.1",
+	version = "3.6.0",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -7345,7 +7361,7 @@ jQuery.extend( {
 			if ( isArrayLike( Object( arr ) ) ) {
 				jQuery.merge( ret,
 					typeof arr === "string" ?
-					[ arr ] : arr
+						[ arr ] : arr
 				);
 			} else {
 				push.call( ret, arr );
@@ -7440,9 +7456,9 @@ if ( typeof Symbol === "function" ) {
 
 // Populate the class2type map
 jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
-function( _i, name ) {
-	class2type[ "[object " + name + "]" ] = name.toLowerCase();
-} );
+	function( _i, name ) {
+		class2type[ "[object " + name + "]" ] = name.toLowerCase();
+	} );
 
 function isArrayLike( obj ) {
 
@@ -7462,14 +7478,14 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.5
+ * Sizzle CSS Selector Engine v2.3.6
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2020-03-14
+ * Date: 2021-02-16
  */
 ( function( window ) {
 var i,
@@ -8052,8 +8068,8 @@ support = Sizzle.support = {};
  * @returns {Boolean} True iff elem is a non-HTML XML node
  */
 isXML = Sizzle.isXML = function( elem ) {
-	var namespace = elem.namespaceURI,
-		docElem = ( elem.ownerDocument || elem ).documentElement;
+	var namespace = elem && elem.namespaceURI,
+		docElem = elem && ( elem.ownerDocument || elem ).documentElement;
 
 	// Support: IE <=8
 	// Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
@@ -9968,9 +9984,9 @@ var rneedsContext = jQuery.expr.match.needsContext;
 
 function nodeName( elem, name ) {
 
-  return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
+	return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-};
+}
 var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
@@ -10941,8 +10957,8 @@ jQuery.extend( {
 			resolveContexts = Array( i ),
 			resolveValues = slice.call( arguments ),
 
-			// the master Deferred
-			master = jQuery.Deferred(),
+			// the primary Deferred
+			primary = jQuery.Deferred(),
 
 			// subordinate callback factory
 			updateFunc = function( i ) {
@@ -10950,30 +10966,30 @@ jQuery.extend( {
 					resolveContexts[ i ] = this;
 					resolveValues[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
 					if ( !( --remaining ) ) {
-						master.resolveWith( resolveContexts, resolveValues );
+						primary.resolveWith( resolveContexts, resolveValues );
 					}
 				};
 			};
 
 		// Single- and empty arguments are adopted like Promise.resolve
 		if ( remaining <= 1 ) {
-			adoptValue( singleValue, master.done( updateFunc( i ) ).resolve, master.reject,
+			adoptValue( singleValue, primary.done( updateFunc( i ) ).resolve, primary.reject,
 				!remaining );
 
 			// Use .then() to unwrap secondary thenables (cf. gh-3000)
-			if ( master.state() === "pending" ||
+			if ( primary.state() === "pending" ||
 				isFunction( resolveValues[ i ] && resolveValues[ i ].then ) ) {
 
-				return master.then();
+				return primary.then();
 			}
 		}
 
 		// Multiple arguments are aggregated like Promise.all array elements
 		while ( i-- ) {
-			adoptValue( resolveValues[ i ], updateFunc( i ), master.reject );
+			adoptValue( resolveValues[ i ], updateFunc( i ), primary.reject );
 		}
 
-		return master.promise();
+		return primary.promise();
 	}
 } );
 
@@ -11124,8 +11140,8 @@ var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 			for ( ; i < len; i++ ) {
 				fn(
 					elems[ i ], key, raw ?
-					value :
-					value.call( elems[ i ], i, fn( elems[ i ], key ) )
+						value :
+						value.call( elems[ i ], i, fn( elems[ i ], key ) )
 				);
 			}
 		}
@@ -12033,10 +12049,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 }
 
 
-var
-	rkeyEvent = /^key/,
-	rmouseEvent = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
-	rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
+var rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
 
 function returnTrue() {
 	return true;
@@ -12331,8 +12344,8 @@ jQuery.event = {
 			event = jQuery.event.fix( nativeEvent ),
 
 			handlers = (
-					dataPriv.get( this, "events" ) || Object.create( null )
-				)[ event.type ] || [],
+				dataPriv.get( this, "events" ) || Object.create( null )
+			)[ event.type ] || [],
 			special = jQuery.event.special[ event.type ] || {};
 
 		// Use the fix-ed jQuery.Event rather than the (read-only) native event
@@ -12456,12 +12469,12 @@ jQuery.event = {
 			get: isFunction( hook ) ?
 				function() {
 					if ( this.originalEvent ) {
-							return hook( this.originalEvent );
+						return hook( this.originalEvent );
 					}
 				} :
 				function() {
 					if ( this.originalEvent ) {
-							return this.originalEvent[ name ];
+						return this.originalEvent[ name ];
 					}
 				},
 
@@ -12600,7 +12613,13 @@ function leverageNative( el, type, expectSync ) {
 						// Cancel the outer synthetic event
 						event.stopImmediatePropagation();
 						event.preventDefault();
-						return result.value;
+
+						// Support: Chrome 86+
+						// In Chrome, if an element having a focusout handler is blurred by
+						// clicking outside of it, it invokes the handler synchronously. If
+						// that handler calls `.remove()` on the element, the data is cleared,
+						// leaving `result` undefined. We need to guard against this.
+						return result && result.value;
 					}
 
 				// If this is an inner synthetic event for an event with a bubbling surrogate
@@ -12765,34 +12784,7 @@ jQuery.each( {
 	targetTouches: true,
 	toElement: true,
 	touches: true,
-
-	which: function( event ) {
-		var button = event.button;
-
-		// Add which for key events
-		if ( event.which == null && rkeyEvent.test( event.type ) ) {
-			return event.charCode != null ? event.charCode : event.keyCode;
-		}
-
-		// Add which for click: 1 === left; 2 === middle; 3 === right
-		if ( !event.which && button !== undefined && rmouseEvent.test( event.type ) ) {
-			if ( button & 1 ) {
-				return 1;
-			}
-
-			if ( button & 2 ) {
-				return 3;
-			}
-
-			if ( button & 4 ) {
-				return 2;
-			}
-
-			return 0;
-		}
-
-		return event.which;
-	}
+	which: true
 }, jQuery.event.addProp );
 
 jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateType ) {
@@ -12815,6 +12807,12 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 			leverageNative( this, type );
 
 			// Return non-false to allow normal event-path propagation
+			return true;
+		},
+
+		// Suppress native focus or blur as it's already being fired
+		// in leverageNative.
+		_default: function() {
 			return true;
 		},
 
@@ -13485,6 +13483,10 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		// set in CSS while `offset*` properties report correct values.
 		// Behavior in IE 9 is more subtle than in newer versions & it passes
 		// some versions of this test; make sure not to make it pass there!
+		//
+		// Support: Firefox 70+
+		// Only Firefox includes border widths
+		// in computed dimensions. (gh-4529)
 		reliableTrDimensions: function() {
 			var table, tr, trChild, trStyle;
 			if ( reliableTrDimensionsVal == null ) {
@@ -13492,9 +13494,22 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 				tr = document.createElement( "tr" );
 				trChild = document.createElement( "div" );
 
-				table.style.cssText = "position:absolute;left:-11111px";
+				table.style.cssText = "position:absolute;left:-11111px;border-collapse:separate";
+				tr.style.cssText = "border:1px solid";
+
+				// Support: Chrome 86+
+				// Height set through cssText does not get applied.
+				// Computed height then comes back as 0.
 				tr.style.height = "1px";
 				trChild.style.height = "9px";
+
+				// Support: Android 8 Chrome 86+
+				// In our bodyBackground.html iframe,
+				// display for all div elements is set to "inline",
+				// which causes a problem only in Android 8 Chrome 86.
+				// Ensuring the div is display: block
+				// gets around this issue.
+				trChild.style.display = "block";
 
 				documentElement
 					.appendChild( table )
@@ -13502,7 +13517,9 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 					.appendChild( trChild );
 
 				trStyle = window.getComputedStyle( tr );
-				reliableTrDimensionsVal = parseInt( trStyle.height ) > 3;
+				reliableTrDimensionsVal = ( parseInt( trStyle.height, 10 ) +
+					parseInt( trStyle.borderTopWidth, 10 ) +
+					parseInt( trStyle.borderBottomWidth, 10 ) ) === tr.offsetHeight;
 
 				documentElement.removeChild( table );
 			}
@@ -13966,10 +13983,10 @@ jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 					// Running getBoundingClientRect on a disconnected node
 					// in IE throws an error.
 					( !elem.getClientRects().length || !elem.getBoundingClientRect().width ) ?
-						swap( elem, cssShow, function() {
-							return getWidthOrHeight( elem, dimension, extra );
-						} ) :
-						getWidthOrHeight( elem, dimension, extra );
+					swap( elem, cssShow, function() {
+						return getWidthOrHeight( elem, dimension, extra );
+					} ) :
+					getWidthOrHeight( elem, dimension, extra );
 			}
 		},
 
@@ -14028,7 +14045,7 @@ jQuery.cssHooks.marginLeft = addGetHookIf( support.reliableMarginLeft,
 					swap( elem, { marginLeft: 0 }, function() {
 						return elem.getBoundingClientRect().left;
 					} )
-				) + "px";
+			) + "px";
 		}
 	}
 );
@@ -14167,7 +14184,7 @@ Tween.propHooks = {
 			if ( jQuery.fx.step[ tween.prop ] ) {
 				jQuery.fx.step[ tween.prop ]( tween );
 			} else if ( tween.elem.nodeType === 1 && (
-					jQuery.cssHooks[ tween.prop ] ||
+				jQuery.cssHooks[ tween.prop ] ||
 					tween.elem.style[ finalPropName( tween.prop ) ] != null ) ) {
 				jQuery.style( tween.elem, tween.prop, tween.now + tween.unit );
 			} else {
@@ -14412,7 +14429,7 @@ function defaultPrefilter( elem, props, opts ) {
 
 			anim.done( function() {
 
-			/* eslint-enable no-loop-func */
+				/* eslint-enable no-loop-func */
 
 				// The final step of a "hide" animation is actually hiding the element
 				if ( !hidden ) {
@@ -14532,7 +14549,7 @@ function Animation( elem, properties, options ) {
 			tweens: [],
 			createTween: function( prop, end ) {
 				var tween = jQuery.Tween( elem, animation.opts, prop, end,
-						animation.opts.specialEasing[ prop ] || animation.opts.easing );
+					animation.opts.specialEasing[ prop ] || animation.opts.easing );
 				animation.tweens.push( tween );
 				return tween;
 			},
@@ -14705,7 +14722,8 @@ jQuery.fn.extend( {
 					anim.stop( true );
 				}
 			};
-			doAnimation.finish = doAnimation;
+
+		doAnimation.finish = doAnimation;
 
 		return empty || optall.queue === false ?
 			this.each( doAnimation ) :
@@ -15345,8 +15363,8 @@ jQuery.fn.extend( {
 				if ( this.setAttribute ) {
 					this.setAttribute( "class",
 						className || value === false ?
-						"" :
-						dataPriv.get( this, "__className__" ) || ""
+							"" :
+							dataPriv.get( this, "__className__" ) || ""
 					);
 				}
 			}
@@ -15361,7 +15379,7 @@ jQuery.fn.extend( {
 		while ( ( elem = this[ i++ ] ) ) {
 			if ( elem.nodeType === 1 &&
 				( " " + stripAndCollapse( getClass( elem ) ) + " " ).indexOf( className ) > -1 ) {
-					return true;
+				return true;
 			}
 		}
 
@@ -15651,9 +15669,7 @@ jQuery.extend( jQuery.event, {
 				special.bindType || type;
 
 			// jQuery handler
-			handle = (
-					dataPriv.get( cur, "events" ) || Object.create( null )
-				)[ event.type ] &&
+			handle = ( dataPriv.get( cur, "events" ) || Object.create( null ) )[ event.type ] &&
 				dataPriv.get( cur, "handle" );
 			if ( handle ) {
 				handle.apply( cur, data );
@@ -15800,7 +15816,7 @@ var rquery = ( /\?/ );
 
 // Cross-browser xml parsing
 jQuery.parseXML = function( data ) {
-	var xml;
+	var xml, parserErrorElem;
 	if ( !data || typeof data !== "string" ) {
 		return null;
 	}
@@ -15809,12 +15825,17 @@ jQuery.parseXML = function( data ) {
 	// IE throws on parseFromString with invalid input.
 	try {
 		xml = ( new window.DOMParser() ).parseFromString( data, "text/xml" );
-	} catch ( e ) {
-		xml = undefined;
-	}
+	} catch ( e ) {}
 
-	if ( !xml || xml.getElementsByTagName( "parsererror" ).length ) {
-		jQuery.error( "Invalid XML: " + data );
+	parserErrorElem = xml && xml.getElementsByTagName( "parsererror" )[ 0 ];
+	if ( !xml || parserErrorElem ) {
+		jQuery.error( "Invalid XML: " + (
+			parserErrorElem ?
+				jQuery.map( parserErrorElem.childNodes, function( el ) {
+					return el.textContent;
+				} ).join( "\n" ) :
+				data
+		) );
 	}
 	return xml;
 };
@@ -15915,16 +15936,14 @@ jQuery.fn.extend( {
 			// Can add propHook for "elements" to filter or add form elements
 			var elements = jQuery.prop( this, "elements" );
 			return elements ? jQuery.makeArray( elements ) : this;
-		} )
-		.filter( function() {
+		} ).filter( function() {
 			var type = this.type;
 
 			// Use .is( ":disabled" ) so that fieldset[disabled] works
 			return this.name && !jQuery( this ).is( ":disabled" ) &&
 				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
 				( this.checked || !rcheckableType.test( type ) );
-		} )
-		.map( function( _i, elem ) {
+		} ).map( function( _i, elem ) {
 			var val = jQuery( this ).val();
 
 			if ( val == null ) {
@@ -15977,7 +15996,8 @@ var
 
 	// Anchor tag for parsing the document origin
 	originAnchor = document.createElement( "a" );
-	originAnchor.href = location.href;
+
+originAnchor.href = location.href;
 
 // Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
 function addToPrefiltersOrTransports( structure ) {
@@ -16358,8 +16378,8 @@ jQuery.extend( {
 			// Context for global events is callbackContext if it is a DOM node or jQuery collection
 			globalEventContext = s.context &&
 				( callbackContext.nodeType || callbackContext.jquery ) ?
-					jQuery( callbackContext ) :
-					jQuery.event,
+				jQuery( callbackContext ) :
+				jQuery.event,
 
 			// Deferreds
 			deferred = jQuery.Deferred(),
@@ -16671,8 +16691,10 @@ jQuery.extend( {
 				response = ajaxHandleResponses( s, jqXHR, responses );
 			}
 
-			// Use a noop converter for missing script
-			if ( !isSuccess && jQuery.inArray( "script", s.dataTypes ) > -1 ) {
+			// Use a noop converter for missing script but not if jsonp
+			if ( !isSuccess &&
+				jQuery.inArray( "script", s.dataTypes ) > -1 &&
+				jQuery.inArray( "json", s.dataTypes ) < 0 ) {
 				s.converters[ "text script" ] = function() {};
 			}
 
@@ -17410,12 +17432,6 @@ jQuery.offset = {
 			options.using.call( elem, props );
 
 		} else {
-			if ( typeof props.top === "number" ) {
-				props.top += "px";
-			}
-			if ( typeof props.left === "number" ) {
-				props.left += "px";
-			}
 			curElem.css( props );
 		}
 	}
@@ -17584,8 +17600,11 @@ jQuery.each( [ "top", "left" ], function( _i, prop ) {
 
 // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
 jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
-	jQuery.each( { padding: "inner" + name, content: type, "": "outer" + name },
-		function( defaultExtra, funcName ) {
+	jQuery.each( {
+		padding: "inner" + name,
+		content: type,
+		"": "outer" + name
+	}, function( defaultExtra, funcName ) {
 
 		// Margin is only for outerHeight, outerWidth
 		jQuery.fn[ funcName ] = function( margin, value ) {
@@ -17670,7 +17689,8 @@ jQuery.fn.extend( {
 	}
 } );
 
-jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
+jQuery.each(
+	( "blur focus focusin focusout resize scroll click dblclick " +
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
 	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
 	function( _i, name ) {
@@ -17681,7 +17701,8 @@ jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 				this.on( name, null, data, fn ) :
 				this.trigger( name );
 		};
-	} );
+	}
+);
 
 
 
@@ -17840,14 +17861,15 @@ return jQuery;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.15';
+  var VERSION = '4.17.21';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
 
   /** Error message constants. */
   var CORE_ERROR_TEXT = 'Unsupported core-js use. Try https://npms.io/search?q=ponyfill.',
-      FUNC_ERROR_TEXT = 'Expected a function';
+      FUNC_ERROR_TEXT = 'Expected a function',
+      INVALID_TEMPL_VAR_ERROR_TEXT = 'Invalid `variable` option passed into `_.template`';
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -17980,10 +18002,11 @@ return jQuery;
   var reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
       reHasRegExpChar = RegExp(reRegExpChar.source);
 
-  /** Used to match leading and trailing whitespace. */
-  var reTrim = /^\s+|\s+$/g,
-      reTrimStart = /^\s+/,
-      reTrimEnd = /\s+$/;
+  /** Used to match leading whitespace. */
+  var reTrimStart = /^\s+/;
+
+  /** Used to match a single whitespace character. */
+  var reWhitespace = /\s/;
 
   /** Used to match wrap detail comments. */
   var reWrapComment = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/,
@@ -17992,6 +18015,18 @@ return jQuery;
 
   /** Used to match words composed of alphanumeric characters. */
   var reAsciiWord = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
+
+  /**
+   * Used to validate the `validate` option in `_.template` variable.
+   *
+   * Forbids characters which could potentially change the meaning of the function argument definition:
+   * - "()," (modification of function parameters)
+   * - "=" (default value)
+   * - "[]{}" (destructuring of function parameters)
+   * - "/" (beginning of a comment)
+   * - whitespace
+   */
+  var reForbiddenIdentifierChars = /[()=,{}\[\]\/\s]/;
 
   /** Used to match backslashes in property paths. */
   var reEscapeChar = /\\(\\)?/g;
@@ -18822,6 +18857,19 @@ return jQuery;
   }
 
   /**
+   * The base implementation of `_.trim`.
+   *
+   * @private
+   * @param {string} string The string to trim.
+   * @returns {string} Returns the trimmed string.
+   */
+  function baseTrim(string) {
+    return string
+      ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, '')
+      : string;
+  }
+
+  /**
    * The base implementation of `_.unary` without support for storing metadata.
    *
    * @private
@@ -19152,6 +19200,21 @@ return jQuery;
     return hasUnicode(string)
       ? unicodeToArray(string)
       : asciiToArray(string);
+  }
+
+  /**
+   * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
+   * character of `string`.
+   *
+   * @private
+   * @param {string} string The string to inspect.
+   * @returns {number} Returns the index of the last non-whitespace character.
+   */
+  function trimmedEndIndex(string) {
+    var index = string.length;
+
+    while (index-- && reWhitespace.test(string.charAt(index))) {}
+    return index;
   }
 
   /**
@@ -21547,8 +21610,21 @@ return jQuery;
      * @returns {Array} Returns the new sorted array.
      */
     function baseOrderBy(collection, iteratees, orders) {
+      if (iteratees.length) {
+        iteratees = arrayMap(iteratees, function(iteratee) {
+          if (isArray(iteratee)) {
+            return function(value) {
+              return baseGet(value, iteratee.length === 1 ? iteratee[0] : iteratee);
+            }
+          }
+          return iteratee;
+        });
+      } else {
+        iteratees = [identity];
+      }
+
       var index = -1;
-      iteratees = arrayMap(iteratees.length ? iteratees : [identity], baseUnary(getIteratee()));
+      iteratees = arrayMap(iteratees, baseUnary(getIteratee()));
 
       var result = baseMap(collection, function(value, key, collection) {
         var criteria = arrayMap(iteratees, function(iteratee) {
@@ -21805,6 +21881,10 @@ return jQuery;
         var key = toKey(path[index]),
             newValue = value;
 
+        if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+          return object;
+        }
+
         if (index != lastIndex) {
           var objValue = nested[key];
           newValue = customizer ? customizer(objValue, key, nested) : undefined;
@@ -21957,11 +22037,14 @@ return jQuery;
      *  into `array`.
      */
     function baseSortedIndexBy(array, value, iteratee, retHighest) {
-      value = iteratee(value);
-
       var low = 0,
-          high = array == null ? 0 : array.length,
-          valIsNaN = value !== value,
+          high = array == null ? 0 : array.length;
+      if (high === 0) {
+        return 0;
+      }
+
+      value = iteratee(value);
+      var valIsNaN = value !== value,
           valIsNull = value === null,
           valIsSymbol = isSymbol(value),
           valIsUndefined = value === undefined;
@@ -23446,10 +23529,11 @@ return jQuery;
       if (arrLength != othLength && !(isPartial && othLength > arrLength)) {
         return false;
       }
-      // Assume cyclic values are equal.
-      var stacked = stack.get(array);
-      if (stacked && stack.get(other)) {
-        return stacked == other;
+      // Check that cyclic values are equal.
+      var arrStacked = stack.get(array);
+      var othStacked = stack.get(other);
+      if (arrStacked && othStacked) {
+        return arrStacked == other && othStacked == array;
       }
       var index = -1,
           result = true,
@@ -23611,10 +23695,11 @@ return jQuery;
           return false;
         }
       }
-      // Assume cyclic values are equal.
-      var stacked = stack.get(object);
-      if (stacked && stack.get(other)) {
-        return stacked == other;
+      // Check that cyclic values are equal.
+      var objStacked = stack.get(object);
+      var othStacked = stack.get(other);
+      if (objStacked && othStacked) {
+        return objStacked == other && othStacked == object;
       }
       var result = true;
       stack.set(object, other);
@@ -26995,6 +27080,10 @@ return jQuery;
      * // The `_.property` iteratee shorthand.
      * _.filter(users, 'active');
      * // => objects for ['barney']
+     *
+     * // Combining several predicates using `_.overEvery` or `_.overSome`.
+     * _.filter(users, _.overSome([{ 'age': 36 }, ['age', 40]]));
+     * // => objects for ['fred', 'barney']
      */
     function filter(collection, predicate) {
       var func = isArray(collection) ? arrayFilter : baseFilter;
@@ -27744,15 +27833,15 @@ return jQuery;
      * var users = [
      *   { 'user': 'fred',   'age': 48 },
      *   { 'user': 'barney', 'age': 36 },
-     *   { 'user': 'fred',   'age': 40 },
+     *   { 'user': 'fred',   'age': 30 },
      *   { 'user': 'barney', 'age': 34 }
      * ];
      *
      * _.sortBy(users, [function(o) { return o.user; }]);
-     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 30]]
      *
      * _.sortBy(users, ['user', 'age']);
-     * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
+     * // => objects for [['barney', 34], ['barney', 36], ['fred', 30], ['fred', 48]]
      */
     var sortBy = baseRest(function(collection, iteratees) {
       if (collection == null) {
@@ -30296,7 +30385,7 @@ return jQuery;
       if (typeof value != 'string') {
         return value === 0 ? value : +value;
       }
-      value = value.replace(reTrim, '');
+      value = baseTrim(value);
       var isBinary = reIsBinary.test(value);
       return (isBinary || reIsOctal.test(value))
         ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
@@ -32627,11 +32716,11 @@ return jQuery;
 
       // Use a sourceURL for easier debugging.
       // The sourceURL gets injected into the source that's eval-ed, so be careful
-      // with lookup (in case of e.g. prototype pollution), and strip newlines if any.
-      // A newline wouldn't be a valid sourceURL anyway, and it'd enable code injection.
+      // to normalize all kinds of whitespace, so e.g. newlines (and unicode versions of it) can't sneak in
+      // and escape the comment, thus injecting code that gets evaled.
       var sourceURL = '//# sourceURL=' +
         (hasOwnProperty.call(options, 'sourceURL')
-          ? (options.sourceURL + '').replace(/[\r\n]/g, ' ')
+          ? (options.sourceURL + '').replace(/\s/g, ' ')
           : ('lodash.templateSources[' + (++templateCounter) + ']')
         ) + '\n';
 
@@ -32664,12 +32753,16 @@ return jQuery;
 
       // If `variable` is not specified wrap a with-statement around the generated
       // code to add the data object to the top of the scope chain.
-      // Like with sourceURL, we take care to not check the option's prototype,
-      // as this configuration is a code injection vector.
       var variable = hasOwnProperty.call(options, 'variable') && options.variable;
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
       }
+      // Throw an error if a forbidden character was found in `variable`, to prevent
+      // potential command injection attacks.
+      else if (reForbiddenIdentifierChars.test(variable)) {
+        throw new Error(INVALID_TEMPL_VAR_ERROR_TEXT);
+      }
+
       // Cleanup code by stripping empty strings.
       source = (isEvaluating ? source.replace(reEmptyStringLeading, '') : source)
         .replace(reEmptyStringMiddle, '$1')
@@ -32783,7 +32876,7 @@ return jQuery;
     function trim(string, chars, guard) {
       string = toString(string);
       if (string && (guard || chars === undefined)) {
-        return string.replace(reTrim, '');
+        return baseTrim(string);
       }
       if (!string || !(chars = baseToString(chars))) {
         return string;
@@ -32818,7 +32911,7 @@ return jQuery;
     function trimEnd(string, chars, guard) {
       string = toString(string);
       if (string && (guard || chars === undefined)) {
-        return string.replace(reTrimEnd, '');
+        return string.slice(0, trimmedEndIndex(string) + 1);
       }
       if (!string || !(chars = baseToString(chars))) {
         return string;
@@ -33372,6 +33465,9 @@ return jQuery;
      * values against any array or object value, respectively. See `_.isEqual`
      * for a list of supported value comparisons.
      *
+     * **Note:** Multiple values can be checked by combining several matchers
+     * using `_.overSome`
+     *
      * @static
      * @memberOf _
      * @since 3.0.0
@@ -33387,6 +33483,10 @@ return jQuery;
      *
      * _.filter(objects, _.matches({ 'a': 4, 'c': 6 }));
      * // => [{ 'a': 4, 'b': 5, 'c': 6 }]
+     *
+     * // Checking for several possible values
+     * _.filter(objects, _.overSome([_.matches({ 'a': 1 }), _.matches({ 'a': 4 })]));
+     * // => [{ 'a': 1, 'b': 2, 'c': 3 }, { 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matches(source) {
       return baseMatches(baseClone(source, CLONE_DEEP_FLAG));
@@ -33400,6 +33500,9 @@ return jQuery;
      * **Note:** Partial comparisons will match empty array and empty object
      * `srcValue` values against any array or object value, respectively. See
      * `_.isEqual` for a list of supported value comparisons.
+     *
+     * **Note:** Multiple values can be checked by combining several matchers
+     * using `_.overSome`
      *
      * @static
      * @memberOf _
@@ -33417,6 +33520,10 @@ return jQuery;
      *
      * _.find(objects, _.matchesProperty('a', 4));
      * // => { 'a': 4, 'b': 5, 'c': 6 }
+     *
+     * // Checking for several possible values
+     * _.filter(objects, _.overSome([_.matchesProperty('a', 1), _.matchesProperty('a', 4)]));
+     * // => [{ 'a': 1, 'b': 2, 'c': 3 }, { 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matchesProperty(path, srcValue) {
       return baseMatchesProperty(path, baseClone(srcValue, CLONE_DEEP_FLAG));
@@ -33640,6 +33747,10 @@ return jQuery;
      * Creates a function that checks if **all** of the `predicates` return
      * truthy when invoked with the arguments it receives.
      *
+     * Following shorthands are possible for providing predicates.
+     * Pass an `Object` and it will be used as an parameter for `_.matches` to create the predicate.
+     * Pass an `Array` of parameters for `_.matchesProperty` and the predicate will be created using them.
+     *
      * @static
      * @memberOf _
      * @since 4.0.0
@@ -33666,6 +33777,10 @@ return jQuery;
      * Creates a function that checks if **any** of the `predicates` return
      * truthy when invoked with the arguments it receives.
      *
+     * Following shorthands are possible for providing predicates.
+     * Pass an `Object` and it will be used as an parameter for `_.matches` to create the predicate.
+     * Pass an `Array` of parameters for `_.matchesProperty` and the predicate will be created using them.
+     *
      * @static
      * @memberOf _
      * @since 4.0.0
@@ -33685,6 +33800,9 @@ return jQuery;
      *
      * func(NaN);
      * // => false
+     *
+     * var matchesFunc = _.overSome([{ 'a': 1 }, { 'a': 2 }])
+     * var matchesPropertyFunc = _.overSome([['a', 1], ['a', 2]])
      */
     var overSome = createOver(arraySome);
 
@@ -37966,7 +38084,7 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v9.15.2
+* sweetalert2 v9.17.2
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -39661,7 +39779,7 @@ process.umask = function() { return 0; };
     onDestroy: undefined,
     scrollbarPadding: true
   };
-  var updatableParams = ['title', 'titleText', 'text', 'html', 'footer', 'icon', 'hideClass', 'customClass', 'allowOutsideClick', 'allowEscapeKey', 'showConfirmButton', 'showCancelButton', 'confirmButtonText', 'confirmButtonAriaLabel', 'confirmButtonColor', 'cancelButtonText', 'cancelButtonAriaLabel', 'cancelButtonColor', 'buttonsStyling', 'reverseButtons', 'imageUrl', 'imageWidth', 'imageHeight', 'imageAlt', 'progressSteps', 'currentProgressStep', 'onClose', 'onAfterClose', 'onDestroy'];
+  var updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'footer', 'hideClass', 'html', 'icon', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'onAfterClose', 'onClose', 'onDestroy', 'progressSteps', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'text', 'title', 'titleText'];
   var deprecatedParams = {
     animation: 'showClass" and "hideClass'
   };
@@ -40229,8 +40347,8 @@ process.umask = function() { return 0; };
       return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
     },
     url: function url(string, validationMessage) {
-      // taken from https://stackoverflow.com/a/3809435 with a small change from #1306
-      return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
+      // taken from https://stackoverflow.com/a/3809435 with a small change from #1306 and #2013
+      return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
     }
   };
 
@@ -41134,7 +41252,7 @@ process.umask = function() { return 0; };
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '9.15.2';
+  SweetAlert.version = '9.17.2';
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;
@@ -41144,7 +41262,7 @@ process.umask = function() { return 0; };
 }));
 if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
 
-"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent!important;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:\"\";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}");
+"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row;padding:0}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;padding:0;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center;padding:0 1.8em}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent!important;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:\"\";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0 1.6em;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}");
 
 /***/ }),
 
@@ -41230,7 +41348,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-(function(e,o){ true?module.exports=o():undefined})("undefined"!==typeof self?self:this,function(){return function(e){var o={};function a(n){if(o[n])return o[n].exports;var r=o[n]={i:n,l:!1,exports:{}};return e[n].call(r.exports,r,r.exports,a),r.l=!0,r.exports}return a.m=e,a.c=o,a.d=function(e,o,n){a.o(e,o)||Object.defineProperty(e,o,{enumerable:!0,get:n})},a.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.t=function(e,o){if(1&o&&(e=a(e)),8&o)return e;if(4&o&&"object"===typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(a.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&o&&"string"!=typeof e)for(var r in e)a.d(n,r,function(o){return e[o]}.bind(null,r));return n},a.n=function(e){var o=e&&e.__esModule?function(){return e["default"]}:function(){return e};return a.d(o,"a",o),o},a.o=function(e,o){return Object.prototype.hasOwnProperty.call(e,o)},a.p="",a(a.s="fb15")}({"01f9":function(e,o,a){"use strict";var n=a("2d00"),r=a("5ca1"),t=a("2aba"),s=a("32e9"),d=a("84f2"),h=a("41a0"),m=a("7f20"),C=a("38fd"),i=a("2b4c")("iterator"),u=!([].keys&&"next"in[].keys()),l="@@iterator",c="keys",S="values",g=function(){return this};e.exports=function(e,o,a,y,A,N,M){h(a,o,y);var b,B,k,K=function(e){if(!u&&e in T)return T[e];switch(e){case c:return function(){return new a(this,e)};case S:return function(){return new a(this,e)}}return function(){return new a(this,e)}},v=o+" Iterator",p=A==S,f=!1,T=e.prototype,L=T[i]||T[l]||A&&T[A],P=L||K(A),R=A?p?K("entries"):P:void 0,O="Array"==o&&T.entries||L;if(O&&(k=C(O.call(new e)),k!==Object.prototype&&k.next&&(m(k,v,!0),n||"function"==typeof k[i]||s(k,i,g))),p&&L&&L.name!==S&&(f=!0,P=function(){return L.call(this)}),n&&!M||!u&&!f&&T[i]||s(T,i,P),d[o]=P,d[v]=g,A)if(b={values:p?P:K(S),keys:N?P:K(c),entries:R},M)for(B in b)B in T||t(T,B,b[B]);else r(r.P+r.F*(u||f),o,b);return b}},"0a49":function(e,o,a){var n=a("9b43"),r=a("626a"),t=a("4bf8"),s=a("9def"),d=a("cd1c");e.exports=function(e,o){var a=1==e,h=2==e,m=3==e,C=4==e,i=6==e,u=5==e||i,l=o||d;return function(o,d,c){for(var S,g,y=t(o),A=r(y),N=n(d,c,3),M=s(A.length),b=0,B=a?l(o,M):h?l(o,0):void 0;M>b;b++)if((u||b in A)&&(S=A[b],g=N(S,b,y),e))if(a)B[b]=g;else if(g)switch(e){case 3:return!0;case 5:return S;case 6:return b;case 2:B.push(S)}else if(C)return!1;return i?-1:m||C?C:B}}},"0d58":function(e,o,a){var n=a("ce10"),r=a("e11e");e.exports=Object.keys||function(e){return n(e,r)}},1169:function(e,o,a){var n=a("2d95");e.exports=Array.isArray||function(e){return"Array"==n(e)}},1495:function(e,o,a){var n=a("86cc"),r=a("cb7c"),t=a("0d58");e.exports=a("9e1e")?Object.defineProperties:function(e,o){r(e);var a,s=t(o),d=s.length,h=0;while(d>h)n.f(e,a=s[h++],o[a]);return e}},"230e":function(e,o,a){var n=a("d3f4"),r=a("7726").document,t=n(r)&&n(r.createElement);e.exports=function(e){return t?r.createElement(e):{}}},2621:function(e,o){o.f=Object.getOwnPropertySymbols},"2aba":function(e,o,a){var n=a("7726"),r=a("32e9"),t=a("69a8"),s=a("ca5a")("src"),d="toString",h=Function[d],m=(""+h).split(d);a("8378").inspectSource=function(e){return h.call(e)},(e.exports=function(e,o,a,d){var h="function"==typeof a;h&&(t(a,"name")||r(a,"name",o)),e[o]!==a&&(h&&(t(a,s)||r(a,s,e[o]?""+e[o]:m.join(String(o)))),e===n?e[o]=a:d?e[o]?e[o]=a:r(e,o,a):(delete e[o],r(e,o,a)))})(Function.prototype,d,function(){return"function"==typeof this&&this[s]||h.call(this)})},"2aeb":function(e,o,a){var n=a("cb7c"),r=a("1495"),t=a("e11e"),s=a("613b")("IE_PROTO"),d=function(){},h="prototype",m=function(){var e,o=a("230e")("iframe"),n=t.length,r="<",s=">";o.style.display="none",a("fab2").appendChild(o),o.src="javascript:",e=o.contentWindow.document,e.open(),e.write(r+"script"+s+"document.F=Object"+r+"/script"+s),e.close(),m=e.F;while(n--)delete m[h][t[n]];return m()};e.exports=Object.create||function(e,o){var a;return null!==e?(d[h]=n(e),a=new d,d[h]=null,a[s]=e):a=m(),void 0===o?a:r(a,o)}},"2b4c":function(e,o,a){var n=a("5537")("wks"),r=a("ca5a"),t=a("7726").Symbol,s="function"==typeof t,d=e.exports=function(e){return n[e]||(n[e]=s&&t[e]||(s?t:r)("Symbol."+e))};d.store=n},"2d00":function(e,o){e.exports=!1},"2d95":function(e,o){var a={}.toString;e.exports=function(e){return a.call(e).slice(8,-1)}},"2f21":function(e,o,a){"use strict";var n=a("79e5");e.exports=function(e,o){return!!e&&n(function(){o?e.call(null,function(){},1):e.call(null)})}},"2fdb":function(e,o,a){"use strict";var n=a("5ca1"),r=a("d2c8"),t="includes";n(n.P+n.F*a("5147")(t),"String",{includes:function(e){return!!~r(this,e,t).indexOf(e,arguments.length>1?arguments[1]:void 0)}})},"32e9":function(e,o,a){var n=a("86cc"),r=a("4630");e.exports=a("9e1e")?function(e,o,a){return n.f(e,o,r(1,a))}:function(e,o,a){return e[o]=a,e}},"38fd":function(e,o,a){var n=a("69a8"),r=a("4bf8"),t=a("613b")("IE_PROTO"),s=Object.prototype;e.exports=Object.getPrototypeOf||function(e){return e=r(e),n(e,t)?e[t]:"function"==typeof e.constructor&&e instanceof e.constructor?e.constructor.prototype:e instanceof Object?s:null}},"41a0":function(e,o,a){"use strict";var n=a("2aeb"),r=a("4630"),t=a("7f20"),s={};a("32e9")(s,a("2b4c")("iterator"),function(){return this}),e.exports=function(e,o,a){e.prototype=n(s,{next:r(1,a)}),t(e,o+" Iterator")}},"456d":function(e,o,a){var n=a("4bf8"),r=a("0d58");a("5eda")("keys",function(){return function(e){return r(n(e))}})},4588:function(e,o){var a=Math.ceil,n=Math.floor;e.exports=function(e){return isNaN(e=+e)?0:(e>0?n:a)(e)}},4630:function(e,o){e.exports=function(e,o){return{enumerable:!(1&e),configurable:!(2&e),writable:!(4&e),value:o}}},"4bf8":function(e,o,a){var n=a("be13");e.exports=function(e){return Object(n(e))}},5147:function(e,o,a){var n=a("2b4c")("match");e.exports=function(e){var o=/./;try{"/./"[e](o)}catch(a){try{return o[n]=!1,!"/./"[e](o)}catch(e){}}return!0}},"52a7":function(e,o){o.f={}.propertyIsEnumerable},5537:function(e,o,a){var n=a("8378"),r=a("7726"),t="__core-js_shared__",s=r[t]||(r[t]={});(e.exports=function(e,o){return s[e]||(s[e]=void 0!==o?o:{})})("versions",[]).push({version:n.version,mode:a("2d00")?"pure":"global",copyright:"© 2018 Denis Pushkarev (zloirock.ru)"})},"55dd":function(e,o,a){"use strict";var n=a("5ca1"),r=a("d8e8"),t=a("4bf8"),s=a("79e5"),d=[].sort,h=[1,2,3];n(n.P+n.F*(s(function(){h.sort(void 0)})||!s(function(){h.sort(null)})||!a("2f21")(d)),"Array",{sort:function(e){return void 0===e?d.call(t(this)):d.call(t(this),r(e))}})},"5ca1":function(e,o,a){var n=a("7726"),r=a("8378"),t=a("32e9"),s=a("2aba"),d=a("9b43"),h="prototype",m=function(e,o,a){var C,i,u,l,c=e&m.F,S=e&m.G,g=e&m.S,y=e&m.P,A=e&m.B,N=S?n:g?n[o]||(n[o]={}):(n[o]||{})[h],M=S?r:r[o]||(r[o]={}),b=M[h]||(M[h]={});for(C in S&&(a=o),a)i=!c&&N&&void 0!==N[C],u=(i?N:a)[C],l=A&&i?d(u,n):y&&"function"==typeof u?d(Function.call,u):u,N&&s(N,C,u,e&m.U),M[C]!=u&&t(M,C,l),y&&b[C]!=u&&(b[C]=u)};n.core=r,m.F=1,m.G=2,m.S=4,m.P=8,m.B=16,m.W=32,m.U=64,m.R=128,e.exports=m},"5eda":function(e,o,a){var n=a("5ca1"),r=a("8378"),t=a("79e5");e.exports=function(e,o){var a=(r.Object||{})[e]||Object[e],s={};s[e]=o(a),n(n.S+n.F*t(function(){a(1)}),"Object",s)}},"613b":function(e,o,a){var n=a("5537")("keys"),r=a("ca5a");e.exports=function(e){return n[e]||(n[e]=r(e))}},"626a":function(e,o,a){var n=a("2d95");e.exports=Object("z").propertyIsEnumerable(0)?Object:function(e){return"String"==n(e)?e.split(""):Object(e)}},6762:function(e,o,a){"use strict";var n=a("5ca1"),r=a("c366")(!0);n(n.P,"Array",{includes:function(e){return r(this,e,arguments.length>1?arguments[1]:void 0)}}),a("9c6c")("includes")},6821:function(e,o,a){var n=a("626a"),r=a("be13");e.exports=function(e){return n(r(e))}},"69a8":function(e,o){var a={}.hasOwnProperty;e.exports=function(e,o){return a.call(e,o)}},"6a99":function(e,o,a){var n=a("d3f4");e.exports=function(e,o){if(!n(e))return e;var a,r;if(o&&"function"==typeof(a=e.toString)&&!n(r=a.call(e)))return r;if("function"==typeof(a=e.valueOf)&&!n(r=a.call(e)))return r;if(!o&&"function"==typeof(a=e.toString)&&!n(r=a.call(e)))return r;throw TypeError("Can't convert object to primitive value")}},7333:function(e,o,a){"use strict";var n=a("0d58"),r=a("2621"),t=a("52a7"),s=a("4bf8"),d=a("626a"),h=Object.assign;e.exports=!h||a("79e5")(function(){var e={},o={},a=Symbol(),n="abcdefghijklmnopqrst";return e[a]=7,n.split("").forEach(function(e){o[e]=e}),7!=h({},e)[a]||Object.keys(h({},o)).join("")!=n})?function(e,o){var a=s(e),h=arguments.length,m=1,C=r.f,i=t.f;while(h>m){var u,l=d(arguments[m++]),c=C?n(l).concat(C(l)):n(l),S=c.length,g=0;while(S>g)i.call(l,u=c[g++])&&(a[u]=l[u])}return a}:h},7514:function(e,o,a){"use strict";var n=a("5ca1"),r=a("0a49")(5),t="find",s=!0;t in[]&&Array(1)[t](function(){s=!1}),n(n.P+n.F*s,"Array",{find:function(e){return r(this,e,arguments.length>1?arguments[1]:void 0)}}),a("9c6c")(t)},7726:function(e,o){var a=e.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=a)},"77f1":function(e,o,a){var n=a("4588"),r=Math.max,t=Math.min;e.exports=function(e,o){return e=n(e),e<0?r(e+o,0):t(e,o)}},"79e5":function(e,o){e.exports=function(e){try{return!!e()}catch(e){return!0}}},"7f20":function(e,o,a){var n=a("86cc").f,r=a("69a8"),t=a("2b4c")("toStringTag");e.exports=function(e,o,a){e&&!r(e=a?e:e.prototype,t)&&n(e,t,{configurable:!0,value:o})}},"7f7f":function(e,o,a){var n=a("86cc").f,r=Function.prototype,t=/^\s*function ([^ (]*)/,s="name";s in r||a("9e1e")&&n(r,s,{configurable:!0,get:function(){try{return(""+this).match(t)[1]}catch(e){return""}}})},8378:function(e,o){var a=e.exports={version:"2.5.7"};"number"==typeof __e&&(__e=a)},"84f2":function(e,o){e.exports={}},"86cc":function(e,o,a){var n=a("cb7c"),r=a("c69a"),t=a("6a99"),s=Object.defineProperty;o.f=a("9e1e")?Object.defineProperty:function(e,o,a){if(n(e),o=t(o,!0),n(a),r)try{return s(e,o,a)}catch(e){}if("get"in a||"set"in a)throw TypeError("Accessors not supported!");return"value"in a&&(e[o]=a.value),e}},"9b43":function(e,o,a){var n=a("d8e8");e.exports=function(e,o,a){if(n(e),void 0===o)return e;switch(a){case 1:return function(a){return e.call(o,a)};case 2:return function(a,n){return e.call(o,a,n)};case 3:return function(a,n,r){return e.call(o,a,n,r)}}return function(){return e.apply(o,arguments)}}},"9c6c":function(e,o,a){var n=a("2b4c")("unscopables"),r=Array.prototype;void 0==r[n]&&a("32e9")(r,n,{}),e.exports=function(e){r[n][e]=!0}},"9def":function(e,o,a){var n=a("4588"),r=Math.min;e.exports=function(e){return e>0?r(n(e),9007199254740991):0}},"9e1e":function(e,o,a){e.exports=!a("79e5")(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},aae3:function(e,o,a){var n=a("d3f4"),r=a("2d95"),t=a("2b4c")("match");e.exports=function(e){var o;return n(e)&&(void 0!==(o=e[t])?!!o:"RegExp"==r(e))}},ac6a:function(e,o,a){for(var n=a("cadf"),r=a("0d58"),t=a("2aba"),s=a("7726"),d=a("32e9"),h=a("84f2"),m=a("2b4c"),C=m("iterator"),i=m("toStringTag"),u=h.Array,l={CSSRuleList:!0,CSSStyleDeclaration:!1,CSSValueList:!1,ClientRectList:!1,DOMRectList:!1,DOMStringList:!1,DOMTokenList:!0,DataTransferItemList:!1,FileList:!1,HTMLAllCollection:!1,HTMLCollection:!1,HTMLFormElement:!1,HTMLSelectElement:!1,MediaList:!0,MimeTypeArray:!1,NamedNodeMap:!1,NodeList:!0,PaintRequestList:!1,Plugin:!1,PluginArray:!1,SVGLengthList:!1,SVGNumberList:!1,SVGPathSegList:!1,SVGPointList:!1,SVGStringList:!1,SVGTransformList:!1,SourceBufferList:!1,StyleSheetList:!0,TextTrackCueList:!1,TextTrackList:!1,TouchList:!1},c=r(l),S=0;S<c.length;S++){var g,y=c[S],A=l[y],N=s[y],M=N&&N.prototype;if(M&&(M[C]||d(M,C,u),M[i]||d(M,i,y),h[y]=u,A))for(g in n)M[g]||t(M,g,n[g],!0)}},be13:function(e,o){e.exports=function(e){if(void 0==e)throw TypeError("Can't call method on  "+e);return e}},c366:function(e,o,a){var n=a("6821"),r=a("9def"),t=a("77f1");e.exports=function(e){return function(o,a,s){var d,h=n(o),m=r(h.length),C=t(s,m);if(e&&a!=a){while(m>C)if(d=h[C++],d!=d)return!0}else for(;m>C;C++)if((e||C in h)&&h[C]===a)return e||C||0;return!e&&-1}}},c69a:function(e,o,a){e.exports=!a("9e1e")&&!a("79e5")(function(){return 7!=Object.defineProperty(a("230e")("div"),"a",{get:function(){return 7}}).a})},ca5a:function(e,o){var a=0,n=Math.random();e.exports=function(e){return"Symbol(".concat(void 0===e?"":e,")_",(++a+n).toString(36))}},cadf:function(e,o,a){"use strict";var n=a("9c6c"),r=a("d53b"),t=a("84f2"),s=a("6821");e.exports=a("01f9")(Array,"Array",function(e,o){this._t=s(e),this._i=0,this._k=o},function(){var e=this._t,o=this._k,a=this._i++;return!e||a>=e.length?(this._t=void 0,r(1)):r(0,"keys"==o?a:"values"==o?e[a]:[a,e[a]])},"values"),t.Arguments=t.Array,n("keys"),n("values"),n("entries")},cb7c:function(e,o,a){var n=a("d3f4");e.exports=function(e){if(!n(e))throw TypeError(e+" is not an object!");return e}},cd1c:function(e,o,a){var n=a("e853");e.exports=function(e,o){return new(n(e))(o)}},ce10:function(e,o,a){var n=a("69a8"),r=a("6821"),t=a("c366")(!1),s=a("613b")("IE_PROTO");e.exports=function(e,o){var a,d=r(e),h=0,m=[];for(a in d)a!=s&&n(d,a)&&m.push(a);while(o.length>h)n(d,a=o[h++])&&(~t(m,a)||m.push(a));return m}},d2c8:function(e,o,a){var n=a("aae3"),r=a("be13");e.exports=function(e,o,a){if(n(o))throw TypeError("String#"+a+" doesn't accept regex!");return String(r(e))}},d3f4:function(e,o){e.exports=function(e){return"object"===typeof e?null!==e:"function"===typeof e}},d53b:function(e,o){e.exports=function(e,o){return{value:o,done:!!e}}},d8e8:function(e,o){e.exports=function(e){if("function"!=typeof e)throw TypeError(e+" is not a function!");return e}},e11e:function(e,o){e.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},e853:function(e,o,a){var n=a("d3f4"),r=a("1169"),t=a("2b4c")("species");e.exports=function(e){var o;return r(e)&&(o=e.constructor,"function"!=typeof o||o!==Array&&!r(o.prototype)||(o=void 0),n(o)&&(o=o[t],null===o&&(o=void 0))),void 0===o?Array:o}},f751:function(e,o,a){var n=a("5ca1");n(n.S+n.F,"Object",{assign:a("7333")})},fab2:function(e,o,a){var n=a("7726").document;e.exports=n&&n.documentElement},fb15:function(e,o,a){"use strict";var n;(a.r(o),"undefined"!==typeof window)&&((n=window.document.currentScript)&&(n=n.src.match(/(.+\/)[^/]+\.js$/))&&(a.p=n[1]));a("7f7f"),a("cadf"),a("456d"),a("ac6a");var r=function(){var e=this,o=e.$createElement,a=e._self._c||o;return a("select",{class:e.className,on:{change:function(o){e.onChange(o.target.value)}}},[e.disablePlaceholder||e.removePlaceholder?e._e():a("option",{attrs:{value:""}},[e._v(e._s(e.placeholder))]),e.disablePlaceholder&&!e.removePlaceholder?a("option",{attrs:{value:"",disabled:"",selected:""}},[e._v(e._s(e.placeholder))]):e._e(),e.topCountry?a("option",{domProps:{value:e.firstCountry,selected:e.country===e.firstCountry}},[e._v(e._s(e.topCountryName()))]):e._e(),e._l(e.countries,function(o,n){return a("option",{key:n,domProps:{value:o[e.valueType],selected:e.country===o[e.valueType]}},[e._v(e._s(e.shortCodeDropdown?o.countryShortCode:o.countryName))])})],2)},t=[],s=(a("7514"),a("55dd"),a("f751"),a("6762"),a("2fdb"),[{countryName:"Afghanistan",countryShortCode:"AF",regions:[{name:"Badakhshan",shortCode:"BDS"},{name:"Badghis",shortCode:"BDG"},{name:"Baghlan",shortCode:"BGL"},{name:"Balkh",shortCode:"BAL"},{name:"Bamyan",shortCode:"BAM"},{name:"Daykundi",shortCode:"DAY"},{name:"Farah",shortCode:"FRA"},{name:"Faryab",shortCode:"FYB"},{name:"Ghazni",shortCode:"GHA"},{name:"Ghor",shortCode:"GHO"},{name:"Helmand",shortCode:"HEL"},{name:"Herat",shortCode:"HER"},{name:"Jowzjan",shortCode:"JOW"},{name:"Kabul",shortCode:"KAB"},{name:"Kandahar",shortCode:"KAN"},{name:"Kapisa",shortCode:"KAP"},{name:"Khost",shortCode:"KHO"},{name:"Kunar",shortCode:"KNR"},{name:"Kunduz",shortCode:"KDZ"},{name:"Laghman",shortCode:"LAG"},{name:"Logar",shortCode:"LOW"},{name:"Maidan Wardak",shortCode:"WAR"},{name:"Nangarhar",shortCode:"NAN"},{name:"Nimruz",shortCode:"NIM"},{name:"Nuristan",shortCode:"NUR"},{name:"Paktia",shortCode:"PIA"},{name:"Paktika",shortCode:"PKA"},{name:"Panjshir",shortCode:"PAN"},{name:"Parwan",shortCode:"PAR"},{name:"Samangan",shortCode:"SAM"},{name:"Sar-e Pol",shortCode:"SAR"},{name:"Takhar",shortCode:"TAK"},{name:"Urozgan",shortCode:"ORU"},{name:"Zabul",shortCode:"ZAB"}]},{countryName:"Åland Islands",countryShortCode:"AX",regions:[{name:"Brändö",shortCode:"BR"},{name:"Eckerö",shortCode:"EC"},{name:"Finström",shortCode:"FN"},{name:"Föglö",shortCode:"FG"},{name:"Geta",shortCode:"GT"},{name:"Hammarland",shortCode:"HM"},{name:"Jomala",shortCode:"JM"},{name:"Kumlinge",shortCode:"KM"},{name:"Kökar",shortCode:"KK"},{name:"Lemland",shortCode:"LE"},{name:"Lumparland",shortCode:"LU"},{name:"Mariehamn",shortCode:"MH"},{name:"Saltvik",shortCode:"SV"},{name:"Sottunga",shortCode:"ST"},{name:"Sund",shortCode:"SD"},{name:"Vårdö",shortCode:"VR"}]},{countryName:"Albania",countryShortCode:"AL",regions:[{name:"Berat",shortCode:"01"},{name:"Dibër",shortCode:"09"},{name:"Durrës",shortCode:"02"},{name:"Elbasan",shortCode:"03"},{name:"Fier",shortCode:"04"},{name:"Gjirokastër",shortCode:"05"},{name:"Korçë",shortCode:"06"},{name:"Kukës",shortCode:"07"},{name:"Lezhë",shortCode:"08"},{name:"Shkodër",shortCode:"10"},{name:"Tirana",shortCode:"11"},{name:"Vlorë",shortCode:"12"}]},{countryName:"Algeria",countryShortCode:"DZ",regions:[{name:"Adrar",shortCode:"01"},{name:"Aïn Defla",shortCode:"44"},{name:"Aïn Témouchent",shortCode:"46"},{name:"Algiers",shortCode:"16"},{name:"Annaba",shortCode:"23"},{name:"Batna",shortCode:"05"},{name:"Béchar",shortCode:"08"},{name:"Béjaïa",shortCode:"06"},{name:"Biskra",shortCode:"07"},{name:"Blida",shortCode:"09"},{name:"Bordj Bou Arréridj",shortCode:"34"},{name:"Bouïra",shortCode:"10"},{name:"Boumerdès",shortCode:"35"},{name:"Chlef",shortCode:"02"},{name:"Constantine",shortCode:"25"},{name:"Djelfa",shortCode:"17"},{name:"El Bayadh",shortCode:"32"},{name:"El Oued",shortCode:"39"},{name:"El Tarf",shortCode:"36"},{name:"Ghardaïa",shortCode:"47"},{name:"Guelma",shortCode:"24"},{name:"Illizi",shortCode:"33"},{name:"Jijel",shortCode:"18"},{name:"Khenchela",shortCode:"40"},{name:"Laghouat",shortCode:"03"},{name:"Mascara",shortCode:"29"},{name:"Médéa",shortCode:"26"},{name:"Mila",shortCode:"43"},{name:"Mostaganem",shortCode:"27"},{name:"Msila",shortCode:"28"},{name:"Naâma",shortCode:"45"},{name:"Oran",shortCode:"31"},{name:"Ouargla",shortCode:"30"},{name:"Oum el Bouaghi",shortCode:"04"},{name:"Relizane",shortCode:"48"},{name:"Saïda",shortCode:"20"},{name:"Sétif",shortCode:"19"},{name:"Sidi Bel Abbès",shortCode:"22"},{name:"Skikda",shortCode:"21"},{name:"Souk Ahras",shortCode:"41"},{name:"Tamanghasset",shortCode:"11"},{name:"Tébessa",shortCode:"12"},{name:"Tiaret",shortCode:"14"},{name:"Tindouf",shortCode:"37"},{name:"Tipaza",shortCode:"42"},{name:"Tissemsilt",shortCode:"38"},{name:"Tizi Ouzou",shortCode:"15"},{name:"Tlemcen",shortCode:"13"}]},{countryName:"American Samoa",countryShortCode:"AS",regions:[{name:"Tutuila",shortCode:"01"},{name:"Aunu'u",shortCode:"02"},{name:"Ta'ū",shortCode:"03"},{name:"Ofu‑Olosega",shortCode:"04"},{name:"Rose Atoll",shortCode:"21"},{name:"Swains Island",shortCode:"22"}]},{countryName:"Andorra",countryShortCode:"AD",regions:[{name:"Andorra la Vella",shortCode:"07"},{name:"Canillo",shortCode:"02"},{name:"Encamp",shortCode:"03"},{name:"Escaldes-Engordany",shortCode:"08"},{name:"La Massana",shortCode:"04"},{name:"Ordino",shortCode:"05"},{name:"Sant Julià de Lòria",shortCode:"06"}]},{countryName:"Angola",countryShortCode:"AO",regions:[{name:"Bengo",shortCode:"BGO"},{name:"Benguela",shortCode:"BGU"},{name:"Bié",shortCode:"BIE"},{name:"Cabinda",shortCode:"CAB"},{name:"Cuando Cubango",shortCode:"CCU"},{name:"Cuanza Norte",shortCode:"CNO"},{name:"Cuanza Sul",shortCode:"CUS"},{name:"Cunene",shortCode:"CNN"},{name:"Huambo",shortCode:"HUA"},{name:"Huíla",shortCode:"HUI"},{name:"Luanda",shortCode:"LUA"},{name:"Lunda Norte",shortCode:"LNO"},{name:"Lunda Sul",shortCode:"LSU"},{name:"Malanje",shortCode:"MAL"},{name:"Moxico",shortCode:"MOX"},{name:"Namibe",shortCode:"NAM"},{name:"Uíge",shortCode:"UIG"},{name:"Zaire",shortCode:"ZAI"}]},{countryName:"Anguilla",countryShortCode:"AI",regions:[{name:"Anguilla",shortCode:"01"},{name:"Anguillita Island",shortCode:"02"},{name:"Blowing Rock",shortCode:"03"},{name:"Cove Cay",shortCode:"04"},{name:"Crocus Cay",shortCode:"05"},{name:"Deadman's Cay",shortCode:"06"},{name:"Dog Island",shortCode:"07"},{name:"East Cay",shortCode:"08"},{name:"Little Island",shortCode:"09"},{name:"Little Scrub Island",shortCode:"10"},{name:"Mid Cay",shortCode:"11"},{name:"North Cay",shortCode:"12"},{name:"Prickly Pear Cays",shortCode:"13"},{name:"Rabbit Island",shortCode:"14"},{name:"Sandy Island/Sand Island",shortCode:"15"},{name:"Scilly Cay",shortCode:"16"},{name:"Scrub Island",shortCode:"17"},{name:"Seal Island",shortCode:"18"},{name:"Sombrero/Hat Island",shortCode:"19"},{name:"South Cay",shortCode:"20"},{name:"South Wager Island",shortCode:"21"},{name:"West Cay",shortCode:"22"}]},{countryName:"Antarctica",countryShortCode:"AQ",regions:[{name:"Antarctica",shortCode:"AQ"}]},{countryName:"Antigua and Barbuda",countryShortCode:"AG",regions:[{name:"Antigua Island",shortCode:"01"},{name:"Barbuda Island",shortCode:"02"},{name:"Bird Island",shortCode:"04"},{name:"Bishop Island",shortCode:"05"},{name:"Blake Island",shortCode:"06"},{name:"Crump Island",shortCode:"09"},{name:"Dulcina Island",shortCode:"10"},{name:"Exchange Island",shortCode:"11"},{name:"Five Islands",shortCode:"12"},{name:"Great Bird Island",shortCode:"13"},{name:"Green Island",shortCode:"14"},{name:"Guiana Island",shortCode:"15"},{name:"Hawes Island",shortCode:"17"},{name:"Hells Gate Island",shortCode:"16"},{name:"Henry Island",shortCode:"18"},{name:"Johnson Island",shortCode:"19"},{name:"Kid Island",shortCode:"20"},{name:"Lobster Island",shortCode:"22"},{name:"Maiden Island",shortCode:"24"},{name:"Moor Island",shortCode:"25"},{name:"Nanny Island",shortCode:"26"},{name:"Pelican Island",shortCode:"27"},{name:"Prickly Pear Island",shortCode:"28"},{name:"Rabbit Island",shortCode:"29"},{name:"Red Head Island",shortCode:"31"},{name:"Redonda Island",shortCode:"03"},{name:"Sandy Island",shortCode:"32"},{name:"Smith Island",shortCode:"33"},{name:"The Sisters",shortCode:"34"},{name:"Vernon Island",shortCode:"35"},{name:"Wicked Will Island",shortCode:"36"},{name:"York Island",shortCode:"37"}]},{countryName:"Argentina",countryShortCode:"AR",regions:[{name:"Buenos Aires",shortCode:"B"},{name:"Capital Federal",shortCode:"C"},{name:"Catamarca",shortCode:"K"},{name:"Chaco",shortCode:"H"},{name:"Chubut",shortCode:"U"},{name:"Córdoba",shortCode:"X"},{name:"Corrientes",shortCode:"W"},{name:"Entre Ríos",shortCode:"E"},{name:"Formosa",shortCode:"P"},{name:"Jujuy",shortCode:"Y"},{name:"La Pampa",shortCode:"L"},{name:"La Rioja",shortCode:"F"},{name:"Mendoza",shortCode:"M"},{name:"Misiones",shortCode:"N"},{name:"Neuquén",shortCode:"Q"},{name:"Río Negro",shortCode:"R"},{name:"Salta",shortCode:"A"},{name:"San Juan",shortCode:"J"},{name:"San Luis",shortCode:"D"},{name:"Santa Cruz",shortCode:"Z"},{name:"Santa Fe",shortCode:"S"},{name:"Santiago del Estero",shortCode:"G"},{name:"Tierra del Fuego",shortCode:"V"},{name:"Tucumán",shortCode:"T"}]},{countryName:"Armenia",countryShortCode:"AM",regions:[{name:"Aragatsotn",shortCode:"AG"},{name:"Ararat",shortCode:"AR"},{name:"Armavir",shortCode:"AV"},{name:"Gegharkunik",shortCode:"GR"},{name:"Kotayk",shortCode:"KT"},{name:"Lori",shortCode:"LO"},{name:"Shirak",shortCode:"SH"},{name:"Syunik",shortCode:"SU"},{name:"Tavush",shortCode:"TV"},{name:"Vayots Dzor",shortCode:"VD"},{name:"Yerevan",shortCode:"ER"}]},{countryName:"Aruba",countryShortCode:"AW",regions:[{name:"Aruba",shortCode:"AW"}]},{countryName:"Australia",countryShortCode:"AU",regions:[{name:"Australian Capital Territory",shortCode:"ACT"},{name:"New South Wales",shortCode:"NSW"},{name:"Northern Territory",shortCode:"NT"},{name:"Queensland",shortCode:"QLD"},{name:"South Australia",shortCode:"SA"},{name:"Tasmania",shortCode:"TAS"},{name:"Victoria",shortCode:"VIC"},{name:"Western Australia",shortCode:"WA"}]},{countryName:"Austria",countryShortCode:"AT",regions:[{name:"Burgenland",shortCode:"1"},{name:"Kärnten",shortCode:"2"},{name:"Niederösterreich",shortCode:"3"},{name:"Oberösterreich",shortCode:"4"},{name:"Salzburg",shortCode:"5"},{name:"Steiermark",shortCode:"6"},{name:"Tirol",shortCode:"7"},{name:"Vorarlberg",shortCode:"8"},{name:"Wien",shortCode:"9"}]},{countryName:"Azerbaijan",countryShortCode:"AZ",regions:[{name:"Abşeron",shortCode:"ABS"},{name:"Ağcabədi",shortCode:"AGC"},{name:"Ağdam",shortCode:"AGM"},{name:"Ağdaş",shortCode:"AGS"},{name:"Ağstafa",shortCode:"AGA"},{name:"Ağsu",shortCode:"AGU"},{name:"Astara",shortCode:"AST"},{name:"Bakı",shortCode:"BAK"},{name:"Babək",shortCode:"BAB"},{name:"Balakən",shortCode:"BAL"},{name:"Bərdə",shortCode:"BAR"},{name:"Beyləqan",shortCode:"BEY"},{name:"Biləsuvar",shortCode:"BIL"},{name:"Cəbrayıl",shortCode:"CAB"},{name:"Cəlilabad",shortCode:"CAL"},{name:"Culfa",shortCode:"CUL"},{name:"Daşkəsən",shortCode:"DAS"},{name:"Füzuli",shortCode:"FUZ"},{name:"Gədəbəy",shortCode:"GAD"},{name:"Goranboy",shortCode:"GOR"},{name:"Göyçay",shortCode:"GOY"},{name:"Göygöl",shortCode:"GYG"},{name:"Hacıqabul",shortCode:"HAC"},{name:"İmişli",shortCode:"IMI"},{name:"İsmayıllı",shortCode:"ISM"},{name:"Kəlbəcər",shortCode:"KAL"},{name:"Kǝngǝrli",shortCode:"KAN"},{name:"Kürdəmir",shortCode:"KUR"},{name:"Laçın",shortCode:"LAC"},{name:"Lənkəran",shortCode:"LAN"},{name:"Lerik",shortCode:"LER"},{name:"Masallı",shortCode:"MAS"},{name:"Neftçala",shortCode:"NEF"},{name:"Oğuz",shortCode:"OGU"},{name:"Ordubad",shortCode:"ORD"},{name:"Qəbələ",shortCode:"QAB"},{name:"Qax",shortCode:"QAX"},{name:"Qazax",shortCode:"QAZ"},{name:"Qobustan",shortCode:"QOB"},{name:"Quba",shortCode:"QBA"},{name:"Qubadli",shortCode:"QBI"},{name:"Qusar",shortCode:"QUS"},{name:"Saatlı",shortCode:"SAT"},{name:"Sabirabad",shortCode:"SAB"},{name:"Şabran",shortCode:"SBN"},{name:"Sədərək",shortCode:"SAD"},{name:"Şahbuz",shortCode:"SAH"},{name:"Şəki",shortCode:"SAK"},{name:"Salyan",shortCode:"SAL"},{name:"Şamaxı",shortCode:"SMI"},{name:"Şəmkir",shortCode:"SKR"},{name:"Samux",shortCode:"SMX"},{name:"Şərur",shortCode:"SAR"},{name:"Siyəzən",shortCode:"SIY"},{name:"Şuşa",shortCode:"SUS"},{name:"Tərtər",shortCode:"TAR"},{name:"Tovuz",shortCode:"TOV"},{name:"Ucar",shortCode:"UCA"},{name:"Xaçmaz",shortCode:"XAC"},{name:"Xızı",shortCode:"XIZ"},{name:"Xocalı",shortCode:"XCI"},{name:"Xocavənd",shortCode:"XVD"},{name:"Yardımlı",shortCode:"YAR"},{name:"Yevlax",shortCode:"YEV"},{name:"Zəngilan",shortCode:"ZAN"},{name:"Zaqatala",shortCode:"ZAQ"},{name:"Zərdab",shortCode:"ZAR"}]},{countryName:"Bahamas",countryShortCode:"BS",regions:[{name:"Acklins Island",shortCode:"01"},{name:"Berry Islands",shortCode:"22"},{name:"Bimini",shortCode:"02"},{name:"Black Point",shortCode:"23"},{name:"Cat Island",shortCode:"03"},{name:"Central Abaco",shortCode:"24"},{name:"Crooked Island and Long Cay",shortCode:"28"},{name:"East Grand Bahama",shortCode:"29"},{name:"Exuma",shortCode:"04"},{name:"Freeport",shortCode:"05"},{name:"Fresh Creek",shortCode:"06"},{name:"Governor's Harbour",shortCode:"07"},{name:"Green Turtle Cay",shortCode:"08"},{name:"Harbour Island",shortCode:"09"},{name:"High Rock",shortCode:"10"},{name:"Inagua",shortCode:"11"},{name:"Kemps Bay",shortCode:"12"},{name:"Long Island",shortCode:"13"},{name:"Marsh Harbour",shortCode:"14"},{name:"Mayaguana",shortCode:"15"},{name:"Moore’s Island",shortCode:"40"},{name:"New Providence",shortCode:"16"},{name:"Nichollstown and Berry Islands",shortCode:"17"},{name:"North Abaco",shortCode:"42"},{name:"North Andros",shortCode:"41"},{name:"North Eleuthera",shortCode:"33"},{name:"Ragged Island",shortCode:"18"},{name:"Rock Sound",shortCode:"19"},{name:"San Salvador and Rum Cay",shortCode:"20"},{name:"Sandy Point",shortCode:"21"},{name:"South Abaco",shortCode:"35"},{name:"South Andros",shortCode:"36"},{name:"South Eleuthera",shortCode:"37"},{name:"West Grand Bahama",shortCode:"39"}]},{countryName:"Bahrain",countryShortCode:"BH",regions:[{name:"Al Janūbīyah",shortCode:"14"},{name:"Al Manāmah",shortCode:"13"},{name:"Al Muḩarraq",shortCode:"15"},{name:"Al Wusţá",shortCode:"16"},{name:"Ash Shamālīyah",shortCode:"17"}]},{countryName:"Bangladesh",countryShortCode:"BD",regions:[{name:"Barisal",shortCode:"A"},{name:"Chittagong",shortCode:"B"},{name:"Dhaka",shortCode:"C"},{name:"Khulna",shortCode:"D"},{name:"Mymensingh",shortCode:"M"},{name:"Rajshahi",shortCode:"E"},{name:"Rangpur",shortCode:"F"},{name:"Sylhet",shortCode:"G"}]},{countryName:"Barbados",countryShortCode:"BB",regions:[{name:"Christ Church",shortCode:"01"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint George",shortCode:"03"},{name:"Saint James",shortCode:"04"},{name:"Saint John",shortCode:"05"},{name:"Saint Joseph",shortCode:"06"},{name:"Saint Lucy",shortCode:"07"},{name:"Saint Michael",shortCode:"08"},{name:"Saint Peter",shortCode:"09"},{name:"Saint Philip",shortCode:"10"},{name:"Saint Thomas",shortCode:"11"}]},{countryName:"Belarus",countryShortCode:"BY",regions:[{name:"Brest voblast",shortCode:"BR"},{name:"Gorod Minsk",shortCode:"HM"},{name:"Homiel voblast",shortCode:"HO"},{name:"Hrodna voblast",shortCode:"HR"},{name:"Mahilyow voblast",shortCode:"MA"},{name:"Minsk voblast",shortCode:"MI"},{name:"Vitsebsk voblast",shortCode:"VI"}]},{countryName:"Belgium",countryShortCode:"BE",regions:[{name:"Bruxelles-Capitale",shortCode:"BRU"},{name:"Région Flamande",shortCode:"VLG"},{name:"Région Wallonië",shortCode:"WAL"}]},{countryName:"Belize",countryShortCode:"BZ",regions:[{name:"Belize District",shortCode:"BZ"},{name:"Cayo District",shortCode:"CY"},{name:"Corozal District",shortCode:"CZL"},{name:"Orange Walk District",shortCode:"OW"},{name:"Stann Creek District",shortCode:"SC"},{name:"Toledo District",shortCode:"TOL"}]},{countryName:"Benin",countryShortCode:"BJ",regions:[{name:"Alibori",shortCode:"AL"},{name:"Atakora",shortCode:"AK"},{name:"Atlantique",shortCode:"AQ"},{name:"Borgou",shortCode:"BO"},{name:"Collines Department",shortCode:"CO"},{name:"Donga",shortCode:"DO"},{name:"Kouffo",shortCode:"KO"},{name:"Littoral Department",shortCode:"LI"},{name:"Mono Department",shortCode:"MO"},{name:"Ouémé",shortCode:"OU"},{name:"Plateau",shortCode:"PL"},{name:"Zou",shortCode:"ZO"}]},{countryName:"Bermuda",countryShortCode:"BM",regions:[{name:"City of Hamilton",shortCode:"03"},{name:"Devonshire Parish",shortCode:"01"},{name:"Hamilton Parish",shortCode:"02"},{name:"Paget Parish",shortCode:"04"},{name:"Pembroke Parish",shortCode:"05"},{name:"Sandys Parish",shortCode:"08"},{name:"Smith's Parish",shortCode:"09"},{name:"Southampton Parish",shortCode:"10"},{name:"St. George's Parish",shortCode:"07"},{name:"Town of St. George",shortCode:"06"},{name:"Warwick Parish",shortCode:"11"}]},{countryName:"Bhutan",countryShortCode:"BT",regions:[{name:"Bumthang",shortCode:"33"},{name:"Chhukha",shortCode:"12"},{name:"Dagana",shortCode:"22"},{name:"Gasa",shortCode:"GA"},{name:"Haa",shortCode:"13"},{name:"Lhuntse",shortCode:"44"},{name:"Mongar",shortCode:"42"},{name:"Paro",shortCode:"11"},{name:"Pemagatshel",shortCode:"43"},{name:"Punakha",shortCode:"23"},{name:"Samdrup Jongkhar",shortCode:"45"},{name:"Samtse",shortCode:"14"},{name:"Sarpang",shortCode:"31"},{name:"Thimphu",shortCode:"15"},{name:"Trashigang",shortCode:"41"},{name:"Trashiyangtse",shortCode:"TY"},{name:"Trongsa",shortCode:"32"},{name:"Tsirang",shortCode:"21"},{name:"Wangdue Phodrang",shortCode:"24"},{name:"Zhemgang",shortCode:"34"}]},{countryName:"Bolivia",countryShortCode:"BO",regions:[{name:"Beni",shortCode:"B"},{name:"Chuquisaca",shortCode:"H"},{name:"Cochabamba",shortCode:"C"},{name:"La Paz",shortCode:"L"},{name:"Oruro",shortCode:"O"},{name:"Pando",shortCode:"N"},{name:"Potosí",shortCode:"P"},{name:"Santa Cruz",shortCode:"S"},{name:"Tarija",shortCode:"T"}]},{countryName:"Bonaire, Sint Eustatius and Saba",countryShortCode:"BQ",regions:[{name:"Bonaire",shortCode:"BO"},{name:"Saba Isand",shortCode:"SA"},{name:"Sint Eustatius",shortCode:"SE"}]},{countryName:"Bosnia and Herzegovina",countryShortCode:"BA",regions:[{name:"Brčko Distrikt",shortCode:"BRC"},{name:"Federacija Bosne i Hercegovine",shortCode:"BIH"},{name:"Republika Srpska",shortCode:"SRP"}]},{countryName:"Botswana",countryShortCode:"BW",regions:[{name:"Central",shortCode:"CE"},{name:"Ghanzi",shortCode:"GH"},{name:"Kgalagadi",shortCode:"KG"},{name:"Kgatleng",shortCode:"KL"},{name:"Kweneng",shortCode:"KW"},{name:"North West",shortCode:"NW"},{name:"North-East",shortCode:"NE"},{name:"South East",shortCode:"SE"},{name:"Southern",shortCode:"SO"}]},{countryName:"Bouvet Island",countryShortCode:"BV",regions:[{name:"Bouvet Island",shortCode:"BV"}]},{countryName:"Brazil",countryShortCode:"BR",regions:[{name:"Acre",shortCode:"AC"},{name:"Alagoas",shortCode:"AL"},{name:"Amapá",shortCode:"AP"},{name:"Amazonas",shortCode:"AM"},{name:"Bahia",shortCode:"BA"},{name:"Ceará",shortCode:"CE"},{name:"Distrito Federal",shortCode:"DF"},{name:"Espírito Santo",shortCode:"ES"},{name:"Goiás",shortCode:"GO"},{name:"Maranhão",shortCode:"MA"},{name:"Mato Grosso",shortCode:"MT"},{name:"Mato Grosso do Sul",shortCode:"MS"},{name:"Minas Gerais",shortCode:"MG"},{name:"Pará",shortCode:"PA"},{name:"Paraíba",shortCode:"PB"},{name:"Paraná",shortCode:"PR"},{name:"Pernambuco",shortCode:"PE"},{name:"Piauí",shortCode:"PI"},{name:"Rio de Janeiro",shortCode:"RJ"},{name:"Rio Grande do Norte",shortCode:"RN"},{name:"Rio Grande do Sul",shortCode:"RS"},{name:"Rondônia",shortCode:"RO"},{name:"Roraima",shortCode:"RR"},{name:"Santa Catarina",shortCode:"SC"},{name:"São Paulo",shortCode:"SP"},{name:"Sergipe",shortCode:"SE"},{name:"Tocantins",shortCode:"TO"}]},{countryName:"British Indian Ocean Territory",countryShortCode:"IO",regions:[{name:"British Indian Ocean Territory",shortCode:"IO"}]},{countryName:"Brunei Darussalam",countryShortCode:"BN",regions:[{name:"Belait",shortCode:"BE"},{name:"Brunei Muara",shortCode:"BM"},{name:"Temburong",shortCode:"TE"},{name:"Tutong",shortCode:"TU"}]},{countryName:"Bulgaria",countryShortCode:"BG",regions:[{name:"Blagoevgrad",shortCode:"01"},{name:"Burgas",shortCode:"02"},{name:"Dobrich",shortCode:"08"},{name:"Gabrovo",shortCode:"07"},{name:"Jambol",shortCode:"28"},{name:"Khaskovo",shortCode:"26"},{name:"Kjustendil",shortCode:"10"},{name:"Kurdzhali",shortCode:"09"},{name:"Lovech",shortCode:"11"},{name:"Montana",shortCode:"12"},{name:"Pazardzhik",shortCode:"13"},{name:"Pernik",shortCode:"14"},{name:"Pleven",shortCode:"15"},{name:"Plovdiv",shortCode:"16"},{name:"Razgrad",shortCode:"17"},{name:"Ruse",shortCode:"18"},{name:"Shumen",shortCode:"27"},{name:"Silistra",shortCode:"19"},{name:"Sliven",shortCode:"20"},{name:"Smoljan",shortCode:"21"},{name:"Sofija",shortCode:"23"},{name:"Sofija-Grad",shortCode:"22"},{name:"Stara Zagora",shortCode:"24"},{name:"Turgovishhe",shortCode:"25"},{name:"Varna",shortCode:"03"},{name:"Veliko Turnovo",shortCode:"04"},{name:"Vidin",shortCode:"05"},{name:"Vraca",shortCode:"06"}]},{countryName:"Burkina Faso",countryShortCode:"BF",regions:[{name:"Balé",shortCode:"BAL"},{name:"Bam/Lake Bam",shortCode:"BAM"},{name:"Banwa Province",shortCode:"BAN"},{name:"Bazèga",shortCode:"BAZ"},{name:"Bougouriba",shortCode:"BGR"},{name:"Boulgou Province",shortCode:"BLG"},{name:"Boulkiemdé",shortCode:"BLK"},{name:"Comoé/Komoe",shortCode:"COM"},{name:"Ganzourgou Province",shortCode:"GAN"},{name:"Gnagna",shortCode:"GNA"},{name:"Gourma Province",shortCode:"GOU"},{name:"Houet",shortCode:"HOU"},{name:"Ioba",shortCode:"IOB"},{name:"Kadiogo",shortCode:"KAD"},{name:"Kénédougou",shortCode:"KEN"},{name:"Komondjari",shortCode:"KMD"},{name:"Kompienga",shortCode:"KMP"},{name:"Kossi Province",shortCode:"KOS"},{name:"Koulpélogo",shortCode:"KOP"},{name:"Kouritenga",shortCode:"KOT"},{name:"Kourwéogo",shortCode:"KOW"},{name:"Léraba",shortCode:"LER"},{name:"Loroum",shortCode:"LOR"},{name:"Mouhoun",shortCode:"MOU"},{name:"Namentenga",shortCode:"NAM"},{name:"Naouri/Nahouri",shortCode:"NAO"},{name:"Nayala",shortCode:"NAY"},{name:"Noumbiel",shortCode:"NOU"},{name:"Oubritenga",shortCode:"OUB"},{name:"Oudalan",shortCode:"OUD"},{name:"Passoré",shortCode:"PAS"},{name:"Poni",shortCode:"PON"},{name:"Sanguié",shortCode:"SNG"},{name:"Sanmatenga",shortCode:"SMT"},{name:"Séno",shortCode:"SEN"},{name:"Sissili",shortCode:"SIS"},{name:"Soum",shortCode:"SOM"},{name:"Sourou",shortCode:"SOR"},{name:"Tapoa",shortCode:"TAP"},{name:"Tui/Tuy",shortCode:"TUI"},{name:"Yagha",shortCode:"YAG"},{name:"Yatenga",shortCode:"YAT"},{name:"Ziro",shortCode:"ZIR"},{name:"Zondoma",shortCode:"ZON"},{name:"Zoundwéogo",shortCode:"ZOU"}]},{countryName:"Burundi",countryShortCode:"BI",regions:[{name:"Bubanza",shortCode:"BB"},{name:"Bujumbura Mairie",shortCode:"BM"},{name:"Bujumbura Rural",shortCode:"BL"},{name:"Bururi",shortCode:"BR"},{name:"Cankuzo",shortCode:"CA"},{name:"Cibitoke",shortCode:"CI"},{name:"Gitega",shortCode:"GI"},{name:"Karuzi",shortCode:"KR"},{name:"Kayanza",shortCode:"KY"},{name:"Kirundo",shortCode:"KI"},{name:"Makamba",shortCode:"MA"},{name:"Muramvya",shortCode:"MU"},{name:"Muyinga",shortCode:"MY"},{name:"Mwaro",shortCode:"MW"},{name:"Ngozi",shortCode:"NG"},{name:"Rutana",shortCode:"RT"},{name:"Ruyigi",shortCode:"RY"}]},{countryName:"Cambodia",countryShortCode:"KH",regions:[{name:"Baat Dambang",shortCode:"2"},{name:"Banteay Mean Chey",shortCode:"1"},{name:"Kampong Chaam",shortCode:"3"},{name:"Kampong Chhnang",shortCode:"4"},{name:"Kampong Spueu",shortCode:"5"},{name:"Kampong Thum",shortCode:"6"},{name:"Kampot",shortCode:"7"},{name:"Kandaal",shortCode:"8"},{name:"Kaoh Kong",shortCode:"9"},{name:"Kracheh",shortCode:"10"},{name:"Krong Kaeb",shortCode:"23"},{name:"Krong Pailin",shortCode:"24"},{name:"Krong Preah Sihanouk",shortCode:"18"},{name:"Mondol Kiri",shortCode:"11"},{name:"Otdar Mean Chey",shortCode:"22"},{name:"Phnom Penh",shortCode:"12"},{name:"Pousaat",shortCode:"15"},{name:"Preah Vihear",shortCode:"13"},{name:"Prey Veaeng",shortCode:"14"},{name:"Rotanah Kiri",shortCode:"16"},{name:"Siem Reab",shortCode:"17"},{name:"Stueng Treng",shortCode:"19"},{name:"Svaay Rieng",shortCode:"20"},{name:"Taakaev",shortCode:"21"},{name:"Tbong Khmum",shortCode:"25"}]},{countryName:"Cameroon",countryShortCode:"CM",regions:[{name:"Adamaoua",shortCode:"AD"},{name:"Centre",shortCode:"CE"},{name:"Est",shortCode:"ES"},{name:"Extrême-Nord",shortCode:"EN"},{name:"Littoral",shortCode:"LT"},{name:"Nord",shortCode:"NO"},{name:"Nord-Ouest",shortCode:"NW"},{name:"Ouest",shortCode:"OU"},{name:"Sud",shortCode:"SU"},{name:"Sud-Ouest",shortCode:"SW"}]},{countryName:"Canada",countryShortCode:"CA",regions:[{name:"Alberta",shortCode:"AB"},{name:"British Columbia",shortCode:"BC"},{name:"Manitoba",shortCode:"MB"},{name:"New Brunswick",shortCode:"NB"},{name:"Newfoundland and Labrador",shortCode:"NL"},{name:"Northwest Territories",shortCode:"NT"},{name:"Nova Scotia",shortCode:"NS"},{name:"Nunavut",shortCode:"NU"},{name:"Ontario",shortCode:"ON"},{name:"Prince Edward Island",shortCode:"PE"},{name:"Quebec",shortCode:"QC"},{name:"Saskatchewan",shortCode:"SK"},{name:"Yukon",shortCode:"YT"}]},{countryName:"Cape Verde",countryShortCode:"CV",regions:[{name:"Boa Vista",shortCode:"BV"},{name:"Brava",shortCode:"BR"},{name:"Calheta de São Miguel",shortCode:"CS"},{name:"Maio",shortCode:"MA"},{name:"Mosteiros",shortCode:"MO"},{name:"Paúl",shortCode:"PA"},{name:"Porto Novo",shortCode:"PN"},{name:"Praia",shortCode:"PR"},{name:"Ribeira Brava",shortCode:"RB"},{name:"Ribeira Grande",shortCode:"RG"},{name:"Sal",shortCode:"SL"},{name:"Santa Catarina",shortCode:"CA"},{name:"Santa Cruz",shortCode:"CR"},{name:"São Domingos",shortCode:"SD"},{name:"São Filipe",shortCode:"SF"},{name:"São Nicolau",shortCode:"SN"},{name:"São Vicente",shortCode:"SV"},{name:"Tarrafal",shortCode:"TA"},{name:"Tarrafal de São Nicolau",shortCode:"TS"}]},{countryName:"Cayman Islands",countryShortCode:"KY",regions:[{name:"Creek"},{name:"Eastern"},{name:"Midland"},{name:"South Town"},{name:"Spot Bay"},{name:"Stake Bay"},{name:"West End"},{name:"Western"}]},{countryName:"Central African Republic",countryShortCode:"CF",regions:[{name:"Bamingui-Bangoran",shortCode:"BB"},{name:"Bangui",shortCode:"BGF"},{name:"Basse-Kotto",shortCode:"BK"},{name:"Haute-Kotto",shortCode:"HK"},{name:"Haut-Mbomou",shortCode:"HM"},{name:"Kémo",shortCode:"KG"},{name:"Lobaye",shortCode:"LB"},{name:"Mambéré-Kadéï",shortCode:"HS"},{name:"Mbomou",shortCode:"MB"},{name:"Nana-Grebizi",shortCode:"10"},{name:"Nana-Mambéré",shortCode:"NM"},{name:"Ombella-M'Poko",shortCode:"MP"},{name:"Ouaka",shortCode:"UK"},{name:"Ouham",shortCode:"AC"},{name:"Ouham Péndé",shortCode:"OP"},{name:"Sangha-Mbaéré",shortCode:"SE"},{name:"Vakaga",shortCode:"VK"}]},{countryName:"Chad",countryShortCode:"TD",regions:[{name:"Bahr el Ghazal",shortCode:"BG"},{name:"Batha",shortCode:"BA"},{name:"Borkou",shortCode:"BO"},{name:"Chari-Baguirmi",shortCode:"CB"},{name:"Ennedi-Est",shortCode:"EE"},{name:"Ennedi-Ouest",shortCode:"EO"},{name:"Guéra",shortCode:"GR"},{name:"Hadjer Lamis",shortCode:"HL"},{name:"Kanem",shortCode:"KA"},{name:"Lac",shortCode:"LC"},{name:"Logone Occidental",shortCode:"LO"},{name:"Logone Oriental",shortCode:"LR"},{name:"Mondoul",shortCode:"MA"},{name:"Mayo-Kébbi-Est",shortCode:"ME"},{name:"Moyen-Chari",shortCode:"MC"},{name:"Ouaddai",shortCode:"OD"},{name:"Salamat",shortCode:"SA"},{name:"Sila",shortCode:"SI"},{name:"Tandjilé",shortCode:"TA"},{name:"Tibesti",shortCode:"TI"},{name:"Ville de Ndjamena",shortCode:"ND"},{name:"Wadi Fira",shortCode:"WF"}]},{countryName:"Chile",countryShortCode:"CL",regions:[{name:"Aisén del General Carlos Ibáñez del Campo",shortCode:"AI"},{name:"Antofagasta",shortCode:"AN"},{name:"Araucanía",shortCode:"AR"},{name:"Arica y Parinacota",shortCode:"AP"},{name:"Atacama",shortCode:"AT"},{name:"Bío-Bío",shortCode:"BI"},{name:"Coquimbo",shortCode:"CO"},{name:"Libertador General Bernardo O'Higgins",shortCode:"LI"},{name:"Los Lagos",shortCode:"LL"},{name:"Los Ríos",shortCode:"LR"},{name:"Magallanes y Antartica Chilena",shortCode:"MA"},{name:"Marga-Marga",shortCode:""},{name:"Maule",shortCode:"ML"},{name:"Ñuble",shortCode:"NB"},{name:"Región Metropolitana de Santiago",shortCode:"RM"},{name:"Tarapacá",shortCode:"TA"},{name:"Valparaíso",shortCode:"VS"}]},{countryName:"China",countryShortCode:"CN",regions:[{name:"Anhui",shortCode:"34"},{name:"Beijing",shortCode:"11"},{name:"Chongqing",shortCode:"50"},{name:"Fujian",shortCode:"35"},{name:"Gansu",shortCode:"62"},{name:"Guangdong",shortCode:"44"},{name:"Guangxi",shortCode:"45"},{name:"Guizhou",shortCode:"52"},{name:"Hainan",shortCode:"46"},{name:"Hebei",shortCode:"13"},{name:"Heilongjiang",shortCode:"23"},{name:"Henan",shortCode:"41"},{name:"Hong Kong",shortCode:"91"},{name:"Hubei",shortCode:"42"},{name:"Hunan",shortCode:"43"},{name:"Inner Mongolia",shortCode:"15"},{name:"Jiangsu",shortCode:"32"},{name:"Jiangxi",shortCode:"36"},{name:"Jilin",shortCode:"22"},{name:"Liaoning",shortCode:"21"},{name:"Macau",shortCode:"92"},{name:"Ningxia",shortCode:"64"},{name:"Qinghai",shortCode:"63"},{name:"Shaanxi",shortCode:"61"},{name:"Shandong",shortCode:"37"},{name:"Shanghai",shortCode:"31"},{name:"Shanxi",shortCode:"14"},{name:"Sichuan",shortCode:"51"},{name:"Tianjin",shortCode:"12"},{name:"Tibet",shortCode:"54"},{name:"Xinjiang",shortCode:"65"},{name:"Yunnan",shortCode:"53"},{name:"Zhejiang",shortCode:"33"}]},{countryName:"Christmas Island",countryShortCode:"CX",regions:[{name:"Christmas Island",shortCode:"CX"}]},{countryName:"Cocos (Keeling) Islands",countryShortCode:"CC",regions:[{name:"Direction Island",shortCode:"DI"},{name:"Home Island",shortCode:"HM"},{name:"Horsburgh Island",shortCode:"HR"},{name:"North Keeling Island",shortCode:"NK"},{name:"South Island",shortCode:"SI"},{name:"West Island",shortCode:"WI"}]},{countryName:"Colombia",countryShortCode:"CO",regions:[{name:"Amazonas",shortCode:"AMA"},{name:"Antioquia",shortCode:"ANT"},{name:"Arauca",shortCode:"ARA"},{name:"Archipiélago de San Andrés",shortCode:"SAP"},{name:"Atlántico",shortCode:"ATL"},{name:"Bogotá D.C.",shortCode:"DC"},{name:"Bolívar",shortCode:"BOL"},{name:"Boyacá",shortCode:"BOY"},{name:"Caldas",shortCode:"CAL"},{name:"Caquetá",shortCode:"CAQ"},{name:"Casanare",shortCode:"CAS"},{name:"Cauca",shortCode:"CAU"},{name:"Cesar",shortCode:"CES"},{name:"Chocó",shortCode:"CHO"},{name:"Córdoba",shortCode:"COR"},{name:"Cundinamarca",shortCode:"CUN"},{name:"Guainía",shortCode:"GUA"},{name:"Guaviare",shortCode:"GUV"},{name:"Huila",shortCode:"HUI"},{name:"La Guajira",shortCode:"LAG"},{name:"Magdalena",shortCode:"MAG"},{name:"Meta",shortCode:"MET"},{name:"Nariño",shortCode:"NAR"},{name:"Norte de Santander",shortCode:"NSA"},{name:"Putumayo",shortCode:"PUT"},{name:"Quindío",shortCode:"QUI"},{name:"Risaralda",shortCode:"RIS"},{name:"Santander",shortCode:"SAN"},{name:"Sucre",shortCode:"SUC"},{name:"Tolima",shortCode:"TOL"},{name:"Valle del Cauca",shortCode:"VAC"},{name:"Vaupés",shortCode:"VAU"},{name:"Vichada",shortCode:"VID"}]},{countryName:"Comoros",countryShortCode:"KM",regions:[{name:"Andjazîdja",shortCode:"G"},{name:"Andjouân",shortCode:"A"},{name:"Moûhîlî",shortCode:"M"}]},{countryName:"Congo, Republic of the (Brazzaville)",countryShortCode:"CG",regions:[{name:"Bouenza",shortCode:"11"},{name:"Brazzaville",shortCode:"BZV"},{name:"Cuvette",shortCode:"8"},{name:"Cuvette-Ouest",shortCode:"15"},{name:"Kouilou",shortCode:"5"},{name:"Lékoumou",shortCode:"2"},{name:"Likouala",shortCode:"7"},{name:"Niari",shortCode:"9"},{name:"Plateaux",shortCode:"14"},{name:"Pointe-Noire",shortCode:"16"},{name:"Pool",shortCode:"12"},{name:"Sangha",shortCode:"13"}]},{countryName:"Congo, the Democratic Republic of the (Kinshasa)",countryShortCode:"CD",regions:[{name:"Bandundu",shortCode:"BN"},{name:"Bas-Congo",shortCode:"BC"},{name:"Équateur",shortCode:"EQ"},{name:"Kasaï-Occidental",shortCode:"KE"},{name:"Kasaï-Oriental",shortCode:"KW"},{name:"Katanga",shortCode:"KA"},{name:"Kinshasa",shortCode:"KN"},{name:"Maniema",shortCode:"MA"},{name:"Nord-Kivu",shortCode:"NK"},{name:"Orientale",shortCode:"OR"},{name:"Sud-Kivu",shortCode:"SK"}]},{countryName:"Cook Islands",countryShortCode:"CK",regions:[{name:"Aitutaki"},{name:"Atiu"},{name:"Avarua"},{name:"Mangaia"},{name:"Manihiki"},{name:"Ma'uke"},{name:"Mitiaro"},{name:"Nassau"},{name:"Palmerston"},{name:"Penrhyn"},{name:"Pukapuka"},{name:"Rakahanga"}]},{countryName:"Costa Rica",countryShortCode:"CR",regions:[{name:"Alajuela",shortCode:"2"},{name:"Cartago",shortCode:"3"},{name:"Guanacaste",shortCode:"5"},{name:"Heredia",shortCode:"4"},{name:"Limón",shortCode:"7"},{name:"Puntarenas",shortCode:"6"},{name:"San José",shortCode:"1"}]},{countryName:"Côte d'Ivoire, Republic of",countryShortCode:"CI",regions:[{name:"Agnéby",shortCode:"16"},{name:"Bafing",shortCode:"17"},{name:"Bas-Sassandra",shortCode:"09"},{name:"Denguélé",shortCode:"10"},{name:"Dix-Huit Montagnes",shortCode:"06"},{name:"Fromager",shortCode:"18"},{name:"Haut-Sassandra",shortCode:"02"},{name:"Lacs",shortCode:"07"},{name:"Lagunes",shortCode:"01"},{name:"Marahoué",shortCode:"12"},{name:"Moyen-Cavally",shortCode:"19"},{name:"Moyen-Comoé",shortCode:"05"},{name:"N'zi-Comoé",shortCode:"11"},{name:"Savanes",shortCode:"03"},{name:"Sud-Bandama",shortCode:"15"},{name:"Sud-Comoé",shortCode:"13"},{name:"Vallée du Bandama",shortCode:"04"},{name:"Worodougou",shortCode:"14"},{name:"Zanzan",shortCode:"08"}]},{countryName:"Croatia",countryShortCode:"HR",regions:[{name:"Bjelovarsko-Bilogorska Županija",shortCode:"07"},{name:"Brodsko-Posavska Županija",shortCode:"12"},{name:"Dubrovačko-Neretvanska Županija",shortCode:"19"},{name:"Grad Zagreb",shortCode:"21"},{name:"Istarska Županija",shortCode:"18"},{name:"Karlovačka Županija",shortCode:"04"},{name:"Koprivničko-Krizevačka Županija",shortCode:"06"},{name:"Krapinsko-Zagorska Županija",shortCode:"02"},{name:"Ličko-Senjska Županija",shortCode:"09"},{name:"Međimurska Županija",shortCode:"20"},{name:"Osječko-Baranjska Županija",shortCode:"14"},{name:"Požeško-Slavonska Županija",shortCode:"11"},{name:"Primorsko-Goranska Županija",shortCode:"08"},{name:"Sisačko-Moslavačka Županija",shortCode:"03"},{name:"Splitsko-Dalmatinska Županija",shortCode:"17"},{name:"Sibensko-Kninska Županija",shortCode:"15"},{name:"Varaždinska Županija",shortCode:"05"},{name:"Virovitičko-Podravska Županija",shortCode:"10"},{name:"Vukovarsko-Srijemska Županija",shortCode:"16"},{name:"Zadarska Županija",shortCode:"13"},{name:"Zagrebacka Zupanija",shortCode:"01"}]},{countryName:"Cuba",countryShortCode:"CU",regions:[{name:"Artemisa",shortCode:"15"},{name:"Camagüey",shortCode:"09"},{name:"Ciego de Ávila",shortCode:"08"},{name:"Cienfuegos",shortCode:"06"},{name:"Granma",shortCode:"12"},{name:"Guantánamo",shortCode:"14"},{name:"Holguín",shortCode:"11"},{name:"Isla de la Juventud",shortCode:"99"},{name:"La Habana",shortCode:"03"},{name:"Las Tunas",shortCode:"10"},{name:"Matanzas",shortCode:"04"},{name:"Mayabeque",shortCode:"16"},{name:"Pinar del Río",shortCode:"01"},{name:"Sancti Spíritus",shortCode:"07"},{name:"Santiago de Cuba",shortCode:"13"},{name:"Villa Clara",shortCode:"05"}]},{countryName:"Curaçao",countryShortCode:"CW",regions:[{name:"Curaçao",shortCode:"CW"}]},{countryName:"Cyprus",countryShortCode:"CY",regions:[{name:"Ammochostos",shortCode:"04"},{name:"Keryneia",shortCode:"05"},{name:"Larnaka",shortCode:"03"},{name:"Lefkosia",shortCode:"01"},{name:"Lemesos",shortCode:"02"},{name:"Pafos",shortCode:"05"}]},{countryName:"Czech Republic",countryShortCode:"CZ",regions:[{name:"Hlavní město Praha",shortCode:"PR"},{name:"Jihočeský kraj",shortCode:"JC"},{name:"Jihomoravský kraj",shortCode:"JM"},{name:"Karlovarský kraj",shortCode:"KA"},{name:"Královéhradecký kraj",shortCode:"KR"},{name:"Liberecký kraj",shortCode:"LI"},{name:"Moravskoslezský kraj",shortCode:"MO"},{name:"Olomoucký kraj",shortCode:"OL"},{name:"Pardubický kraj",shortCode:"PA"},{name:"Plzeňský kraj",shortCode:"PL"},{name:"Středočeský kraj",shortCode:"ST"},{name:"Ústecký kraj",shortCode:"US"},{name:"Vysočina",shortCode:"VY"},{name:"Zlínský kraj",shortCode:"ZL"}]},{countryName:"Denmark",countryShortCode:"DK",regions:[{name:"Hovedstaden",shortCode:"84"},{name:"Kujalleq",shortCode:"GL-KU"},{name:"Midtjylland",shortCode:"82"},{name:"Norderøerne",shortCode:"FO-01"},{name:"Nordjylland",shortCode:"81"},{name:"Østerø",shortCode:"FO-06"},{name:"Qaasuitsup",shortCode:"GL-QA"},{name:"Qeqqata",shortCode:"GL-QE"},{name:"Sandø",shortCode:"FO-02"},{name:"Sermersooq",shortCode:"GL-SM"},{name:"Sjælland",shortCode:"85"},{name:"Strømø",shortCode:"FO-03"},{name:"Suderø",shortCode:"FO-04"},{name:"Syddanmark",shortCode:"83"},{name:"Vågø",shortCode:"FO-05"}]},{countryName:"Djibouti",countryShortCode:"DJ",regions:[{name:"Ali Sabieh",shortCode:"AS"},{name:"Arta",shortCode:"AR"},{name:"Dikhil",shortCode:"DI"},{name:"Obock",shortCode:"OB"},{name:"Tadjourah",shortCode:"TA"}]},{countryName:"Dominica",countryShortCode:"DM",regions:[{name:"Saint Andrew Parish",shortCode:"02"},{name:"Saint David Parish",shortCode:"03"},{name:"Saint George Parish",shortCode:"04"},{name:"Saint John Parish",shortCode:"05"},{name:"Saint Joseph Parish",shortCode:"06"},{name:"Saint Luke Parish",shortCode:"07"},{name:"Saint Mark Parish",shortCode:"08"},{name:"Saint Patrick Parish",shortCode:"09"},{name:"Saint Paul Parish",shortCode:"10"},{name:"Saint Peter Parish",shortCode:"11"}]},{countryName:"Dominican Republic",countryShortCode:"DO",regions:[{name:"Cibao Central",shortCode:"02"},{name:"Del Valle",shortCode:"37"},{name:"Distrito Nacional",shortCode:"01"},{name:"Enriquillo",shortCode:"38"},{name:"Norcentral",shortCode:"04"},{name:"Nordeste",shortCode:"34"},{name:"Noroeste",shortCode:"34"},{name:"Norte",shortCode:"35"},{name:"Valdesia",shortCode:"42"}]},{countryName:"Ecuador",countryShortCode:"EC",regions:[{name:"Azuay",shortCode:"A"},{name:"Bolívar",shortCode:"B"},{name:"Cañar",shortCode:"F"},{name:"Carchi",shortCode:"C"},{name:"Chimborazo",shortCode:"H"},{name:"Cotopaxi",shortCode:"X"},{name:"El Oro",shortCode:"O"},{name:"Esmeraldas",shortCode:"E"},{name:"Galápagos",shortCode:"W"},{name:"Guayas",shortCode:"G"},{name:"Imbabura",shortCode:"I"},{name:"Loja",shortCode:"L"},{name:"Los Ríos",shortCode:"R"},{name:"Manabí",shortCode:"M"},{name:"Morona-Santiago",shortCode:"S"},{name:"Napo",shortCode:"N"},{name:"Orellana",shortCode:"D"},{name:"Pastaza",shortCode:"Y"},{name:"Pichincha",shortCode:"P"},{name:"Santa Elena",shortCode:"SE"},{name:"Santo Domingo de los Tsáchilas",shortCode:"SD"},{name:"Sucumbíos",shortCode:"U"},{name:"Tungurahua",shortCode:"T"},{name:"Zamora-Chinchipe",shortCode:"Z"}]},{countryName:"Egypt",countryShortCode:"EG",regions:[{name:"Alexandria",shortCode:"ALX"},{name:"Aswan",shortCode:"ASN"},{name:"Asyout",shortCode:"AST"},{name:"Bani Sueif",shortCode:"BNS"},{name:"Beheira",shortCode:"BH"},{name:"Cairo",shortCode:"C"},{name:"Daqahlia",shortCode:"DK"},{name:"Dumiat",shortCode:"DT"},{name:"El Bahr El Ahmar",shortCode:"BA"},{name:"El Ismailia",shortCode:"IS"},{name:"El Suez",shortCode:"SUZ"},{name:"El Wadi El Gedeed",shortCode:"WAD"},{name:"Fayoum",shortCode:"FYM"},{name:"Gharbia",shortCode:"GH"},{name:"Giza",shortCode:"SUZ"},{name:"Helwan",shortCode:"HU"},{name:"Kafr El Sheikh",shortCode:"KFS"},{name:"Luxor",shortCode:"LX"},{name:"Matrouh",shortCode:"MT"},{name:"Menia",shortCode:"MN"},{name:"Menofia",shortCode:"MNF"},{name:"North Sinai",shortCode:"SIN"},{name:"Port Said",shortCode:"PTS"},{name:"Qalubia",shortCode:"KB"},{name:"Qena",shortCode:"KN"},{name:"Sharqia",shortCode:"SHR"},{name:"Sixth of October",shortCode:"SU"},{name:"Sohag",shortCode:"SHG"},{name:"South Sinai",shortCode:"JS"}]},{countryName:"El Salvador",countryShortCode:"SV",regions:[{name:"Ahuachapán",shortCode:"AH"},{name:"Cabañas",shortCode:"CA"},{name:"Cuscatlán",shortCode:"CU"},{name:"Chalatenango",shortCode:"CH"},{name:"La Libertad",shortCode:"LI"},{name:"La Paz",shortCode:"PA"},{name:"La Unión",shortCode:"UN"},{name:"Morazán",shortCode:"MO"},{name:"San Miguel",shortCode:"SM"},{name:"San Salvador",shortCode:"SS"},{name:"Santa Ana",shortCode:"SA"},{name:"San Vicente",shortCode:"SV"},{name:"Sonsonate",shortCode:"SO"},{name:"Usulután",shortCode:"US"}]},{countryName:"Equatorial Guinea",countryShortCode:"GQ",regions:[{name:"Annobón",shortCode:"AN"},{name:"Bioko Norte",shortCode:"BN"},{name:"Bioko Sur",shortCode:"BS"},{name:"Centro Sur",shortCode:"CS"},{name:"Kié-Ntem",shortCode:"KN"},{name:"Litoral",shortCode:"LI"},{name:"Wele-Nzas",shortCode:"WN"}]},{countryName:"Eritrea",countryShortCode:"ER",regions:[{name:"Anseba",shortCode:"AN"},{name:"Debub",shortCode:"DU"},{name:"Debub-Keih-Bahri",shortCode:"DK"},{name:"Gash-Barka",shortCode:"GB"},{name:"Maekel",shortCode:"MA"},{name:"Semien-Keih-Bahri",shortCode:"SK"}]},{countryName:"Estonia",countryShortCode:"EE",regions:[{name:"Harjumaa (Tallinn)",shortCode:"37"},{name:"Hiiumaa (Kardla)",shortCode:"39"},{name:"Ida-Virumaa (Johvi)",shortCode:"44"},{name:"Järvamaa (Paide)",shortCode:"41"},{name:"Jõgevamaa (Jogeva)",shortCode:"49"},{name:"Läänemaa",shortCode:"57"},{name:"Lääne-Virumaa (Rakvere)",shortCode:"59"},{name:"Pärnumaa (Parnu)",shortCode:"67"},{name:"Põlvamaa (Polva)",shortCode:"65"},{name:"Raplamaa (Rapla)",shortCode:"70"},{name:"Saaremaa (Kuessaare)",shortCode:"74"},{name:"Tartumaa (Tartu)",shortCode:"78"},{name:"Valgamaa (Valga)",shortCode:"82"},{name:"Viljandimaa (Viljandi)",shortCode:"84"},{name:"Võrumaa (Voru)",shortCode:"86"}]},{countryName:"Ethiopia",countryShortCode:"ET",regions:[{name:"Addis Ababa",shortCode:"AA"},{name:"Afar",shortCode:"AF"},{name:"Amhara",shortCode:"AM"},{name:"Benshangul-Gumaz",shortCode:"BE"},{name:"Dire Dawa",shortCode:"DD"},{name:"Gambela",shortCode:"GA"},{name:"Harari",shortCode:"HA"},{name:"Oromia",shortCode:"OR"},{name:"Somali",shortCode:"SO"},{name:"Southern Nations Nationalities and People's Region",shortCode:"SN"},{name:"Tigray",shortCode:"TI"}]},{countryName:"Falkland Islands (Islas Malvinas)",countryShortCode:"FK",regions:[{name:"Falkland Islands (Islas Malvinas)"}]},{countryName:"Faroe Islands",countryShortCode:"FO",regions:[{name:"Bordoy"},{name:"Eysturoy"},{name:"Mykines"},{name:"Sandoy"},{name:"Skuvoy"},{name:"Streymoy"},{name:"Suduroy"},{name:"Tvoroyri"},{name:"Vagar"}]},{countryName:"Fiji",countryShortCode:"FJ",regions:[{name:"Ba",shortCode:"01"},{name:"Bua",shortCode:"01"},{name:"Cakaudrove",shortCode:"03"},{name:"Kadavu",shortCode:"04"},{name:"Lau",shortCode:"05"},{name:"Lomaiviti",shortCode:"06"},{name:"Macuata",shortCode:"07"},{name:"Nadroga and Navosa",shortCode:"08"},{name:"Naitasiri",shortCode:"09"},{name:"Namosi",shortCode:"10"},{name:"Ra",shortCode:"011"},{name:"Rewa",shortCode:"12"},{name:"Rotuma",shortCode:"R"},{name:"Serua",shortCode:"12"},{name:"Tailevu",shortCode:"14"}]},{countryName:"Finland",countryShortCode:"FI",regions:[{name:"Ahvenanmaan lääni",shortCode:"AL"},{name:"Etelä-Suomen lääni",shortCode:"ES"},{name:"Itä-Suomen lääni",shortCode:"IS"},{name:"Länsi-Suomen lääni",shortCode:"LS"},{name:"Lapin lääni",shortCode:"LL"},{name:"Oulun lääni",shortCode:"OL"}]},{countryName:"France",countryShortCode:"FR",regions:[{name:"Auvergne-Rhône-Alpes",shortCode:"ARA"},{name:"Bourgogne-Franche-Comté",shortCode:"BFC"},{name:"Bretagne",shortCode:"BRE"},{name:"Centre-Val de Loire",shortCode:"CVL"},{name:"Corse",shortCode:"COR"},{name:"Grand Est",shortCode:"GES"},{name:"Hauts-de-France",shortCode:"HDF"},{name:"Île-de-France",shortCode:"IDF"},{name:"Normandie",shortCode:"NOR"},{name:"Nouvelle-Aquitaine",shortCode:"NAQ"},{name:"Occitanie",shortCode:"OCC"},{name:"Pays de la Loire",shortCode:"PDL"},{name:"Provence-Alpes-Cote d'Azur",shortCode:"PAC"},{name:"Clipperton",shortCode:"CP"},{name:"Guadeloupe",shortCode:"GP"},{name:"Guyane",shortCode:"GF"},{name:"Martinique",shortCode:"MQ"},{name:"Mayotte",shortCode:"YT"},{name:"Novelle-Calédonie",shortCode:"NC"},{name:"Polynésie",shortCode:"PF"},{name:"Saint-Pierre-et-Miquelon",shortCode:"PM"},{name:"Saint Barthélemy",shortCode:"BL"},{name:"Saint Martin",shortCode:"MF"},{name:"Réunion",shortCode:"RE"},{name:"Terres Australes Françaises",shortCode:"TF"},{name:"Wallis-et-Futuna",shortCode:"WF"}]},{countryName:"French Guiana",countryShortCode:"GF",regions:[{name:"French Guiana"}]},{countryName:"French Polynesia",countryShortCode:"PF",regions:[{name:"Archipel des Marquises"},{name:"Archipel des Tuamotu"},{name:"Archipel des Tubuai"},{name:"Iles du Vent"},{name:"Iles Sous-le-Vent"}]},{countryName:"French Southern and Antarctic Lands",countryShortCode:"TF",regions:[{name:"Adelie Land"},{name:"Ile Crozet"},{name:"Iles Kerguelen"},{name:"Iles Saint-Paul et Amsterdam"}]},{countryName:"Gabon",countryShortCode:"GA",regions:[{name:"Estuaire",shortCode:"1"},{name:"Haut-Ogooué",shortCode:"2"},{name:"Moyen-Ogooué",shortCode:"3"},{name:"Ngounié",shortCode:"4"},{name:"Nyanga",shortCode:"5"},{name:"Ogooué-Ivindo",shortCode:"6"},{name:"Ogooué-Lolo",shortCode:"7"},{name:"Ogooué-Maritime",shortCode:"8"},{name:"Woleu-Ntem",shortCode:"9"}]},{countryName:"Gambia, The",countryShortCode:"GM",regions:[{name:"Banjul",shortCode:"B"},{name:"Central River",shortCode:"M"},{name:"Lower River",shortCode:"L"},{name:"North Bank",shortCode:"N"},{name:"Upper River",shortCode:"U"},{name:"Western",shortCode:"W"}]},{countryName:"Georgia",countryShortCode:"GE",regions:[{name:"Abkhazia (Sokhumi)",shortCode:"AB"},{name:"Ajaria (Bat'umi)",shortCode:"AJ"},{name:"Guria",shortCode:"GU"},{name:"Imereti",shortCode:"IM"},{name:"K'akheti",shortCode:"KA"},{name:"Kvemo Kartli",shortCode:"KK"},{name:"Mtshkheta-Mtianeti",shortCode:"MM"},{name:"Rach'a-Lexhkumi-KvemoSvaneti",shortCode:"RL"},{name:"Samegrelo-Zemo Svaneti",shortCode:"SZ"},{name:"Samtskhe-Javakheti",shortCode:"SJ"},{name:"Shida Kartli",shortCode:"SK"},{name:"Tbilisi",shortCode:"TB"}]},{countryName:"Germany",countryShortCode:"DE",regions:[{name:"Baden-Württemberg",shortCode:"BW"},{name:"Bayern",shortCode:"BY"},{name:"Berlin",shortCode:"BE"},{name:"Brandenburg",shortCode:"BB"},{name:"Bremen",shortCode:"HB"},{name:"Hamburg",shortCode:"HH"},{name:"Hessen",shortCode:"HE"},{name:"Mecklenburg-Vorpommern",shortCode:"MV"},{name:"Niedersachsen",shortCode:"NI"},{name:"Nordrhein-Westfalen",shortCode:"NW"},{name:"Rheinland-Pfalz",shortCode:"RP"},{name:"Saarland",shortCode:"SL"},{name:"Sachsen",shortCode:"SN"},{name:"Sachsen-Anhalt",shortCode:"ST"},{name:"Schleswig-Holstein",shortCode:"SH"},{name:"Thüringen",shortCode:"TH"}]},{countryName:"Ghana",countryShortCode:"GH",regions:[{name:"Ahafo"},{name:"Ashanti",shortCode:"AH"},{name:"Bono"},{name:"Bono East"},{name:"Central",shortCode:"CP"},{name:"Eastern",shortCode:"EP"},{name:"Greater Accra",shortCode:"AA"},{name:"Northern",shortCode:"NP"},{name:"North East"},{name:"Oti"},{name:"Savannah"},{name:"Upper East",shortCode:"UE"},{name:"Upper West",shortCode:"UW"},{name:"Volta",shortCode:"TV"},{name:"Western",shortCode:"WP"},{name:"Western North"}]},{countryName:"Gibraltar",countryShortCode:"GI",regions:[{name:"Gibraltar"}]},{countryName:"Greece",countryShortCode:"GR",regions:[{name:"Anatolikí Makedonía kai Thráki",shortCode:"A"},{name:"Attikḯ",shortCode:"I"},{name:"Dytikí Elláda",shortCode:"G"},{name:"Dytikí Makedonía",shortCode:"C"},{name:"Ionía Nísia",shortCode:"F"},{name:"Kentrikí Makedonía",shortCode:"B"},{name:"Krítí",shortCode:"M"},{name:"Notío Aigaío",shortCode:"L"},{name:"Peloponnísos",shortCode:"J"},{name:"Stereá Elláda",shortCode:"H"},{name:"Thessalía",shortCode:"E"},{name:"Voreío Aigaío",shortCode:"K"},{name:"Ípeiros",shortCode:"D"},{name:"Ágion Óros",shortCode:"69"}]},{countryName:"Greenland",countryShortCode:"GL",regions:[{name:"Kommune Kujalleq",shortCode:"KU"},{name:"Kommuneqarfik Sermersooq",shortCode:"SM"},{name:"Qaasuitsup Kommunia",shortCode:"QA"},{name:"Qeqqata Kommunia",shortCode:"QE"}]},{countryName:"Grenada",countryShortCode:"GD",regions:[{name:"Saint Andrew",shortCode:"01"},{name:"Saint David",shortCode:"02"},{name:"Saint George",shortCode:"03"},{name:"Saint John",shortCode:"04"},{name:"Saint Mark",shortCode:"05"},{name:"Saint Patrick",shortCode:"06"},{name:"Southern Grenadine Islands",shortCode:"10"}]},{countryName:"Guadeloupe",countryShortCode:"GP",regions:[{name:"Guadeloupe"}]},{countryName:"Guam",countryShortCode:"GU",regions:[{name:"Guam"}]},{countryName:"Guatemala",countryShortCode:"GT",regions:[{name:"Alta Verapaz",shortCode:"AV"},{name:"Baja Verapaz",shortCode:"BV"},{name:"Chimaltenango",shortCode:"CM"},{name:"Chiquimula",shortCode:"CQ"},{name:"El Progreso",shortCode:"PR"},{name:"Escuintla",shortCode:"ES"},{name:"Guatemala",shortCode:"GU"},{name:"Huehuetenango",shortCode:"HU"},{name:"Izabal",shortCode:"IZ"},{name:"Jalapa",shortCode:"JA"},{name:"Jutiapa",shortCode:"JU"},{name:"Petén",shortCode:"PE"},{name:"Quetzaltenango",shortCode:"QZ"},{name:"Quiché",shortCode:"QC"},{name:"Retalhuleu",shortCode:"Re"},{name:"Sacatepéquez",shortCode:"SA"},{name:"San Marcos",shortCode:"SM"},{name:"Santa Rosa",shortCode:"SR"},{name:"Sololá",shortCode:"SO"},{name:"Suchitepéquez",shortCode:"SU"},{name:"Totonicapán",shortCode:"TO"},{name:"Zacapa",shortCode:"ZA"}]},{countryName:"Guernsey",countryShortCode:"GG",regions:[{name:"Castel"},{name:"Forest"},{name:"St. Andrew"},{name:"St. Martin"},{name:"St. Peter Port"},{name:"St. Pierre du Bois"},{name:"St. Sampson"},{name:"St. Saviour"},{name:"Torteval"},{name:"Vale"}]},{countryName:"Guinea",countryShortCode:"GN",regions:[{name:"Boké",shortCode:"B"},{name:"Conakry",shortCode:"C"},{name:"Faranah",shortCode:"F"},{name:"Kankan",shortCode:"K"},{name:"Kindia",shortCode:"D"},{name:"Labé",shortCode:"L"},{name:"Mamou",shortCode:"M"},{name:"Nzérékoré",shortCode:"N"}]},{countryName:"Guinea-Bissau",countryShortCode:"GW",regions:[{name:"Bafatá",shortCode:"BA"},{name:"Biombo",shortCode:"BM"},{name:"Bissau",shortCode:"BS"},{name:"Bolama-Bijagos",shortCode:"BL"},{name:"Cacheu",shortCode:"CA"},{name:"Gabú",shortCode:"GA"},{name:"Oio",shortCode:"OI"},{name:"Quinara",shortCode:"QU"},{name:"Tombali",shortCode:"TO"}]},{countryName:"Guyana",countryShortCode:"GY",regions:[{name:"Barima-Waini",shortCode:"BA"},{name:"Cuyuni-Mazaruni",shortCode:"CU"},{name:"Demerara-Mahaica",shortCode:"DE"},{name:"East Berbice-Corentyne",shortCode:"EB"},{name:"Essequibo Islands-West Demerara",shortCode:"ES"},{name:"Mahaica-Berbice",shortCode:"MA"},{name:"Pomeroon-Supenaam",shortCode:"PM"},{name:"Potaro-Siparuni",shortCode:"PT"},{name:"Upper Demerara-Berbice",shortCode:"UD"},{name:"Upper Takutu-Upper Essequibo",shortCode:"UT"}]},{countryName:"Haiti",countryShortCode:"HT",regions:[{name:"Artibonite",shortCode:"AR"},{name:"Centre",shortCode:"CE"},{name:"Grand'Anse",shortCode:"GA"},{name:"Nippes",shortCode:"NI"},{name:"Nord",shortCode:"ND"},{name:"Nord-Est",shortCode:"NE"},{name:"Nord-Ouest",shortCode:"NO"},{name:"Ouest",shortCode:"OU"},{name:"Sud",shortCode:"SD"},{name:"Sud-Est",shortCode:"SE"}]},{countryName:"Heard Island and McDonald Islands",countryShortCode:"HM",regions:[{name:"Heard Island and McDonald Islands"}]},{countryName:"Holy See (Vatican City)",countryShortCode:"VA",regions:[{name:"Holy See (Vatican City)",shortCode:"01"}]},{countryName:"Honduras",countryShortCode:"HN",regions:[{name:"Atlántida",shortCode:"AT"},{name:"Choluteca",shortCode:"CH"},{name:"Colón",shortCode:"CL"},{name:"Comayagua",shortCode:"CM"},{name:"Copán",shortCode:"CP"},{name:"Cortés",shortCode:"CR"},{name:"El Paraíso",shortCode:"EP"},{name:"Francisco Morazan",shortCode:"FM"},{name:"Gracias a Dios",shortCode:"GD"},{name:"Intibucá",shortCode:"IN"},{name:"Islas de la Bahía",shortCode:"IB"},{name:"La Paz",shortCode:"LP"},{name:"Lempira",shortCode:"LE"},{name:"Ocotepeque",shortCode:"OC"},{name:"Olancho",shortCode:"OL"},{name:"Santa Bárbara",shortCode:"SB"},{name:"Valle",shortCode:"VA"},{name:"Yoro",shortCode:"YO"}]},{countryName:"Hong Kong",countryShortCode:"HK",regions:[{name:"Hong Kong",shortCode:"HK"}]},{countryName:"Hungary",countryShortCode:"HU",regions:[{name:"Bács-Kiskun",shortCode:"BK"},{name:"Baranya",shortCode:"BA"},{name:"Békés",shortCode:"BE"},{name:"Békéscsaba",shortCode:"BC"},{name:"Borsod-Abauj-Zemplen",shortCode:"BZ"},{name:"Budapest",shortCode:"BU"},{name:"Csongrád",shortCode:"CS"},{name:"Debrecen",shortCode:"DE"},{name:"Dunaújváros",shortCode:"DU"},{name:"Eger",shortCode:"EG"},{name:"Érd",shortCode:"ER"},{name:"Fejér",shortCode:"FE"},{name:"Győr",shortCode:"GY"},{name:"Győr-Moson-Sopron",shortCode:"GS"},{name:"Hajdú-Bihar",shortCode:"HB"},{name:"Heves",shortCode:"HE"},{name:"Hódmezővásárhely",shortCode:"HV"},{name:"Jász-Nagykun-Szolnok",shortCode:"N"},{name:"Kaposvár",shortCode:"KV"},{name:"Kecskemét",shortCode:"KM"},{name:"Komárom-Esztergom",shortCode:"KE"},{name:"Miskolc",shortCode:"MI"},{name:"Nagykanizsa",shortCode:"NK"},{name:"Nógrád",shortCode:"NO"},{name:"Nyíregyháza",shortCode:"NY"},{name:"Pécs",shortCode:"PS"},{name:"Pest",shortCode:"PE"},{name:"Salgótarján",shortCode:"ST"},{name:"Somogy",shortCode:"SO"},{name:"Sopron",shortCode:"SN"},{name:"Szabolcs-á-Bereg",shortCode:"SZ"},{name:"Szeged",shortCode:"SD"},{name:"Székesfehérvár",shortCode:"SF"},{name:"Szekszárd",shortCode:"SS"},{name:"Szolnok",shortCode:"SK"},{name:"Szombathely",shortCode:"SH"},{name:"Tatabánya",shortCode:"TB"},{name:"Tolna",shortCode:"TO"},{name:"Vas",shortCode:"VA"},{name:"Veszprém",shortCode:"VE"},{name:"Veszprém (City)",shortCode:"VM"},{name:"Zala",shortCode:"ZA"},{name:"Zalaegerszeg",shortCode:"ZE"}]},{countryName:"Iceland",countryShortCode:"IS",regions:[{name:"Austurland",shortCode:"7"},{name:"Höfuðborgarsvæði utan Reykjavíkur",shortCode:"1"},{name:"Norðurland eystra",shortCode:"6"},{name:"Norðurland vestra",shortCode:"5"},{name:"Suðurland",shortCode:"8"},{name:"Suðurnes",shortCode:"2"},{name:"Vestfirðir",shortCode:"4"},{name:"Vesturland",shortCode:"3"}]},{countryName:"India",countryShortCode:"IN",regions:[{name:"Andaman and Nicobar Islands",shortCode:"AN"},{name:"Andhra Pradesh",shortCode:"AP"},{name:"Arunachal Pradesh",shortCode:"AR"},{name:"Assam",shortCode:"AS"},{name:"Bihar",shortCode:"BR"},{name:"Chandigarh",shortCode:"CH"},{name:"Chhattisgarh",shortCode:"CT"},{name:"Dadra and Nagar Haveli",shortCode:"DN"},{name:"Daman and Diu",shortCode:"DD"},{name:"Delhi",shortCode:"DL"},{name:"Goa",shortCode:"GA"},{name:"Gujarat",shortCode:"GJ"},{name:"Haryana",shortCode:"HR"},{name:"Himachal Pradesh",shortCode:"HP"},{name:"Jammu and Kashmir",shortCode:"JK"},{name:"Jharkhand",shortCode:"JH"},{name:"Karnataka",shortCode:"KA"},{name:"Kerala",shortCode:"KL"},{name:"Lakshadweep",shortCode:"LD"},{name:"Madhya Pradesh",shortCode:"MP"},{name:"Maharashtra",shortCode:"MH"},{name:"Manipur",shortCode:"MN"},{name:"Meghalaya",shortCode:"ML"},{name:"Mizoram",shortCode:"MZ"},{name:"Nagaland",shortCode:"NL"},{name:"Odisha",shortCode:"OR"},{name:"Puducherry",shortCode:"PY"},{name:"Punjab",shortCode:"PB"},{name:"Rajasthan",shortCode:"RJ"},{name:"Sikkim",shortCode:"WK"},{name:"Tamil Nadu",shortCode:"TN"},{name:"Telangana",shortCode:"TG"},{name:"Tripura",shortCode:"TR"},{name:"Uttarakhand",shortCode:"UT"},{name:"Uttar Pradesh",shortCode:"UP"},{name:"West Bengal",shortCode:"WB"}]},{countryName:"Indonesia",countryShortCode:"ID",regions:[{name:"Aceh",shortCode:"AC"},{name:"Bali",shortCode:"BA"},{name:"Bangka Belitung",shortCode:"BB"},{name:"Banten",shortCode:"BT"},{name:"Bengkulu",shortCode:"BE"},{name:"Gorontalo",shortCode:"GO"},{name:"Jakarta Raya",shortCode:"JK"},{name:"Jambi",shortCode:"JA"},{name:"Jawa Barat",shortCode:"JB"},{name:"Jawa Tengah",shortCode:"JT"},{name:"Jawa Timur",shortCode:"JI"},{name:"Kalimantan Barat",shortCode:"KB"},{name:"Kalimantan Selatan",shortCode:"KS"},{name:"Kalimantan Tengah",shortCode:"KT"},{name:"Kalimantan Timur",shortCode:"KI"},{name:"Kalimantan Utara",shortCode:"KU"},{name:"Kepulauan Riau",shortCode:"KR"},{name:"Lampung",shortCode:"LA"},{name:"Maluku",shortCode:"MA"},{name:"Maluku Utara",shortCode:"MU"},{name:"Nusa Tenggara Barat",shortCode:"NB"},{name:"Nusa Tenggara Timur",shortCode:"NT"},{name:"Papua",shortCode:"PA"},{name:"Papua Barat",shortCode:"PB"},{name:"Riau",shortCode:"RI"},{name:"Sulawesi Selatan",shortCode:"SR"},{name:"Sulawesi Tengah",shortCode:"ST"},{name:"Sulawesi Tenggara",shortCode:"SG"},{name:"Sulawesi Utara",shortCode:"SA"},{name:"Sumatera Barat",shortCode:"SB"},{name:"Sumatera Selatan",shortCode:"SS"},{name:"Sumatera Utara",shortCode:"SU"},{name:"Yogyakarta",shortCode:"YO"}]},{countryName:"Iran, Islamic Republic of",countryShortCode:"IR",regions:[{name:"Alborz",shortCode:"32"},{name:"Ardabīl",shortCode:"03"},{name:"Āz̄arbāyjān-e Gharbī",shortCode:"02"},{name:"Āz̄arbāyjān-e Sharqī",shortCode:"01"},{name:"Būshehr",shortCode:"06"},{name:"Chahār Maḩāl va Bakhtīārī",shortCode:"08"},{name:"Eşfahān",shortCode:"04"},{name:"Fārs",shortCode:"14"},{name:"Gīlān",shortCode:"19"},{name:"Golestān",shortCode:"27"},{name:"Hamadān",shortCode:"24"},{name:"Hormozgān",shortCode:"23"},{name:"Īlām",shortCode:"05"},{name:"Kermān",shortCode:"15"},{name:"Kermānshāh",shortCode:"17"},{name:"Khorāsān-e Jonūbī",shortCode:"29"},{name:"Khorāsān-e Raẕavī",shortCode:"30"},{name:"Khorāsān-e Shomālī",shortCode:"61"},{name:"Khūzestān",shortCode:"10"},{name:"Kohgīlūyeh va Bowyer Aḩmad",shortCode:"18"},{name:"Kordestān",shortCode:"16"},{name:"Lorestān",shortCode:"20"},{name:"Markazi",shortCode:"22"},{name:"Māzandarān",shortCode:"21"},{name:"Qazvīn",shortCode:"28"},{name:"Qom",shortCode:"26"},{name:"Semnān",shortCode:"12"},{name:"Sīstān va Balūchestān",shortCode:"13"},{name:"Tehrān",shortCode:"07"},{name:"Yazd",shortCode:"25"},{name:"Zanjān",shortCode:"11"}]},{countryName:"Iraq",countryShortCode:"IQ",regions:[{name:"Al Anbār",shortCode:"AN"},{name:"Al Başrah",shortCode:"BA"},{name:"Al Muthanná",shortCode:"MU"},{name:"Al Qādisīyah",shortCode:"QA"},{name:"An Najaf",shortCode:"NA"},{name:"Arbīl",shortCode:"AR"},{name:"As Sulaymānīyah",shortCode:"SU"},{name:"Bābil",shortCode:"BB"},{name:"Baghdād",shortCode:"BG"},{name:"Dohuk",shortCode:"DA"},{name:"Dhī Qār",shortCode:"DQ"},{name:"Diyālá",shortCode:"DI"},{name:"Karbalā'",shortCode:"KA"},{name:"Kirkuk",shortCode:"KI"},{name:"Maysān",shortCode:"MA"},{name:"Nīnawá",shortCode:"NI"},{name:"Şalāḩ ad Dīn",shortCode:"SD"},{name:"Wāsiţ",shortCode:"WA"}]},{countryName:"Ireland",countryShortCode:"IE",regions:[{name:"Carlow",shortCode:"CW"},{name:"Cavan",shortCode:"CN"},{name:"Clare",shortCode:"CE"},{name:"Cork",shortCode:"CO"},{name:"Donegal",shortCode:"DL"},{name:"Dublin",shortCode:"D"},{name:"Galway",shortCode:"G"},{name:"Kerry",shortCode:"KY"},{name:"Kildare",shortCode:"KE"},{name:"Kilkenny",shortCode:"KK"},{name:"Laois",shortCode:"LS"},{name:"Leitrim",shortCode:"LM"},{name:"Limerick",shortCode:"LK"},{name:"Longford",shortCode:"LD"},{name:"Louth",shortCode:"LH"},{name:"Mayo",shortCode:"MO"},{name:"Meath",shortCode:"MH"},{name:"Monaghan",shortCode:"MN"},{name:"Offaly",shortCode:"OY"},{name:"Roscommon",shortCode:"RN"},{name:"Sligo",shortCode:"SO"},{name:"Tipperary",shortCode:"TA"},{name:"Waterford",shortCode:"WD"},{name:"Westmeath",shortCode:"WH"},{name:"Wexford",shortCode:"WX"},{name:"Wicklow",shortCode:"WW"}]},{countryName:"Isle of Man",countryShortCode:"IM",regions:[{name:"Isle of Man"}]},{countryName:"Israel",countryShortCode:"IL",regions:[{name:"HaDarom",shortCode:"D"},{name:"HaMerkaz",shortCode:"M"},{name:"HaTsafon",shortCode:"Z"},{name:"H̱efa",shortCode:"HA"},{name:"Tel-Aviv",shortCode:"TA"},{name:"Yerushalayim",shortCode:"JM"}]},{countryName:"Italy",countryShortCode:"IT",regions:[{name:"Abruzzo",shortCode:"65"},{name:"Basilicata",shortCode:"77"},{name:"Calabria",shortCode:"78"},{name:"Campania",shortCode:"72"},{name:"Emilia-Romagna",shortCode:"45"},{name:"Friuli-Venezia Giulia",shortCode:"36"},{name:"Lazio",shortCode:"62"},{name:"Liguria",shortCode:"42"},{name:"Lombardia",shortCode:"25"},{name:"Marche",shortCode:"57"},{name:"Molise",shortCode:"67"},{name:"Piemonte",shortCode:"21"},{name:"Puglia",shortCode:"75"},{name:"Sardegna",shortCode:"88"},{name:"Sicilia",shortCode:"82"},{name:"Toscana",shortCode:"52"},{name:"Trentino-Alto Adige",shortCode:"32"},{name:"Umbria",shortCode:"55"},{name:"Valle d'Aosta",shortCode:"23"},{name:"Veneto",shortCode:"34"}]},{countryName:"Jamaica",countryShortCode:"JM",regions:[{name:"Clarendon",shortCode:"13"},{name:"Hanover",shortCode:"09"},{name:"Kingston",shortCode:"01"},{name:"Manchester",shortCode:"12"},{name:"Portland",shortCode:"04"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint Ann",shortCode:"06"},{name:"Saint Catherine",shortCode:"14"},{name:"Saint Elizabeth",shortCode:"11"},{name:"Saint James",shortCode:"08"},{name:"Saint Mary",shortCode:"05"},{name:"Saint Thomas",shortCode:"03"},{name:"Trelawny",shortCode:"07"},{name:"Westmoreland",shortCode:"10"}]},{countryName:"Japan",countryShortCode:"JP",regions:[{name:"Aichi",shortCode:"23"},{name:"Akita",shortCode:"05"},{name:"Aomori",shortCode:"02"},{name:"Chiba",shortCode:"12"},{name:"Ehime",shortCode:"38"},{name:"Fukui",shortCode:"18"},{name:"Fukuoka",shortCode:"40"},{name:"Fukushima",shortCode:"07"},{name:"Gifu",shortCode:"21"},{name:"Gunma",shortCode:"10"},{name:"Hiroshima",shortCode:"34"},{name:"Hokkaido",shortCode:"01"},{name:"Hyogo",shortCode:"28"},{name:"Ibaraki",shortCode:"08"},{name:"Ishikawa",shortCode:"17"},{name:"Iwate",shortCode:"03"},{name:"Kagawa",shortCode:"37"},{name:"Kagoshima",shortCode:"46"},{name:"Kanagawa",shortCode:"14"},{name:"Kochi",shortCode:"39"},{name:"Kumamoto",shortCode:"43"},{name:"Kyoto",shortCode:"26"},{name:"Mie",shortCode:"24"},{name:"Miyagi",shortCode:"04"},{name:"Miyazaki",shortCode:"45"},{name:"Nagano",shortCode:"20"},{name:"Nagasaki",shortCode:"42"},{name:"Nara",shortCode:"29"},{name:"Niigata",shortCode:"15"},{name:"Oita",shortCode:"44"},{name:"Okayama",shortCode:"33"},{name:"Okinawa",shortCode:"47"},{name:"Osaka",shortCode:"27"},{name:"Saga",shortCode:"41"},{name:"Saitama",shortCode:"11"},{name:"Shiga",shortCode:"25"},{name:"Shimane",shortCode:"32"},{name:"Shizuoka",shortCode:"22"},{name:"Tochigi",shortCode:"09"},{name:"Tokushima",shortCode:"36"},{name:"Tokyo",shortCode:"13"},{name:"Tottori",shortCode:"31"},{name:"Toyama",shortCode:"16"},{name:"Wakayama",shortCode:"30"},{name:"Yamagata",shortCode:"06"},{name:"Yamaguchi",shortCode:"35"},{name:"Yamanashi",shortCode:"19"}]},{countryName:"Jersey",countryShortCode:"JE",regions:[{name:"Jersey"}]},{countryName:"Jordan",countryShortCode:"JO",regions:[{name:"‘Ajlūn",shortCode:"AJ"},{name:"Al 'Aqabah",shortCode:"AQ"},{name:"Al Balqā’",shortCode:"BA"},{name:"Al Karak",shortCode:"KA"},{name:"Al Mafraq",shortCode:"MA"},{name:"Al ‘A̅şimah",shortCode:"AM"},{name:"Aţ Ţafīlah",shortCode:"AT"},{name:"Az Zarqā’",shortCode:"AZ"},{name:"Irbid",shortCode:"IR"},{name:"Jarash",shortCode:"JA"},{name:"Ma‘ān",shortCode:"MN"},{name:"Mādabā",shortCode:"MD"}]},{countryName:"Kazakhstan",countryShortCode:"KZ",regions:[{name:"Almaty",shortCode:"ALA"},{name:"Aqmola",shortCode:"AKM"},{name:"Aqtobe",shortCode:"AKT"},{name:"Astana",shortCode:"AST"},{name:"Atyrau",shortCode:"ATY"},{name:"Batys Qazaqstan",shortCode:"ZAP"},{name:"Bayqongyr"},{name:"Mangghystau",shortCode:"MAN"},{name:"Ongtustik Qazaqstan",shortCode:"YUZ"},{name:"Pavlodar",shortCode:"PAV"},{name:"Qaraghandy",shortCode:"KAR"},{name:"Qostanay",shortCode:"KUS"},{name:"Qyzylorda",shortCode:"KZY"},{name:"Shyghys Qazaqstan",shortCode:"VOS"},{name:"Soltustik Qazaqstan",shortCode:"SEV"},{name:"Zhambyl",shortCode:"ZHA"}]},{countryName:"Kenya",countryShortCode:"KE",regions:[{name:"Baringo",shortCode:"01"},{name:"Bomet",shortCode:"02"},{name:"Bungoma",shortCode:"03"},{name:"Busia",shortCode:"04"},{name:"Eleyo/Marakwet",shortCode:"05"},{name:"Embu",shortCode:"06"},{name:"Garissa",shortCode:"07"},{name:"Homa Bay",shortCode:"08"},{name:"Isiolo",shortCode:"09"},{name:"Kajiado",shortCode:"10"},{name:"Kakamega",shortCode:"11"},{name:"Kericho",shortCode:"12"},{name:"Kiambu",shortCode:"13"},{name:"Kilifi",shortCode:"14"},{name:"Kirinyaga",shortCode:"15"},{name:"Kisii",shortCode:"16"},{name:"Kisumu",shortCode:"17"},{name:"Kitui",shortCode:"18"},{name:"Kwale",shortCode:"19"},{name:"Laikipia",shortCode:"20"},{name:"Lamu",shortCode:"21"},{name:"Machakos",shortCode:"22"},{name:"Makueni",shortCode:"23"},{name:"Mandera",shortCode:"24"},{name:"Marsabit",shortCode:"25"},{name:"Meru",shortCode:"26"},{name:"Migori",shortCode:"27"},{name:"Mombasa",shortCode:"28"},{name:"Murang'a",shortCode:"29"},{name:"Nairobi City",shortCode:"30"},{name:"Nakuru",shortCode:"31"},{name:"Nandi",shortCode:"32"},{name:"Narok",shortCode:"33"},{name:"Nyamira",shortCode:"34"},{name:"Nyandarua",shortCode:"35"},{name:"Nyeri",shortCode:"36"},{name:"Samburu",shortCode:"37"},{name:"Siaya",shortCode:"38"},{name:"Taita/Taveta",shortCode:"39"},{name:"Tana River",shortCode:"40"},{name:"Tharaka-Nithi",shortCode:"41"},{name:"Trans Nzoia",shortCode:"42"},{name:"Turkana",shortCode:"43"},{name:"Uasin Gishu",shortCode:"44"},{name:"Vihiga",shortCode:"45"},{name:"Wajir",shortCode:"46"},{name:"West Pokot",shortCode:"47"}]},{countryName:"Kiribati",countryShortCode:"KI",regions:[{name:"Abaiang"},{name:"Abemama"},{name:"Aranuka"},{name:"Arorae"},{name:"Banaba"},{name:"Beru"},{name:"Butaritari"},{name:"Central Gilberts"},{name:"Gilbert Islands",shortCode:"G"},{name:"Kanton"},{name:"Kiritimati"},{name:"Kuria"},{name:"Line Islands",shortCode:"L"},{name:"Maiana"},{name:"Makin"},{name:"Marakei"},{name:"Nikunau"},{name:"Nonouti"},{name:"Northern Gilberts"},{name:"Onotoa"},{name:"Phoenix Islands",shortCode:"P"},{name:"Southern Gilberts"},{name:"Tabiteuea"},{name:"Tabuaeran"},{name:"Tamana"},{name:"Tarawa"},{name:"Teraina"}]},{countryName:"Korea, Democratic People's Republic of",countryShortCode:"KP",regions:[{name:"Chagang-do (Chagang Province)",shortCode:"04"},{name:"Hamgyong-bukto (North Hamgyong Province)",shortCode:"09"},{name:"Hamgyong-namdo (South Hamgyong Province)",shortCode:"08"},{name:"Hwanghae-bukto (North Hwanghae Province)",shortCode:"06"},{name:"Hwanghae-namdo (South Hwanghae Province)",shortCode:"05"},{name:"Kangwon-do (Kangwon Province)",shortCode:"07"},{name:"Nasŏn (Najin-Sŏnbong)",shortCode:"13"},{name:"P'yongan-bukto (North P'yongan Province)",shortCode:"03"},{name:"P'yongan-namdo (South P'yongan Province)",shortCode:"02"},{name:"P'yongyang-si (P'yongyang City)",shortCode:"01"},{name:"Yanggang-do (Yanggang Province)",shortCode:"10"}]},{countryName:"Korea, Republic of",countryShortCode:"KR",regions:[{name:"Ch'ungch'ongbuk-do",shortCode:"43"},{name:"Ch'ungch'ongnam-do",shortCode:"44"},{name:"Cheju-do",shortCode:"49"},{name:"Chollabuk-do",shortCode:"45"},{name:"Chollanam-do",shortCode:"46"},{name:"Inch'on-Kwangyokhi",shortCode:"28"},{name:"Kang-won-do",shortCode:"42"},{name:"Kwangju-Kwangyokshi",shortCode:"28"},{name:"Kyonggi-do",shortCode:"41"},{name:"Kyongsangbuk-do",shortCode:"47"},{name:"Kyongsangnam-do",shortCode:"48"},{name:"Pusan-Kwangyokshi",shortCode:"26"},{name:"Seoul-T'ukpyolshi",shortCode:"11"},{name:"Sejong",shortCode:"50"},{name:"Taegu-Kwangyokshi",shortCode:"27"},{name:"Taejon-Kwangyokshi",shortCode:"30"},{name:"Ulsan-Kwangyokshi",shortCode:"31"}]},{countryName:"Kuwait",countryShortCode:"KW",regions:[{name:"Al Aḩmadi",shortCode:"AH"},{name:"Al Farwānīyah",shortCode:"FA"},{name:"Al Jahrā’",shortCode:"JA"},{name:"Al ‘Āşimah",shortCode:"KU"},{name:"Ḩawallī",shortCode:"HA"},{name:"Mubārak al Kabir",shortCode:"MU"}]},{countryName:"Kyrgyzstan",countryShortCode:"KG",regions:[{name:"Batken Oblasty",shortCode:"B"},{name:"Bishkek Shaary",shortCode:"GB"},{name:"Chuy Oblasty (Bishkek)",shortCode:"C"},{name:"Jalal-Abad Oblasty",shortCode:"J"},{name:"Naryn Oblasty",shortCode:"N"},{name:"Osh Oblasty",shortCode:"O"},{name:"Talas Oblasty",shortCode:"T"},{name:"Ysyk-Kol Oblasty (Karakol)",shortCode:"Y"}]},{countryName:"Laos",countryShortCode:"LA",regions:[{name:"Attapu",shortCode:"AT"},{name:"Bokèo",shortCode:"BK"},{name:"Bolikhamxai",shortCode:"BL"},{name:"Champasak",shortCode:"CH"},{name:"Houaphan",shortCode:"HO"},{name:"Khammouan",shortCode:"KH"},{name:"Louang Namtha",shortCode:"LM"},{name:"Louangphabang",shortCode:"LP"},{name:"Oudômxai",shortCode:"OU"},{name:"Phôngsali",shortCode:"PH"},{name:"Salavan",shortCode:"SL"},{name:"Savannakhét",shortCode:"SV"},{name:"Vientiane",shortCode:"VI"},{name:"Xaignabouli",shortCode:"XA"},{name:"Xékong",shortCode:"XE"},{name:"Xaisomboun",shortCode:"XS"},{name:"Xiangkhouang",shortCode:"XI"}]},{countryName:"Latvia",countryShortCode:"LV",regions:[{name:"Aglona",shortCode:"001"},{name:"Aizkraukle",shortCode:"002"},{name:"Aizpute",shortCode:"003"},{name:"Aknīste",shortCode:"004"},{name:"Aloja",shortCode:"005"},{name:"Alsunga",shortCode:"06"},{name:"Alūksne",shortCode:"007"},{name:"Amata",shortCode:"008"},{name:"Ape",shortCode:"009"},{name:"Auce",shortCode:"010"},{name:"Ādaži",shortCode:"011"},{name:"Babīte",shortCode:"012"},{name:"Baldone",shortCode:"013"},{name:"Baltinava",shortCode:"014"},{name:"Balvi",shortCode:"015"},{name:"Bauska",shortCode:"016"},{name:"Beverīna",shortCode:"017"},{name:"Brocēni",shortCode:"018"},{name:"Burtnieki",shortCode:"019"},{name:"Carnikava",shortCode:"020"},{name:"Cesvaine",shortCode:"021"},{name:"Cēsis",shortCode:"022"},{name:"Cibla",shortCode:"023"},{name:"Dagda",shortCode:"024"},{name:"Daugavpils",shortCode:"025"},{name:"Daugavpils (City)",shortCode:"DGV"},{name:"Dobele",shortCode:"026"},{name:"Dundaga",shortCode:"027"},{name:"Durbe",shortCode:"028"},{name:"Engure",shortCode:"029"},{name:"Ērgļi",shortCode:"030"},{name:"Garkalne",shortCode:"031"},{name:"Grobiņa",shortCode:"032"},{name:"Gulbene",shortCode:"033"},{name:"Iecava",shortCode:"034"},{name:"Ikšķile",shortCode:"035"},{name:"Ilūkste",shortCode:"036"},{name:"Inčukalns",shortCode:"037"},{name:"Jaunjelgava",shortCode:"038"},{name:"Jaunpiebalga",shortCode:"039"},{name:"Jaunpils",shortCode:"040"},{name:"Jelgava",shortCode:"041"},{name:"Jelgava (City)",shortCode:"JEL"},{name:"Jēkabpils",shortCode:"042"},{name:"Jēkabpils (City)",shortCode:"JKB"},{name:"Jūrmala (City)",shortCode:"JUR"},{name:"Kandava",shortCode:"043"},{name:"Kārsava",shortCode:"044"},{name:"Kocēni",shortCode:"045"},{name:"Koknese",shortCode:"046"},{name:"Krāslava",shortCode:"047"},{name:"Krimulda",shortCode:"048"},{name:"Krustpils",shortCode:"049"},{name:"Kuldīga",shortCode:"050"},{name:"Ķegums",shortCode:"051"},{name:"Ķekava",shortCode:"052"},{name:"Lielvārde",shortCode:"053"},{name:"Liepāja",shortCode:"LPX"},{name:"Limbaži",shortCode:"054"},{name:"Līgatne",shortCode:"055"},{name:"Līvāni",shortCode:"056"},{name:"Lubāna",shortCode:"057"},{name:"Ludza",shortCode:"058"},{name:"Madona",shortCode:"059"},{name:"Mazsalaca",shortCode:"060"},{name:"Mālpils",shortCode:"061"},{name:"Mārupe",shortCode:"062"},{name:"Mērsrags",shortCode:"063"},{name:"Naukšēni",shortCode:"064"},{name:"Nereta",shortCode:"065"},{name:"Nīca",shortCode:"066"},{name:"Ogre",shortCode:"067"},{name:"Olaine",shortCode:"068"},{name:"Ozolnieki",shortCode:"069"},{name:"Pārgauja",shortCode:"070"},{name:"Pāvilosta",shortCode:"071"},{name:"Pļaviņas",shortCode:"072"},{name:"Preiļi",shortCode:"073"},{name:"Priekule",shortCode:"074"},{name:"Priekuļi",shortCode:"075"},{name:"Rauna",shortCode:"076"},{name:"Rēzekne",shortCode:"077"},{name:"Rēzekne (City)",shortCode:"REZ"},{name:"Riebiņi",shortCode:"078"},{name:"Rīga",shortCode:"RIX"},{name:"Roja",shortCode:"079"},{name:"Ropaži",shortCode:"080"},{name:"Rucava",shortCode:"081"},{name:"Rugāji",shortCode:"082"},{name:"Rundāle",shortCode:"083"},{name:"Rūjiena",shortCode:"084"},{name:"Sala",shortCode:"085"},{name:"Salacgrīva",shortCode:"086"},{name:"Salaspils",shortCode:"087"},{name:"Saldus",shortCode:"088"},{name:"Saulkrasti",shortCode:"089"},{name:"Sēja",shortCode:"090"},{name:"Sigulda",shortCode:"091"},{name:"Skrīveri",shortCode:"092"},{name:"Skrunda",shortCode:"093"},{name:"Smiltene",shortCode:"094"},{name:"Stopiņi",shortCode:"095"},{name:"Strenči",shortCode:"096"},{name:"Talsi",shortCode:"097"},{name:"Tērvete",shortCode:"098"},{name:"Tukums",shortCode:"099"},{name:"Vaiņode",shortCode:"100"},{name:"Valka",shortCode:"101"},{name:"Valmiera",shortCode:"VMR"},{name:"Varakļāni",shortCode:"102"},{name:"Vārkava",shortCode:"103"},{name:"Vecpiebalga",shortCode:"104"},{name:"Vecumnieki",shortCode:"105"},{name:"Ventspils",shortCode:"106"},{name:"Ventspils (City)",shortCode:"VEN"},{name:"Viesīte",shortCode:"107"},{name:"Viļaka",shortCode:"108"},{name:"Viļāni",shortCode:"109"},{name:"Zilupe",shortCode:"110"}]},{countryName:"Lebanon",countryShortCode:"LB",regions:[{name:"Aakkâr",shortCode:"AK"},{name:"Baalbelk-Hermel",shortCode:"BH"},{name:"Béqaa",shortCode:"BI"},{name:"Beyrouth",shortCode:"BA"},{name:"Liban-Nord",shortCode:"AS"},{name:"Liban-Sud",shortCode:"JA"},{name:"Mont-Liban",shortCode:"JL"},{name:"Nabatîyé",shortCode:"NA"}]},{countryName:"Lesotho",countryShortCode:"LS",regions:[{name:"Berea",shortCode:"D"},{name:"Butha-Buthe",shortCode:"B"},{name:"Leribe",shortCode:"C"},{name:"Mafeteng",shortCode:"E"},{name:"Maseru",shortCode:"A"},{name:"Mohales Hoek",shortCode:"F"},{name:"Mokhotlong",shortCode:"J"},{name:"Qacha's Nek",shortCode:"H"},{name:"Quthing",shortCode:"G"},{name:"Thaba-Tseka",shortCode:"K"}]},{countryName:"Liberia",countryShortCode:"LR",regions:[{name:"Bomi",shortCode:"BM"},{name:"Bong",shortCode:"BG"},{name:"Gbarpolu",shortCode:"GP"},{name:"Grand Bassa",shortCode:"GB"},{name:"Grand Cape Mount",shortCode:"CM"},{name:"Grand Gedeh",shortCode:"GG"},{name:"Grand Kru",shortCode:"GK"},{name:"Lofa",shortCode:"LO"},{name:"Margibi",shortCode:"MG"},{name:"Maryland",shortCode:"MY"},{name:"Montserrado",shortCode:"MO"},{name:"Nimba",shortCode:"NI"},{name:"River Cess",shortCode:"RI"},{name:"River Geee",shortCode:"RG"},{name:"Sinoe",shortCode:"SI"}]},{countryName:"Libya",countryShortCode:"LY",regions:[{name:"Al Buţnān",shortCode:"BU"},{name:"Al Jabal al Akhḑar",shortCode:"JA"},{name:"Al Jabal al Gharbī",shortCode:"JG"},{name:"Al Jafārah",shortCode:"JA"},{name:"Al Jufrah",shortCode:"JU"},{name:"Al Kufrah",shortCode:"FK"},{name:"Al Marj",shortCode:"MJ"},{name:"Al Marquab",shortCode:"MB"},{name:"Al Wāḩāt",shortCode:"WA"},{name:"An Nuqaţ al Khams",shortCode:"NQ"},{name:"Az Zāwiyah",shortCode:"ZA"},{name:"Banghāzī",shortCode:"BA"},{name:"Darnah",shortCode:"DR"},{name:"Ghāt",shortCode:"GH"},{name:"Mişrātah",shortCode:"MI"},{name:"Murzuq",shortCode:"MQ"},{name:"Nālūt",shortCode:"NL"},{name:"Sabhā",shortCode:"SB"},{name:"Surt",shortCode:"SR"},{name:"Ţarābulus",shortCode:"TB"},{name:"Yafran",shortCode:"WD"},{name:"Wādī ash Shāţiʾ",shortCode:"WS"}]},{countryName:"Liechtenstein",countryShortCode:"LI",regions:[{name:"Balzers",shortCode:"01"},{name:"Eschen",shortCode:"02"},{name:"Gamprin",shortCode:"03"},{name:"Mauren",shortCode:"04"},{name:"Planken",shortCode:"05"},{name:"Ruggell",shortCode:"06"},{name:"Schaan",shortCode:"07"},{name:"Schellenberg",shortCode:"08"},{name:"Triesen",shortCode:"09"},{name:"Triesenberg",shortCode:"10"},{name:"Vaduz",shortCode:"11"}]},{countryName:"Lithuania",countryShortCode:"LT",regions:[{name:"Alytaus",shortCode:"AL"},{name:"Kauno",shortCode:"KU"},{name:"Klaipėdos",shortCode:"KL"},{name:"Marijampolės",shortCode:"MR"},{name:"Panevėžio",shortCode:"PN"},{name:"Šiaulių",shortCode:"SA"},{name:"Tauragės",shortCode:"TA"},{name:"Telšių",shortCode:"TE"},{name:"Utenos",shortCode:"UT"},{name:"Vilniaus",shortCode:"VL"}]},{countryName:"Luxembourg",countryShortCode:"LU",regions:[{name:"Capellen",shortCode:"CA"},{name:"Clevaux",shortCode:"CL"},{name:"Diekirch",shortCode:"DI"},{name:"Echternach",shortCode:"EC"},{name:"Esch-sur-Alzette",shortCode:"ES"},{name:"Grevenmacher",shortCode:"GR"},{name:"Luxembourg",shortCode:"LU"},{name:"Mersch",shortCode:"ME"},{name:"Redange",shortCode:"RD"},{name:"Remich",shortCode:"RM"},{name:"Vianden",shortCode:"VD"},{name:"Wiltz",shortCode:"WI"}]},{countryName:"Macao",countryShortCode:"MO",regions:[{name:"Macao"}]},{countryName:"Macedonia, Republic of",countryShortCode:"MK",regions:[{name:"Aračinovo",shortCode:"02"},{name:"Berovo",shortCode:"03"},{name:"Bitola",shortCode:"04"},{name:"Bogdanci",shortCode:"05"},{name:"Bogovinje",shortCode:"06"},{name:"Bosilovo",shortCode:"07"},{name:"Brvenica",shortCode:"08"},{name:"Centar Župa",shortCode:"78"},{name:"Čaška",shortCode:"08"},{name:"Češinovo-Obleševo",shortCode:"81"},{name:"Čučer Sandevo",shortCode:"82"},{name:"Debar",shortCode:"21"},{name:"Debarca",shortCode:"22"},{name:"Delčevo",shortCode:"23"},{name:"Demir Hisar",shortCode:"25"},{name:"Demir Kapija",shortCode:"24"},{name:"Doran",shortCode:"26"},{name:"Dolneni",shortCode:"27"},{name:"Gevgelija",shortCode:"18"},{name:"Gostivar",shortCode:"19"},{name:"Gradsko",shortCode:"20"},{name:"Ilinden",shortCode:"34"},{name:"Jegunovce",shortCode:"35"},{name:"Karbinci",shortCode:"37"},{name:"Kavadarci",shortCode:"36"},{name:"Kičevo",shortCode:"40"},{name:"Kočani",shortCode:"42"},{name:"Konče",shortCode:"41"},{name:"Kratovo",shortCode:"43"},{name:"Kriva Palanka",shortCode:"44"},{name:"Krivogaštani",shortCode:"45"},{name:"Kruševo",shortCode:"46"},{name:"Kumanovo",shortCode:"47"},{name:"Lipkovo",shortCode:"48"},{name:"Lozovo",shortCode:"49"},{name:"Makedonska Kamenica",shortCode:"51"},{name:"Makedonski Brod",shortCode:"52"},{name:"Mavrovo i Rostuša",shortCode:"50"},{name:"Mogila",shortCode:"53"},{name:"Negotino",shortCode:"54"},{name:"Novaci",shortCode:"55"},{name:"Novo Selo",shortCode:"56"},{name:"Ohrid",shortCode:"58"},{name:"Pehčevo",shortCode:"60"},{name:"Petrovec",shortCode:"59"},{name:"Plasnica",shortCode:"61"},{name:"Prilep",shortCode:"62"},{name:"Probištip",shortCode:"63"},{name:"Radoviš",shortCode:""},{name:"Rankovce",shortCode:"65"},{name:"Resen",shortCode:"66"},{name:"Rosoman",shortCode:"67"},{name:"Skopje",shortCode:"85"},{name:"Sopište",shortCode:"70"},{name:"Staro Nagoričane",shortCode:"71"},{name:"Struga",shortCode:"72"},{name:"Strumica",shortCode:"73"},{name:"Studeničani",shortCode:"74"},{name:"Sveti Nikole",shortCode:"69"},{name:"Štip",shortCode:"83"},{name:"Tearce",shortCode:"75"},{name:"Tetovo",shortCode:"76"},{name:"Valandovo",shortCode:"10"},{name:"Vasilevo",shortCode:"11"},{name:"Veles",shortCode:"13"},{name:"Vevčani",shortCode:"12"},{name:"Vinica",shortCode:"14"},{name:"Vrapčište",shortCode:"16"},{name:"Zelenikovo",shortCode:"32"},{name:"Zrnovci",shortCode:"33"},{name:"Želino",shortCode:"30"}]},{countryName:"Madagascar",countryShortCode:"MG",regions:[{name:"Antananarivo",shortCode:"T"},{name:"Antsiranana",shortCode:"D"},{name:"Fianarantsoa",shortCode:"F"},{name:"Mahajanga",shortCode:"M"},{name:"Toamasina",shortCode:"A"},{name:"Toliara",shortCode:"U"}]},{countryName:"Malawi",countryShortCode:"MW",regions:[{name:"Balaka",shortCode:"BA"},{name:"Blantyre",shortCode:"BL"},{name:"Chikwawa",shortCode:"CK"},{name:"Chiradzulu",shortCode:"CR"},{name:"Chitipa",shortCode:"CT"},{name:"Dedza",shortCode:"DE"},{name:"Dowa",shortCode:"DO"},{name:"Karonga",shortCode:"KR"},{name:"Kasungu",shortCode:"KS"},{name:"Likoma",shortCode:"LK"},{name:"Lilongwe",shortCode:"LI"},{name:"Machinga",shortCode:"MH"},{name:"Mangochi",shortCode:"MG"},{name:"Mchinji",shortCode:"MC"},{name:"Mulanje",shortCode:"MU"},{name:"Mwanza",shortCode:"MW"},{name:"Mzimba",shortCode:"MZ"},{name:"Nkhata Bay",shortCode:"NE"},{name:"Nkhotakota",shortCode:"NB"},{name:"Nsanje",shortCode:"NS"},{name:"Ntcheu",shortCode:"NU"},{name:"Ntchisi",shortCode:"NI"},{name:"Phalombe",shortCode:"PH"},{name:"Rumphi",shortCode:"RU"},{name:"Salima",shortCode:"SA"},{name:"Thyolo",shortCode:"TH"},{name:"Zomba",shortCode:"ZO"}]},{countryName:"Malaysia",countryShortCode:"MY",regions:[{name:"Johor",shortCode:"01"},{name:"Kedah",shortCode:"02"},{name:"Kelantan",shortCode:"03"},{name:"Melaka",shortCode:"04"},{name:"Negeri Sembilan",shortCode:"05"},{name:"Pahang",shortCode:"06"},{name:"Perak",shortCode:"08"},{name:"Perlis",shortCode:"09"},{name:"Pulau Pinang",shortCode:"07"},{name:"Sabah",shortCode:"12"},{name:"Sarawak",shortCode:"13"},{name:"Selangor",shortCode:"10"},{name:"Terengganu",shortCode:"11"},{name:"Wilayah Persekutuan (Kuala Lumpur)",shortCode:"14"},{name:"Wilayah Persekutuan (Labuan)",shortCode:"15"},{name:"Wilayah Persekutuan (Putrajaya)",shortCode:"16"}]},{countryName:"Maldives",countryShortCode:"MV",regions:[{name:"Alifu Alifu",shortCode:"02"},{name:"Alifu Dhaalu",shortCode:"00"},{name:"Baa",shortCode:"20"},{name:"Dhaalu",shortCode:"17"},{name:"Faafu",shortCode:"14"},{name:"Gaafu Alifu",shortCode:"27"},{name:"Gaafu Dhaalu",shortCode:"28"},{name:"Gnaviyani",shortCode:"29"},{name:"Haa Alifu",shortCode:"07"},{name:"Haa Dhaalu",shortCode:"23"},{name:"Kaafu",shortCode:"29"},{name:"Laamu",shortCode:"05"},{name:"Lhaviyani",shortCode:"03"},{name:"Malé",shortCode:"MLE"},{name:"Meemu",shortCode:"12"},{name:"Noonu",shortCode:"25"},{name:"Raa",shortCode:"13"},{name:"Seenu",shortCode:"01"},{name:"Shaviyani",shortCode:"24"},{name:"Thaa",shortCode:"08"},{name:"Vaavu",shortCode:"04"}]},{countryName:"Mali",countryShortCode:"ML",regions:[{name:"Bamako",shortCode:"BKO"},{name:"Gao",shortCode:"7"},{name:"Kayes",shortCode:"1"},{name:"Kidal",shortCode:"8"},{name:"Koulikoro",shortCode:"2"},{name:"Mopti",shortCode:"5"},{name:"Segou",shortCode:"4"},{name:"Sikasso",shortCode:"3"},{name:"Tombouctou",shortCode:"6"}]},{countryName:"Malta",countryShortCode:"MT",regions:[{name:"Attard",shortCode:"01"},{name:"Balzan",shortCode:"02"},{name:"Birgu",shortCode:"03"},{name:"Birkirkara",shortCode:"04"},{name:"Birżebbuġa",shortCode:"05"},{name:"Bormla",shortCode:"06"},{name:"Dingli",shortCode:"07"},{name:"Fgura",shortCode:"08"},{name:"Floriana",shortCode:"09"},{name:"Fontana",shortCode:"10"},{name:"Guda",shortCode:"11"},{name:"Gżira",shortCode:"12"},{name:"Għajnsielem",shortCode:"13"},{name:"Għarb",shortCode:"14"},{name:"Għargħur",shortCode:"15"},{name:"Għasri",shortCode:"16"},{name:"Għaxaq",shortCode:"17"},{name:"Ħamrun",shortCode:"18"},{name:"Iklin",shortCode:"19"},{name:"Isla",shortCode:"20"},{name:"Kalkara",shortCode:"21"},{name:"Kerċem",shortCode:"22"},{name:"Kirkop",shortCode:"23"},{name:"Lija",shortCode:"24"},{name:"Luqa",shortCode:"25"},{name:"Marsa",shortCode:"26"},{name:"Marsaskala",shortCode:"27"},{name:"Marsaxlokk",shortCode:"28"},{name:"Mdina",shortCode:"29"},{name:"Mellieħa",shortCode:"30"},{name:"Mġarr",shortCode:"31"},{name:"Mosta",shortCode:"32"},{name:"Mqabba",shortCode:"33"},{name:"Msida",shortCode:"34"},{name:"Mtarfa",shortCode:"35"},{name:"Munxar",shortCode:"36"},{name:"Nadur",shortCode:"37"},{name:"Naxxar",shortCode:"38"},{name:"Paola",shortCode:"39"},{name:"Pembroke",shortCode:"40"},{name:"Pietà",shortCode:"41"},{name:"Qala",shortCode:"42"},{name:"Qormi",shortCode:"43"},{name:"Qrendi",shortCode:"44"},{name:"Rabat Għawdex",shortCode:"45"},{name:"Rabat Malta",shortCode:"46"},{name:"Safi",shortCode:"47"},{name:"San Ġiljan",shortCode:"48"},{name:"San Ġwann",shortCode:"49"},{name:"San Lawrenz",shortCode:"50"},{name:"San Pawl il-Baħar",shortCode:"51"},{name:"Sannat",shortCode:"52"},{name:"Santa Luċija",shortCode:"53"},{name:"Santa Venera",shortCode:"54"},{name:"Siġġiewi",shortCode:"55"},{name:"Sliema",shortCode:"56"},{name:"Swieqi",shortCode:"57"},{name:"Tai Xbiex",shortCode:"58"},{name:"Tarzien",shortCode:"59"},{name:"Valletta",shortCode:"60"},{name:"Xagħra",shortCode:"61"},{name:"Xewkija",shortCode:"62"},{name:"Xgħajra",shortCode:"63"},{name:"Żabbar",shortCode:"64"},{name:"Żebbuġ Għawde",shortCode:"65"},{name:"Żebbuġ Malta",shortCode:"66"},{name:"Żejtun",shortCode:"67"},{name:"Żurrieq",shortCode:"68"}]},{countryName:"Marshall Islands",countryShortCode:"MH",regions:[{name:"Ailinglaplap",shortCode:"ALL"},{name:"Ailuk",shortCode:"ALK"},{name:"Arno",shortCode:"ARN"},{name:"Aur",shortCode:"AUR"},{name:"Bikini and Kili",shortCode:"KIL"},{name:"Ebon",shortCode:"EBO"},{name:"Jabat",shortCode:"JAB"},{name:"Jaluit",shortCode:"JAL"},{name:"Kwajalein",shortCode:"KWA"},{name:"Lae",shortCode:"LAE"},{name:"Lib",shortCode:"LIB"},{name:"Likiep",shortCode:"LIK"},{name:"Majuro",shortCode:"MAJ"},{name:"Maloelap",shortCode:"MAL"},{name:"Mejit",shortCode:"MEJ"},{name:"Namdrik",shortCode:"NMK"},{name:"Namu",shortCode:"NMU"},{name:"Rongelap",shortCode:"RON"},{name:"Ujae",shortCode:"UJA"},{name:"Utrik",shortCode:"UTI"},{name:"Wotho",shortCode:"WTH"},{name:"Wotje",shortCode:"WTJ"}]},{countryName:"Martinique",countryShortCode:"MQ",regions:[{name:"Martinique"}]},{countryName:"Mauritania",countryShortCode:"MR",regions:[{name:"Adrar",shortCode:"07"},{name:"Assaba",shortCode:"03"},{name:"Brakna",shortCode:"05"},{name:"Dakhlet Nouadhibou",shortCode:"08"},{name:"Gorgol",shortCode:"04"},{name:"Guidimaka",shortCode:"10"},{name:"Hodh Ech Chargui",shortCode:"01"},{name:"Hodh El Gharbi",shortCode:"02"},{name:"Inchiri",shortCode:"12"},{name:"Nouakchott Nord",shortCode:"14"},{name:"Nouakchott Ouest",shortCode:"13"},{name:"Nouakchott Sud",shortCode:"15"},{name:"Tagant",shortCode:"09"},{name:"Tiris Zemmour",shortCode:"11"},{name:"Trarza",shortCode:"06"}]},{countryName:"Mauritius",countryShortCode:"MU",regions:[{name:"Agalega Islands",shortCode:"AG"},{name:"Beau Bassin-Rose Hill",shortCode:"BR"},{name:"Black River",shortCode:"BL"},{name:"Cargados Carajos Shoals",shortCode:"CC"},{name:"Curepipe",shortCode:"CU"},{name:"Flacq",shortCode:"FL"},{name:"Grand Port",shortCode:"GP"},{name:"Moka",shortCode:"MO"},{name:"Pamplemousses",shortCode:"PA"},{name:"Plaines Wilhems",shortCode:"PW"},{name:"Port Louis (City)",shortCode:"PU"},{name:"Port Louis",shortCode:"PL"},{name:"Riviere du Rempart",shortCode:"RR"},{name:"Rodrigues Island",shortCode:"RO"},{name:"Savanne",shortCode:"SA"},{name:"Vacoas-Phoenix",shortCode:"CP"}]},{countryName:"Mayotte",countryShortCode:"YT",regions:[{name:"Dzaoudzi",shortCode:"01"},{name:"Pamandzi",shortCode:"02"},{name:"Mamoudzou",shortCode:"03"},{name:"Dembeni",shortCode:"04"},{name:"Bandrélé",shortCode:"05"},{name:"Kani-Kéli",shortCode:"06"},{name:"Bouéni",shortCode:"07"},{name:"Chirongui",shortCode:"08"},{name:"Sada",shortCode:"09"},{name:"Ouangani",shortCode:"10"},{name:"Chiconi",shortCode:"11"},{name:"Tsingoni",shortCode:"12"},{name:"M'Tsangamouji",shortCode:"13"},{name:"Acoua",shortCode:"14"},{name:"Mtsamboro",shortCode:"15"},{name:"Bandraboua",shortCode:"16"},{name:"Koungou",shortCode:"17"}]},{countryName:"Mexico",countryShortCode:"MX",regions:[{name:"Aguascalientes",shortCode:"AGU"},{name:"Baja California",shortCode:"BCN"},{name:"Baja California Sur",shortCode:"BCS"},{name:"Campeche",shortCode:"CAM"},{name:"Ciudad de México",shortCode:"DIF"},{name:"Chiapas",shortCode:"CHP"},{name:"Chihuahua",shortCode:"CHH"},{name:"Coahuila de Zaragoza",shortCode:"COA"},{name:"Colima",shortCode:"COL"},{name:"Durango",shortCode:"DUR"},{name:"Estado de México",shortCode:"MEX"},{name:"Guanajuato",shortCode:"GUA"},{name:"Guerrero",shortCode:"GRO"},{name:"Hidalgo",shortCode:"HID"},{name:"Jalisco",shortCode:"JAL"},{name:"Michoacán de Ocampo",shortCode:"MIC"},{name:"Morelos",shortCode:"MOR"},{name:"Nayarit",shortCode:"NAY"},{name:"Nuevo León",shortCode:"NLE"},{name:"Oaxaca",shortCode:"OAX"},{name:"Puebla",shortCode:"PUE"},{name:"Querétaro de Arteaga",shortCode:"QUE"},{name:"Quintana Roo",shortCode:"ROO"},{name:"San Luis Potosí",shortCode:"SLP"},{name:"Sinaloa",shortCode:"SIN"},{name:"Sonora",shortCode:"SON"},{name:"Tabasco",shortCode:"TAB"},{name:"Tamaulipas",shortCode:"TAM"},{name:"Tlaxcala",shortCode:"TLA"},{name:"Veracruz",shortCode:"VER"},{name:"Yucatán",shortCode:"YUC"},{name:"Zacatecas",shortCode:"ZAC"}]},{countryName:"Micronesia, Federated States of",countryShortCode:"FM",regions:[{name:"Chuuk (Truk)",shortCode:"TRK"},{name:"Kosrae",shortCode:"KSA"},{name:"Pohnpei",shortCode:"PNI"},{name:"Yap",shortCode:"YAP"}]},{countryName:"Moldova",countryShortCode:"MD",regions:[{name:"Aenii Noi",shortCode:"AN"},{name:"Basarabeasca",shortCode:"BS"},{name:"Bălți",shortCode:"BA"},{name:"Bender",shortCode:"BD"},{name:"Briceni",shortCode:"BR"},{name:"Cahul",shortCode:"CA"},{name:"Cantemir",shortCode:"CT"},{name:"Călărași",shortCode:"CL"},{name:"Căușeni",shortCode:"CS"},{name:"Chișinău",shortCode:"CU"},{name:"Cimișlia",shortCode:"CM"},{name:"Criuleni",shortCode:"CR"},{name:"Dondușeni",shortCode:"DO"},{name:"Drochia",shortCode:"DR"},{name:"Dubăsari",shortCode:"DU"},{name:"Edineț",shortCode:"ED"},{name:"Fălești",shortCode:"FA"},{name:"Florești",shortCode:"FL"},{name:"Găgăuzia",shortCode:"GA"},{name:"Glodeni",shortCode:"GL"},{name:"Hîncești",shortCode:"HI"},{name:"Ialoveni",shortCode:"IA"},{name:"Leova",shortCode:"LE"},{name:"Nisporeni",shortCode:"NI"},{name:"Ocnița",shortCode:"OC"},{name:"Orhei",shortCode:"OR"},{name:"Rezina",shortCode:"RE"},{name:"Rîșcani",shortCode:"RI"},{name:"Sîngerei",shortCode:"SI"},{name:"Soroca",shortCode:"SO"},{name:"Stînga Nistrului",shortCode:"SN"},{name:"Strășeni",shortCode:"ST"},{name:"Șoldănești",shortCode:"SD"},{name:"Ștefan Vodă",shortCode:"SV"},{name:"Taraclia",shortCode:"TA"},{name:"Telenești",shortCode:"TE"},{name:"Ungheni",shortCode:"UN"}]},{countryName:"Monaco",countryShortCode:"MC",regions:[{name:"Colle",shortCode:"CL"},{name:"Condamine",shortCode:"CO"},{name:"Fontvieille",shortCode:"FO"},{name:"Gare",shortCode:"GA"},{name:"Jardin Exotique",shortCode:"JE"},{name:"Larvotto",shortCode:"LA"},{name:"Malbousquet",shortCode:"MA"},{name:"Monaco-Ville",shortCode:"MO"},{name:"Moneghetti",shortCode:"MG"},{name:"Monte-Carlo",shortCode:"MC"},{name:"Moulins",shortCode:"MU"},{name:"Port-Hercule",shortCode:"PH"},{name:"Saint-Roman",shortCode:"SR"},{name:"Sainte-Dévote",shortCode:"SD"},{name:"Source",shortCode:"SO"},{name:"Spélugues",shortCode:"SP"},{name:"Vallon de la Rousse",shortCode:"VR"}]},{countryName:"Mongolia",countryShortCode:"MN",regions:[{name:"Arhangay",shortCode:"073"},{name:"Bayan-Olgiy",shortCode:"071"},{name:"Bayanhongor",shortCode:"069"},{name:"Bulgan",shortCode:"067"},{name:"Darhan",shortCode:"037"},{name:"Dornod",shortCode:"061"},{name:"Dornogovi",shortCode:"063"},{name:"Dundgovi",shortCode:"059"},{name:"Dzavhan",shortCode:"065"},{name:"Govi-Altay",shortCode:"065"},{name:"Govi-Sumber",shortCode:"064"},{name:"Hovd",shortCode:"043"},{name:"Hovsgol",shortCode:"041"},{name:"Omnogovi",shortCode:"053"},{name:"Ovorhangay",shortCode:"055"},{name:"Selenge",shortCode:"049"},{name:"Suhbaatar",shortCode:"051"},{name:"Tov",shortCode:"047"},{name:"Ulaanbaatar",shortCode:"1"},{name:"Uvs",shortCode:"046"}]},{countryName:"Montenegro",countryShortCode:"ME",regions:[{name:"Andrijevica",shortCode:"01"},{name:"Bar",shortCode:"02"},{name:"Berane",shortCode:"03"},{name:"Bijelo Polje",shortCode:"04"},{name:"Budva",shortCode:"05"},{name:"Cetinje",shortCode:"06"},{name:"Danilovgrad",shortCode:"07"},{name:"Gusinje",shortCode:"22"},{name:"Herceg Novi",shortCode:"08"},{name:"Kolašin",shortCode:"09"},{name:"Kotor",shortCode:"10"},{name:"Mojkovac",shortCode:"11"},{name:"Nikšić",shortCode:"12"},{name:"Petnica",shortCode:"23"},{name:"Plav",shortCode:"13"},{name:"Plužine",shortCode:"14"},{name:"Pljevlja",shortCode:"15"},{name:"Podgorica",shortCode:"16"},{name:"Rožaje",shortCode:"17"},{name:"Šavnik",shortCode:"18"},{name:"Tivat",shortCode:"19"},{name:"Ulcinj",shortCode:"20"},{name:"Žabljak",shortCode:"21"}]},{countryName:"Montserrat",countryShortCode:"MS",regions:[{name:"Saint Anthony"},{name:"Saint Georges"},{name:"Saint Peter's"}]},{countryName:"Morocco",countryShortCode:"MA",regions:[{name:"Chaouia-Ouardigha",shortCode:"09"},{name:"Doukhala-Abda",shortCode:"10"},{name:"Fès-Boulemane",shortCode:"05"},{name:"Gharb-Chrarda-Beni Hssen",shortCode:"02"},{name:"Grand Casablanca",shortCode:"08"},{name:"Guelmim-Es Semara",shortCode:"14"},{name:"Laâyoune-Boujdour-Sakia el Hamra",shortCode:"15"},{name:"Marrakech-Tensift-Al Haouz",shortCode:"11"},{name:"Meknès-Tafilalet",shortCode:"06"},{name:"Oriental",shortCode:"04"},{name:"Oued ed Dahab-Lagouira",shortCode:"16"},{name:"Souss-Massa-Drâa",shortCode:"13"},{name:"Tadla-Azilal",shortCode:"12"},{name:"Tanger-Tétouan",shortCode:"01"},{name:"Taza-Al Hoceima-Taounate",shortCode:"03"}]},{countryName:"Mozambique",countryShortCode:"MZ",regions:[{name:"Cabo Delgado",shortCode:"P"},{name:"Gaza",shortCode:"G"},{name:"Inhambane",shortCode:"I"},{name:"Manica",shortCode:"B"},{name:"Maputo",shortCode:"L"},{name:"Maputo (City)",shortCode:"MPM"},{name:"Nampula",shortCode:"N"},{name:"Niassa",shortCode:"A"},{name:"Sofala",shortCode:"S"},{name:"Tete",shortCode:"T"},{name:"Zambezia",shortCode:"Q"}]},{countryName:"Myanmar",countryShortCode:"MM",regions:[{name:"Ayeyarwady",shortCode:"07"},{name:"Bago",shortCode:"02"},{name:"Chin",shortCode:"14"},{name:"Kachin",shortCode:"11"},{name:"Kayah",shortCode:"12"},{name:"Kayin",shortCode:"13"},{name:"Magway",shortCode:"03"},{name:"Mandalay",shortCode:"04"},{name:"Mon",shortCode:"15"},{name:"Nay Pyi Taw",shortCode:"18"},{name:"Rakhine",shortCode:"16"},{name:"Sagaing",shortCode:"01"},{name:"Shan",shortCode:"17"},{name:"Tanintharyi",shortCode:"05"},{name:"Yangon",shortCode:"06"}]},{countryName:"Namibia",countryShortCode:"NA",regions:[{name:"Erongo",shortCode:"ER"},{name:"Hardap",shortCode:"HA"},{name:"Kavango East",shortCode:"KE"},{name:"Kavango West",shortCode:"KW"},{name:"Karas",shortCode:"KA"},{name:"Khomas",shortCode:"KH"},{name:"Kunene",shortCode:"KU"},{name:"Ohangwena",shortCode:"OW"},{name:"Omaheke",shortCode:"OH"},{name:"Omusati",shortCode:"OS"},{name:"Oshana",shortCode:"ON"},{name:"Oshikoto",shortCode:"OT"},{name:"Otjozondjupa",shortCode:"OD"},{name:"Zambezi",shortCode:"CA"}]},{countryName:"Nauru",countryShortCode:"NR",regions:[{name:"Aiwo",shortCode:"01"},{name:"Anabar",shortCode:"02"},{name:"Anetan",shortCode:"03"},{name:"Anibare",shortCode:"04"},{name:"Baiti",shortCode:"05"},{name:"Boe",shortCode:"06"},{name:"Buada",shortCode:"07"},{name:"Denigomodu",shortCode:"08"},{name:"Ewa",shortCode:"09"},{name:"Ijuw",shortCode:"10"},{name:"Meneng",shortCode:"11"},{name:"Nibok",shortCode:"12"},{name:"Uaboe",shortCode:"13"},{name:"Yaren",shortCode:"14"}]},{countryName:"Nepal",countryShortCode:"NP",regions:[{name:"Bagmati",shortCode:"BA"},{name:"Bheri",shortCode:"BH"},{name:"Dhawalagiri",shortCode:"DH"},{name:"Gandaki",shortCode:"GA"},{name:"Janakpur",shortCode:"JA"},{name:"Karnali",shortCode:"KA"},{name:"Kosi",shortCode:"KO"},{name:"Lumbini",shortCode:"LU"},{name:"Mahakali",shortCode:"MA"},{name:"Mechi",shortCode:"ME"},{name:"Narayani",shortCode:"NA"},{name:"Rapti",shortCode:"RA"},{name:"Sagarmatha",shortCode:"SA"},{name:"Seti",shortCode:"SE"}]},{countryName:"Netherlands",countryShortCode:"NL",regions:[{name:"Drenthe",shortCode:"DR"},{name:"Flevoland",shortCode:"FL"},{name:"Friesland",shortCode:"FR"},{name:"Gelderland",shortCode:"GE"},{name:"Groningen",shortCode:"GR"},{name:"Limburg",shortCode:"LI"},{name:"Noord-Brabant",shortCode:"NB"},{name:"Noord-Holland",shortCode:"NH"},{name:"Overijssel",shortCode:"OV"},{name:"Utrecht",shortCode:"UT"},{name:"Zeeland",shortCode:"ZE"},{name:"Zuid-Holland",shortCode:"ZH"}]},{countryName:"New Caledonia",countryShortCode:"NC",regions:[{name:"Iles Loyaute"},{name:"Nord"},{name:"Sud"}]},{countryName:"New Zealand",countryShortCode:"NZ",regions:[{name:"Auckland",shortCode:"AUK"},{name:"Bay of Plenty",shortCode:"BOP"},{name:"Canterbury",shortCode:"CAN"},{name:"Gisborne",shortCode:"GIS"},{name:"Hawke's Bay",shortCode:"HKB"},{name:"Marlborough",shortCode:"MBH"},{name:"Manawatu-Wanganui",shortCode:"MWT"},{name:"Northland",shortCode:"NTL"},{name:"Nelson",shortCode:"NSN"},{name:"Otago",shortCode:"OTA"},{name:"Southland",shortCode:"STL"},{name:"Taranaki",shortCode:"TKI"},{name:"Tasman",shortCode:"TAS"},{name:"Waikato",shortCode:"WKO"},{name:"Wellington",shortCode:"WGN"},{name:"West Coast",shortCode:"WTC"},{name:"Chatham Islands Territory",shortCode:"CIT"}]},{countryName:"Nicaragua",countryShortCode:"NI",regions:[{name:"Boaco",shortCode:"BO"},{name:"Carazo",shortCode:"CA"},{name:"Chinandega",shortCode:"CI"},{name:"Chontales",shortCode:"CO"},{name:"Estelí",shortCode:"ES"},{name:"Granada",shortCode:"GR"},{name:"Jinotega",shortCode:"JI"},{name:"León",shortCode:"LE"},{name:"Madriz",shortCode:"MD"},{name:"Managua",shortCode:"MN"},{name:"Masaya",shortCode:"MS"},{name:"Matagalpa",shortCode:"MT"},{name:"Nueva Segovia",shortCode:"NS"},{name:"Río San Juan",shortCode:"SJ"},{name:"Rivas",shortCode:"RI"},{name:"Atlántico Norte",shortCode:"AN"},{name:"Atlántico Sur",shortCode:"AS"}]},{countryName:"Niger",countryShortCode:"NE",regions:[{name:"Agadez",shortCode:"1"},{name:"Diffa",shortCode:"2"},{name:"Dosso",shortCode:"3"},{name:"Maradi",shortCode:"4"},{name:"Niamey",shortCode:"8"},{name:"Tahoua",shortCode:"5"},{name:"Tillabéri",shortCode:"6"},{name:"Zinder",shortCode:"7"}]},{countryName:"Nigeria",countryShortCode:"NG",regions:[{name:"Abia",shortCode:"AB"},{name:"Abuja Federal Capital Territory",shortCode:"FC"},{name:"Adamawa",shortCode:"AD"},{name:"Akwa Ibom",shortCode:"AK"},{name:"Anambra",shortCode:"AN"},{name:"Bauchi",shortCode:"BA"},{name:"Bayelsa",shortCode:"BY"},{name:"Benue",shortCode:"BE"},{name:"Borno",shortCode:"BO"},{name:"Cross River",shortCode:"CR"},{name:"Delta",shortCode:"DE"},{name:"Ebonyi",shortCode:"EB"},{name:"Edo",shortCode:"ED"},{name:"Ekiti",shortCode:"EK"},{name:"Enugu",shortCode:"EN"},{name:"Gombe",shortCode:"GO"},{name:"Imo",shortCode:"IM"},{name:"Jigawa",shortCode:"JI"},{name:"Kaduna",shortCode:"KD"},{name:"Kano",shortCode:"KN"},{name:"Katsina",shortCode:"KT"},{name:"Kebbi",shortCode:"KE"},{name:"Kogi",shortCode:"KO"},{name:"Kwara",shortCode:"KW"},{name:"Lagos",shortCode:"LA"},{name:"Nassarawa",shortCode:"NA"},{name:"Niger",shortCode:"NI"},{name:"Ogun",shortCode:"OG"},{name:"Ondo",shortCode:"ON"},{name:"Osun",shortCode:"OS"},{name:"Oyo",shortCode:"OY"},{name:"Plateau",shortCode:"PL"},{name:"Rivers",shortCode:"RI"},{name:"Sokoto",shortCode:"SO"},{name:"Taraba",shortCode:"TA"},{name:"Yobe",shortCode:"YO"},{name:"Zamfara",shortCode:"ZA"}]},{countryName:"Niue",countryShortCode:"NU",regions:[{name:"Niue"}]},{countryName:"Norfolk Island",countryShortCode:"NF",regions:[{name:"Norfolk Island"}]},{countryName:"Northern Mariana Islands",countryShortCode:"MP",regions:[{name:"Northern Islands"},{name:"Rota"},{name:"Saipan"},{name:"Tinian"}]},{countryName:"Norway",countryShortCode:"NO",regions:[{name:"Akershus",shortCode:"02"},{name:"Aust-Agder",shortCode:"09"},{name:"Buskerud",shortCode:"06"},{name:"Finnmark",shortCode:"20"},{name:"Hedmark",shortCode:"04"},{name:"Hordaland",shortCode:"12"},{name:"Møre og Romsdal",shortCode:"15"},{name:"Nordland",shortCode:"18"},{name:"Nord-Trøndelag",shortCode:"17"},{name:"Oppland",shortCode:"05"},{name:"Oslo",shortCode:"03"},{name:"Rogaland",shortCode:"11"},{name:"Sogn og Fjordane",shortCode:"14"},{name:"Sør-Trøndelag",shortCode:"16"},{name:"Telemark",shortCode:"08"},{name:"Troms",shortCode:"19"},{name:"Vest-Agder",shortCode:"10"},{name:"Vestfold",shortCode:"07"},{name:"Østfold",shortCode:"01"},{name:"Jan Mayen",shortCode:"22"},{name:"Svalbard",shortCode:"21"}]},{countryName:"Oman",countryShortCode:"OM",regions:[{name:"Ad Dakhiliyah",shortCode:"DA"},{name:"Al Buraymi",shortCode:"BU"},{name:"Al Wusta",shortCode:"WU"},{name:"Az Zahirah",shortCode:"ZA"},{name:"Janub al Batinah",shortCode:"BS"},{name:"Janub ash Sharqiyah",shortCode:"SS"},{name:"Masqat",shortCode:"MA"},{name:"Musandam",shortCode:"MU"},{name:"Shamal al Batinah",shortCode:"BJ"},{name:"Shamal ash Sharqiyah",shortCode:"SJ"},{name:"Zufar",shortCode:"ZU"}]},{countryName:"Pakistan",countryShortCode:"PK",regions:[{name:"Āzād Kashmīr",shortCode:"JK"},{name:"Balōchistān",shortCode:"BA"},{name:"Gilgit-Baltistān",shortCode:"GB"},{name:"Islāmābād",shortCode:"IS"},{name:"Khaībar Pakhtūnkhwās",shortCode:"KP"},{name:"Punjāb",shortCode:"PB"},{name:"Sindh",shortCode:"SD"},{name:"Federally Administered Tribal Areas",shortCode:"TA"}]},{countryName:"Palau",countryShortCode:"PW",regions:[{name:"Aimeliik",shortCode:"002"},{name:"Airai",shortCode:"004"},{name:"Angaur",shortCode:"010"},{name:"Hatobohei",shortCode:"050"},{name:"Kayangel",shortCode:"100"},{name:"Koror",shortCode:"150"},{name:"Melekeok",shortCode:"212"},{name:"Ngaraard",shortCode:"214"},{name:"Ngarchelong",shortCode:"218"},{name:"Ngardmau",shortCode:"222"},{name:"Ngatpang",shortCode:"224"},{name:"Ngchesar",shortCode:"226"},{name:"Ngeremlengui",shortCode:"227"},{name:"Ngiwal",shortCode:"228"},{name:"Peleliu",shortCode:"350"},{name:"Sonsoral",shortCode:"350"}]},{countryName:"Palestine, State of",countryShortCode:"PS",regions:[{name:"Ak Khalīl",shortCode:"HBN"},{name:"Al Quds",shortCode:"JEM"},{name:"Arīḩā wal Aghwār",shortCode:"JRH"},{name:"Bayt Laḩm",shortCode:"BTH"},{name:"Dayr al Balaḩ",shortCode:"DEB"},{name:"Ghazzah",shortCode:"GZA"},{name:"Janīn",shortCode:"JEN"},{name:"Khān Yūnis",shortCode:"KYS"},{name:"Nāblus",shortCode:"NBS"},{name:"Qalqīyah",shortCode:"QQA"},{name:"Rafaḩ",shortCode:"RFH"},{name:"Rām Allāh wal Bīrah",shortCode:"RBH"},{name:"Salfīt",shortCode:"SLT"},{name:"Shamāl Ghazzah",shortCode:"NGZ"},{name:"Ţūbās",shortCode:"TBS"},{name:"Ţūlkarm",shortCode:"TKM"}]},{countryName:"Panama",countryShortCode:"PA",regions:[{name:"Bocas del Toro",shortCode:"1"},{name:"Chiriquí",shortCode:"4"},{name:"Coclé",shortCode:"2"},{name:"Colón",shortCode:"3"},{name:"Darién",shortCode:"5"},{name:"Emberá",shortCode:"EM"},{name:"Herrera",shortCode:"6"},{name:"Kuna Yala",shortCode:"KY"},{name:"Los Santos",shortCode:"7"},{name:"Ngäbe-Buglé",shortCode:"NB"},{name:"Panamá",shortCode:"8"},{name:"Panamá Oeste",shortCode:"10"},{name:"Veraguas",shortCode:"9"}]},{countryName:"Papua New Guinea",countryShortCode:"PG",regions:[{name:"Bougainville",shortCode:"NSB"},{name:"Central",shortCode:"CPM"},{name:"Chimbu",shortCode:"CPK"},{name:"East New Britain",shortCode:"EBR"},{name:"East Sepik",shortCode:"ESW"},{name:"Eastern Highlands",shortCode:"EHG"},{name:"Enga",shortCode:"EPW"},{name:"Gulf",shortCode:"GPK"},{name:"Hela",shortCode:"HLA"},{name:"Jiwaka",shortCode:"JWK"},{name:"Madang",shortCode:"MOM"},{name:"Manus",shortCode:"MRL"},{name:"Milne Bay",shortCode:"MBA"},{name:"Morobe",shortCode:"MPL"},{name:"Port Moresby",shortCode:"NCD"},{name:"New Ireland",shortCode:"NIK"},{name:"Northern",shortCode:"NPP"},{name:"Southern Highlands",shortCode:"SHM"},{name:"West New Britain",shortCode:"WBK"},{name:"West Sepik",shortCode:"SAN"},{name:"Western",shortCode:"WPD"},{name:"Western Highlands",shortCode:"WHM"}]},{countryName:"Paraguay",countryShortCode:"PY",regions:[{name:"Alto Paraguay",shortCode:"16"},{name:"Alto Parana",shortCode:"10"},{name:"Amambay",shortCode:"13"},{name:"Asuncion",shortCode:"ASU"},{name:"Caaguazu",shortCode:"5"},{name:"Caazapa",shortCode:"6"},{name:"Canindeyu",shortCode:"14"},{name:"Central",shortCode:"11"},{name:"Concepcion",shortCode:"1"},{name:"Cordillera",shortCode:"3"},{name:"Guaira",shortCode:"4"},{name:"Itapua",shortCode:"7"},{name:"Misiones",shortCode:"8"},{name:"Neembucu",shortCode:"12"},{name:"Paraguari",shortCode:"9"},{name:"Presidente Hayes",shortCode:"15"},{name:"San Pedro",shortCode:"2"}]},{countryName:"Peru",countryShortCode:"PE",regions:[{name:"Amazonas",shortCode:"AMA"},{name:"Ancash",shortCode:"ANC"},{name:"Apurimac",shortCode:"APU"},{name:"Arequipa",shortCode:"ARE"},{name:"Ayacucho",shortCode:"AYA"},{name:"Cajamarca",shortCode:"CAJ"},{name:"Callao",shortCode:"CAL"},{name:"Cusco",shortCode:"CUS"},{name:"Huancavelica",shortCode:"HUV"},{name:"Huanuco",shortCode:"HUC"},{name:"Ica",shortCode:"ICA"},{name:"Junin",shortCode:"JUN"},{name:"La Libertad",shortCode:"LAL"},{name:"Lambayeque",shortCode:"LAM"},{name:"Lima",shortCode:"LIM"},{name:"Loreto",shortCode:"LOR"},{name:"Madre de Dios",shortCode:"MDD"},{name:"Moquegua",shortCode:"MOQ"},{name:"Municipalidad Metropolitana de Lima",shortCode:"LMA"},{name:"Pasco",shortCode:"PAS"},{name:"Piura",shortCode:"PIU"},{name:"Puno",shortCode:"PUN"},{name:"San Martin",shortCode:"SAM"},{name:"Tacna",shortCode:"TAC"},{name:"Tumbes",shortCode:"TUM"},{name:"Ucayali",shortCode:"UCA"}]},{countryName:"Philippines",countryShortCode:"PH",regions:[{name:"Abra",shortCode:"ABR"},{name:"Agusan del Norte",shortCode:"AGN"},{name:"Agusan del Sur",shortCode:"AGS"},{name:"Aklan",shortCode:"AKL"},{name:"Albay",shortCode:"ALB"},{name:"Antique",shortCode:"ANT"},{name:"Apayao",shortCode:"APA"},{name:"Aurora",shortCode:"AUR"},{name:"Basilan",shortCode:"BAS"},{name:"Bataan",shortCode:"BAN"},{name:"Batanes",shortCode:"BTN"},{name:"Batangas",shortCode:"BTG"},{name:"Benguet",shortCode:"BEN"},{name:"Biliran",shortCode:"BIL"},{name:"Bohol",shortCode:"BOH"},{name:"Bukidnon",shortCode:"BUK"},{name:"Bulacan",shortCode:"BUL"},{name:"Cagayan",shortCode:"CAG"},{name:"Camarines Norte",shortCode:"CAN"},{name:"Camarines Sur",shortCode:"CAS"},{name:"Camiguin",shortCode:"CAM"},{name:"Capiz",shortCode:"CAP"},{name:"Catanduanes",shortCode:"CAT"},{name:"Cavite",shortCode:"CAV"},{name:"Cebu",shortCode:"CEB"},{name:"Compostela",shortCode:"COM"},{name:"Cotabato",shortCode:"NCO"},{name:"Davao del Norte",shortCode:"DAV"},{name:"Davao del Sur",shortCode:"DAS"},{name:"Davao Occidental",shortCode:"DVO"},{name:"Davao Oriental",shortCode:"DAO"},{name:"Dinagat Islands",shortCode:"DIN"},{name:"Eastern Samar",shortCode:"EAS"},{name:"Guimaras",shortCode:"GUI"},{name:"Ifugao",shortCode:"IFU"},{name:"Ilocos Norte",shortCode:"ILN"},{name:"Ilocos Sur",shortCode:"ILS"},{name:"Iloilo",shortCode:"ILI"},{name:"Isabela",shortCode:"ISA"},{name:"Kalinga",shortCode:"KAL"},{name:"La Union",shortCode:"LUN"},{name:"Laguna",shortCode:"LAG"},{name:"Lanao del Norte",shortCode:"LAN"},{name:"Lanao del Sur",shortCode:"LAS"},{name:"Leyte",shortCode:"LEY"},{name:"Maguindanao",shortCode:"MAG"},{name:"Masbate",shortCode:"MAS"},{name:"Metro Manila",shortCode:"00"},{name:"Mindoro Occidental",shortCode:"MDC"},{name:"Mindoro Oriental",shortCode:"MDR"},{name:"Misamis Occidental",shortCode:"MSC"},{name:"Misamis Oriental",shortCode:"MSR"},{name:"Mountain Province",shortCode:"MOU"},{name:"Negros Occidental",shortCode:"NEC"},{name:"Negros Oriental",shortCode:"NER"},{name:"Northern Samar",shortCode:"NSA"},{name:"Nueva Ecija",shortCode:"NUE"},{name:"Nueva Vizcaya",shortCode:"NUV"},{name:"Palawan",shortCode:"PLW"},{name:"Pampanga",shortCode:"PAM"},{name:"Pangasinan",shortCode:"PAN"},{name:"Quezon",shortCode:"QUE"},{name:"Quirino",shortCode:"QUI"},{name:"Rizal",shortCode:"RIZ"},{name:"Romblon",shortCode:"ROM"},{name:"Samar",shortCode:"WSA"},{name:"Sarangani",shortCode:"SAR"},{name:"Siquijor",shortCode:"SIG"},{name:"Sorsogon",shortCode:"SOR"},{name:"Southern Leyte",shortCode:"SLE"},{name:"Sultan Kudarat",shortCode:"AUK"},{name:"Sulu",shortCode:"SLU"},{name:"Surigao del Norte",shortCode:"SUN"},{name:"Surigao del Sur",shortCode:"SUR"},{name:"Tarlac",shortCode:"TAR"},{name:"Tawi-Tawi",shortCode:"TAW"},{name:"Zambales",shortCode:"ZMB"},{name:"Zamboanga del Norte",shortCode:"ZAN"},{name:"Zamboanga del Sur",shortCode:"ZAS"},{name:"Zamboanga Sibugay",shortCode:"ZSI"}]},{countryName:"Pitcairn",countryShortCode:"PN",regions:[{name:"Pitcairn Islands"}]},{countryName:"Poland",countryShortCode:"PL",regions:[{name:"Dolnośląskie",shortCode:"DS"},{name:"Kujawsko-pomorskie",shortCode:"KP"},{name:"Łódzkie",shortCode:"LD"},{name:"Lubelskie",shortCode:"LU"},{name:"Lubuskie",shortCode:"LB"},{name:"Malopolskie",shortCode:"MA"},{name:"Mazowieckie",shortCode:"MZ"},{name:"Opolskie",shortCode:"OP"},{name:"Podkarpackie",shortCode:"PK"},{name:"Podlaskie",shortCode:"PD"},{name:"Pomorskie",shortCode:"PM"},{name:"Śląskie",shortCode:"SL"},{name:"Świętokrzyskie",shortCode:"SK"},{name:"Warmińsko-mazurskie",shortCode:"WN"},{name:"Wielkopolskie",shortCode:"WP"},{name:"Zachodniopomorskie",shortCode:"ZP"}]},{countryName:"Portugal",countryShortCode:"PT",regions:[{name:"Açores",shortCode:"20"},{name:"Aveiro",shortCode:"01"},{name:"Beja",shortCode:"02"},{name:"Braga",shortCode:"03"},{name:"Bragança",shortCode:"04"},{name:"Castelo Branco",shortCode:"05"},{name:"Coimbra",shortCode:"06"},{name:"Évora",shortCode:"07"},{name:"Faro",shortCode:"08"},{name:"Guarda",shortCode:"09"},{name:"Leiria",shortCode:"10"},{name:"Lisboa",shortCode:"11"},{name:"Madeira",shortCode:"30"},{name:"Portalegre",shortCode:"12"},{name:"Porto",shortCode:"13"},{name:"Santarém",shortCode:"14"},{name:"Setúbal",shortCode:"15"},{name:"Viana do Castelo",shortCode:"16"},{name:"Vila Real",shortCode:"17"},{name:"Viseu",shortCode:"18"}]},{countryName:"Puerto Rico",countryShortCode:"PR",regions:[{name:"Adjuntas"},{name:"Aguada"},{name:"Aguadilla"},{name:"Aguas Buenas"},{name:"Aibonito"},{name:"Anasco"},{name:"Arecibo"},{name:"Arroyo"},{name:"Barceloneta"},{name:"Barranquitas"},{name:"Bayamon"},{name:"Cabo Rojo"},{name:"Caguas"},{name:"Camuy"},{name:"Canovanas"},{name:"Carolina"},{name:"Cat"},{name:"Ceiba"},{name:"Ciales"},{name:"Cidra"},{name:"Coamo"},{name:"Comerio"},{name:"Corozal"},{name:"Culebra"},{name:"Dorado"},{name:"Fajardo"},{name:"Florida"},{name:"Guanica"},{name:"Guayama"},{name:"Guayanilla"},{name:"Guaynabo"},{name:"Gurabo"},{name:"Hatillo"},{name:"Hormigueros"},{name:"Humacao"},{name:"Isabe"},{name:"Juana Diaz"},{name:"Juncos"},{name:"Lajas"},{name:"Lares"},{name:"Las Marias"},{name:"Las oiza"},{name:"Luquillo"},{name:"Manati"},{name:"Maricao"},{name:"Maunabo"},{name:"Mayaguez"},{name:"Moca"},{name:"Morovis"},{name:"Naguabo"},{name:"Naranjito"},{name:"Orocovis"},{name:"Patillas"},{name:"Penuelas"},{name:"Ponce"},{name:"Quebradillas"},{name:"Rincon"},{name:"Rio Grande"},{name:"Sabana linas"},{name:"San German"},{name:"San Juan"},{name:"San Lorenzo"},{name:"San Sebastian"},{name:"Santa Isabel"},{name:"Toa Alta"},{name:"Toa Baja"},{name:"Trujillo Alto"},{name:"Utuado"},{name:"Vega Alta"},{name:"Vega ues"},{name:"Villalba"},{name:"Yabucoa"},{name:"Yauco"}]},{countryName:"Qatar",countryShortCode:"QA",regions:[{name:"Ad Dawḩah",shortCode:"DA"},{name:"Al Khawr wa adh Dhakhīrah",shortCode:"KH"},{name:"Al Wakrah",shortCode:"WA"},{name:"Ar Rayyān",shortCode:"RA"},{name:"Ash Shamāl",shortCode:"MS"},{name:"Az̧ Za̧`āyin",shortCode:"ZA"},{name:"Umm Şalāl",shortCode:"US"}]},{countryName:"Réunion",countryShortCode:"RE",regions:[{name:"Réunion"}]},{countryName:"Romania",countryShortCode:"RO",regions:[{name:"Alba",shortCode:"AB"},{name:"Arad",shortCode:"AR"},{name:"Arges",shortCode:"AG"},{name:"Bacau",shortCode:"BC"},{name:"Bihor",shortCode:"BH"},{name:"Bistrita-Nasaud",shortCode:"BN"},{name:"Botosani",shortCode:"BT"},{name:"Braila",shortCode:"BR"},{name:"Brasov",shortCode:"BV"},{name:"Bucuresti",shortCode:"B"},{name:"Buzau",shortCode:"BZ"},{name:"Calarasi",shortCode:"CL"},{name:"Caras-Severin",shortCode:"CS"},{name:"Cluj",shortCode:"CJ"},{name:"Constanta",shortCode:"CT"},{name:"Covasna",shortCode:"CV"},{name:"Dambovita",shortCode:"DB"},{name:"Dolj",shortCode:"DJ"},{name:"Galati",shortCode:"GL"},{name:"Giurgiu",shortCode:"GR"},{name:"Gorj",shortCode:"GJ"},{name:"Harghita",shortCode:"HR"},{name:"Hunedoara",shortCode:"HD"},{name:"Ialomita",shortCode:"IL"},{name:"Iasi",shortCode:"IS"},{name:"Maramures",shortCode:"MM"},{name:"Mehedinti",shortCode:"MH"},{name:"Mures",shortCode:"MS"},{name:"Neamt",shortCode:"NT"},{name:"Olt",shortCode:"OT"},{name:"Prahova",shortCode:"PH"},{name:"Salaj",shortCode:"SJ"},{name:"Satu Mare",shortCode:"SM"},{name:"Sibiu",shortCode:"SB"},{name:"Suceava",shortCode:"SV"},{name:"Teleorman",shortCode:"TR"},{name:"Timis",shortCode:"TM"},{name:"Tulcea",shortCode:"TL"},{name:"Valcea",shortCode:"VL"},{name:"Vaslui",shortCode:"VS"},{name:"Vrancea",shortCode:"VN"}]},{countryName:"Russian Federation",countryShortCode:"RU",regions:[{name:"Republic of Adygea",shortCode:"AD"},{name:"Republic of Altai (Gorno-Altaysk)",shortCode:"AL"},{name:"Altai Krai",shortCode:"ALT"},{name:"Amur Oblast",shortCode:"AMU"},{name:"Arkhangelsk Oblast",shortCode:"ARK"},{name:"Astrakhan Oblast",shortCode:"AST"},{name:"Republic of Bashkortostan",shortCode:"BA"},{name:"Belgorod Oblast",shortCode:"BEL"},{name:"Bryansk Oblast",shortCode:"BRY"},{name:"Republic of Buryatia",shortCode:"BU"},{name:"Chechen Republic",shortCode:"CE"},{name:"Chelyabinsk Oblast",shortCode:"CHE"},{name:"Chukotka Autonomous Okrug",shortCode:"CHU"},{name:"Chuvash Republic",shortCode:"CU"},{name:"Republic of Dagestan",shortCode:"DA"},{name:"Republic of Ingushetia",shortCode:"IN"},{name:"Irkutsk Oblast",shortCode:"IRK"},{name:"Ivanovo Oblast",shortCode:"IVA"},{name:"Jewish Autonomous Oblast",shortCode:"JEW"},{name:"Kabardino-Balkar Republic",shortCode:"KB"},{name:"Kaliningrad Oblast",shortCode:"KLN"},{name:"Republic of Kalmykia",shortCode:"KL"},{name:"Kaluga Oblast",shortCode:"KLU"},{name:"Kamchatka Krai",shortCode:"KAM"},{name:"Karachay-Cherkess Republic",shortCode:"KC"},{name:"Republic of Karelia",shortCode:"KR"},{name:"Khabarovsk Krai",shortCode:"KHA"},{name:"Republic of Khakassia",shortCode:"KK"},{name:"Khanty-Mansi Autonomous Okrug - Yugra",shortCode:"KHM"},{name:"Kemerovo Oblast",shortCode:"KEM"},{name:"Kirov Oblast",shortCode:"KIR"},{name:"Komi Republic",shortCode:"KO"},{name:"Kostroma Oblast",shortCode:"KOS"},{name:"Krasnodar Krai",shortCode:"KDA"},{name:"Krasnoyarsk Krai",shortCode:"KYA"},{name:"Kurgan Oblast",shortCode:"KGN"},{name:"Kursk Oblast",shortCode:"KRS"},{name:"Leningrad Oblast",shortCode:"LEN"},{name:"Lipetsk Oblast",shortCode:"LIP"},{name:"Magadan Oblast",shortCode:"MAG"},{name:"Mari El Republic",shortCode:"ME"},{name:"Republic of Mordovia",shortCode:"MO"},{name:"Moscow Oblast",shortCode:"MOS"},{name:"Moscow",shortCode:"MOW"},{name:"Murmansk Oblast",shortCode:"MU"},{name:"Nenets Autonomous Okrug",shortCode:"NEN"},{name:"Nizhny Novgorod Oblast",shortCode:"NIZ"},{name:"Novgorod Oblast",shortCode:"NGR"},{name:"Novosibirsk Oblast",shortCode:"NVS"},{name:"Omsk Oblast",shortCode:"OMS"},{name:"Orenburg Oblast",shortCode:"ORE"},{name:"Oryol Oblast",shortCode:"ORL"},{name:"Penza Oblast",shortCode:"PNZ"},{name:"Perm Krai",shortCode:"PER"},{name:"Primorsky Krai",shortCode:"PRI"},{name:"Pskov Oblast",shortCode:"PSK"},{name:"Rostov Oblast",shortCode:"ROS"},{name:"Ryazan Oblast",shortCode:"RYA"},{name:"Saint Petersburg",shortCode:"SPE"},{name:"Sakha (Yakutia) Republic",shortCode:"SA"},{name:"Sakhalin Oblast",shortCode:"SAK"},{name:"Samara Oblast",shortCode:"SAM"},{name:"Saratov Oblast",shortCode:"SAR"},{name:"Republic of North Ossetia-Alania",shortCode:"NOA"},{name:"Smolensk Oblast",shortCode:"SMO"},{name:"Stavropol Krai",shortCode:"STA"},{name:"Sverdlovsk Oblast",shortCode:"SVE"},{name:"Tambov Oblast",shortCode:"TAM"},{name:"Republic of Tatarstan",shortCode:"TA"},{name:"Tomsk Oblast",shortCode:"TOM"},{name:"Tuva Republic",shortCode:"TU"},{name:"Tula Oblast",shortCode:"TUL"},{name:"Tver Oblast",shortCode:"TVE"},{name:"Tyumen Oblast",shortCode:"TYU"},{name:"Udmurt Republic",shortCode:"UD"},{name:"Ulyanovsk Oblast",shortCode:"ULY"},{name:"Vladimir Oblast",shortCode:"VLA"},{name:"Volgograd Oblast",shortCode:"VGG"},{name:"Vologda Oblast",shortCode:"VLG"},{name:"Voronezh Oblast",shortCode:"VOR"},{name:"Yamalo-Nenets Autonomous Okrug",shortCode:"YAN"},{name:"Yaroslavl Oblast",shortCode:"YAR"},{name:"Zabaykalsky Krai",shortCode:"ZAB"}]},{countryName:"Rwanda",countryShortCode:"RW",regions:[{name:"Kigali",shortCode:"01"},{name:"Eastern",shortCode:"02"},{name:"Northern",shortCode:"03"},{name:"Western",shortCode:"04"},{name:"Southern",shortCode:"05"}]},{countryName:"Saint Barthélemy",countryShortCode:"BL",regions:[{name:"Au Vent",shortCode:"02"},{name:"Sous le Vent",shortCode:"01"}]},{countryName:"Saint Helena, Ascension and Tristan da Cunha",countryShortCode:"SH",regions:[{name:"Ascension",shortCode:"AC"},{name:"Saint Helena",shortCode:"HL"},{name:"Tristan da Cunha",shortCode:"TA"}]},{countryName:"Saint Kitts and Nevis",countryShortCode:"KN",regions:[{name:"Saint Kitts",shortCode:"K"},{name:"Nevis",shortCode:"N"}]},{countryName:"Saint Lucia",countryShortCode:"LC",regions:[{name:"Anse-la-Raye",shortCode:"01"},{name:"Canaries",shortCode:"12"},{name:"Castries",shortCode:"02"},{name:"Choiseul",shortCode:"03"},{name:"Dennery",shortCode:"05"},{name:"Gros Islet",shortCode:"06"},{name:"Laborie",shortCode:"07"},{name:"Micoud",shortCode:"08"},{name:"Soufriere",shortCode:"10"},{name:"Vieux Fort",shortCode:"11"}]},{countryName:"Saint Martin",countryShortCode:"MF",regions:[{name:"Saint Martin"}]},{countryName:"Saint Pierre and Miquelon",countryShortCode:"PM",regions:[{name:"Miquelon"},{name:"Saint Pierre"}]},{countryName:"Saint Vincent and the Grenadines",countryShortCode:"VC",regions:[{name:"Charlotte",shortCode:"01"},{name:"Grenadines",shortCode:"06"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint David",shortCode:"03"},{name:"Saint George",shortCode:"04"},{name:"Saint Patrick",shortCode:"05"}]},{countryName:"Samoa",countryShortCode:"WS",regions:[{name:"A'ana",shortCode:"AA"},{name:"Aiga-i-le-Tai",shortCode:"AL"},{name:"Atua",shortCode:"AT"},{name:"Fa'asaleleaga",shortCode:"FA"},{name:"Gaga'emauga",shortCode:"GE"},{name:"Gagaifomauga",shortCode:"GI"},{name:"Palauli",shortCode:"PA"},{name:"Satupa'itea",shortCode:"SA"},{name:"Tuamasaga",shortCode:"TU"},{name:"Va'a-o-Fonoti",shortCode:"VF"},{name:"Vaisigano",shortCode:"VS"}]},{countryName:"San Marino",countryShortCode:"SM",regions:[{name:"Acquaviva",shortCode:"01"},{name:"Borgo Maggiore",shortCode:"06"},{name:"Chiesanuova",shortCode:"02"},{name:"Domagnano",shortCode:"03"},{name:"Faetano",shortCode:"04"},{name:"Fiorentino",shortCode:"05"},{name:"Montegiardino",shortCode:"08"},{name:"San Marino",shortCode:"07"},{name:"Serravalle",shortCode:"09"}]},{countryName:"Sao Tome and Principe",countryShortCode:"ST",regions:[{name:"Principe",shortCode:"P"},{name:"Sao Tome",shortCode:"S"}]},{countryName:"Saudi Arabia",countryShortCode:"SA",regions:[{name:"'Asir",shortCode:"14"},{name:"Al Bahah",shortCode:"11"},{name:"Al Hudud ash Shamaliyah",shortCode:"08"},{name:"Al Jawf",shortCode:"12"},{name:"Al Madinah al Munawwarah",shortCode:"03"},{name:"Al Qasim",shortCode:"05"},{name:"Ar Riyad",shortCode:"01"},{name:"Ash Sharqiyah",shortCode:"04"},{name:"Ha'il",shortCode:"06"},{name:"Jazan",shortCode:"09"},{name:"Makkah al Mukarramah",shortCode:"02"},{name:"Najran",shortCode:"10"},{name:"Tabuk",shortCode:"07"}]},{countryName:"Senegal",countryShortCode:"SN",regions:[{name:"Dakar",shortCode:"DK"},{name:"Diourbel",shortCode:"DB"},{name:"Fatick",shortCode:"FK"},{name:"Kaffrine",shortCode:"KA"},{name:"Kaolack",shortCode:"KL"},{name:"Kedougou",shortCode:"KE"},{name:"Kolda",shortCode:"KD"},{name:"Louga",shortCode:"LG"},{name:"Matam",shortCode:"MT"},{name:"Saint-Louis",shortCode:"SL"},{name:"Sedhiou",shortCode:"SE"},{name:"Tambacounda",shortCode:"TC"},{name:"Thies",shortCode:"TH"},{name:"Ziguinchor",shortCode:"ZG"}]},{countryName:"Serbia",countryShortCode:"RS",regions:[{name:"Beograd (Belgrade)",shortCode:"00"},{name:"Borski",shortCode:"14"},{name:"Braničevski",shortCode:"11"},{name:"Jablanički",shortCode:"23"},{name:"Južnobački",shortCode:"06"},{name:"Južnobanatski",shortCode:"04"},{name:"Kolubarski",shortCode:"09"},{name:"Kosovski",shortCode:"25"},{name:"Kosovsko-Mitrovački",shortCode:"28"},{name:"Kosovsko-Pomoravski",shortCode:"29"},{name:"Mačvanski",shortCode:"08"},{name:"Moravički",shortCode:"17"},{name:"Nišavski",shortCode:"20"},{name:"Pčinjski",shortCode:"24"},{name:"Pećki",shortCode:"26"},{name:"Pirotski",shortCode:"22"},{name:"Podunavski",shortCode:"10"},{name:"Pomoravski",shortCode:"13"},{name:"Prizrenski",shortCode:"27"},{name:"Rasinski",shortCode:"19"},{name:"Raški",shortCode:"18"},{name:"Severnobački",shortCode:"01"},{name:"Severnobanatski",shortCode:"03"},{name:"Srednjebanatski",shortCode:"02"},{name:"Sremski",shortCode:"07"},{name:"Šumadijski",shortCode:"12"},{name:"Toplički",shortCode:"21"},{name:"Zaječarski",shortCode:"15"},{name:"Zapadnobački",shortCode:"05"},{name:"Zlatiborski",shortCode:"16"}]},{countryName:"Seychelles",countryShortCode:"SC",regions:[{name:"Anse aux Pins",shortCode:"01"},{name:"Anse Boileau",shortCode:"02"},{name:"Anse Etoile",shortCode:"03"},{name:"Anse Royale",shortCode:"05"},{name:"Anu Cap",shortCode:"04"},{name:"Baie Lazare",shortCode:"06"},{name:"Baie Sainte Anne",shortCode:"07"},{name:"Beau Vallon",shortCode:"08"},{name:"Bel Air",shortCode:"09"},{name:"Bel Ombre",shortCode:"10"},{name:"Cascade",shortCode:"11"},{name:"Glacis",shortCode:"12"},{name:"Grand'Anse Mahe",shortCode:"13"},{name:"Grand'Anse Praslin",shortCode:"14"},{name:"La Digue",shortCode:"15"},{name:"La Riviere Anglaise",shortCode:"16"},{name:"Les Mamelles",shortCode:"24"},{name:"Mont Buxton",shortCode:"17"},{name:"Mont Fleuri",shortCode:"18"},{name:"Plaisance",shortCode:"19"},{name:"Pointe La Rue",shortCode:"20"},{name:"Port Glaud",shortCode:"21"},{name:"Roche Caiman",shortCode:"25"},{name:"Saint Louis",shortCode:"22"},{name:"Takamaka",shortCode:"23"}]},{countryName:"Sierra Leone",countryShortCode:"SL",regions:[{name:"Eastern",shortCode:"E"},{name:"Northern",shortCode:"N"},{name:"Southern",shortCode:"S"},{name:"Western",shortCode:"W"}]},{countryName:"Singapore",countryShortCode:"SG",regions:[{name:"Central Singapore",shortCode:"01"},{name:"North East",shortCode:"02"},{name:"North West",shortCode:"03"},{name:"South East",shortCode:"04"},{name:"South West",shortCode:"05"}]},{countryName:"Sint Maarten (Dutch part)",countryShortCode:"SX",regions:[{name:"Sint Maarten"}]},{countryName:"Slovakia",countryShortCode:"SK",regions:[{name:"Banskobystricky",shortCode:"BC"},{name:"Bratislavsky",shortCode:"BL"},{name:"Kosicky",shortCode:"KI"},{name:"Nitriansky",shortCode:"NI"},{name:"Presovsky",shortCode:"PV"},{name:"Trenciansky",shortCode:"TC"},{name:"Trnavsky",shortCode:"TA"},{name:"Zilinsky",shortCode:"ZI"}]},{countryName:"Slovenia",countryShortCode:"SI",regions:[{name:"Ajdovscina",shortCode:"001"},{name:"Apace",shortCode:"195"},{name:"Beltinci",shortCode:"002"},{name:"Benedikt",shortCode:"148"},{name:"Bistrica ob Sotli",shortCode:"149"},{name:"Bled",shortCode:"003"},{name:"Bloke",shortCode:"150"},{name:"Bohinj",shortCode:"004"},{name:"Borovnica",shortCode:"005"},{name:"Bovec",shortCode:"006"},{name:"Braslovce",shortCode:"151"},{name:"Brda",shortCode:"007"},{name:"Brezice",shortCode:"009"},{name:"Brezovica",shortCode:"008"},{name:"Cankova",shortCode:"152"},{name:"Celje",shortCode:"011"},{name:"Cerklje na Gorenjskem",shortCode:"012"},{name:"Cerknica",shortCode:"013"},{name:"Cerkno",shortCode:"014"},{name:"Cerkvenjak",shortCode:"153"},{name:"Cirkulane",shortCode:"196"},{name:"Crensovci",shortCode:"015"},{name:"Crna na Koroskem",shortCode:"016"},{name:"Crnomelj",shortCode:"017"},{name:"Destrnik",shortCode:"018"},{name:"Divaca",shortCode:"019"},{name:"Dobje",shortCode:"154"},{name:"Dobrepolje",shortCode:"020"},{name:"Dobrna",shortCode:"155"},{name:"Dobrova-Polhov Gradec",shortCode:"021"},{name:"Dobrovnik",shortCode:"156"},{name:"Dol pri Ljubljani",shortCode:"022"},{name:"Dolenjske Toplice",shortCode:"157"},{name:"Domzale",shortCode:"023"},{name:"Dornava",shortCode:"024"},{name:"Dravograd",shortCode:"025"},{name:"Duplek",shortCode:"026"},{name:"Gorenja Vas-Poljane",shortCode:"027"},{name:"Gorisnica",shortCode:"028"},{name:"Gorje",shortCode:"207"},{name:"Gornja Radgona",shortCode:"029"},{name:"Gornji Grad",shortCode:"030"},{name:"Gornji Petrovci",shortCode:"031"},{name:"Grad",shortCode:"158"},{name:"Grosuplje",shortCode:"032"},{name:"Hajdina",shortCode:"159"},{name:"Hoce-Slivnica",shortCode:"160"},{name:"Hodos",shortCode:"161"},{name:"Horjul",shortCode:"162"},{name:"Hrastnik",shortCode:"034"},{name:"Hrpelje-Kozina",shortCode:"035"},{name:"Idrija",shortCode:"036"},{name:"Ig",shortCode:"037"},{name:"Ilirska Bistrica",shortCode:"038"},{name:"Ivancna Gorica",shortCode:"039"},{name:"Izola",shortCode:"040s"},{name:"Jesenice",shortCode:"041"},{name:"Jursinci",shortCode:"042"},{name:"Kamnik",shortCode:"043"},{name:"Kanal",shortCode:"044"},{name:"Kidricevo",shortCode:"045"},{name:"Kobarid",shortCode:"046"},{name:"Kobilje",shortCode:"047"},{name:"Kocevje",shortCode:"048"},{name:"Komen",shortCode:"049"},{name:"Komenda",shortCode:"164"},{name:"Koper",shortCode:"050"},{name:"Kodanjevica na Krki",shortCode:"197"},{name:"Kostel",shortCode:"165"},{name:"Kozje",shortCode:"051"},{name:"Kranj",shortCode:"052"},{name:"Kranjska Gora",shortCode:"053"},{name:"Krizevci",shortCode:"166"},{name:"Krsko",shortCode:"054"},{name:"Kungota",shortCode:"055"},{name:"Kuzma",shortCode:"056"},{name:"Lasko",shortCode:"057"},{name:"Lenart",shortCode:"058"},{name:"Lendava",shortCode:"059"},{name:"Litija",shortCode:"068"},{name:"Ljubljana",shortCode:"061"},{name:"Ljubno",shortCode:"062"},{name:"Ljutomer",shortCode:"063"},{name:"Log-Dragomer",shortCode:"208"},{name:"Logatec",shortCode:"064"},{name:"Loska Dolina",shortCode:"065"},{name:"Loski Potok",shortCode:"066"},{name:"Lovrenc na Pohorju",shortCode:"167"},{name:"Lukovica",shortCode:"068"},{name:"Luce",shortCode:"067"},{name:"Majsperk",shortCode:"069"},{name:"Makole",shortCode:"198"},{name:"Maribor",shortCode:"070"},{name:"Markovci",shortCode:"168"},{name:"Medvode",shortCode:"071"},{name:"Menges",shortCode:"072"},{name:"Metlika",shortCode:"073"},{name:"Mezica",shortCode:"074"},{name:"Miklavz na Dravskem Polju",shortCode:"169"},{name:"Miren-Kostanjevica",shortCode:"075"},{name:"Mirna",shortCode:"212"},{name:"Mirna Pec",shortCode:"170"},{name:"Mislinja",shortCode:"076"},{name:"Mokronog-Trebelno",shortCode:"199"},{name:"Moravce",shortCode:"077"},{name:"Moravske Toplice",shortCode:"078"},{name:"Mozirje",shortCode:"079"},{name:"Murska Sobota",shortCode:"080"},{name:"Naklo",shortCode:"082"},{name:"Nazarje",shortCode:"083"},{name:"Nova Gorica",shortCode:"084"},{name:"Novo Mesto",shortCode:"085"},{name:"Odranci",shortCode:"086"},{name:"Ormoz",shortCode:"087"},{name:"Osilnica",shortCode:"088"},{name:"Pesnica",shortCode:"089"},{name:"Piran",shortCode:"090"},{name:"Pivka",shortCode:"091"},{name:"Podcetrtek",shortCode:"092"},{name:"Podlehnik",shortCode:"172"},{name:"Podvelka",shortCode:"093"},{name:"Poljcane",shortCode:"200"},{name:"Postojna",shortCode:"094"},{name:"Prebold",shortCode:"174"},{name:"Preddvor",shortCode:"095"},{name:"Prevalje",shortCode:"175"},{name:"Ptuj",shortCode:"096"},{name:"Race-Fram",shortCode:"098"},{name:"Radece",shortCode:"099"},{name:"Radenci",shortCode:"100"},{name:"Radlje ob Dravi",shortCode:"101"},{name:"Radovljica",shortCode:"102"},{name:"Ravne na Koroskem",shortCode:"103"},{name:"Razkrizje",shortCode:"176"},{name:"Recica ob Savinji",shortCode:"209"},{name:"Rence-Vogrsko",shortCode:"201"},{name:"Ribnica",shortCode:"104"},{name:"Ribnica na Poboriu",shortCode:"177"},{name:"Rogaska Slatina",shortCode:"106"},{name:"Rogasovci",shortCode:"105"},{name:"Rogatec",shortCode:"107"},{name:"Ruse",shortCode:"108"},{name:"Salovci",shortCode:"033"},{name:"Selnica ob Dravi",shortCode:"178"},{name:"Semic",shortCode:"109"},{name:"Sempeter-Vrtojba",shortCode:"183"},{name:"Sencur",shortCode:"117"},{name:"Sentilj",shortCode:"118"},{name:"Sentjernej",shortCode:"119"},{name:"Sentjur",shortCode:"120"},{name:"Sentrupert",shortCode:"211"},{name:"Sevnica",shortCode:"110"},{name:"Sezana",shortCode:"111"},{name:"Skocjan",shortCode:"121"},{name:"Skofja Loka",shortCode:"122"},{name:"Skofljica",shortCode:"123"},{name:"Slovenj Gradec",shortCode:"112"},{name:"Slovenska Bistrica",shortCode:"113"},{name:"Slovenske Konjice",shortCode:"114"},{name:"Smarje pri elsah",shortCode:"124"},{name:"Smarjeske Toplice",shortCode:"206"},{name:"Smartno ob Paki",shortCode:"125"},{name:"Smartno pri Litiji",shortCode:"194"},{name:"Sodrazica",shortCode:"179"},{name:"Solcava",shortCode:"180"},{name:"Sostanj",shortCode:"126"},{name:"Sredisce ob Dravi",shortCode:"202"},{name:"Starse",shortCode:"115"},{name:"Store",shortCode:"127"},{name:"Straza",shortCode:"203"},{name:"Sveta Ana",shortCode:"181"},{name:"Sveta Trojica v Slovenskih Goricah",shortCode:"204"},{name:"Sveta Andraz v Slovenskih Goricah",shortCode:"182"},{name:"Sveti Jurij",shortCode:"116"},{name:"Sveti Jurij v Slovenskih Goricah",shortCode:"210"},{name:"Sveti Tomaz",shortCode:"205"},{name:"Tabor",shortCode:"184"},{name:"Tisina",shortCode:"128"},{name:"Tolmin",shortCode:"128"},{name:"Trbovlje",shortCode:"129"},{name:"Trebnje",shortCode:"130"},{name:"Trnovska Vas",shortCode:"185"},{name:"Trzin",shortCode:"186"},{name:"Trzic",shortCode:"131"},{name:"Turnisce",shortCode:"132"},{name:"Velenje",shortCode:"133"},{name:"Velika Polana",shortCode:"187"},{name:"Velike Lasce",shortCode:"134"},{name:"Verzej",shortCode:"188"},{name:"Videm",shortCode:"135"},{name:"Vipava",shortCode:"136"},{name:"Vitanje",shortCode:"137"},{name:"Vodice",shortCode:"138"},{name:"Vojnik",shortCode:"139"},{name:"Vransko",shortCode:"189"},{name:"Vrhnika",shortCode:"140"},{name:"Vuzenica",shortCode:"141"},{name:"Zagorje ob Savi",shortCode:"142"},{name:"Zavrc",shortCode:"143"},{name:"Zrece",shortCode:"144"},{name:"Zalec",shortCode:"190"},{name:"Zelezniki",shortCode:"146"},{name:"Zetale",shortCode:"191"},{name:"Ziri",shortCode:"147"},{name:"Zirovnica",shortCode:"192"},{name:"Zuzemberk",shortCode:"193"}]},{countryName:"Solomon Islands",countryShortCode:"SB",regions:[{name:"Central",shortCode:"CE"},{name:"Choiseul",shortCode:"CH"},{name:"Guadalcanal",shortCode:"GU"},{name:"Honiara",shortCode:"CT"},{name:"Isabel",shortCode:"IS"},{name:"Makira-Ulawa",shortCode:"MK"},{name:"Malaita",shortCode:"ML"},{name:"Rennell and Bellona",shortCode:"RB"},{name:"Temotu",shortCode:"TE"},{name:"Western",shortCode:"WE"}]},{countryName:"Somalia",countryShortCode:"SO",regions:[{name:"Awdal",shortCode:"AW"},{name:"Bakool",shortCode:"BK"},{name:"Banaadir",shortCode:"BN"},{name:"Bari",shortCode:"BR"},{name:"Bay",shortCode:"BY"},{name:"Galguduud",shortCode:"GA"},{name:"Gedo",shortCode:"GE"},{name:"Hiiraan",shortCode:"HI"},{name:"Jubbada Dhexe",shortCode:"JD"},{name:"Jubbada Hoose",shortCode:"JH"},{name:"Mudug",shortCode:"MU"},{name:"Nugaal",shortCode:"NU"},{name:"Sanaag",shortCode:"SA"},{name:"Shabeellaha Dhexe",shortCode:"SD"},{name:"Shabeellaha Hoose",shortCode:"SH"},{name:"Sool",shortCode:"SO"},{name:"Togdheer",shortCode:"TO"},{name:"Woqooyi Galbeed",shortCode:"WO"}]},{countryName:"South Africa",countryShortCode:"ZA",regions:[{name:"Eastern Cape",shortCode:"EC"},{name:"Free State",shortCode:"FS"},{name:"Gauteng",shortCode:"GT"},{name:"KwaZulu-Natal",shortCode:"NL"},{name:"Limpopo",shortCode:"LP"},{name:"Mpumalanga",shortCode:"MP"},{name:"Northern Cape",shortCode:"NC"},{name:"North West",shortCode:"NW"},{name:"Western Cape",shortCode:"WC"}]},{countryName:"South Georgia and South Sandwich Islands",countryShortCode:"GS",regions:[{name:"Bird Island"},{name:"Bristol Island"},{name:"Clerke Rocks"},{name:"Montagu Island"},{name:"Saunders Island"},{name:"South Georgia"},{name:"Southern Thule"},{name:"Traversay Islands"}]},{countryName:"South Sudan",countryShortCode:"SS",regions:[{name:"Central Equatoria",shortCode:"CE"},{name:"Eastern Equatoria",shortCode:"EE"},{name:"Jonglei",shortCode:"JG"},{name:"Lakes",shortCode:"LK"},{name:"Northern Bahr el Ghazal",shortCode:"BN"},{name:"Unity",shortCode:"UY"},{name:"Upper Nile",shortCode:"NU"},{name:"Warrap",shortCode:"WR"},{name:"Western Bahr el Ghazal",shortCode:"BW"},{name:"Western Equatoria",shortCode:"EW"}]},{countryName:"Spain",countryShortCode:"ES",regions:[{name:"Albacete",shortCode:"CM"},{name:"Alicante",shortCode:"VC"},{name:"Almería",shortCode:"AN"},{name:"Araba/Álava",shortCode:"VI"},{name:"Asturias",shortCode:"O"},{name:"Ávila",shortCode:"AV"},{name:"Badajoz",shortCode:"BA"},{name:"Barcelona",shortCode:"B"},{name:"Bizkaia",shortCode:"BI"},{name:"Burgos",shortCode:"BU"},{name:"Cáceres",shortCode:"CC"},{name:"Cádiz",shortCode:"CA"},{name:"Cantabria",shortCode:"S"},{name:"Castellón",shortCode:"CS"},{name:"Cueta",shortCode:"CU"},{name:"Ciudad Real",shortCode:"CR"},{name:"Córdoba",shortCode:"CO"},{name:"A Coruña",shortCode:"C"},{name:"Cuenca",shortCode:"CU"},{name:"Gipuzkoa",shortCode:"SS"},{name:"Girona",shortCode:"GI"},{name:"Granada",shortCode:"GR"},{name:"Guadalajara",shortCode:"GU"},{name:"Huelva",shortCode:"H"},{name:"Huesca",shortCode:"HU"},{name:"Illes Balears",shortCode:"PM"},{name:"Jaén",shortCode:"J"},{name:"León",shortCode:"LE"},{name:"Lleida",shortCode:"L"},{name:"Lugo",shortCode:"LU"},{name:"Madrid",shortCode:"M"},{name:"Málaga",shortCode:"MA"},{name:"Melilla",shortCode:"ML"},{name:"Murcia",shortCode:"MU"},{name:"Navarre",shortCode:"NA"},{name:"Ourense",shortCode:"OR"},{name:"Palencia",shortCode:"P"},{name:"Las Palmas",shortCode:"GC"},{name:"Pontevedra",shortCode:"PO"},{name:"La Rioja",shortCode:"LO"},{name:"Salamanca",shortCode:"SA"},{name:"Santa Cruz de Tenerife",shortCode:"TF"},{name:"Segovia",shortCode:"SG"},{name:"Sevilla",shortCode:"SE"},{name:"Soria",shortCode:"SO"},{name:"Tarragona",shortCode:"T"},{name:"Teruel",shortCode:"TE"},{name:"Toledo",shortCode:"TO"},{name:"Valencia",shortCode:"V"},{name:"Valladolid",shortCode:"VA"},{name:"Zamora",shortCode:"ZA"},{name:"Zaragoza",shortCode:"Z"}]},{countryName:"Sri Lanka",countryShortCode:"LK",regions:[{name:"Basnahira",shortCode:"1"},{name:"Dakunu",shortCode:"3"},{name:"Madhyama",shortCode:"2"},{name:"Naegenahira",shortCode:"5"},{name:"Sabaragamuwa",shortCode:"9"},{name:"Uturu",shortCode:"4"},{name:"Uturumaeda",shortCode:"7"},{name:"Vayamba",shortCode:"6"},{name:"Uva",shortCode:"8"}]},{countryName:"Sudan",countryShortCode:"SD",regions:[{name:"Al Bahr al Ahmar",shortCode:"RS"},{name:"Al Jazirah",shortCode:"GZ"},{name:"Al Khartum",shortCode:"KH"},{name:"Al Qadarif",shortCode:"GD"},{name:"An Nil al Abyad",shortCode:"NW"},{name:"An Nil al Azraq",shortCode:"NB"},{name:"Ash Shamaliyah",shortCode:"NO"},{name:"Gharb Darfur",shortCode:"DW"},{name:"Gharb Kurdufan",shortCode:"GK"},{name:"Janub Darfur",shortCode:"DS"},{name:"Janub Kurdufan",shortCode:"KS"},{name:"Kassala",shortCode:"KA"},{name:"Nahr an Nil",shortCode:"NR"},{name:"Shamal Darfur",shortCode:"DN"},{name:"Sharq Darfur",shortCode:"DE"},{name:"Shiamal Kurdufan",shortCode:"KN"},{name:"Sinnar",shortCode:"SI"},{name:"Wasat Darfur Zalinjay",shortCode:"DC"}]},{countryName:"Suriname",countryShortCode:"SR",regions:[{name:"Brokopondo",shortCode:"BR"},{name:"Commewijne",shortCode:"CM"},{name:"Coronie",shortCode:"CR"},{name:"Marowijne",shortCode:"MA"},{name:"Nickerie",shortCode:"NI"},{name:"Para",shortCode:"PR"},{name:"Paramaribo",shortCode:"PM"},{name:"Saramacca",shortCode:"SA"},{name:"Sipaliwini",shortCode:"SI"},{name:"Wanica",shortCode:"WA"}]},{countryName:"Swaziland",countryShortCode:"SZ",regions:[{name:"Hhohho",shortCode:"HH"},{name:"Lubombo",shortCode:"LU"},{name:"Manzini",shortCode:"MA"},{name:"Shiselweni",shortCode:"SH"}]},{countryName:"Sweden",countryShortCode:"SE",regions:[{name:"Blekinge",shortCode:"K"},{name:"Dalarna",shortCode:"W"},{name:"Gävleborg",shortCode:"X"},{name:"Gotland",shortCode:"I"},{name:"Halland",shortCode:"N"},{name:"Jämtland",shortCode:"Z"},{name:"Jönköping",shortCode:"F"},{name:"Kalmar",shortCode:"H"},{name:"Kronoberg",shortCode:"G"},{name:"Norrbotten",shortCode:"BD"},{name:"Örebro",shortCode:"T"},{name:"Östergötland",shortCode:"E"},{name:"Skåne",shortCode:"M"},{name:"Södermanland",shortCode:"D"},{name:"Stockholm",shortCode:"AB"},{name:"Uppsala",shortCode:"C"},{name:"Värmland",shortCode:"S"},{name:"Västerbotten",shortCode:"AC"},{name:"Västernorrland",shortCode:"Y"},{name:"Västmanland",shortCode:"U"},{name:"Västra Götaland",shortCode:"O"}]},{countryName:"Switzerland",countryShortCode:"CH",regions:[{name:"Aargau",shortCode:"AG"},{name:"Appenzell Ausserrhoden",shortCode:"AR"},{name:"Appenzell Innerhoden",shortCode:"AI"},{name:"Basel-Landschaft",shortCode:"BL"},{name:"Basel-Stadt",shortCode:"BS"},{name:"Bern",shortCode:"BE"},{name:"Fribourg",shortCode:"FR"},{name:"Genève",shortCode:"GE"},{name:"Glarus",shortCode:"GL"},{name:"Graubünden",shortCode:"GR"},{name:"Jura",shortCode:"JU"},{name:"Luzern",shortCode:"LU"},{name:"Neuchâtel",shortCode:"NE"},{name:"Nidwalden",shortCode:"NW"},{name:"Obwalden",shortCode:"OW"},{name:"Sankt Gallen",shortCode:"SG"},{name:"Schaffhausen",shortCode:"SH"},{name:"Schwyz",shortCode:"SZ"},{name:"Solothurn",shortCode:"SO"},{name:"Thurgau",shortCode:"TG"},{name:"Ticino",shortCode:"TI"},{name:"Uri",shortCode:"UR"},{name:"Valais",shortCode:"VS"},{name:"Vaud",shortCode:"VD"},{name:"Zug",shortCode:"ZG"},{name:"Zürich",shortCode:"ZH"}]},{countryName:"Syrian Arab Republic",countryShortCode:"SY",regions:[{name:"Al Hasakah",shortCode:"HA"},{name:"Al Ladhiqiyah",shortCode:"LA"},{name:"Al Qunaytirah",shortCode:"QU"},{name:"Ar Raqqah",shortCode:"RA"},{name:"As Suwayda'",shortCode:"SU"},{name:"Dar'a",shortCode:"DR"},{name:"Dayr az Zawr",shortCode:"DY"},{name:"Dimashq",shortCode:"DI"},{name:"Halab",shortCode:"HL"},{name:"Hamah",shortCode:"HM"},{name:"Hims",shortCode:"HI"},{name:"Idlib",shortCode:"ID"},{name:"Rif Dimashq",shortCode:"RD"},{name:"Tartus",shortCode:"TA"}]},{countryName:"Taiwan",countryShortCode:"TW",regions:[{name:"Chang-hua",shortCode:"CHA"},{name:"Chia-i",shortCode:"CYQ"},{name:"Hsin-chu",shortCode:"HSQ"},{name:"Hua-lien",shortCode:"HUA"},{name:"Kao-hsiung",shortCode:"KHH"},{name:"Keelung",shortCode:"KEE"},{name:"Kinmen",shortCode:"KIN"},{name:"Lienchiang",shortCode:"LIE"},{name:"Miao-li",shortCode:"MIA"},{name:"Nan-t'ou",shortCode:"NAN"},{name:"P'eng-hu",shortCode:"PEN"},{name:"New Taipei",shortCode:"NWT"},{name:"P'ing-chung",shortCode:"PIF"},{name:"T'ai-chung",shortCode:"TXG"},{name:"T'ai-nan",shortCode:"TNN"},{name:"T'ai-pei",shortCode:"TPE"},{name:"T'ai-tung",shortCode:"TTT"},{name:"T'ao-yuan",shortCode:"TAO"},{name:"Yi-lan",shortCode:"ILA"},{name:"Yun-lin",shortCode:"YUN"}]},{countryName:"Tajikistan",countryShortCode:"TJ",regions:[{name:"Dushanbe",shortCode:"DU"},{name:"Kŭhistoni Badakhshon",shortCode:"GB"},{name:"Khatlon",shortCode:"KT"},{name:"Sughd",shortCode:"SU"}]},{countryName:"Tanzania, United Republic of",countryShortCode:"TZ",regions:[{name:"Arusha",shortCode:"01"},{name:"Coast",shortCode:"19"},{name:"Dar es Salaam",shortCode:"02"},{name:"Dodoma",shortCode:"03"},{name:"Iringa",shortCode:"04"},{name:"Kagera",shortCode:"05"},{name:"Kigoma",shortCode:"08"},{name:"Kilimanjaro",shortCode:"09"},{name:"Lindi",shortCode:"12"},{name:"Manyara",shortCode:"26"},{name:"Mara",shortCode:"13"},{name:"Mbeya",shortCode:"14"},{name:"Morogoro",shortCode:"16"},{name:"Mtwara",shortCode:"17"},{name:"Mwanza",shortCode:"18"},{name:"Pemba North",shortCode:"06"},{name:"Pemba South",shortCode:"10"},{name:"Rukwa",shortCode:"20"},{name:"Ruvuma",shortCode:"21"},{name:"Shinyanga",shortCode:"22"},{name:"Singida",shortCode:"23"},{name:"Tabora",shortCode:"24"},{name:"Tanga",shortCode:"25"},{name:"Zanzibar North",shortCode:"07"},{name:"Zanzibar Central/South",shortCode:"11"},{name:"Zanzibar Urban/West",shortCode:"15"}]},{countryName:"Thailand",countryShortCode:"TH",regions:[{name:"Amnat Charoen",shortCode:"37"},{name:"Ang Thong",shortCode:"15"},{name:"Bueng Kan",shortCode:"38"},{name:"Buri Ram",shortCode:"31"},{name:"Chachoengsao",shortCode:"24"},{name:"Chai Nat",shortCode:"18"},{name:"Chaiyaphum",shortCode:"36"},{name:"Chanthaburi",shortCode:"22"},{name:"Chiang Mai",shortCode:"50"},{name:"Chiang Rai",shortCode:"57"},{name:"Chon Buri",shortCode:"20"},{name:"Chumphon",shortCode:"86"},{name:"Kalasin",shortCode:"46"},{name:"Kamphaeng Phet",shortCode:"62"},{name:"Kanchanaburi",shortCode:"71"},{name:"Khon Kaen",shortCode:"40"},{name:"Krabi",shortCode:"81"},{name:"Krung Thep Mahanakhon (Bangkok)",shortCode:"10"},{name:"Lampang",shortCode:"52"},{name:"Lamphun",shortCode:"51"},{name:"Loei",shortCode:"42"},{name:"Lop Buri",shortCode:"16"},{name:"Mae Hong Son",shortCode:"58"},{name:"Maha Sarakham",shortCode:"44"},{name:"Mukdahan",shortCode:"49"},{name:"Nakhon Nayok",shortCode:"26"},{name:"Nakhon Phathom",shortCode:"73"},{name:"Nakhon Phanom",shortCode:"48"},{name:"Nakhon Ratchasima",shortCode:"30"},{name:"Nakhon Sawan",shortCode:"60"},{name:"Nakhon Si Thammarat",shortCode:"80"},{name:"Nan",shortCode:"55"},{name:"Narathiwat",shortCode:"96"},{name:"Nong Bua Lam Phu",shortCode:"39"},{name:"Nong Khai",shortCode:"43"},{name:"Nonthaburi",shortCode:"12"},{name:"Pathum Thani",shortCode:"13"},{name:"Pattani",shortCode:"94"},{name:"Phangnga",shortCode:"82"},{name:"Phatthalung",shortCode:"93"},{name:"Phayao",shortCode:"56"},{name:"Phetchabun",shortCode:"76"},{name:"Phetchaburi",shortCode:"76"},{name:"Phichit",shortCode:"66"},{name:"Phitsanulok",shortCode:"65"},{name:"Phra Nakhon Si Ayutthaya",shortCode:"14"},{name:"Phrae",shortCode:"54"},{name:"Phuket",shortCode:"83"},{name:"Prachin Buri",shortCode:"25"},{name:"Prachuap Khiri Khan",shortCode:"77"},{name:"Ranong",shortCode:"85"},{name:"Ratchaburi",shortCode:"70"},{name:"Rayong",shortCode:"21"},{name:"Roi Et",shortCode:"45"},{name:"Sa Kaeo",shortCode:"27"},{name:"Sakon Nakhon",shortCode:"47"},{name:"Samut Prakan",shortCode:"11"},{name:"Samut Sakhon",shortCode:"74"},{name:"Samut Songkhram",shortCode:"75"},{name:"Saraburi",shortCode:"19"},{name:"Satun",shortCode:"91"},{name:"Sing Buri",shortCode:"17"},{name:"Si Sa ket",shortCode:"33"},{name:"Songkhla",shortCode:"90"},{name:"Sukhothai",shortCode:"64"},{name:"Suphan Buri",shortCode:"72"},{name:"Surat Thani",shortCode:"84"},{name:"Surin",shortCode:"32"},{name:"Tak",shortCode:"63"},{name:"Trang",shortCode:"92"},{name:"Trat",shortCode:"23"},{name:"Ubon Ratchathani",shortCode:"34"},{name:"Udon Thani",shortCode:"41"},{name:"Uthai Thani",shortCode:"61"},{name:"Uttaradit",shortCode:"53"},{name:"Yala",shortCode:"95"},{name:"Yasothon",shortCode:"35"}]},{countryName:"Timor-Leste",countryShortCode:"TL",regions:[{name:"Aileu",shortCode:"AL"},{name:"Ainaro",shortCode:"AN"},{name:"Baucau",shortCode:"BA"},{name:"Bobonaro",shortCode:"BO"},{name:"Cova Lima",shortCode:"CO"},{name:"Dili",shortCode:"DI"},{name:"Ermera",shortCode:"ER"},{name:"Lautem",shortCode:"LA"},{name:"Liquica",shortCode:"LI"},{name:"Manatuto",shortCode:"MT"},{name:"Manufahi",shortCode:"MF"},{name:"Oecussi",shortCode:"OE"},{name:"Viqueque",shortCode:"VI"}]},{countryName:"Togo",countryShortCode:"TG",regions:[{name:"Centre",shortCode:"C"},{name:"Kara",shortCode:"K"},{name:"Maritime",shortCode:"M"},{name:"Plateaux",shortCode:"P"},{name:"Savannes",shortCode:"S"}]},{countryName:"Tokelau",countryShortCode:"TK",regions:[{name:"Atafu"},{name:"Fakaofo"},{name:"Nukunonu"}]},{countryName:"Tonga",countryShortCode:"TO",regions:[{name:"'Eua",shortCode:"01"},{name:"Ha'apai",shortCode:"02"},{name:"Niuas",shortCode:"03"},{name:"Tongatapu",shortCode:"04"},{name:"Vava'u",shortCode:"05"}]},{countryName:"Trinidad and Tobago",countryShortCode:"TT",regions:[{name:"Arima",shortCode:"ARI"},{name:"Chaguanas",shortCode:"CHA"},{name:"Couva-Tabaquite-Talparo",shortCode:"CTT"},{name:"Diefo Martin",shortCode:"DMN"},{name:"Mayaro-Rio Claro",shortCode:"MRC"},{name:"Penal-Debe",shortCode:"PED"},{name:"Point Fortin",shortCode:"PTF"},{name:"Port-of-Spain",shortCode:"POS"},{name:"Princes Town",shortCode:"PRT"},{name:"San Fernando",shortCode:"SFO"},{name:"San Juan-Laventille",shortCode:"SJL"},{name:"Sangre Grande",shortCode:"SGE"},{name:"Siparia",shortCode:"SIP"},{name:"Tobago",shortCode:"TOB"},{name:"Tunapuna-Piarco",shortCode:"TUP"}]},{countryName:"Tunisia",countryShortCode:"TN",regions:[{name:"Ariana",shortCode:"12"},{name:"Beja",shortCode:"31"},{name:"Ben Arous",shortCode:"13"},{name:"Bizerte",shortCode:"23"},{name:"Gabes",shortCode:"81"},{name:"Gafsa",shortCode:"71"},{name:"Jendouba",shortCode:"32"},{name:"Kairouan",shortCode:"41"},{name:"Kasserine",shortCode:"42"},{name:"Kebili",shortCode:"73"},{name:"Kef",shortCode:"33"},{name:"Mahdia",shortCode:"53"},{name:"Medenine",shortCode:"82"},{name:"Monastir",shortCode:"52"},{name:"Nabeul",shortCode:"21"},{name:"Sfax",shortCode:"61"},{name:"Sidi Bouzid",shortCode:"43"},{name:"Siliana",shortCode:"34"},{name:"Sousse",shortCode:"51"},{name:"Tataouine",shortCode:"83"},{name:"Tozeur",shortCode:"72"},{name:"Tunis",shortCode:"11"},{name:"Zaghouan",shortCode:"22"}]},{countryName:"Turkey",countryShortCode:"TR",regions:[{name:"Adana",shortCode:"01"},{name:"Adiyaman",shortCode:"02"},{name:"Afyonkarahisar",shortCode:"03"},{name:"Agri",shortCode:"04"},{name:"Aksaray",shortCode:"68"},{name:"Amasya",shortCode:"05"},{name:"Ankara",shortCode:"06"},{name:"Antalya",shortCode:"07"},{name:"Ardahan",shortCode:"75"},{name:"Artvin",shortCode:"08"},{name:"Aydin",shortCode:"09"},{name:"Balikesir",shortCode:"10"},{name:"Bartin",shortCode:"74"},{name:"Batman",shortCode:"72"},{name:"Bayburt",shortCode:"69"},{name:"Bilecik",shortCode:"11"},{name:"Bingol",shortCode:"12"},{name:"Bitlis",shortCode:"13"},{name:"Bolu",shortCode:"14"},{name:"Burdur",shortCode:"15"},{name:"Bursa",shortCode:"16"},{name:"Canakkale",shortCode:"17"},{name:"Cankiri",shortCode:"18"},{name:"Corum",shortCode:"19"},{name:"Denizli",shortCode:"20"},{name:"Diyarbakir",shortCode:"21"},{name:"Duzce",shortCode:"81"},{name:"Edirne",shortCode:"22"},{name:"Elazig",shortCode:"23"},{name:"Erzincan",shortCode:"24"},{name:"Erzurum",shortCode:"25"},{name:"Eskisehir",shortCode:"26"},{name:"Gaziantep",shortCode:"27"},{name:"Giresun",shortCode:"28"},{name:"Gumushane",shortCode:"29"},{name:"Hakkari",shortCode:"30"},{name:"Hatay",shortCode:"31"},{name:"Igdir",shortCode:"76"},{name:"Isparta",shortCode:"32"},{name:"Istanbul",shortCode:"34"},{name:"Izmir",shortCode:"35"},{name:"Kahramanmaras",shortCode:"46"},{name:"Karabuk",shortCode:"78"},{name:"Karaman",shortCode:"70"},{name:"Kars",shortCode:"36"},{name:"Kastamonu",shortCode:"37"},{name:"Kayseri",shortCode:"38"},{name:"Kilis",shortCode:"79"},{name:"Kirikkale",shortCode:"71"},{name:"Kirklareli",shortCode:"39"},{name:"Kirsehir",shortCode:"40"},{name:"Kocaeli",shortCode:"41"},{name:"Konya",shortCode:"42"},{name:"Kutahya",shortCode:"43"},{name:"Malatya",shortCode:"44"},{name:"Manisa",shortCode:"45"},{name:"Mardin",shortCode:"47"},{name:"Mersin",shortCode:"33"},{name:"Mugla",shortCode:"48"},{name:"Mus",shortCode:"49"},{name:"Nevsehir",shortCode:"50"},{name:"Nigde",shortCode:"51"},{name:"Ordu",shortCode:"52"},{name:"Osmaniye",shortCode:"80"},{name:"Rize",shortCode:"53"},{name:"Sakarya",shortCode:"54"},{name:"Samsun",shortCode:"55"},{name:"Sanliurfa",shortCode:"63"},{name:"Siirt",shortCode:"56"},{name:"Sinop",shortCode:"57"},{name:"Sirnak",shortCode:"73"},{name:"Sivas",shortCode:"58"},{name:"Tekirdag",shortCode:"59"},{name:"Tokat",shortCode:"60"},{name:"Trabzon",shortCode:"61"},{name:"Tunceli",shortCode:"62"},{name:"Usak",shortCode:"64"},{name:"Van",shortCode:"65"},{name:"Yalova",shortCode:"77"},{name:"Yozgat",shortCode:"66"},{name:"Zonguldak",shortCode:"67"}]},{countryName:"Turkmenistan",countryShortCode:"TM",regions:[{name:"Ahal",shortCode:"A"},{name:"Asgabat",shortCode:"S"},{name:"Balkan",shortCode:"B"},{name:"Dashoguz",shortCode:"D"},{name:"Lebap",shortCode:"L"},{name:"Mary",shortCode:"M"}]},{countryName:"Turks and Caicos Islands",countryShortCode:"TC",regions:[{name:"Turks and Caicos Islands"}]},{countryName:"Tuvalu",countryShortCode:"TV",regions:[{name:"Funafuti",shortCode:"FUN"},{name:"Nanumanga",shortCode:"NMG"},{name:"Nanumea",shortCode:"NMA"},{name:"Niutao",shortCode:"NIT"},{name:"Nui",shortCode:"NUI"},{name:"Nukufetau",shortCode:"NKF"},{name:"Nukulaelae",shortCode:"NKL"},{name:"Vaitupu",shortCode:"VAU"}]},{countryName:"Uganda",countryShortCode:"UG",regions:[{name:"Abim",shortCode:"317"},{name:"Adjumani",shortCode:"301"},{name:"Amolatar",shortCode:"314"},{name:"Amuria",shortCode:"216"},{name:"Amuru",shortCode:"319"},{name:"Apac",shortCode:"302"},{name:"Arua",shortCode:"303"},{name:"Budaka",shortCode:"217"},{name:"Bududa",shortCode:"223"},{name:"Bugiri",shortCode:"201"},{name:"Bukedea",shortCode:"224"},{name:"Bukwa",shortCode:"218"},{name:"Buliisa",shortCode:"419"},{name:"Bundibugyo",shortCode:"401"},{name:"Bushenyi",shortCode:"402"},{name:"Busia",shortCode:"202"},{name:"Butaleja",shortCode:"219"},{name:"Dokolo",shortCode:"318"},{name:"Gulu",shortCode:"304"},{name:"Hoima",shortCode:"403"},{name:"Ibanda",shortCode:"416"},{name:"Iganga",shortCode:"203"},{name:"Isingiro",shortCode:"417"},{name:"Jinja",shortCode:"204"},{name:"Kaabong",shortCode:"315"},{name:"Kabale",shortCode:"404"},{name:"Kabarole",shortCode:"405"},{name:"Kaberamaido",shortCode:"213"},{name:"Kalangala",shortCode:"101"},{name:"Kaliro",shortCode:"220"},{name:"Kampala",shortCode:"102"},{name:"Kamuli",shortCode:"205"},{name:"Kamwenge",shortCode:"413"},{name:"Kanungu",shortCode:"414"},{name:"Kapchorwa",shortCode:"206"},{name:"Kasese",shortCode:"406"},{name:"Katakwi",shortCode:"207"},{name:"Kayunga",shortCode:"112"},{name:"Kibaale",shortCode:"407"},{name:"Kiboga",shortCode:"103"},{name:"Kiruhura",shortCode:"418"},{name:"Kisoro",shortCode:"408"},{name:"Kitgum",shortCode:"305"},{name:"Koboko",shortCode:"316"},{name:"Kotido",shortCode:"306"},{name:"Kumi",shortCode:"208"},{name:"Kyenjojo",shortCode:"415"},{name:"Lira",shortCode:"307"},{name:"Luwero",shortCode:"104"},{name:"Lyantonde",shortCode:"116"},{name:"Manafwa",shortCode:"221"},{name:"Maracha",shortCode:"320"},{name:"Masaka",shortCode:"105"},{name:"Masindi",shortCode:"409"},{name:"Mayuge",shortCode:"214"},{name:"Mbale",shortCode:"209"},{name:"Mbarara",shortCode:"410"},{name:"Mityana",shortCode:"114"},{name:"Moroto",shortCode:"308"},{name:"Moyo",shortCode:"309"},{name:"Mpigi",shortCode:"106"},{name:"Mubende",shortCode:"107"},{name:"Mukono",shortCode:"108"},{name:"Nakapiripirit",shortCode:"311"},{name:"Nakaseke",shortCode:"115"},{name:"Nakasongola",shortCode:"109"},{name:"Namutumba",shortCode:"222"},{name:"Nebbi",shortCode:"310"},{name:"Ntungamo",shortCode:"411"},{name:"Oyam",shortCode:"321"},{name:"Pader",shortCode:"312"},{name:"Pallisa",shortCode:"210"},{name:"Rakai",shortCode:"110"},{name:"Rukungiri",shortCode:"412"},{name:"Sembabule",shortCode:"111"},{name:"Sironko",shortCode:"215"},{name:"Soroti",shortCode:"211"},{name:"Tororo",shortCode:"212"},{name:"Wakiso",shortCode:"113"},{name:"Yumbe",shortCode:"313"}]},{countryName:"Ukraine",countryShortCode:"UA",regions:[{name:"Cherkasy",shortCode:"71"},{name:"Chernihiv",shortCode:"74"},{name:"Chernivtsi",shortCode:"77"},{name:"Dnipropetrovsk",shortCode:"12"},{name:"Donetsk",shortCode:"14"},{name:"Ivano-Frankivsk",shortCode:"26"},{name:"Kharkiv",shortCode:"63"},{name:"Kherson",shortCode:"65"},{name:"Khmelnytskyi",shortCode:"68"},{name:"Kiev",shortCode:"32"},{name:"Kirovohrad",shortCode:"35"},{name:"Luhansk",shortCode:"09"},{name:"Lviv",shortCode:"46"},{name:"Mykolaiv",shortCode:"48"},{name:"Odessa",shortCode:"51"},{name:"Poltava",shortCode:"53"},{name:"Rivne",shortCode:"56"},{name:"Sumy",shortCode:"59"},{name:"Ternopil",shortCode:"61"},{name:"Vinnytsia",shortCode:"05"},{name:"Volyn",shortCode:"07"},{name:"Zakarpattia",shortCode:"21"},{name:"Zaporizhia",shortCode:"23"},{name:"Zhytomyr",shortCode:"18"},{name:"Avtonomna Respublika Krym",shortCode:"43"},{name:"Kyïv",shortCode:"30"},{name:"Sevastopol",shortCode:"40"}]},{countryName:"United Arab Emirates",countryShortCode:"AE",regions:[{name:"Abu Dhabi",shortCode:"AZ"},{name:"Ajman",shortCode:"AJ"},{name:"Dubai",shortCode:"DU"},{name:"Fujairah",shortCode:"FU"},{name:"Ras al Khaimah",shortCode:"RK"},{name:"Sharjah",shortCode:"SH"},{name:"Umm Al Quwain",shortCode:"UQ"}]},{countryName:"United Kingdom",countryShortCode:"GB",regions:[{name:"Avon",shortCode:"AVN"},{name:"Bedfordshire",shortCode:"BDF"},{name:"Berkshire",shortCode:"BRK"},{name:"Bristol, City of",shortCode:"COB"},{name:"Buckinghamshire",shortCode:"BKM"},{name:"Cambridgeshire",shortCode:"CAM"},{name:"Cheshire",shortCode:"CHS"},{name:"Cleveland",shortCode:"CLV"},{name:"Cornwall",shortCode:"CON"},{name:"Cumbria",shortCode:"CMA"},{name:"Derbyshire",shortCode:"DBY"},{name:"Devon",shortCode:"DEV"},{name:"Dorset",shortCode:"DOR"},{name:"Durham",shortCode:"DUR"},{name:"East Sussex",shortCode:"SXE"},{name:"Essex",shortCode:"ESS"},{name:"Gloucestershire",shortCode:"GLS"},{name:"Greater London",shortCode:"LND"},{name:"Greater Manchester",shortCode:"GTM"},{name:"Hampshire",shortCode:"HAM"},{name:"Hereford and Worcester",shortCode:"HWR"},{name:"Herefordshire",shortCode:"HEF"},{name:"Hertfordshire",shortCode:"HRT"},{name:"Isle of Wight",shortCode:"IOW"},{name:"Kent",shortCode:"KEN"},{name:"Lancashire",shortCode:"LAN"},{name:"Leicestershire",shortCode:"LEI"},{name:"Lincolnshire",shortCode:"LIN"},{name:"London",shortCode:"LDN"},{name:"Merseyside",shortCode:"MSY"},{name:"Middlesex",shortCode:"MDX"},{name:"Norfolk",shortCode:"NFK"},{name:"Northamptonshire",shortCode:"NTH"},{name:"Northumberland",shortCode:"NBL"},{name:"North Humberside",shortCode:"NHM"},{name:"North Yorkshire",shortCode:"NYK"},{name:"Nottinghamshire",shortCode:"NTT"},{name:"Oxfordshire",shortCode:"OXF"},{name:"Rutland",shortCode:"RUT"},{name:"Shropshire",shortCode:"SAL"},{name:"Somerset",shortCode:"SOM"},{name:"South Humberside",shortCode:"SHM"},{name:"South Yorkshire",shortCode:"SYK"},{name:"Staffordshire",shortCode:"STS"},{name:"Suffolk",shortCode:"SFK"},{name:"Surrey",shortCode:"SRY"},{name:"Tyne and Wear",shortCode:"TWR"},{name:"Warwickshire",shortCode:"WAR"},{name:"West Midlands",shortCode:"WMD"},{name:"West Sussex",shortCode:"SXW"},{name:"West Yorkshire",shortCode:"WYK"},{name:"Wiltshire",shortCode:"WIL"},{name:"Worcestershire",shortCode:"WOR"},{name:"Antrim",shortCode:"ANT"},{name:"Armagh",shortCode:"ARM"},{name:"Belfast, City of",shortCode:"BLF"},{name:"Down",shortCode:"DOW"},{name:"Fermanagh",shortCode:"FER"},{name:"Londonderry",shortCode:"LDY"},{name:"Derry, City of",shortCode:"DRY"},{name:"Tyrone",shortCode:"TYR"},{name:"Aberdeen, City of",shortCode:"AN"},{name:"Aberdeenshire",shortCode:"ABD"},{name:"Angus (Forfarshire)",shortCode:"ANS"},{name:"Argyll",shortCode:"AGB"},{name:"Ayrshire",shortCode:"ARG"},{name:"Banffshire",shortCode:"BAN"},{name:"Berwickshire",shortCode:"BEW"},{name:"Bute",shortCode:"BUT"},{name:"Caithness",shortCode:"CAI"},{name:"Clackmannanshire",shortCode:"CLK"},{name:"Cromartyshire",shortCode:"COC"},{name:"Dumfriesshire",shortCode:"DFS"},{name:"Dunbartonshire (Dumbarton)",shortCode:"DNB"},{name:"Dundee, City of",shortCode:"DD"},{name:"East Lothian (Haddingtonshire)",shortCode:"ELN"},{name:"Edinburgh, City of",shortCode:"EB"},{name:"Fife",shortCode:"FIF"},{name:"Glasgow, City of",shortCode:"GLA"},{name:"Inverness-shire",shortCode:"INV"},{name:"Kincardineshire",shortCode:"KCD"},{name:"Kinross-shire",shortCode:"KRS"},{name:"Kirkcudbrightshire",shortCode:"KKD"},{name:"Lanarkshire",shortCode:"LKS"},{name:"Midlothian (County of Edinburgh)",shortCode:"MLN"},{name:"Moray (Elginshire)",shortCode:"MOR"},{name:"Nairnshire",shortCode:"NAI"},{name:"Orkney",shortCode:"OKI"},{name:"Peeblesshire",shortCode:"PEE"},{name:"Perthshire",shortCode:"PER"},{name:"Renfrewshire",shortCode:"RFW"},{name:"Ross and Cromarty",shortCode:"ROC"},{name:"Ross-shire",shortCode:"ROS"},{name:"Roxburghshire",shortCode:"ROX"},{name:"Selkirkshire",shortCode:"SEL"},{name:"Shetland (Zetland)",shortCode:"SHI"},{name:"Stirlingshire",shortCode:"STI"},{name:"Sutherland",shortCode:"SUT"},{name:"West Lothian (Linlithgowshire)",shortCode:"WLN"},{name:"Wigtownshire",shortCode:"WIG"},{name:"Clwyd",shortCode:"CWD"},{name:"Dyfed",shortCode:"DFD"},{name:"Gwent",shortCode:"GNT"},{name:"Gwynedd",shortCode:"GWN"},{name:"Mid Glamorgan",shortCode:"MGM"},{name:"Powys",shortCode:"POW"},{name:"South Glamorgan",shortCode:"SGM"},{name:"West Glamorgan",shortCode:"WGM"}]},{countryName:"United States",countryShortCode:"US",regions:[{name:"Alabama",shortCode:"AL"},{name:"Alaska",shortCode:"AK"},{name:"American Samoa",shortCode:"AS"},{name:"Arizona",shortCode:"AZ"},{name:"Arkansas",shortCode:"AR"},{name:"California",shortCode:"CA"},{name:"Colorado",shortCode:"CO"},{name:"Connecticut",shortCode:"CT"},{name:"Delaware",shortCode:"DE"},{name:"District of Columbia",shortCode:"DC"},{name:"Micronesia",shortCode:"FM"},{name:"Florida",shortCode:"FL"},{name:"Georgia",shortCode:"GA"},{name:"Guam",shortCode:"GU"},{name:"Hawaii",shortCode:"HI"},{name:"Idaho",shortCode:"ID"},{name:"Illinois",shortCode:"IL"},{name:"Indiana",shortCode:"IN"},{name:"Iowa",shortCode:"IA"},{name:"Kansas",shortCode:"KS"},{name:"Kentucky",shortCode:"KY"},{name:"Louisiana",shortCode:"LA"},{name:"Maine",shortCode:"ME"},{name:"Marshall Islands",shortCode:"MH"},{name:"Maryland",shortCode:"MD"},{name:"Massachusetts",shortCode:"MA"},{name:"Michigan",shortCode:"MI"},{name:"Minnesota",shortCode:"MN"},{name:"Mississippi",shortCode:"MS"},{name:"Missouri",shortCode:"MO"},{name:"Montana",shortCode:"MT"},{name:"Nebraska",shortCode:"NE"},{name:"Nevada",shortCode:"NV"},{name:"New Hampshire",shortCode:"NH"},{name:"New Jersey",shortCode:"NJ"},{name:"New Mexico",shortCode:"NM"},{name:"New York",shortCode:"NY"},{name:"North Carolina",shortCode:"NC"},{name:"North Dakota",shortCode:"ND"},{name:"Northern Mariana Islands",shortCode:"MP"},{name:"Ohio",shortCode:"OH"},{name:"Oklahoma",shortCode:"OK"},{name:"Oregon",shortCode:"OR"},{name:"Palau",shortCode:"PW"},{name:"Pennsylvania",shortCode:"PA"},{name:"Puerto Rico",shortCode:"PR"},{name:"Rhode Island",shortCode:"RI"},{name:"South Carolina",shortCode:"SC"},{name:"South Dakota",shortCode:"SD"},{name:"Tennessee",shortCode:"TN"},{name:"Texas",shortCode:"TX"},{name:"Utah",shortCode:"UT"},{name:"Vermont",shortCode:"VT"},{name:"Virgin Islands",shortCode:"VI"},{name:"Virginia",shortCode:"VA"},{name:"Washington",shortCode:"WA"},{name:"West Virginia",shortCode:"WV"},{name:"Wisconsin",shortCode:"WI"},{name:"Wyoming",shortCode:"WY"},{name:"Armed Forces Americas",shortCode:"AA"},{name:"Armed Forces Europe, Canada, Africa and Middle East",shortCode:"AE"},{name:"Armed Forces Pacific",shortCode:"AP"}]},{countryName:"United States Minor Outlying Islands",countryShortCode:"UM",regions:[{name:"Baker Island",shortCode:"81"},{name:"Howland Island",shortCode:"84"},{name:"Jarvis Island",shortCode:"86"},{name:"Johnston Atoll",shortCode:"67"},{name:"Kingman Reef",shortCode:"89"},{name:"Midway Islands",shortCode:"71"},{name:"Navassa Island",shortCode:"76"},{name:"Palmyra Atoll",shortCode:"95"},{name:"Wake Island",shortCode:"79"},{name:"Bajo Nuevo Bank",shortCode:"BN"},{name:"Serranilla Bank",shortCode:"SB"}]},{countryName:"Uruguay",countryShortCode:"UY",regions:[{name:"Artigas",shortCode:"AR"},{name:"Canelones",shortCode:"CA"},{name:"Cerro Largo",shortCode:"CL"},{name:"Colonia",shortCode:"CO"},{name:"Durazno",shortCode:"DU"},{name:"Flores",shortCode:"FS"},{name:"Florida",shortCode:"FD"},{name:"Lavalleja",shortCode:"LA"},{name:"Maldonado",shortCode:"MA"},{name:"Montevideo",shortCode:"MO"},{name:"Paysandú",shortCode:"PA"},{name:"Río Negro",shortCode:"RN"},{name:"Rivera",shortCode:"RV"},{name:"Rocha",shortCode:"RO"},{name:"Salto",shortCode:"SA"},{name:"San José",shortCode:"SJ"},{name:"Soriano",shortCode:"SO"},{name:"Tacuarembó",shortCode:"TA"},{name:"Treinta y Tres",shortCode:"TT"}]},{countryName:"Uzbekistan",countryShortCode:"UZ",regions:[{name:"Toshkent shahri",shortCode:"TK"},{name:"Andijon",shortCode:"AN"},{name:"Buxoro",shortCode:"BU"},{name:"Farg‘ona",shortCode:"FA"},{name:"Jizzax",shortCode:"JI"},{name:"Namangan",shortCode:"NG"},{name:"Navoiy",shortCode:"NW"},{name:"Qashqadaryo (Qarshi)",shortCode:"QA"},{name:"Samarqand",shortCode:"SA"},{name:"Sirdaryo (Guliston)",shortCode:"SI"},{name:"Surxondaryo (Termiz)",shortCode:"SU"},{name:"Toshkent wiloyati",shortCode:"TO"},{name:"Xorazm (Urganch)",shortCode:"XO"},{name:"Qoraqalpog‘iston Respublikasi (Nukus)",shortCode:"QR"}]},{countryName:"Vanuatu",countryShortCode:"VU",regions:[{name:"Malampa",shortCode:"MAP"},{name:"Pénama",shortCode:"PAM"},{name:"Sanma",shortCode:"SAM"},{name:"Shéfa",shortCode:"SEE"},{name:"Taféa",shortCode:"TAE"},{name:"Torba",shortCode:"TOB"}]},{countryName:"Venezuela, Bolivarian Republic of",countryShortCode:"VE",regions:[{name:"Dependencias Federales",shortCode:"W"},{name:"Distrito Federal",shortCode:"A"},{name:"Amazonas",shortCode:"Z"},{name:"Anzoátegui",shortCode:"B"},{name:"Apure",shortCode:"C"},{name:"Aragua",shortCode:"D"},{name:"Barinas",shortCode:"E"},{name:"Bolívar",shortCode:"F"},{name:"Carabobo",shortCode:"G"},{name:"Cojedes",shortCode:"H"},{name:"Delta Amacuro",shortCode:"Y"},{name:"Falcón",shortCode:"I"},{name:"Guárico",shortCode:"J"},{name:"Lara",shortCode:"K"},{name:"Mérida",shortCode:"L"},{name:"Miranda",shortCode:"M"},{name:"Monagas",shortCode:"N"},{name:"Nueva Esparta",shortCode:"O"},{name:"Portuguesa",shortCode:"P"},{name:"Sucre",shortCode:"R"},{name:"Táchira",shortCode:"S"},{name:"Trujillo",shortCode:"T"},{name:"Vargas",shortCode:"X"},{name:"Yaracuy",shortCode:"U"},{name:"Zulia",shortCode:"V"}]},{countryName:"Vietnam",countryShortCode:"VN",regions:[{name:"Đồng Nai",shortCode:"39"},{name:"Đồng Tháp",shortCode:"45"},{name:"Gia Lai",shortCode:"30"},{name:"Hà Giang",shortCode:"03"},{name:"Hà Nam",shortCode:"63"},{name:"Hà Tây",shortCode:"15"},{name:"Hà Tĩnh",shortCode:"23"},{name:"Hải Dương",shortCode:"61"},{name:"Hậu Giang",shortCode:"73"},{name:"Hòa Bình",shortCode:"14"},{name:"Hưng Yên",shortCode:"66"},{name:"Khánh Hòa",shortCode:"34"},{name:"Kiên Giang",shortCode:"47"},{name:"Kon Tum",shortCode:"28"},{name:"Lai Châu",shortCode:"01"},{name:"Lâm Đồng",shortCode:"35"},{name:"Lạng Sơn",shortCode:"09"},{name:"Lào Cai",shortCode:"02"},{name:"Long An",shortCode:"41"},{name:"Nam Định",shortCode:"67"},{name:"Nghệ An",shortCode:"22"},{name:"Ninh Bình",shortCode:"18"},{name:"Ninh Thuận",shortCode:"36"},{name:"Phú Thọ",shortCode:"68"},{name:"Phú Yên",shortCode:"32"},{name:"Quảng Bình",shortCode:"24"},{name:"Quảng Nam",shortCode:"27"},{name:"Quảng Ngãi",shortCode:"29"},{name:"Quảng Ninh",shortCode:"13"},{name:"Quảng Trị",shortCode:"25"},{name:"Sóc Trăng",shortCode:"52"},{name:"Sơn La",shortCode:"05"},{name:"Tây Ninh",shortCode:"37"},{name:"Thái Bình",shortCode:"20"},{name:"Thái Nguyên",shortCode:"69"},{name:"Thanh Hóa",shortCode:"21"},{name:"Thừa Thiên–Huế",shortCode:"26"},{name:"Tiền Giang",shortCode:"46"},{name:"Trà Vinh",shortCode:"51"},{name:"Tuyên Quang",shortCode:"07"},{name:"Vĩnh Long",shortCode:"49"},{name:"Vĩnh Phúc",shortCode:"70"},{name:"Yên Bái",shortCode:"06"},{name:"Cần Thơ",shortCode:"CT"},{name:"Đà Nẵng",shortCode:"DN"},{name:"Hà Nội",shortCode:"HN"},{name:"Hải Phòng",shortCode:"HP"},{name:"Hồ Chí Minh (Sài Gòn)",shortCode:"SG"}]},{countryName:"Virgin Islands, British",countryShortCode:"VG",regions:[{name:"Anegada",shortCode:"ANG"},{name:"Jost Van Dyke",shortCode:"JVD"},{name:"Tortola",shortCode:"TTA"},{name:"Virgin Gorda",shortCode:"VGD"}]},{countryName:"Virgin Islands, U.S.",countryShortCode:"VI",regions:[{name:"St. Thomas",shortCode:"STH"},{name:"St. John",shortCode:"SJO"},{name:"St. Croix",shortCode:"SCR"}]},{countryName:"Wallis and Futuna",countryShortCode:"WF",regions:[{name:"Alo",shortCode:"ALO"},{name:"Sigave",shortCode:"SIG"},{name:"Wallis",shortCode:"WAL"}]},{countryName:"Western Sahara",countryShortCode:"EH",regions:[{name:"Es Smara",shortCode:"ESM"},{name:"Boujdour",shortCode:"BOD"},{name:"Laâyoune",shortCode:"LAA"},{name:"Aousserd",shortCode:"AOU"},{name:"Oued ed Dahab",shortCode:"OUD"}]},{countryName:"Yemen",countryShortCode:"YE",regions:[{name:"Abyān",shortCode:"AB"},{name:"'Adan",shortCode:"AD"},{name:"Aḑ Ḑāli'",shortCode:"DA"},{name:"Al Bayḑā'",shortCode:"BA"},{name:"Al Ḩudaydah",shortCode:"HU"},{name:"Al Jawf",shortCode:"JA"},{name:"Al Mahrah",shortCode:"MR"},{name:"Al Maḩwīt",shortCode:"MW"},{name:"'Amrān",shortCode:"AM"},{name:"Dhamār",shortCode:"DH"},{name:"Ḩaḑramawt",shortCode:"HD"},{name:"Ḩajjah",shortCode:"HJ"},{name:"Ibb",shortCode:"IB"},{name:"Laḩij",shortCode:"LA"},{name:"Ma'rib",shortCode:"MA"},{name:"Raymah",shortCode:"RA"},{name:"Şā‘dah",shortCode:"SD"},{name:"Şan‘ā'",shortCode:"SN"},{name:"Shabwah",shortCode:"SH"},{name:"Tā‘izz",shortCode:"TA"}]},{countryName:"Zambia",countryShortCode:"ZM",regions:[{name:"Central",shortCode:"02"},{name:"Copperbelt",shortCode:"08"},{name:"Eastern",shortCode:"03"},{name:"Luapula",shortCode:"04"},{name:"Lusaka",shortCode:"09"},{name:"Northern",shortCode:"05"},{name:"North-Western",shortCode:"06"},{name:"Southern",shortCode:"07"},{name:"Western",shortCode:"01"}]},{countryName:"Zimbabwe",countryShortCode:"ZW",regions:[{name:"Bulawayo",shortCode:"BU"},{name:"Harare",shortCode:"HA"},{name:"Manicaland",shortCode:"MA"},{name:"Mashonaland Central",shortCode:"MC"},{name:"Mashonaland East",shortCode:"ME"},{name:"Mashonaland West",shortCode:"MW"},{name:"Masvingo",shortCode:"MV"},{name:"Matabeleland North",shortCode:"MN"},{name:"Matabeleland South",shortCode:"MS"},{name:"Midlands",shortCode:"MI"}]}]),d={name:"CountrySelect",props:{country:String,countryName:Boolean,whiteList:Array,blackList:Array,className:String,shortCodeDropdown:Boolean,topCountry:{type:String,default:""},placeholder:{type:String,default:"Select Country"},disablePlaceholder:{type:Boolean,default:!1},removePlaceholder:{type:Boolean,default:!1},usei18n:{type:Boolean,default:!0}},data:function(){return{ran:!1}},computed:{countries:function(){var e=this,o=s.filter(function(o){return e.countryName?o.countryName!==e.firstCountry:o.countryShortCode!==e.firstCountry});if(this.whiteList&&(o=o.filter(function(o){return e.whiteList.includes(o.countryShortCode)})),this.blackList&&(o=o.filter(function(o){return!e.blackList.includes(o.countryShortCode)})),this.$i18n&&this.usei18n&&(o=o.map(function(o){var a=Object.assign({},o);return a.countryName=e.$t(o.countryName),a}),o.sort(function(e,o){return e.countryName>o.countryName?1:-1})),this.removePlaceholder){var a=this.firstCountry||o[0][this.valueType];this.onChange(a)}return o},firstCountry:function(){var e=this;if(this.countryName){if(2===this.topCountry.length){var o=s.find(function(o){return o.countryShortCode===e.topCountry});return o.countryName}return this.topCountry}return this.topCountry?this.topCountry:""},name:function(){return this.name},value:function(){return this.country},valueType:function(){return this.countryName?"countryName":"countryShortCode"}},methods:{onChange:function(e){this.$emit("input",e)},topCountryName:function(){var e=this,o=s.find(function(o){return e.countryName?o.countryName===e.firstCountry:o.countryShortCode===e.firstCountry});return this.$i18n&&this.usei18n?this.$t(o.countryName):this.shortCodeDropdown?o.countryShortCode:o.countryName}}},h=d;function m(e,o,a,n,r,t,s,d){var h,m="function"===typeof e?e.options:e;if(o&&(m.render=o,m.staticRenderFns=a,m._compiled=!0),n&&(m.functional=!0),t&&(m._scopeId="data-v-"+t),s?(h=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"===typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),r&&r.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(s)},m._ssrRegister=h):r&&(h=d?function(){r.call(this,this.$root.$options.shadowRoot)}:r),h)if(m.functional){m._injectStyles=h;var C=m.render;m.render=function(e,o){return h.call(o),C(e,o)}}else{var i=m.beforeCreate;m.beforeCreate=i?[].concat(i,h):[h]}return{exports:e,options:m}}var C=m(h,r,t,!1,null,null,null);C.options.__file="country-select.vue";var i=C.exports,u=function(){var e=this,o=e.$createElement,a=e._self._c||o;return a("select",{class:e.className,on:{change:function(o){e.onChange(o.target.value)}}},[e.disablePlaceholder||e.removePlaceholder?e._e():a("option",{attrs:{value:""}},[e._v(e._s(e.placeholder))]),e.disablePlaceholder&&!e.removePlaceholder?a("option",{attrs:{value:"",disabled:"",selected:""}},[e._v(e._s(e.placeholder))]):e._e(),e._l(e.shownRegions,function(o,n){return a("option",{key:n,domProps:{value:o[e.valueType],selected:e.region===o[e.valueType]}},[e._v(e._s(e.shortCodeDropdown?o.shortCode:o.name))])})],2)},l=[],c={name:"RegionSelect",props:{country:String,region:String,defaultRegion:String,countryName:Boolean,regionName:Boolean,className:String,shortCodeDropdown:Boolean,placeholder:{type:String,default:"Select Region"},disablePlaceholder:{type:Boolean,default:!1},removePlaceholder:{type:Boolean,default:!1},usei18n:{type:Boolean,default:!0}},data:function(){return{shownRegions:[],regions:s,ran:!1}},mounted:function(){if(this.country)this.getRegionWithCountry();else{var e="";e=this.countryName?this.defaultRegion?this.defaultRegion:"United States":this.defaultRegion?this.defaultRegion:"US",this.getRegionWithCountry(e)}},computed:{name:function(){return this.name},value:function(){return this.region},valueType:function(){return this.regionName?"name":"shortCode"}},methods:{onChange:function(e){this.$emit("input",e)},getRegionWithCountry:function(e){var o=this;e=e||this.country;var a=s.find(function(a){return o.countryName?a.countryName===e:a.countryShortCode===e}).regions;this.$i18n&&this.usei18n&&(a=a.map(function(e){var a=Object.assign({},e);return a.name=o.$t(e.name),a}),a.sort(function(e,o){return e.name>o.name?1:-1})),this.shownRegions=a,this.disablePlaceholder&&this.ran&&this.onChange(this.shownRegions[0][this.valueType]),this.removePlaceholder&&this.onChange(this.shownRegions[0][this.valueType]),this.ran=!0}},watch:{country:function(e,o){""!==o&&this.onChange(""),this.country?this.getRegionWithCountry():this.shownRegions=[]}}},S=c,g=m(S,u,l,!1,null,null,null);g.options.__file="region-select.vue";var y=g.exports,A=function(e){var o={CountrySelect:i,RegionSelect:y};Object.keys(o).forEach(function(a){e.component(a,o[a])})},N={CountrySelect:i,RegionSelect:y,install:A},M=N;a.d(o,"CountrySelect",function(){return i}),a.d(o,"RegionSelect",function(){return y});o["default"]=M}})});
+(function(e,o){ true?module.exports=o():undefined})("undefined"!==typeof self?self:this,(function(){return function(e){var o={};function a(n){if(o[n])return o[n].exports;var r=o[n]={i:n,l:!1,exports:{}};return e[n].call(r.exports,r,r.exports,a),r.l=!0,r.exports}return a.m=e,a.c=o,a.d=function(e,o,n){a.o(e,o)||Object.defineProperty(e,o,{enumerable:!0,get:n})},a.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.t=function(e,o){if(1&o&&(e=a(e)),8&o)return e;if(4&o&&"object"===typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(a.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&o&&"string"!=typeof e)for(var r in e)a.d(n,r,function(o){return e[o]}.bind(null,r));return n},a.n=function(e){var o=e&&e.__esModule?function(){return e["default"]}:function(){return e};return a.d(o,"a",o),o},a.o=function(e,o){return Object.prototype.hasOwnProperty.call(e,o)},a.p="",a(a.s="fb15")}({"01f9":function(e,o,a){"use strict";var n=a("2d00"),r=a("5ca1"),t=a("2aba"),s=a("32e9"),d=a("84f2"),h=a("41a0"),m=a("7f20"),C=a("38fd"),i=a("2b4c")("iterator"),u=!([].keys&&"next"in[].keys()),l="@@iterator",c="keys",S="values",g=function(){return this};e.exports=function(e,o,a,y,A,N,M){h(a,o,y);var b,B,k,K=function(e){if(!u&&e in T)return T[e];switch(e){case c:return function(){return new a(this,e)};case S:return function(){return new a(this,e)}}return function(){return new a(this,e)}},v=o+" Iterator",p=A==S,f=!1,T=e.prototype,L=T[i]||T[l]||A&&T[A],P=L||K(A),R=A?p?K("entries"):P:void 0,O="Array"==o&&T.entries||L;if(O&&(k=C(O.call(new e)),k!==Object.prototype&&k.next&&(m(k,v,!0),n||"function"==typeof k[i]||s(k,i,g))),p&&L&&L.name!==S&&(f=!0,P=function(){return L.call(this)}),n&&!M||!u&&!f&&T[i]||s(T,i,P),d[o]=P,d[v]=g,A)if(b={values:p?P:K(S),keys:N?P:K(c),entries:R},M)for(B in b)B in T||t(T,B,b[B]);else r(r.P+r.F*(u||f),o,b);return b}},"0a49":function(e,o,a){var n=a("9b43"),r=a("626a"),t=a("4bf8"),s=a("9def"),d=a("cd1c");e.exports=function(e,o){var a=1==e,h=2==e,m=3==e,C=4==e,i=6==e,u=5==e||i,l=o||d;return function(o,d,c){for(var S,g,y=t(o),A=r(y),N=n(d,c,3),M=s(A.length),b=0,B=a?l(o,M):h?l(o,0):void 0;M>b;b++)if((u||b in A)&&(S=A[b],g=N(S,b,y),e))if(a)B[b]=g;else if(g)switch(e){case 3:return!0;case 5:return S;case 6:return b;case 2:B.push(S)}else if(C)return!1;return i?-1:m||C?C:B}}},"0d58":function(e,o,a){var n=a("ce10"),r=a("e11e");e.exports=Object.keys||function(e){return n(e,r)}},1169:function(e,o,a){var n=a("2d95");e.exports=Array.isArray||function(e){return"Array"==n(e)}},1495:function(e,o,a){var n=a("86cc"),r=a("cb7c"),t=a("0d58");e.exports=a("9e1e")?Object.defineProperties:function(e,o){r(e);var a,s=t(o),d=s.length,h=0;while(d>h)n.f(e,a=s[h++],o[a]);return e}},"230e":function(e,o,a){var n=a("d3f4"),r=a("7726").document,t=n(r)&&n(r.createElement);e.exports=function(e){return t?r.createElement(e):{}}},2621:function(e,o){o.f=Object.getOwnPropertySymbols},"2aba":function(e,o,a){var n=a("7726"),r=a("32e9"),t=a("69a8"),s=a("ca5a")("src"),d=a("fa5b"),h="toString",m=(""+d).split(h);a("8378").inspectSource=function(e){return d.call(e)},(e.exports=function(e,o,a,d){var h="function"==typeof a;h&&(t(a,"name")||r(a,"name",o)),e[o]!==a&&(h&&(t(a,s)||r(a,s,e[o]?""+e[o]:m.join(String(o)))),e===n?e[o]=a:d?e[o]?e[o]=a:r(e,o,a):(delete e[o],r(e,o,a)))})(Function.prototype,h,(function(){return"function"==typeof this&&this[s]||d.call(this)}))},"2aeb":function(e,o,a){var n=a("cb7c"),r=a("1495"),t=a("e11e"),s=a("613b")("IE_PROTO"),d=function(){},h="prototype",m=function(){var e,o=a("230e")("iframe"),n=t.length,r="<",s=">";o.style.display="none",a("fab2").appendChild(o),o.src="javascript:",e=o.contentWindow.document,e.open(),e.write(r+"script"+s+"document.F=Object"+r+"/script"+s),e.close(),m=e.F;while(n--)delete m[h][t[n]];return m()};e.exports=Object.create||function(e,o){var a;return null!==e?(d[h]=n(e),a=new d,d[h]=null,a[s]=e):a=m(),void 0===o?a:r(a,o)}},"2b4c":function(e,o,a){var n=a("5537")("wks"),r=a("ca5a"),t=a("7726").Symbol,s="function"==typeof t,d=e.exports=function(e){return n[e]||(n[e]=s&&t[e]||(s?t:r)("Symbol."+e))};d.store=n},"2d00":function(e,o){e.exports=!1},"2d95":function(e,o){var a={}.toString;e.exports=function(e){return a.call(e).slice(8,-1)}},"2f21":function(e,o,a){"use strict";var n=a("79e5");e.exports=function(e,o){return!!e&&n((function(){o?e.call(null,(function(){}),1):e.call(null)}))}},"2fdb":function(e,o,a){"use strict";var n=a("5ca1"),r=a("d2c8"),t="includes";n(n.P+n.F*a("5147")(t),"String",{includes:function(e){return!!~r(this,e,t).indexOf(e,arguments.length>1?arguments[1]:void 0)}})},"32e9":function(e,o,a){var n=a("86cc"),r=a("4630");e.exports=a("9e1e")?function(e,o,a){return n.f(e,o,r(1,a))}:function(e,o,a){return e[o]=a,e}},"38fd":function(e,o,a){var n=a("69a8"),r=a("4bf8"),t=a("613b")("IE_PROTO"),s=Object.prototype;e.exports=Object.getPrototypeOf||function(e){return e=r(e),n(e,t)?e[t]:"function"==typeof e.constructor&&e instanceof e.constructor?e.constructor.prototype:e instanceof Object?s:null}},"41a0":function(e,o,a){"use strict";var n=a("2aeb"),r=a("4630"),t=a("7f20"),s={};a("32e9")(s,a("2b4c")("iterator"),(function(){return this})),e.exports=function(e,o,a){e.prototype=n(s,{next:r(1,a)}),t(e,o+" Iterator")}},"456d":function(e,o,a){var n=a("4bf8"),r=a("0d58");a("5eda")("keys",(function(){return function(e){return r(n(e))}}))},4588:function(e,o){var a=Math.ceil,n=Math.floor;e.exports=function(e){return isNaN(e=+e)?0:(e>0?n:a)(e)}},4630:function(e,o){e.exports=function(e,o){return{enumerable:!(1&e),configurable:!(2&e),writable:!(4&e),value:o}}},"4bf8":function(e,o,a){var n=a("be13");e.exports=function(e){return Object(n(e))}},5147:function(e,o,a){var n=a("2b4c")("match");e.exports=function(e){var o=/./;try{"/./"[e](o)}catch(a){try{return o[n]=!1,!"/./"[e](o)}catch(r){}}return!0}},"52a7":function(e,o){o.f={}.propertyIsEnumerable},5537:function(e,o,a){var n=a("8378"),r=a("7726"),t="__core-js_shared__",s=r[t]||(r[t]={});(e.exports=function(e,o){return s[e]||(s[e]=void 0!==o?o:{})})("versions",[]).push({version:n.version,mode:a("2d00")?"pure":"global",copyright:"© 2019 Denis Pushkarev (zloirock.ru)"})},"55dd":function(e,o,a){"use strict";var n=a("5ca1"),r=a("d8e8"),t=a("4bf8"),s=a("79e5"),d=[].sort,h=[1,2,3];n(n.P+n.F*(s((function(){h.sort(void 0)}))||!s((function(){h.sort(null)}))||!a("2f21")(d)),"Array",{sort:function(e){return void 0===e?d.call(t(this)):d.call(t(this),r(e))}})},"5ca1":function(e,o,a){var n=a("7726"),r=a("8378"),t=a("32e9"),s=a("2aba"),d=a("9b43"),h="prototype",m=function(e,o,a){var C,i,u,l,c=e&m.F,S=e&m.G,g=e&m.S,y=e&m.P,A=e&m.B,N=S?n:g?n[o]||(n[o]={}):(n[o]||{})[h],M=S?r:r[o]||(r[o]={}),b=M[h]||(M[h]={});for(C in S&&(a=o),a)i=!c&&N&&void 0!==N[C],u=(i?N:a)[C],l=A&&i?d(u,n):y&&"function"==typeof u?d(Function.call,u):u,N&&s(N,C,u,e&m.U),M[C]!=u&&t(M,C,l),y&&b[C]!=u&&(b[C]=u)};n.core=r,m.F=1,m.G=2,m.S=4,m.P=8,m.B=16,m.W=32,m.U=64,m.R=128,e.exports=m},"5eda":function(e,o,a){var n=a("5ca1"),r=a("8378"),t=a("79e5");e.exports=function(e,o){var a=(r.Object||{})[e]||Object[e],s={};s[e]=o(a),n(n.S+n.F*t((function(){a(1)})),"Object",s)}},"613b":function(e,o,a){var n=a("5537")("keys"),r=a("ca5a");e.exports=function(e){return n[e]||(n[e]=r(e))}},"626a":function(e,o,a){var n=a("2d95");e.exports=Object("z").propertyIsEnumerable(0)?Object:function(e){return"String"==n(e)?e.split(""):Object(e)}},6762:function(e,o,a){"use strict";var n=a("5ca1"),r=a("c366")(!0);n(n.P,"Array",{includes:function(e){return r(this,e,arguments.length>1?arguments[1]:void 0)}}),a("9c6c")("includes")},6821:function(e,o,a){var n=a("626a"),r=a("be13");e.exports=function(e){return n(r(e))}},"69a8":function(e,o){var a={}.hasOwnProperty;e.exports=function(e,o){return a.call(e,o)}},"6a99":function(e,o,a){var n=a("d3f4");e.exports=function(e,o){if(!n(e))return e;var a,r;if(o&&"function"==typeof(a=e.toString)&&!n(r=a.call(e)))return r;if("function"==typeof(a=e.valueOf)&&!n(r=a.call(e)))return r;if(!o&&"function"==typeof(a=e.toString)&&!n(r=a.call(e)))return r;throw TypeError("Can't convert object to primitive value")}},7333:function(e,o,a){"use strict";var n=a("9e1e"),r=a("0d58"),t=a("2621"),s=a("52a7"),d=a("4bf8"),h=a("626a"),m=Object.assign;e.exports=!m||a("79e5")((function(){var e={},o={},a=Symbol(),n="abcdefghijklmnopqrst";return e[a]=7,n.split("").forEach((function(e){o[e]=e})),7!=m({},e)[a]||Object.keys(m({},o)).join("")!=n}))?function(e,o){var a=d(e),m=arguments.length,C=1,i=t.f,u=s.f;while(m>C){var l,c=h(arguments[C++]),S=i?r(c).concat(i(c)):r(c),g=S.length,y=0;while(g>y)l=S[y++],n&&!u.call(c,l)||(a[l]=c[l])}return a}:m},7514:function(e,o,a){"use strict";var n=a("5ca1"),r=a("0a49")(5),t="find",s=!0;t in[]&&Array(1)[t]((function(){s=!1})),n(n.P+n.F*s,"Array",{find:function(e){return r(this,e,arguments.length>1?arguments[1]:void 0)}}),a("9c6c")(t)},7726:function(e,o){var a=e.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=a)},"77f1":function(e,o,a){var n=a("4588"),r=Math.max,t=Math.min;e.exports=function(e,o){return e=n(e),e<0?r(e+o,0):t(e,o)}},"79e5":function(e,o){e.exports=function(e){try{return!!e()}catch(o){return!0}}},"7f20":function(e,o,a){var n=a("86cc").f,r=a("69a8"),t=a("2b4c")("toStringTag");e.exports=function(e,o,a){e&&!r(e=a?e:e.prototype,t)&&n(e,t,{configurable:!0,value:o})}},"7f7f":function(e,o,a){var n=a("86cc").f,r=Function.prototype,t=/^\s*function ([^ (]*)/,s="name";s in r||a("9e1e")&&n(r,s,{configurable:!0,get:function(){try{return(""+this).match(t)[1]}catch(e){return""}}})},8378:function(e,o){var a=e.exports={version:"2.6.11"};"number"==typeof __e&&(__e=a)},"84f2":function(e,o){e.exports={}},"86cc":function(e,o,a){var n=a("cb7c"),r=a("c69a"),t=a("6a99"),s=Object.defineProperty;o.f=a("9e1e")?Object.defineProperty:function(e,o,a){if(n(e),o=t(o,!0),n(a),r)try{return s(e,o,a)}catch(d){}if("get"in a||"set"in a)throw TypeError("Accessors not supported!");return"value"in a&&(e[o]=a.value),e}},"9b43":function(e,o,a){var n=a("d8e8");e.exports=function(e,o,a){if(n(e),void 0===o)return e;switch(a){case 1:return function(a){return e.call(o,a)};case 2:return function(a,n){return e.call(o,a,n)};case 3:return function(a,n,r){return e.call(o,a,n,r)}}return function(){return e.apply(o,arguments)}}},"9c6c":function(e,o,a){var n=a("2b4c")("unscopables"),r=Array.prototype;void 0==r[n]&&a("32e9")(r,n,{}),e.exports=function(e){r[n][e]=!0}},"9def":function(e,o,a){var n=a("4588"),r=Math.min;e.exports=function(e){return e>0?r(n(e),9007199254740991):0}},"9e1e":function(e,o,a){e.exports=!a("79e5")((function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a}))},aae3:function(e,o,a){var n=a("d3f4"),r=a("2d95"),t=a("2b4c")("match");e.exports=function(e){var o;return n(e)&&(void 0!==(o=e[t])?!!o:"RegExp"==r(e))}},ac6a:function(e,o,a){for(var n=a("cadf"),r=a("0d58"),t=a("2aba"),s=a("7726"),d=a("32e9"),h=a("84f2"),m=a("2b4c"),C=m("iterator"),i=m("toStringTag"),u=h.Array,l={CSSRuleList:!0,CSSStyleDeclaration:!1,CSSValueList:!1,ClientRectList:!1,DOMRectList:!1,DOMStringList:!1,DOMTokenList:!0,DataTransferItemList:!1,FileList:!1,HTMLAllCollection:!1,HTMLCollection:!1,HTMLFormElement:!1,HTMLSelectElement:!1,MediaList:!0,MimeTypeArray:!1,NamedNodeMap:!1,NodeList:!0,PaintRequestList:!1,Plugin:!1,PluginArray:!1,SVGLengthList:!1,SVGNumberList:!1,SVGPathSegList:!1,SVGPointList:!1,SVGStringList:!1,SVGTransformList:!1,SourceBufferList:!1,StyleSheetList:!0,TextTrackCueList:!1,TextTrackList:!1,TouchList:!1},c=r(l),S=0;S<c.length;S++){var g,y=c[S],A=l[y],N=s[y],M=N&&N.prototype;if(M&&(M[C]||d(M,C,u),M[i]||d(M,i,y),h[y]=u,A))for(g in n)M[g]||t(M,g,n[g],!0)}},be13:function(e,o){e.exports=function(e){if(void 0==e)throw TypeError("Can't call method on  "+e);return e}},c366:function(e,o,a){var n=a("6821"),r=a("9def"),t=a("77f1");e.exports=function(e){return function(o,a,s){var d,h=n(o),m=r(h.length),C=t(s,m);if(e&&a!=a){while(m>C)if(d=h[C++],d!=d)return!0}else for(;m>C;C++)if((e||C in h)&&h[C]===a)return e||C||0;return!e&&-1}}},c69a:function(e,o,a){e.exports=!a("9e1e")&&!a("79e5")((function(){return 7!=Object.defineProperty(a("230e")("div"),"a",{get:function(){return 7}}).a}))},ca5a:function(e,o){var a=0,n=Math.random();e.exports=function(e){return"Symbol(".concat(void 0===e?"":e,")_",(++a+n).toString(36))}},cadf:function(e,o,a){"use strict";var n=a("9c6c"),r=a("d53b"),t=a("84f2"),s=a("6821");e.exports=a("01f9")(Array,"Array",(function(e,o){this._t=s(e),this._i=0,this._k=o}),(function(){var e=this._t,o=this._k,a=this._i++;return!e||a>=e.length?(this._t=void 0,r(1)):r(0,"keys"==o?a:"values"==o?e[a]:[a,e[a]])}),"values"),t.Arguments=t.Array,n("keys"),n("values"),n("entries")},cb7c:function(e,o,a){var n=a("d3f4");e.exports=function(e){if(!n(e))throw TypeError(e+" is not an object!");return e}},cd1c:function(e,o,a){var n=a("e853");e.exports=function(e,o){return new(n(e))(o)}},ce10:function(e,o,a){var n=a("69a8"),r=a("6821"),t=a("c366")(!1),s=a("613b")("IE_PROTO");e.exports=function(e,o){var a,d=r(e),h=0,m=[];for(a in d)a!=s&&n(d,a)&&m.push(a);while(o.length>h)n(d,a=o[h++])&&(~t(m,a)||m.push(a));return m}},d2c8:function(e,o,a){var n=a("aae3"),r=a("be13");e.exports=function(e,o,a){if(n(o))throw TypeError("String#"+a+" doesn't accept regex!");return String(r(e))}},d3f4:function(e,o){e.exports=function(e){return"object"===typeof e?null!==e:"function"===typeof e}},d53b:function(e,o){e.exports=function(e,o){return{value:o,done:!!e}}},d8e8:function(e,o){e.exports=function(e){if("function"!=typeof e)throw TypeError(e+" is not a function!");return e}},e11e:function(e,o){e.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},e853:function(e,o,a){var n=a("d3f4"),r=a("1169"),t=a("2b4c")("species");e.exports=function(e){var o;return r(e)&&(o=e.constructor,"function"!=typeof o||o!==Array&&!r(o.prototype)||(o=void 0),n(o)&&(o=o[t],null===o&&(o=void 0))),void 0===o?Array:o}},f6fd:function(e,o){(function(e){var o="currentScript",a=e.getElementsByTagName("script");o in e||Object.defineProperty(e,o,{get:function(){try{throw new Error}catch(n){var e,o=(/.*at [^\(]*\((.*):.+:.+\)$/gi.exec(n.stack)||[!1])[1];for(e in a)if(a[e].src==o||"interactive"==a[e].readyState)return a[e];return null}}})})(document)},f751:function(e,o,a){var n=a("5ca1");n(n.S+n.F,"Object",{assign:a("7333")})},fa5b:function(e,o,a){e.exports=a("5537")("native-function-to-string",Function.toString)},fab2:function(e,o,a){var n=a("7726").document;e.exports=n&&n.documentElement},fb15:function(e,o,a){"use strict";var n;(a.r(o),a.d(o,"CountrySelect",(function(){return i})),a.d(o,"RegionSelect",(function(){return y})),"undefined"!==typeof window)&&(a("f6fd"),(n=window.document.currentScript)&&(n=n.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))&&(a.p=n[1]));a("7f7f"),a("cadf"),a("456d"),a("ac6a");var r=function(){var e=this,o=e.$createElement,a=e._self._c||o;return a("select",{class:e.className,attrs:{autocomplete:e.autocompleteAttr},on:{change:function(o){return e.onChange(o.target.value)}}},[e.disablePlaceholder||e.removePlaceholder?e._e():a("option",{attrs:{value:""}},[e._v(e._s(e.placeholder))]),e.disablePlaceholder&&!e.removePlaceholder?a("option",{attrs:{value:"",disabled:"",selected:""}},[e._v(e._s(e.placeholder))]):e._e(),e.topCountry?a("option",{domProps:{value:e.firstCountry,selected:e.country===e.firstCountry}},[e._v(e._s(e.topCountryName()))]):e._e(),e._l(e.countries,(function(o,n){return a("option",{key:n,domProps:{value:o[e.valueType],selected:e.country===o[e.valueType]}},[e._v(e._s(e.shortCodeDropdown?o.countryShortCode:o.countryName))])}))],2)},t=[],s=(a("7514"),a("55dd"),a("f751"),a("6762"),a("2fdb"),[{countryName:"Afghanistan",countryShortCode:"AF",regions:[{name:"Badakhshan",shortCode:"BDS"},{name:"Badghis",shortCode:"BDG"},{name:"Baghlan",shortCode:"BGL"},{name:"Balkh",shortCode:"BAL"},{name:"Bamyan",shortCode:"BAM"},{name:"Daykundi",shortCode:"DAY"},{name:"Farah",shortCode:"FRA"},{name:"Faryab",shortCode:"FYB"},{name:"Ghazni",shortCode:"GHA"},{name:"Ghor",shortCode:"GHO"},{name:"Helmand",shortCode:"HEL"},{name:"Herat",shortCode:"HER"},{name:"Jowzjan",shortCode:"JOW"},{name:"Kabul",shortCode:"KAB"},{name:"Kandahar",shortCode:"KAN"},{name:"Kapisa",shortCode:"KAP"},{name:"Khost",shortCode:"KHO"},{name:"Kunar",shortCode:"KNR"},{name:"Kunduz",shortCode:"KDZ"},{name:"Laghman",shortCode:"LAG"},{name:"Logar",shortCode:"LOW"},{name:"Maidan Wardak",shortCode:"WAR"},{name:"Nangarhar",shortCode:"NAN"},{name:"Nimruz",shortCode:"NIM"},{name:"Nuristan",shortCode:"NUR"},{name:"Paktia",shortCode:"PIA"},{name:"Paktika",shortCode:"PKA"},{name:"Panjshir",shortCode:"PAN"},{name:"Parwan",shortCode:"PAR"},{name:"Samangan",shortCode:"SAM"},{name:"Sar-e Pol",shortCode:"SAR"},{name:"Takhar",shortCode:"TAK"},{name:"Urozgan",shortCode:"ORU"},{name:"Zabul",shortCode:"ZAB"}]},{countryName:"Åland Islands",countryShortCode:"AX",regions:[{name:"Brändö",shortCode:"BR"},{name:"Eckerö",shortCode:"EC"},{name:"Finström",shortCode:"FN"},{name:"Föglö",shortCode:"FG"},{name:"Geta",shortCode:"GT"},{name:"Hammarland",shortCode:"HM"},{name:"Jomala",shortCode:"JM"},{name:"Kumlinge",shortCode:"KM"},{name:"Kökar",shortCode:"KK"},{name:"Lemland",shortCode:"LE"},{name:"Lumparland",shortCode:"LU"},{name:"Mariehamn",shortCode:"MH"},{name:"Saltvik",shortCode:"SV"},{name:"Sottunga",shortCode:"ST"},{name:"Sund",shortCode:"SD"},{name:"Vårdö",shortCode:"VR"}]},{countryName:"Albania",countryShortCode:"AL",regions:[{name:"Berat",shortCode:"01"},{name:"Dibër",shortCode:"09"},{name:"Durrës",shortCode:"02"},{name:"Elbasan",shortCode:"03"},{name:"Fier",shortCode:"04"},{name:"Gjirokastër",shortCode:"05"},{name:"Korçë",shortCode:"06"},{name:"Kukës",shortCode:"07"},{name:"Lezhë",shortCode:"08"},{name:"Shkodër",shortCode:"10"},{name:"Tirana",shortCode:"11"},{name:"Vlorë",shortCode:"12"}]},{countryName:"Algeria",countryShortCode:"DZ",regions:[{name:"Adrar",shortCode:"01"},{name:"Aïn Defla",shortCode:"44"},{name:"Aïn Témouchent",shortCode:"46"},{name:"Algiers",shortCode:"16"},{name:"Annaba",shortCode:"23"},{name:"Batna",shortCode:"05"},{name:"Béchar",shortCode:"08"},{name:"Béjaïa",shortCode:"06"},{name:"Biskra",shortCode:"07"},{name:"Blida",shortCode:"09"},{name:"Bordj Bou Arréridj",shortCode:"34"},{name:"Bouïra",shortCode:"10"},{name:"Boumerdès",shortCode:"35"},{name:"Chlef",shortCode:"02"},{name:"Constantine",shortCode:"25"},{name:"Djelfa",shortCode:"17"},{name:"El Bayadh",shortCode:"32"},{name:"El Oued",shortCode:"39"},{name:"El Tarf",shortCode:"36"},{name:"Ghardaïa",shortCode:"47"},{name:"Guelma",shortCode:"24"},{name:"Illizi",shortCode:"33"},{name:"Jijel",shortCode:"18"},{name:"Khenchela",shortCode:"40"},{name:"Laghouat",shortCode:"03"},{name:"Mascara",shortCode:"29"},{name:"Médéa",shortCode:"26"},{name:"Mila",shortCode:"43"},{name:"Mostaganem",shortCode:"27"},{name:"Msila",shortCode:"28"},{name:"Naâma",shortCode:"45"},{name:"Oran",shortCode:"31"},{name:"Ouargla",shortCode:"30"},{name:"Oum el Bouaghi",shortCode:"04"},{name:"Relizane",shortCode:"48"},{name:"Saïda",shortCode:"20"},{name:"Sétif",shortCode:"19"},{name:"Sidi Bel Abbès",shortCode:"22"},{name:"Skikda",shortCode:"21"},{name:"Souk Ahras",shortCode:"41"},{name:"Tamanghasset",shortCode:"11"},{name:"Tébessa",shortCode:"12"},{name:"Tiaret",shortCode:"14"},{name:"Tindouf",shortCode:"37"},{name:"Tipaza",shortCode:"42"},{name:"Tissemsilt",shortCode:"38"},{name:"Tizi Ouzou",shortCode:"15"},{name:"Tlemcen",shortCode:"13"}]},{countryName:"American Samoa",countryShortCode:"AS",regions:[{name:"Tutuila",shortCode:"01"},{name:"Aunu'u",shortCode:"02"},{name:"Ta'ū",shortCode:"03"},{name:"Ofu‑Olosega",shortCode:"04"},{name:"Rose Atoll",shortCode:"21"},{name:"Swains Island",shortCode:"22"}]},{countryName:"Andorra",countryShortCode:"AD",regions:[{name:"Andorra la Vella",shortCode:"07"},{name:"Canillo",shortCode:"02"},{name:"Encamp",shortCode:"03"},{name:"Escaldes-Engordany",shortCode:"08"},{name:"La Massana",shortCode:"04"},{name:"Ordino",shortCode:"05"},{name:"Sant Julià de Lòria",shortCode:"06"}]},{countryName:"Angola",countryShortCode:"AO",regions:[{name:"Bengo",shortCode:"BGO"},{name:"Benguela",shortCode:"BGU"},{name:"Bié",shortCode:"BIE"},{name:"Cabinda",shortCode:"CAB"},{name:"Cuando Cubango",shortCode:"CCU"},{name:"Cuanza Norte",shortCode:"CNO"},{name:"Cuanza Sul",shortCode:"CUS"},{name:"Cunene",shortCode:"CNN"},{name:"Huambo",shortCode:"HUA"},{name:"Huíla",shortCode:"HUI"},{name:"Luanda",shortCode:"LUA"},{name:"Lunda Norte",shortCode:"LNO"},{name:"Lunda Sul",shortCode:"LSU"},{name:"Malanje",shortCode:"MAL"},{name:"Moxico",shortCode:"MOX"},{name:"Namibe",shortCode:"NAM"},{name:"Uíge",shortCode:"UIG"},{name:"Zaire",shortCode:"ZAI"}]},{countryName:"Anguilla",countryShortCode:"AI",regions:[{name:"Anguilla",shortCode:"01"},{name:"Anguillita Island",shortCode:"02"},{name:"Blowing Rock",shortCode:"03"},{name:"Cove Cay",shortCode:"04"},{name:"Crocus Cay",shortCode:"05"},{name:"Deadman's Cay",shortCode:"06"},{name:"Dog Island",shortCode:"07"},{name:"East Cay",shortCode:"08"},{name:"Little Island",shortCode:"09"},{name:"Little Scrub Island",shortCode:"10"},{name:"Mid Cay",shortCode:"11"},{name:"North Cay",shortCode:"12"},{name:"Prickly Pear Cays",shortCode:"13"},{name:"Rabbit Island",shortCode:"14"},{name:"Sandy Island/Sand Island",shortCode:"15"},{name:"Scilly Cay",shortCode:"16"},{name:"Scrub Island",shortCode:"17"},{name:"Seal Island",shortCode:"18"},{name:"Sombrero/Hat Island",shortCode:"19"},{name:"South Cay",shortCode:"20"},{name:"South Wager Island",shortCode:"21"},{name:"West Cay",shortCode:"22"}]},{countryName:"Antarctica",countryShortCode:"AQ",regions:[{name:"Antarctica",shortCode:"AQ"}]},{countryName:"Antigua and Barbuda",countryShortCode:"AG",regions:[{name:"Antigua Island",shortCode:"01"},{name:"Barbuda Island",shortCode:"02"},{name:"Bird Island",shortCode:"04"},{name:"Bishop Island",shortCode:"05"},{name:"Blake Island",shortCode:"06"},{name:"Crump Island",shortCode:"09"},{name:"Dulcina Island",shortCode:"10"},{name:"Exchange Island",shortCode:"11"},{name:"Five Islands",shortCode:"12"},{name:"Great Bird Island",shortCode:"13"},{name:"Green Island",shortCode:"14"},{name:"Guiana Island",shortCode:"15"},{name:"Hawes Island",shortCode:"17"},{name:"Hells Gate Island",shortCode:"16"},{name:"Henry Island",shortCode:"18"},{name:"Johnson Island",shortCode:"19"},{name:"Kid Island",shortCode:"20"},{name:"Lobster Island",shortCode:"22"},{name:"Maiden Island",shortCode:"24"},{name:"Moor Island",shortCode:"25"},{name:"Nanny Island",shortCode:"26"},{name:"Pelican Island",shortCode:"27"},{name:"Prickly Pear Island",shortCode:"28"},{name:"Rabbit Island",shortCode:"29"},{name:"Red Head Island",shortCode:"31"},{name:"Redonda Island",shortCode:"03"},{name:"Sandy Island",shortCode:"32"},{name:"Smith Island",shortCode:"33"},{name:"The Sisters",shortCode:"34"},{name:"Vernon Island",shortCode:"35"},{name:"Wicked Will Island",shortCode:"36"},{name:"York Island",shortCode:"37"}]},{countryName:"Argentina",countryShortCode:"AR",regions:[{name:"Buenos Aires",shortCode:"B"},{name:"Capital Federal",shortCode:"C"},{name:"Catamarca",shortCode:"K"},{name:"Chaco",shortCode:"H"},{name:"Chubut",shortCode:"U"},{name:"Córdoba",shortCode:"X"},{name:"Corrientes",shortCode:"W"},{name:"Entre Ríos",shortCode:"E"},{name:"Formosa",shortCode:"P"},{name:"Jujuy",shortCode:"Y"},{name:"La Pampa",shortCode:"L"},{name:"La Rioja",shortCode:"F"},{name:"Mendoza",shortCode:"M"},{name:"Misiones",shortCode:"N"},{name:"Neuquén",shortCode:"Q"},{name:"Río Negro",shortCode:"R"},{name:"Salta",shortCode:"A"},{name:"San Juan",shortCode:"J"},{name:"San Luis",shortCode:"D"},{name:"Santa Cruz",shortCode:"Z"},{name:"Santa Fe",shortCode:"S"},{name:"Santiago del Estero",shortCode:"G"},{name:"Tierra del Fuego",shortCode:"V"},{name:"Tucumán",shortCode:"T"}]},{countryName:"Armenia",countryShortCode:"AM",regions:[{name:"Aragatsotn",shortCode:"AG"},{name:"Ararat",shortCode:"AR"},{name:"Armavir",shortCode:"AV"},{name:"Gegharkunik",shortCode:"GR"},{name:"Kotayk",shortCode:"KT"},{name:"Lori",shortCode:"LO"},{name:"Shirak",shortCode:"SH"},{name:"Syunik",shortCode:"SU"},{name:"Tavush",shortCode:"TV"},{name:"Vayots Dzor",shortCode:"VD"},{name:"Yerevan",shortCode:"ER"}]},{countryName:"Aruba",countryShortCode:"AW",regions:[{name:"Aruba",shortCode:"AW"}]},{countryName:"Australia",countryShortCode:"AU",regions:[{name:"Australian Capital Territory",shortCode:"ACT"},{name:"New South Wales",shortCode:"NSW"},{name:"Northern Territory",shortCode:"NT"},{name:"Queensland",shortCode:"QLD"},{name:"South Australia",shortCode:"SA"},{name:"Tasmania",shortCode:"TAS"},{name:"Victoria",shortCode:"VIC"},{name:"Western Australia",shortCode:"WA"}]},{countryName:"Austria",countryShortCode:"AT",regions:[{name:"Burgenland",shortCode:"1"},{name:"Kärnten",shortCode:"2"},{name:"Niederösterreich",shortCode:"3"},{name:"Oberösterreich",shortCode:"4"},{name:"Salzburg",shortCode:"5"},{name:"Steiermark",shortCode:"6"},{name:"Tirol",shortCode:"7"},{name:"Vorarlberg",shortCode:"8"},{name:"Wien",shortCode:"9"}]},{countryName:"Azerbaijan",countryShortCode:"AZ",regions:[{name:"Abşeron",shortCode:"ABS"},{name:"Ağcabədi",shortCode:"AGC"},{name:"Ağdam",shortCode:"AGM"},{name:"Ağdaş",shortCode:"AGS"},{name:"Ağstafa",shortCode:"AGA"},{name:"Ağsu",shortCode:"AGU"},{name:"Astara",shortCode:"AST"},{name:"Bakı",shortCode:"BAK"},{name:"Babək",shortCode:"BAB"},{name:"Balakən",shortCode:"BAL"},{name:"Bərdə",shortCode:"BAR"},{name:"Beyləqan",shortCode:"BEY"},{name:"Biləsuvar",shortCode:"BIL"},{name:"Cəbrayıl",shortCode:"CAB"},{name:"Cəlilabad",shortCode:"CAL"},{name:"Culfa",shortCode:"CUL"},{name:"Daşkəsən",shortCode:"DAS"},{name:"Füzuli",shortCode:"FUZ"},{name:"Gədəbəy",shortCode:"GAD"},{name:"Goranboy",shortCode:"GOR"},{name:"Göyçay",shortCode:"GOY"},{name:"Göygöl",shortCode:"GYG"},{name:"Hacıqabul",shortCode:"HAC"},{name:"İmişli",shortCode:"IMI"},{name:"İsmayıllı",shortCode:"ISM"},{name:"Kəlbəcər",shortCode:"KAL"},{name:"Kǝngǝrli",shortCode:"KAN"},{name:"Kürdəmir",shortCode:"KUR"},{name:"Laçın",shortCode:"LAC"},{name:"Lənkəran",shortCode:"LAN"},{name:"Lerik",shortCode:"LER"},{name:"Masallı",shortCode:"MAS"},{name:"Neftçala",shortCode:"NEF"},{name:"Oğuz",shortCode:"OGU"},{name:"Ordubad",shortCode:"ORD"},{name:"Qəbələ",shortCode:"QAB"},{name:"Qax",shortCode:"QAX"},{name:"Qazax",shortCode:"QAZ"},{name:"Qobustan",shortCode:"QOB"},{name:"Quba",shortCode:"QBA"},{name:"Qubadli",shortCode:"QBI"},{name:"Qusar",shortCode:"QUS"},{name:"Saatlı",shortCode:"SAT"},{name:"Sabirabad",shortCode:"SAB"},{name:"Şabran",shortCode:"SBN"},{name:"Sədərək",shortCode:"SAD"},{name:"Şahbuz",shortCode:"SAH"},{name:"Şəki",shortCode:"SAK"},{name:"Salyan",shortCode:"SAL"},{name:"Şamaxı",shortCode:"SMI"},{name:"Şəmkir",shortCode:"SKR"},{name:"Samux",shortCode:"SMX"},{name:"Şərur",shortCode:"SAR"},{name:"Siyəzən",shortCode:"SIY"},{name:"Şuşa",shortCode:"SUS"},{name:"Tərtər",shortCode:"TAR"},{name:"Tovuz",shortCode:"TOV"},{name:"Ucar",shortCode:"UCA"},{name:"Xaçmaz",shortCode:"XAC"},{name:"Xızı",shortCode:"XIZ"},{name:"Xocalı",shortCode:"XCI"},{name:"Xocavənd",shortCode:"XVD"},{name:"Yardımlı",shortCode:"YAR"},{name:"Yevlax",shortCode:"YEV"},{name:"Zəngilan",shortCode:"ZAN"},{name:"Zaqatala",shortCode:"ZAQ"},{name:"Zərdab",shortCode:"ZAR"}]},{countryName:"Bahamas",countryShortCode:"BS",regions:[{name:"Acklins Island",shortCode:"01"},{name:"Berry Islands",shortCode:"22"},{name:"Bimini",shortCode:"02"},{name:"Black Point",shortCode:"23"},{name:"Cat Island",shortCode:"03"},{name:"Central Abaco",shortCode:"24"},{name:"Crooked Island and Long Cay",shortCode:"28"},{name:"East Grand Bahama",shortCode:"29"},{name:"Exuma",shortCode:"04"},{name:"Freeport",shortCode:"05"},{name:"Fresh Creek",shortCode:"06"},{name:"Governor's Harbour",shortCode:"07"},{name:"Green Turtle Cay",shortCode:"08"},{name:"Harbour Island",shortCode:"09"},{name:"High Rock",shortCode:"10"},{name:"Inagua",shortCode:"11"},{name:"Kemps Bay",shortCode:"12"},{name:"Long Island",shortCode:"13"},{name:"Marsh Harbour",shortCode:"14"},{name:"Mayaguana",shortCode:"15"},{name:"Moore’s Island",shortCode:"40"},{name:"New Providence",shortCode:"16"},{name:"Nichollstown and Berry Islands",shortCode:"17"},{name:"North Abaco",shortCode:"42"},{name:"North Andros",shortCode:"41"},{name:"North Eleuthera",shortCode:"33"},{name:"Ragged Island",shortCode:"18"},{name:"Rock Sound",shortCode:"19"},{name:"San Salvador and Rum Cay",shortCode:"20"},{name:"Sandy Point",shortCode:"21"},{name:"South Abaco",shortCode:"35"},{name:"South Andros",shortCode:"36"},{name:"South Eleuthera",shortCode:"37"},{name:"West Grand Bahama",shortCode:"39"}]},{countryName:"Bahrain",countryShortCode:"BH",regions:[{name:"Al Janūbīyah",shortCode:"14"},{name:"Al Manāmah",shortCode:"13"},{name:"Al Muḩarraq",shortCode:"15"},{name:"Al Wusţá",shortCode:"16"},{name:"Ash Shamālīyah",shortCode:"17"}]},{countryName:"Bangladesh",countryShortCode:"BD",regions:[{name:"Barisal",shortCode:"A"},{name:"Chittagong",shortCode:"B"},{name:"Dhaka",shortCode:"C"},{name:"Khulna",shortCode:"D"},{name:"Mymensingh",shortCode:"M"},{name:"Rajshahi",shortCode:"E"},{name:"Rangpur",shortCode:"F"},{name:"Sylhet",shortCode:"G"}]},{countryName:"Barbados",countryShortCode:"BB",regions:[{name:"Christ Church",shortCode:"01"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint George",shortCode:"03"},{name:"Saint James",shortCode:"04"},{name:"Saint John",shortCode:"05"},{name:"Saint Joseph",shortCode:"06"},{name:"Saint Lucy",shortCode:"07"},{name:"Saint Michael",shortCode:"08"},{name:"Saint Peter",shortCode:"09"},{name:"Saint Philip",shortCode:"10"},{name:"Saint Thomas",shortCode:"11"}]},{countryName:"Belarus",countryShortCode:"BY",regions:[{name:"Brest voblast",shortCode:"BR"},{name:"Gorod Minsk",shortCode:"HM"},{name:"Homiel voblast",shortCode:"HO"},{name:"Hrodna voblast",shortCode:"HR"},{name:"Mahilyow voblast",shortCode:"MA"},{name:"Minsk voblast",shortCode:"MI"},{name:"Vitsebsk voblast",shortCode:"VI"}]},{countryName:"Belgium",countryShortCode:"BE",regions:[{name:"Bruxelles-Capitale",shortCode:"BRU"},{name:"Région Flamande",shortCode:"VLG"},{name:"Région Wallonië",shortCode:"WAL"}]},{countryName:"Belize",countryShortCode:"BZ",regions:[{name:"Belize District",shortCode:"BZ"},{name:"Cayo District",shortCode:"CY"},{name:"Corozal District",shortCode:"CZL"},{name:"Orange Walk District",shortCode:"OW"},{name:"Stann Creek District",shortCode:"SC"},{name:"Toledo District",shortCode:"TOL"}]},{countryName:"Benin",countryShortCode:"BJ",regions:[{name:"Alibori",shortCode:"AL"},{name:"Atakora",shortCode:"AK"},{name:"Atlantique",shortCode:"AQ"},{name:"Borgou",shortCode:"BO"},{name:"Collines Department",shortCode:"CO"},{name:"Donga",shortCode:"DO"},{name:"Kouffo",shortCode:"KO"},{name:"Littoral Department",shortCode:"LI"},{name:"Mono Department",shortCode:"MO"},{name:"Ouémé",shortCode:"OU"},{name:"Plateau",shortCode:"PL"},{name:"Zou",shortCode:"ZO"}]},{countryName:"Bermuda",countryShortCode:"BM",regions:[{name:"City of Hamilton",shortCode:"03"},{name:"Devonshire Parish",shortCode:"01"},{name:"Hamilton Parish",shortCode:"02"},{name:"Paget Parish",shortCode:"04"},{name:"Pembroke Parish",shortCode:"05"},{name:"Sandys Parish",shortCode:"08"},{name:"Smith's Parish",shortCode:"09"},{name:"Southampton Parish",shortCode:"10"},{name:"St. George's Parish",shortCode:"07"},{name:"Town of St. George",shortCode:"06"},{name:"Warwick Parish",shortCode:"11"}]},{countryName:"Bhutan",countryShortCode:"BT",regions:[{name:"Bumthang",shortCode:"33"},{name:"Chhukha",shortCode:"12"},{name:"Dagana",shortCode:"22"},{name:"Gasa",shortCode:"GA"},{name:"Haa",shortCode:"13"},{name:"Lhuntse",shortCode:"44"},{name:"Mongar",shortCode:"42"},{name:"Paro",shortCode:"11"},{name:"Pemagatshel",shortCode:"43"},{name:"Punakha",shortCode:"23"},{name:"Samdrup Jongkhar",shortCode:"45"},{name:"Samtse",shortCode:"14"},{name:"Sarpang",shortCode:"31"},{name:"Thimphu",shortCode:"15"},{name:"Trashigang",shortCode:"41"},{name:"Trashiyangtse",shortCode:"TY"},{name:"Trongsa",shortCode:"32"},{name:"Tsirang",shortCode:"21"},{name:"Wangdue Phodrang",shortCode:"24"},{name:"Zhemgang",shortCode:"34"}]},{countryName:"Bolivia",countryShortCode:"BO",regions:[{name:"Beni",shortCode:"B"},{name:"Chuquisaca",shortCode:"H"},{name:"Cochabamba",shortCode:"C"},{name:"La Paz",shortCode:"L"},{name:"Oruro",shortCode:"O"},{name:"Pando",shortCode:"N"},{name:"Potosí",shortCode:"P"},{name:"Santa Cruz",shortCode:"S"},{name:"Tarija",shortCode:"T"}]},{countryName:"Bonaire, Sint Eustatius and Saba",countryShortCode:"BQ",regions:[{name:"Bonaire",shortCode:"BO"},{name:"Saba Isand",shortCode:"SA"},{name:"Sint Eustatius",shortCode:"SE"}]},{countryName:"Bosnia and Herzegovina",countryShortCode:"BA",regions:[{name:"Brčko Distrikt",shortCode:"BRC"},{name:"Federacija Bosne i Hercegovine",shortCode:"BIH"},{name:"Republika Srpska",shortCode:"SRP"}]},{countryName:"Botswana",countryShortCode:"BW",regions:[{name:"Central",shortCode:"CE"},{name:"Ghanzi",shortCode:"GH"},{name:"Kgalagadi",shortCode:"KG"},{name:"Kgatleng",shortCode:"KL"},{name:"Kweneng",shortCode:"KW"},{name:"North West",shortCode:"NW"},{name:"North-East",shortCode:"NE"},{name:"South East",shortCode:"SE"},{name:"Southern",shortCode:"SO"}]},{countryName:"Bouvet Island",countryShortCode:"BV",regions:[{name:"Bouvet Island",shortCode:"BV"}]},{countryName:"Brazil",countryShortCode:"BR",regions:[{name:"Acre",shortCode:"AC"},{name:"Alagoas",shortCode:"AL"},{name:"Amapá",shortCode:"AP"},{name:"Amazonas",shortCode:"AM"},{name:"Bahia",shortCode:"BA"},{name:"Ceará",shortCode:"CE"},{name:"Distrito Federal",shortCode:"DF"},{name:"Espírito Santo",shortCode:"ES"},{name:"Goiás",shortCode:"GO"},{name:"Maranhão",shortCode:"MA"},{name:"Mato Grosso",shortCode:"MT"},{name:"Mato Grosso do Sul",shortCode:"MS"},{name:"Minas Gerais",shortCode:"MG"},{name:"Pará",shortCode:"PA"},{name:"Paraíba",shortCode:"PB"},{name:"Paraná",shortCode:"PR"},{name:"Pernambuco",shortCode:"PE"},{name:"Piauí",shortCode:"PI"},{name:"Rio de Janeiro",shortCode:"RJ"},{name:"Rio Grande do Norte",shortCode:"RN"},{name:"Rio Grande do Sul",shortCode:"RS"},{name:"Rondônia",shortCode:"RO"},{name:"Roraima",shortCode:"RR"},{name:"Santa Catarina",shortCode:"SC"},{name:"São Paulo",shortCode:"SP"},{name:"Sergipe",shortCode:"SE"},{name:"Tocantins",shortCode:"TO"}]},{countryName:"British Indian Ocean Territory",countryShortCode:"IO",regions:[{name:"British Indian Ocean Territory",shortCode:"IO"}]},{countryName:"Brunei Darussalam",countryShortCode:"BN",regions:[{name:"Belait",shortCode:"BE"},{name:"Brunei Muara",shortCode:"BM"},{name:"Temburong",shortCode:"TE"},{name:"Tutong",shortCode:"TU"}]},{countryName:"Bulgaria",countryShortCode:"BG",regions:[{name:"Blagoevgrad",shortCode:"01"},{name:"Burgas",shortCode:"02"},{name:"Dobrich",shortCode:"08"},{name:"Gabrovo",shortCode:"07"},{name:"Jambol",shortCode:"28"},{name:"Khaskovo",shortCode:"26"},{name:"Kjustendil",shortCode:"10"},{name:"Kurdzhali",shortCode:"09"},{name:"Lovech",shortCode:"11"},{name:"Montana",shortCode:"12"},{name:"Pazardzhik",shortCode:"13"},{name:"Pernik",shortCode:"14"},{name:"Pleven",shortCode:"15"},{name:"Plovdiv",shortCode:"16"},{name:"Razgrad",shortCode:"17"},{name:"Ruse",shortCode:"18"},{name:"Shumen",shortCode:"27"},{name:"Silistra",shortCode:"19"},{name:"Sliven",shortCode:"20"},{name:"Smoljan",shortCode:"21"},{name:"Sofija",shortCode:"23"},{name:"Sofija-Grad",shortCode:"22"},{name:"Stara Zagora",shortCode:"24"},{name:"Turgovishhe",shortCode:"25"},{name:"Varna",shortCode:"03"},{name:"Veliko Turnovo",shortCode:"04"},{name:"Vidin",shortCode:"05"},{name:"Vraca",shortCode:"06"}]},{countryName:"Burkina Faso",countryShortCode:"BF",regions:[{name:"Balé",shortCode:"BAL"},{name:"Bam/Lake Bam",shortCode:"BAM"},{name:"Banwa Province",shortCode:"BAN"},{name:"Bazèga",shortCode:"BAZ"},{name:"Bougouriba",shortCode:"BGR"},{name:"Boulgou Province",shortCode:"BLG"},{name:"Boulkiemdé",shortCode:"BLK"},{name:"Comoé/Komoe",shortCode:"COM"},{name:"Ganzourgou Province",shortCode:"GAN"},{name:"Gnagna",shortCode:"GNA"},{name:"Gourma Province",shortCode:"GOU"},{name:"Houet",shortCode:"HOU"},{name:"Ioba",shortCode:"IOB"},{name:"Kadiogo",shortCode:"KAD"},{name:"Kénédougou",shortCode:"KEN"},{name:"Komondjari",shortCode:"KMD"},{name:"Kompienga",shortCode:"KMP"},{name:"Kossi Province",shortCode:"KOS"},{name:"Koulpélogo",shortCode:"KOP"},{name:"Kouritenga",shortCode:"KOT"},{name:"Kourwéogo",shortCode:"KOW"},{name:"Léraba",shortCode:"LER"},{name:"Loroum",shortCode:"LOR"},{name:"Mouhoun",shortCode:"MOU"},{name:"Namentenga",shortCode:"NAM"},{name:"Naouri/Nahouri",shortCode:"NAO"},{name:"Nayala",shortCode:"NAY"},{name:"Noumbiel",shortCode:"NOU"},{name:"Oubritenga",shortCode:"OUB"},{name:"Oudalan",shortCode:"OUD"},{name:"Passoré",shortCode:"PAS"},{name:"Poni",shortCode:"PON"},{name:"Sanguié",shortCode:"SNG"},{name:"Sanmatenga",shortCode:"SMT"},{name:"Séno",shortCode:"SEN"},{name:"Sissili",shortCode:"SIS"},{name:"Soum",shortCode:"SOM"},{name:"Sourou",shortCode:"SOR"},{name:"Tapoa",shortCode:"TAP"},{name:"Tui/Tuy",shortCode:"TUI"},{name:"Yagha",shortCode:"YAG"},{name:"Yatenga",shortCode:"YAT"},{name:"Ziro",shortCode:"ZIR"},{name:"Zondoma",shortCode:"ZON"},{name:"Zoundwéogo",shortCode:"ZOU"}]},{countryName:"Burundi",countryShortCode:"BI",regions:[{name:"Bubanza",shortCode:"BB"},{name:"Bujumbura Mairie",shortCode:"BM"},{name:"Bujumbura Rural",shortCode:"BL"},{name:"Bururi",shortCode:"BR"},{name:"Cankuzo",shortCode:"CA"},{name:"Cibitoke",shortCode:"CI"},{name:"Gitega",shortCode:"GI"},{name:"Karuzi",shortCode:"KR"},{name:"Kayanza",shortCode:"KY"},{name:"Kirundo",shortCode:"KI"},{name:"Makamba",shortCode:"MA"},{name:"Muramvya",shortCode:"MU"},{name:"Muyinga",shortCode:"MY"},{name:"Mwaro",shortCode:"MW"},{name:"Ngozi",shortCode:"NG"},{name:"Rutana",shortCode:"RT"},{name:"Ruyigi",shortCode:"RY"}]},{countryName:"Cambodia",countryShortCode:"KH",regions:[{name:"Baat Dambang",shortCode:"2"},{name:"Banteay Mean Chey",shortCode:"1"},{name:"Kampong Chaam",shortCode:"3"},{name:"Kampong Chhnang",shortCode:"4"},{name:"Kampong Spueu",shortCode:"5"},{name:"Kampong Thum",shortCode:"6"},{name:"Kampot",shortCode:"7"},{name:"Kandaal",shortCode:"8"},{name:"Kaoh Kong",shortCode:"9"},{name:"Kracheh",shortCode:"10"},{name:"Krong Kaeb",shortCode:"23"},{name:"Krong Pailin",shortCode:"24"},{name:"Krong Preah Sihanouk",shortCode:"18"},{name:"Mondol Kiri",shortCode:"11"},{name:"Otdar Mean Chey",shortCode:"22"},{name:"Phnom Penh",shortCode:"12"},{name:"Pousaat",shortCode:"15"},{name:"Preah Vihear",shortCode:"13"},{name:"Prey Veaeng",shortCode:"14"},{name:"Rotanah Kiri",shortCode:"16"},{name:"Siem Reab",shortCode:"17"},{name:"Stueng Treng",shortCode:"19"},{name:"Svaay Rieng",shortCode:"20"},{name:"Taakaev",shortCode:"21"},{name:"Tbong Khmum",shortCode:"25"}]},{countryName:"Cameroon",countryShortCode:"CM",regions:[{name:"Adamaoua",shortCode:"AD"},{name:"Centre",shortCode:"CE"},{name:"Est",shortCode:"ES"},{name:"Extrême-Nord",shortCode:"EN"},{name:"Littoral",shortCode:"LT"},{name:"Nord",shortCode:"NO"},{name:"Nord-Ouest",shortCode:"NW"},{name:"Ouest",shortCode:"OU"},{name:"Sud",shortCode:"SU"},{name:"Sud-Ouest",shortCode:"SW"}]},{countryName:"Canada",countryShortCode:"CA",regions:[{name:"Alberta",shortCode:"AB"},{name:"British Columbia",shortCode:"BC"},{name:"Manitoba",shortCode:"MB"},{name:"New Brunswick",shortCode:"NB"},{name:"Newfoundland and Labrador",shortCode:"NL"},{name:"Northwest Territories",shortCode:"NT"},{name:"Nova Scotia",shortCode:"NS"},{name:"Nunavut",shortCode:"NU"},{name:"Ontario",shortCode:"ON"},{name:"Prince Edward Island",shortCode:"PE"},{name:"Quebec",shortCode:"QC"},{name:"Saskatchewan",shortCode:"SK"},{name:"Yukon",shortCode:"YT"}]},{countryName:"Cape Verde",countryShortCode:"CV",regions:[{name:"Boa Vista",shortCode:"BV"},{name:"Brava",shortCode:"BR"},{name:"Calheta de São Miguel",shortCode:"CS"},{name:"Maio",shortCode:"MA"},{name:"Mosteiros",shortCode:"MO"},{name:"Paúl",shortCode:"PA"},{name:"Porto Novo",shortCode:"PN"},{name:"Praia",shortCode:"PR"},{name:"Ribeira Brava",shortCode:"RB"},{name:"Ribeira Grande",shortCode:"RG"},{name:"Sal",shortCode:"SL"},{name:"Santa Catarina",shortCode:"CA"},{name:"Santa Cruz",shortCode:"CR"},{name:"São Domingos",shortCode:"SD"},{name:"São Filipe",shortCode:"SF"},{name:"São Nicolau",shortCode:"SN"},{name:"São Vicente",shortCode:"SV"},{name:"Tarrafal",shortCode:"TA"},{name:"Tarrafal de São Nicolau",shortCode:"TS"}]},{countryName:"Cayman Islands",countryShortCode:"KY",regions:[{name:"Creek"},{name:"Eastern"},{name:"Midland"},{name:"South Town"},{name:"Spot Bay"},{name:"Stake Bay"},{name:"West End"},{name:"Western"}]},{countryName:"Central African Republic",countryShortCode:"CF",regions:[{name:"Bamingui-Bangoran",shortCode:"BB"},{name:"Bangui",shortCode:"BGF"},{name:"Basse-Kotto",shortCode:"BK"},{name:"Haute-Kotto",shortCode:"HK"},{name:"Haut-Mbomou",shortCode:"HM"},{name:"Kémo",shortCode:"KG"},{name:"Lobaye",shortCode:"LB"},{name:"Mambéré-Kadéï",shortCode:"HS"},{name:"Mbomou",shortCode:"MB"},{name:"Nana-Grebizi",shortCode:"10"},{name:"Nana-Mambéré",shortCode:"NM"},{name:"Ombella-M'Poko",shortCode:"MP"},{name:"Ouaka",shortCode:"UK"},{name:"Ouham",shortCode:"AC"},{name:"Ouham Péndé",shortCode:"OP"},{name:"Sangha-Mbaéré",shortCode:"SE"},{name:"Vakaga",shortCode:"VK"}]},{countryName:"Chad",countryShortCode:"TD",regions:[{name:"Bahr el Ghazal",shortCode:"BG"},{name:"Batha",shortCode:"BA"},{name:"Borkou",shortCode:"BO"},{name:"Chari-Baguirmi",shortCode:"CB"},{name:"Ennedi-Est",shortCode:"EE"},{name:"Ennedi-Ouest",shortCode:"EO"},{name:"Guéra",shortCode:"GR"},{name:"Hadjer Lamis",shortCode:"HL"},{name:"Kanem",shortCode:"KA"},{name:"Lac",shortCode:"LC"},{name:"Logone Occidental",shortCode:"LO"},{name:"Logone Oriental",shortCode:"LR"},{name:"Mondoul",shortCode:"MA"},{name:"Mayo-Kébbi-Est",shortCode:"ME"},{name:"Moyen-Chari",shortCode:"MC"},{name:"Ouaddai",shortCode:"OD"},{name:"Salamat",shortCode:"SA"},{name:"Sila",shortCode:"SI"},{name:"Tandjilé",shortCode:"TA"},{name:"Tibesti",shortCode:"TI"},{name:"Ville de Ndjamena",shortCode:"ND"},{name:"Wadi Fira",shortCode:"WF"}]},{countryName:"Chile",countryShortCode:"CL",regions:[{name:"Aisén del General Carlos Ibáñez del Campo",shortCode:"AI"},{name:"Antofagasta",shortCode:"AN"},{name:"Araucanía",shortCode:"AR"},{name:"Arica y Parinacota",shortCode:"AP"},{name:"Atacama",shortCode:"AT"},{name:"Bío-Bío",shortCode:"BI"},{name:"Coquimbo",shortCode:"CO"},{name:"Libertador General Bernardo O'Higgins",shortCode:"LI"},{name:"Los Lagos",shortCode:"LL"},{name:"Los Ríos",shortCode:"LR"},{name:"Magallanes y Antartica Chilena",shortCode:"MA"},{name:"Marga-Marga",shortCode:""},{name:"Maule",shortCode:"ML"},{name:"Ñuble",shortCode:"NB"},{name:"Región Metropolitana de Santiago",shortCode:"RM"},{name:"Tarapacá",shortCode:"TA"},{name:"Valparaíso",shortCode:"VS"}]},{countryName:"China",countryShortCode:"CN",regions:[{name:"Anhui",shortCode:"34"},{name:"Beijing",shortCode:"11"},{name:"Chongqing",shortCode:"50"},{name:"Fujian",shortCode:"35"},{name:"Gansu",shortCode:"62"},{name:"Guangdong",shortCode:"44"},{name:"Guangxi",shortCode:"45"},{name:"Guizhou",shortCode:"52"},{name:"Hainan",shortCode:"46"},{name:"Hebei",shortCode:"13"},{name:"Heilongjiang",shortCode:"23"},{name:"Henan",shortCode:"41"},{name:"Hong Kong",shortCode:"91"},{name:"Hubei",shortCode:"42"},{name:"Hunan",shortCode:"43"},{name:"Inner Mongolia",shortCode:"15"},{name:"Jiangsu",shortCode:"32"},{name:"Jiangxi",shortCode:"36"},{name:"Jilin",shortCode:"22"},{name:"Liaoning",shortCode:"21"},{name:"Macau",shortCode:"92"},{name:"Ningxia",shortCode:"64"},{name:"Qinghai",shortCode:"63"},{name:"Shaanxi",shortCode:"61"},{name:"Shandong",shortCode:"37"},{name:"Shanghai",shortCode:"31"},{name:"Shanxi",shortCode:"14"},{name:"Sichuan",shortCode:"51"},{name:"Tianjin",shortCode:"12"},{name:"Tibet",shortCode:"54"},{name:"Xinjiang",shortCode:"65"},{name:"Yunnan",shortCode:"53"},{name:"Zhejiang",shortCode:"33"}]},{countryName:"Christmas Island",countryShortCode:"CX",regions:[{name:"Christmas Island",shortCode:"CX"}]},{countryName:"Cocos (Keeling) Islands",countryShortCode:"CC",regions:[{name:"Direction Island",shortCode:"DI"},{name:"Home Island",shortCode:"HM"},{name:"Horsburgh Island",shortCode:"HR"},{name:"North Keeling Island",shortCode:"NK"},{name:"South Island",shortCode:"SI"},{name:"West Island",shortCode:"WI"}]},{countryName:"Colombia",countryShortCode:"CO",regions:[{name:"Amazonas",shortCode:"AMA"},{name:"Antioquia",shortCode:"ANT"},{name:"Arauca",shortCode:"ARA"},{name:"Archipiélago de San Andrés",shortCode:"SAP"},{name:"Atlántico",shortCode:"ATL"},{name:"Bogotá D.C.",shortCode:"DC"},{name:"Bolívar",shortCode:"BOL"},{name:"Boyacá",shortCode:"BOY"},{name:"Caldas",shortCode:"CAL"},{name:"Caquetá",shortCode:"CAQ"},{name:"Casanare",shortCode:"CAS"},{name:"Cauca",shortCode:"CAU"},{name:"Cesar",shortCode:"CES"},{name:"Chocó",shortCode:"CHO"},{name:"Córdoba",shortCode:"COR"},{name:"Cundinamarca",shortCode:"CUN"},{name:"Guainía",shortCode:"GUA"},{name:"Guaviare",shortCode:"GUV"},{name:"Huila",shortCode:"HUI"},{name:"La Guajira",shortCode:"LAG"},{name:"Magdalena",shortCode:"MAG"},{name:"Meta",shortCode:"MET"},{name:"Nariño",shortCode:"NAR"},{name:"Norte de Santander",shortCode:"NSA"},{name:"Putumayo",shortCode:"PUT"},{name:"Quindío",shortCode:"QUI"},{name:"Risaralda",shortCode:"RIS"},{name:"Santander",shortCode:"SAN"},{name:"Sucre",shortCode:"SUC"},{name:"Tolima",shortCode:"TOL"},{name:"Valle del Cauca",shortCode:"VAC"},{name:"Vaupés",shortCode:"VAU"},{name:"Vichada",shortCode:"VID"}]},{countryName:"Comoros",countryShortCode:"KM",regions:[{name:"Andjazîdja",shortCode:"G"},{name:"Andjouân",shortCode:"A"},{name:"Moûhîlî",shortCode:"M"}]},{countryName:"Congo, Republic of the (Brazzaville)",countryShortCode:"CG",regions:[{name:"Bouenza",shortCode:"11"},{name:"Brazzaville",shortCode:"BZV"},{name:"Cuvette",shortCode:"8"},{name:"Cuvette-Ouest",shortCode:"15"},{name:"Kouilou",shortCode:"5"},{name:"Lékoumou",shortCode:"2"},{name:"Likouala",shortCode:"7"},{name:"Niari",shortCode:"9"},{name:"Plateaux",shortCode:"14"},{name:"Pointe-Noire",shortCode:"16"},{name:"Pool",shortCode:"12"},{name:"Sangha",shortCode:"13"}]},{countryName:"Congo, the Democratic Republic of the (Kinshasa)",countryShortCode:"CD",regions:[{name:"Bandundu",shortCode:"BN"},{name:"Bas-Congo",shortCode:"BC"},{name:"Équateur",shortCode:"EQ"},{name:"Kasaï-Occidental",shortCode:"KE"},{name:"Kasaï-Oriental",shortCode:"KW"},{name:"Katanga",shortCode:"KA"},{name:"Kinshasa",shortCode:"KN"},{name:"Maniema",shortCode:"MA"},{name:"Nord-Kivu",shortCode:"NK"},{name:"Orientale",shortCode:"OR"},{name:"Sud-Kivu",shortCode:"SK"}]},{countryName:"Cook Islands",countryShortCode:"CK",regions:[{name:"Aitutaki"},{name:"Atiu"},{name:"Avarua"},{name:"Mangaia"},{name:"Manihiki"},{name:"Ma'uke"},{name:"Mitiaro"},{name:"Nassau"},{name:"Palmerston"},{name:"Penrhyn"},{name:"Pukapuka"},{name:"Rakahanga"}]},{countryName:"Costa Rica",countryShortCode:"CR",regions:[{name:"Alajuela",shortCode:"2"},{name:"Cartago",shortCode:"3"},{name:"Guanacaste",shortCode:"5"},{name:"Heredia",shortCode:"4"},{name:"Limón",shortCode:"7"},{name:"Puntarenas",shortCode:"6"},{name:"San José",shortCode:"1"}]},{countryName:"Côte d'Ivoire, Republic of",countryShortCode:"CI",regions:[{name:"Agnéby",shortCode:"16"},{name:"Bafing",shortCode:"17"},{name:"Bas-Sassandra",shortCode:"09"},{name:"Denguélé",shortCode:"10"},{name:"Dix-Huit Montagnes",shortCode:"06"},{name:"Fromager",shortCode:"18"},{name:"Haut-Sassandra",shortCode:"02"},{name:"Lacs",shortCode:"07"},{name:"Lagunes",shortCode:"01"},{name:"Marahoué",shortCode:"12"},{name:"Moyen-Cavally",shortCode:"19"},{name:"Moyen-Comoé",shortCode:"05"},{name:"N'zi-Comoé",shortCode:"11"},{name:"Savanes",shortCode:"03"},{name:"Sud-Bandama",shortCode:"15"},{name:"Sud-Comoé",shortCode:"13"},{name:"Vallée du Bandama",shortCode:"04"},{name:"Worodougou",shortCode:"14"},{name:"Zanzan",shortCode:"08"}]},{countryName:"Croatia",countryShortCode:"HR",regions:[{name:"Bjelovarsko-Bilogorska Županija",shortCode:"07"},{name:"Brodsko-Posavska Županija",shortCode:"12"},{name:"Dubrovačko-Neretvanska Županija",shortCode:"19"},{name:"Grad Zagreb",shortCode:"21"},{name:"Istarska Županija",shortCode:"18"},{name:"Karlovačka Županija",shortCode:"04"},{name:"Koprivničko-Krizevačka Županija",shortCode:"06"},{name:"Krapinsko-Zagorska Županija",shortCode:"02"},{name:"Ličko-Senjska Županija",shortCode:"09"},{name:"Međimurska Županija",shortCode:"20"},{name:"Osječko-Baranjska Županija",shortCode:"14"},{name:"Požeško-Slavonska Županija",shortCode:"11"},{name:"Primorsko-Goranska Županija",shortCode:"08"},{name:"Sisačko-Moslavačka Županija",shortCode:"03"},{name:"Splitsko-Dalmatinska Županija",shortCode:"17"},{name:"Sibensko-Kninska Županija",shortCode:"15"},{name:"Varaždinska Županija",shortCode:"05"},{name:"Virovitičko-Podravska Županija",shortCode:"10"},{name:"Vukovarsko-Srijemska Županija",shortCode:"16"},{name:"Zadarska Županija",shortCode:"13"},{name:"Zagrebacka Zupanija",shortCode:"01"}]},{countryName:"Cuba",countryShortCode:"CU",regions:[{name:"Artemisa",shortCode:"15"},{name:"Camagüey",shortCode:"09"},{name:"Ciego de Ávila",shortCode:"08"},{name:"Cienfuegos",shortCode:"06"},{name:"Granma",shortCode:"12"},{name:"Guantánamo",shortCode:"14"},{name:"Holguín",shortCode:"11"},{name:"Isla de la Juventud",shortCode:"99"},{name:"La Habana",shortCode:"03"},{name:"Las Tunas",shortCode:"10"},{name:"Matanzas",shortCode:"04"},{name:"Mayabeque",shortCode:"16"},{name:"Pinar del Río",shortCode:"01"},{name:"Sancti Spíritus",shortCode:"07"},{name:"Santiago de Cuba",shortCode:"13"},{name:"Villa Clara",shortCode:"05"}]},{countryName:"Curaçao",countryShortCode:"CW",regions:[{name:"Curaçao",shortCode:"CW"}]},{countryName:"Cyprus",countryShortCode:"CY",regions:[{name:"Ammochostos",shortCode:"04"},{name:"Keryneia",shortCode:"05"},{name:"Larnaka",shortCode:"03"},{name:"Lefkosia",shortCode:"01"},{name:"Lemesos",shortCode:"02"},{name:"Pafos",shortCode:"05"}]},{countryName:"Czech Republic",countryShortCode:"CZ",regions:[{name:"Hlavní město Praha",shortCode:"PR"},{name:"Jihočeský kraj",shortCode:"JC"},{name:"Jihomoravský kraj",shortCode:"JM"},{name:"Karlovarský kraj",shortCode:"KA"},{name:"Královéhradecký kraj",shortCode:"KR"},{name:"Liberecký kraj",shortCode:"LI"},{name:"Moravskoslezský kraj",shortCode:"MO"},{name:"Olomoucký kraj",shortCode:"OL"},{name:"Pardubický kraj",shortCode:"PA"},{name:"Plzeňský kraj",shortCode:"PL"},{name:"Středočeský kraj",shortCode:"ST"},{name:"Ústecký kraj",shortCode:"US"},{name:"Vysočina",shortCode:"VY"},{name:"Zlínský kraj",shortCode:"ZL"}]},{countryName:"Denmark",countryShortCode:"DK",regions:[{name:"Hovedstaden",shortCode:"84"},{name:"Kujalleq",shortCode:"GL-KU"},{name:"Midtjylland",shortCode:"82"},{name:"Norderøerne",shortCode:"FO-01"},{name:"Nordjylland",shortCode:"81"},{name:"Østerø",shortCode:"FO-06"},{name:"Qaasuitsup",shortCode:"GL-QA"},{name:"Qeqqata",shortCode:"GL-QE"},{name:"Sandø",shortCode:"FO-02"},{name:"Sermersooq",shortCode:"GL-SM"},{name:"Sjælland",shortCode:"85"},{name:"Strømø",shortCode:"FO-03"},{name:"Suderø",shortCode:"FO-04"},{name:"Syddanmark",shortCode:"83"},{name:"Vågø",shortCode:"FO-05"}]},{countryName:"Djibouti",countryShortCode:"DJ",regions:[{name:"Ali Sabieh",shortCode:"AS"},{name:"Arta",shortCode:"AR"},{name:"Dikhil",shortCode:"DI"},{name:"Obock",shortCode:"OB"},{name:"Tadjourah",shortCode:"TA"}]},{countryName:"Dominica",countryShortCode:"DM",regions:[{name:"Saint Andrew Parish",shortCode:"02"},{name:"Saint David Parish",shortCode:"03"},{name:"Saint George Parish",shortCode:"04"},{name:"Saint John Parish",shortCode:"05"},{name:"Saint Joseph Parish",shortCode:"06"},{name:"Saint Luke Parish",shortCode:"07"},{name:"Saint Mark Parish",shortCode:"08"},{name:"Saint Patrick Parish",shortCode:"09"},{name:"Saint Paul Parish",shortCode:"10"},{name:"Saint Peter Parish",shortCode:"11"}]},{countryName:"Dominican Republic",countryShortCode:"DO",regions:[{name:"Cibao Central",shortCode:"02"},{name:"Del Valle",shortCode:"37"},{name:"Distrito Nacional",shortCode:"01"},{name:"Enriquillo",shortCode:"38"},{name:"Norcentral",shortCode:"04"},{name:"Nordeste",shortCode:"34"},{name:"Noroeste",shortCode:"34"},{name:"Norte",shortCode:"35"},{name:"Valdesia",shortCode:"42"}]},{countryName:"Ecuador",countryShortCode:"EC",regions:[{name:"Azuay",shortCode:"A"},{name:"Bolívar",shortCode:"B"},{name:"Cañar",shortCode:"F"},{name:"Carchi",shortCode:"C"},{name:"Chimborazo",shortCode:"H"},{name:"Cotopaxi",shortCode:"X"},{name:"El Oro",shortCode:"O"},{name:"Esmeraldas",shortCode:"E"},{name:"Galápagos",shortCode:"W"},{name:"Guayas",shortCode:"G"},{name:"Imbabura",shortCode:"I"},{name:"Loja",shortCode:"L"},{name:"Los Ríos",shortCode:"R"},{name:"Manabí",shortCode:"M"},{name:"Morona-Santiago",shortCode:"S"},{name:"Napo",shortCode:"N"},{name:"Orellana",shortCode:"D"},{name:"Pastaza",shortCode:"Y"},{name:"Pichincha",shortCode:"P"},{name:"Santa Elena",shortCode:"SE"},{name:"Santo Domingo de los Tsáchilas",shortCode:"SD"},{name:"Sucumbíos",shortCode:"U"},{name:"Tungurahua",shortCode:"T"},{name:"Zamora-Chinchipe",shortCode:"Z"}]},{countryName:"Egypt",countryShortCode:"EG",regions:[{name:"Alexandria",shortCode:"ALX"},{name:"Aswan",shortCode:"ASN"},{name:"Asyout",shortCode:"AST"},{name:"Bani Sueif",shortCode:"BNS"},{name:"Beheira",shortCode:"BH"},{name:"Cairo",shortCode:"C"},{name:"Daqahlia",shortCode:"DK"},{name:"Dumiat",shortCode:"DT"},{name:"El Bahr El Ahmar",shortCode:"BA"},{name:"El Ismailia",shortCode:"IS"},{name:"El Suez",shortCode:"SUZ"},{name:"El Wadi El Gedeed",shortCode:"WAD"},{name:"Fayoum",shortCode:"FYM"},{name:"Gharbia",shortCode:"GH"},{name:"Giza",shortCode:"SUZ"},{name:"Helwan",shortCode:"HU"},{name:"Kafr El Sheikh",shortCode:"KFS"},{name:"Luxor",shortCode:"LX"},{name:"Matrouh",shortCode:"MT"},{name:"Menia",shortCode:"MN"},{name:"Menofia",shortCode:"MNF"},{name:"North Sinai",shortCode:"SIN"},{name:"Port Said",shortCode:"PTS"},{name:"Qalubia",shortCode:"KB"},{name:"Qena",shortCode:"KN"},{name:"Sharqia",shortCode:"SHR"},{name:"Sixth of October",shortCode:"SU"},{name:"Sohag",shortCode:"SHG"},{name:"South Sinai",shortCode:"JS"}]},{countryName:"El Salvador",countryShortCode:"SV",regions:[{name:"Ahuachapán",shortCode:"AH"},{name:"Cabañas",shortCode:"CA"},{name:"Cuscatlán",shortCode:"CU"},{name:"Chalatenango",shortCode:"CH"},{name:"La Libertad",shortCode:"LI"},{name:"La Paz",shortCode:"PA"},{name:"La Unión",shortCode:"UN"},{name:"Morazán",shortCode:"MO"},{name:"San Miguel",shortCode:"SM"},{name:"San Salvador",shortCode:"SS"},{name:"Santa Ana",shortCode:"SA"},{name:"San Vicente",shortCode:"SV"},{name:"Sonsonate",shortCode:"SO"},{name:"Usulután",shortCode:"US"}]},{countryName:"Equatorial Guinea",countryShortCode:"GQ",regions:[{name:"Annobón",shortCode:"AN"},{name:"Bioko Norte",shortCode:"BN"},{name:"Bioko Sur",shortCode:"BS"},{name:"Centro Sur",shortCode:"CS"},{name:"Kié-Ntem",shortCode:"KN"},{name:"Litoral",shortCode:"LI"},{name:"Wele-Nzas",shortCode:"WN"}]},{countryName:"Eritrea",countryShortCode:"ER",regions:[{name:"Anseba",shortCode:"AN"},{name:"Debub",shortCode:"DU"},{name:"Debub-Keih-Bahri",shortCode:"DK"},{name:"Gash-Barka",shortCode:"GB"},{name:"Maekel",shortCode:"MA"},{name:"Semien-Keih-Bahri",shortCode:"SK"}]},{countryName:"Estonia",countryShortCode:"EE",regions:[{name:"Harjumaa (Tallinn)",shortCode:"37"},{name:"Hiiumaa (Kardla)",shortCode:"39"},{name:"Ida-Virumaa (Johvi)",shortCode:"44"},{name:"Järvamaa (Paide)",shortCode:"41"},{name:"Jõgevamaa (Jogeva)",shortCode:"49"},{name:"Läänemaa",shortCode:"57"},{name:"Lääne-Virumaa (Rakvere)",shortCode:"59"},{name:"Pärnumaa (Parnu)",shortCode:"67"},{name:"Põlvamaa (Polva)",shortCode:"65"},{name:"Raplamaa (Rapla)",shortCode:"70"},{name:"Saaremaa (Kuessaare)",shortCode:"74"},{name:"Tartumaa (Tartu)",shortCode:"78"},{name:"Valgamaa (Valga)",shortCode:"82"},{name:"Viljandimaa (Viljandi)",shortCode:"84"},{name:"Võrumaa (Voru)",shortCode:"86"}]},{countryName:"Ethiopia",countryShortCode:"ET",regions:[{name:"Addis Ababa",shortCode:"AA"},{name:"Afar",shortCode:"AF"},{name:"Amhara",shortCode:"AM"},{name:"Benshangul-Gumaz",shortCode:"BE"},{name:"Dire Dawa",shortCode:"DD"},{name:"Gambela",shortCode:"GA"},{name:"Harari",shortCode:"HA"},{name:"Oromia",shortCode:"OR"},{name:"Somali",shortCode:"SO"},{name:"Southern Nations Nationalities and People's Region",shortCode:"SN"},{name:"Tigray",shortCode:"TI"}]},{countryName:"Falkland Islands (Islas Malvinas)",countryShortCode:"FK",regions:[{name:"Falkland Islands (Islas Malvinas)"}]},{countryName:"Faroe Islands",countryShortCode:"FO",regions:[{name:"Bordoy"},{name:"Eysturoy"},{name:"Mykines"},{name:"Sandoy"},{name:"Skuvoy"},{name:"Streymoy"},{name:"Suduroy"},{name:"Tvoroyri"},{name:"Vagar"}]},{countryName:"Fiji",countryShortCode:"FJ",regions:[{name:"Ba",shortCode:"01"},{name:"Bua",shortCode:"01"},{name:"Cakaudrove",shortCode:"03"},{name:"Kadavu",shortCode:"04"},{name:"Lau",shortCode:"05"},{name:"Lomaiviti",shortCode:"06"},{name:"Macuata",shortCode:"07"},{name:"Nadroga and Navosa",shortCode:"08"},{name:"Naitasiri",shortCode:"09"},{name:"Namosi",shortCode:"10"},{name:"Ra",shortCode:"011"},{name:"Rewa",shortCode:"12"},{name:"Rotuma",shortCode:"R"},{name:"Serua",shortCode:"12"},{name:"Tailevu",shortCode:"14"}]},{countryName:"Finland",countryShortCode:"FI",regions:[{name:"Ahvenanmaan lääni",shortCode:"AL"},{name:"Etelä-Suomen lääni",shortCode:"ES"},{name:"Itä-Suomen lääni",shortCode:"IS"},{name:"Länsi-Suomen lääni",shortCode:"LS"},{name:"Lapin lääni",shortCode:"LL"},{name:"Oulun lääni",shortCode:"OL"}]},{countryName:"France",countryShortCode:"FR",regions:[{name:"Auvergne-Rhône-Alpes",shortCode:"ARA"},{name:"Bourgogne-Franche-Comté",shortCode:"BFC"},{name:"Bretagne",shortCode:"BRE"},{name:"Centre-Val de Loire",shortCode:"CVL"},{name:"Corse",shortCode:"COR"},{name:"Grand Est",shortCode:"GES"},{name:"Hauts-de-France",shortCode:"HDF"},{name:"Île-de-France",shortCode:"IDF"},{name:"Normandie",shortCode:"NOR"},{name:"Nouvelle-Aquitaine",shortCode:"NAQ"},{name:"Occitanie",shortCode:"OCC"},{name:"Pays de la Loire",shortCode:"PDL"},{name:"Provence-Alpes-Cote d'Azur",shortCode:"PAC"},{name:"Clipperton",shortCode:"CP"},{name:"Guadeloupe",shortCode:"GP"},{name:"Guyane",shortCode:"GF"},{name:"Martinique",shortCode:"MQ"},{name:"Mayotte",shortCode:"YT"},{name:"Novelle-Calédonie",shortCode:"NC"},{name:"Polynésie",shortCode:"PF"},{name:"Saint-Pierre-et-Miquelon",shortCode:"PM"},{name:"Saint Barthélemy",shortCode:"BL"},{name:"Saint Martin",shortCode:"MF"},{name:"Réunion",shortCode:"RE"},{name:"Terres Australes Françaises",shortCode:"TF"},{name:"Wallis-et-Futuna",shortCode:"WF"}]},{countryName:"French Guiana",countryShortCode:"GF",regions:[{name:"French Guiana"}]},{countryName:"French Polynesia",countryShortCode:"PF",regions:[{name:"Archipel des Marquises"},{name:"Archipel des Tuamotu"},{name:"Archipel des Tubuai"},{name:"Iles du Vent"},{name:"Iles Sous-le-Vent"}]},{countryName:"French Southern and Antarctic Lands",countryShortCode:"TF",regions:[{name:"Adelie Land"},{name:"Ile Crozet"},{name:"Iles Kerguelen"},{name:"Iles Saint-Paul et Amsterdam"}]},{countryName:"Gabon",countryShortCode:"GA",regions:[{name:"Estuaire",shortCode:"1"},{name:"Haut-Ogooué",shortCode:"2"},{name:"Moyen-Ogooué",shortCode:"3"},{name:"Ngounié",shortCode:"4"},{name:"Nyanga",shortCode:"5"},{name:"Ogooué-Ivindo",shortCode:"6"},{name:"Ogooué-Lolo",shortCode:"7"},{name:"Ogooué-Maritime",shortCode:"8"},{name:"Woleu-Ntem",shortCode:"9"}]},{countryName:"Gambia, The",countryShortCode:"GM",regions:[{name:"Banjul",shortCode:"B"},{name:"Central River",shortCode:"M"},{name:"Lower River",shortCode:"L"},{name:"North Bank",shortCode:"N"},{name:"Upper River",shortCode:"U"},{name:"Western",shortCode:"W"}]},{countryName:"Georgia",countryShortCode:"GE",regions:[{name:"Abkhazia (Sokhumi)",shortCode:"AB"},{name:"Ajaria (Bat'umi)",shortCode:"AJ"},{name:"Guria",shortCode:"GU"},{name:"Imereti",shortCode:"IM"},{name:"K'akheti",shortCode:"KA"},{name:"Kvemo Kartli",shortCode:"KK"},{name:"Mtshkheta-Mtianeti",shortCode:"MM"},{name:"Rach'a-Lexhkumi-KvemoSvaneti",shortCode:"RL"},{name:"Samegrelo-Zemo Svaneti",shortCode:"SZ"},{name:"Samtskhe-Javakheti",shortCode:"SJ"},{name:"Shida Kartli",shortCode:"SK"},{name:"Tbilisi",shortCode:"TB"}]},{countryName:"Germany",countryShortCode:"DE",regions:[{name:"Baden-Württemberg",shortCode:"BW"},{name:"Bayern",shortCode:"BY"},{name:"Berlin",shortCode:"BE"},{name:"Brandenburg",shortCode:"BB"},{name:"Bremen",shortCode:"HB"},{name:"Hamburg",shortCode:"HH"},{name:"Hessen",shortCode:"HE"},{name:"Mecklenburg-Vorpommern",shortCode:"MV"},{name:"Niedersachsen",shortCode:"NI"},{name:"Nordrhein-Westfalen",shortCode:"NW"},{name:"Rheinland-Pfalz",shortCode:"RP"},{name:"Saarland",shortCode:"SL"},{name:"Sachsen",shortCode:"SN"},{name:"Sachsen-Anhalt",shortCode:"ST"},{name:"Schleswig-Holstein",shortCode:"SH"},{name:"Thüringen",shortCode:"TH"}]},{countryName:"Ghana",countryShortCode:"GH",regions:[{name:"Ahafo"},{name:"Ashanti",shortCode:"AH"},{name:"Bono"},{name:"Bono East"},{name:"Central",shortCode:"CP"},{name:"Eastern",shortCode:"EP"},{name:"Greater Accra",shortCode:"AA"},{name:"Northern",shortCode:"NP"},{name:"North East"},{name:"Oti"},{name:"Savannah"},{name:"Upper East",shortCode:"UE"},{name:"Upper West",shortCode:"UW"},{name:"Volta",shortCode:"TV"},{name:"Western",shortCode:"WP"},{name:"Western North"}]},{countryName:"Gibraltar",countryShortCode:"GI",regions:[{name:"Gibraltar"}]},{countryName:"Greece",countryShortCode:"GR",regions:[{name:"Anatolikí Makedonía kai Thráki",shortCode:"A"},{name:"Attikḯ",shortCode:"I"},{name:"Dytikí Elláda",shortCode:"G"},{name:"Dytikí Makedonía",shortCode:"C"},{name:"Ionía Nísia",shortCode:"F"},{name:"Kentrikí Makedonía",shortCode:"B"},{name:"Krítí",shortCode:"M"},{name:"Notío Aigaío",shortCode:"L"},{name:"Peloponnísos",shortCode:"J"},{name:"Stereá Elláda",shortCode:"H"},{name:"Thessalía",shortCode:"E"},{name:"Voreío Aigaío",shortCode:"K"},{name:"Ípeiros",shortCode:"D"},{name:"Ágion Óros",shortCode:"69"}]},{countryName:"Greenland",countryShortCode:"GL",regions:[{name:"Kommune Kujalleq",shortCode:"KU"},{name:"Kommuneqarfik Sermersooq",shortCode:"SM"},{name:"Qaasuitsup Kommunia",shortCode:"QA"},{name:"Qeqqata Kommunia",shortCode:"QE"}]},{countryName:"Grenada",countryShortCode:"GD",regions:[{name:"Saint Andrew",shortCode:"01"},{name:"Saint David",shortCode:"02"},{name:"Saint George",shortCode:"03"},{name:"Saint John",shortCode:"04"},{name:"Saint Mark",shortCode:"05"},{name:"Saint Patrick",shortCode:"06"},{name:"Southern Grenadine Islands",shortCode:"10"}]},{countryName:"Guadeloupe",countryShortCode:"GP",regions:[{name:"Guadeloupe"}]},{countryName:"Guam",countryShortCode:"GU",regions:[{name:"Guam"}]},{countryName:"Guatemala",countryShortCode:"GT",regions:[{name:"Alta Verapaz",shortCode:"AV"},{name:"Baja Verapaz",shortCode:"BV"},{name:"Chimaltenango",shortCode:"CM"},{name:"Chiquimula",shortCode:"CQ"},{name:"El Progreso",shortCode:"PR"},{name:"Escuintla",shortCode:"ES"},{name:"Guatemala",shortCode:"GU"},{name:"Huehuetenango",shortCode:"HU"},{name:"Izabal",shortCode:"IZ"},{name:"Jalapa",shortCode:"JA"},{name:"Jutiapa",shortCode:"JU"},{name:"Petén",shortCode:"PE"},{name:"Quetzaltenango",shortCode:"QZ"},{name:"Quiché",shortCode:"QC"},{name:"Retalhuleu",shortCode:"Re"},{name:"Sacatepéquez",shortCode:"SA"},{name:"San Marcos",shortCode:"SM"},{name:"Santa Rosa",shortCode:"SR"},{name:"Sololá",shortCode:"SO"},{name:"Suchitepéquez",shortCode:"SU"},{name:"Totonicapán",shortCode:"TO"},{name:"Zacapa",shortCode:"ZA"}]},{countryName:"Guernsey",countryShortCode:"GG",regions:[{name:"Castel"},{name:"Forest"},{name:"St. Andrew"},{name:"St. Martin"},{name:"St. Peter Port"},{name:"St. Pierre du Bois"},{name:"St. Sampson"},{name:"St. Saviour"},{name:"Torteval"},{name:"Vale"}]},{countryName:"Guinea",countryShortCode:"GN",regions:[{name:"Boké",shortCode:"B"},{name:"Conakry",shortCode:"C"},{name:"Faranah",shortCode:"F"},{name:"Kankan",shortCode:"K"},{name:"Kindia",shortCode:"D"},{name:"Labé",shortCode:"L"},{name:"Mamou",shortCode:"M"},{name:"Nzérékoré",shortCode:"N"}]},{countryName:"Guinea-Bissau",countryShortCode:"GW",regions:[{name:"Bafatá",shortCode:"BA"},{name:"Biombo",shortCode:"BM"},{name:"Bissau",shortCode:"BS"},{name:"Bolama-Bijagos",shortCode:"BL"},{name:"Cacheu",shortCode:"CA"},{name:"Gabú",shortCode:"GA"},{name:"Oio",shortCode:"OI"},{name:"Quinara",shortCode:"QU"},{name:"Tombali",shortCode:"TO"}]},{countryName:"Guyana",countryShortCode:"GY",regions:[{name:"Barima-Waini",shortCode:"BA"},{name:"Cuyuni-Mazaruni",shortCode:"CU"},{name:"Demerara-Mahaica",shortCode:"DE"},{name:"East Berbice-Corentyne",shortCode:"EB"},{name:"Essequibo Islands-West Demerara",shortCode:"ES"},{name:"Mahaica-Berbice",shortCode:"MA"},{name:"Pomeroon-Supenaam",shortCode:"PM"},{name:"Potaro-Siparuni",shortCode:"PT"},{name:"Upper Demerara-Berbice",shortCode:"UD"},{name:"Upper Takutu-Upper Essequibo",shortCode:"UT"}]},{countryName:"Haiti",countryShortCode:"HT",regions:[{name:"Artibonite",shortCode:"AR"},{name:"Centre",shortCode:"CE"},{name:"Grand'Anse",shortCode:"GA"},{name:"Nippes",shortCode:"NI"},{name:"Nord",shortCode:"ND"},{name:"Nord-Est",shortCode:"NE"},{name:"Nord-Ouest",shortCode:"NO"},{name:"Ouest",shortCode:"OU"},{name:"Sud",shortCode:"SD"},{name:"Sud-Est",shortCode:"SE"}]},{countryName:"Heard Island and McDonald Islands",countryShortCode:"HM",regions:[{name:"Heard Island and McDonald Islands"}]},{countryName:"Holy See (Vatican City)",countryShortCode:"VA",regions:[{name:"Holy See (Vatican City)",shortCode:"01"}]},{countryName:"Honduras",countryShortCode:"HN",regions:[{name:"Atlántida",shortCode:"AT"},{name:"Choluteca",shortCode:"CH"},{name:"Colón",shortCode:"CL"},{name:"Comayagua",shortCode:"CM"},{name:"Copán",shortCode:"CP"},{name:"Cortés",shortCode:"CR"},{name:"El Paraíso",shortCode:"EP"},{name:"Francisco Morazan",shortCode:"FM"},{name:"Gracias a Dios",shortCode:"GD"},{name:"Intibucá",shortCode:"IN"},{name:"Islas de la Bahía",shortCode:"IB"},{name:"La Paz",shortCode:"LP"},{name:"Lempira",shortCode:"LE"},{name:"Ocotepeque",shortCode:"OC"},{name:"Olancho",shortCode:"OL"},{name:"Santa Bárbara",shortCode:"SB"},{name:"Valle",shortCode:"VA"},{name:"Yoro",shortCode:"YO"}]},{countryName:"Hong Kong",countryShortCode:"HK",regions:[{name:"Hong Kong",shortCode:"HK"}]},{countryName:"Hungary",countryShortCode:"HU",regions:[{name:"Bács-Kiskun",shortCode:"BK"},{name:"Baranya",shortCode:"BA"},{name:"Békés",shortCode:"BE"},{name:"Békéscsaba",shortCode:"BC"},{name:"Borsod-Abauj-Zemplen",shortCode:"BZ"},{name:"Budapest",shortCode:"BU"},{name:"Csongrád",shortCode:"CS"},{name:"Debrecen",shortCode:"DE"},{name:"Dunaújváros",shortCode:"DU"},{name:"Eger",shortCode:"EG"},{name:"Érd",shortCode:"ER"},{name:"Fejér",shortCode:"FE"},{name:"Győr",shortCode:"GY"},{name:"Győr-Moson-Sopron",shortCode:"GS"},{name:"Hajdú-Bihar",shortCode:"HB"},{name:"Heves",shortCode:"HE"},{name:"Hódmezővásárhely",shortCode:"HV"},{name:"Jász-Nagykun-Szolnok",shortCode:"N"},{name:"Kaposvár",shortCode:"KV"},{name:"Kecskemét",shortCode:"KM"},{name:"Komárom-Esztergom",shortCode:"KE"},{name:"Miskolc",shortCode:"MI"},{name:"Nagykanizsa",shortCode:"NK"},{name:"Nógrád",shortCode:"NO"},{name:"Nyíregyháza",shortCode:"NY"},{name:"Pécs",shortCode:"PS"},{name:"Pest",shortCode:"PE"},{name:"Salgótarján",shortCode:"ST"},{name:"Somogy",shortCode:"SO"},{name:"Sopron",shortCode:"SN"},{name:"Szabolcs-á-Bereg",shortCode:"SZ"},{name:"Szeged",shortCode:"SD"},{name:"Székesfehérvár",shortCode:"SF"},{name:"Szekszárd",shortCode:"SS"},{name:"Szolnok",shortCode:"SK"},{name:"Szombathely",shortCode:"SH"},{name:"Tatabánya",shortCode:"TB"},{name:"Tolna",shortCode:"TO"},{name:"Vas",shortCode:"VA"},{name:"Veszprém",shortCode:"VE"},{name:"Veszprém (City)",shortCode:"VM"},{name:"Zala",shortCode:"ZA"},{name:"Zalaegerszeg",shortCode:"ZE"}]},{countryName:"Iceland",countryShortCode:"IS",regions:[{name:"Austurland",shortCode:"7"},{name:"Höfuðborgarsvæði utan Reykjavíkur",shortCode:"1"},{name:"Norðurland eystra",shortCode:"6"},{name:"Norðurland vestra",shortCode:"5"},{name:"Suðurland",shortCode:"8"},{name:"Suðurnes",shortCode:"2"},{name:"Vestfirðir",shortCode:"4"},{name:"Vesturland",shortCode:"3"}]},{countryName:"India",countryShortCode:"IN",regions:[{name:"Andaman and Nicobar Islands",shortCode:"AN"},{name:"Andhra Pradesh",shortCode:"AP"},{name:"Arunachal Pradesh",shortCode:"AR"},{name:"Assam",shortCode:"AS"},{name:"Bihar",shortCode:"BR"},{name:"Chandigarh",shortCode:"CH"},{name:"Chhattisgarh",shortCode:"CT"},{name:"Dadra and Nagar Haveli",shortCode:"DN"},{name:"Daman and Diu",shortCode:"DD"},{name:"Delhi",shortCode:"DL"},{name:"Goa",shortCode:"GA"},{name:"Gujarat",shortCode:"GJ"},{name:"Haryana",shortCode:"HR"},{name:"Himachal Pradesh",shortCode:"HP"},{name:"Jammu and Kashmir",shortCode:"JK"},{name:"Jharkhand",shortCode:"JH"},{name:"Karnataka",shortCode:"KA"},{name:"Kerala",shortCode:"KL"},{name:"Ladakh",shortCode:"LA"},{name:"Lakshadweep",shortCode:"LD"},{name:"Madhya Pradesh",shortCode:"MP"},{name:"Maharashtra",shortCode:"MH"},{name:"Manipur",shortCode:"MN"},{name:"Meghalaya",shortCode:"ML"},{name:"Mizoram",shortCode:"MZ"},{name:"Nagaland",shortCode:"NL"},{name:"Odisha",shortCode:"OR"},{name:"Puducherry",shortCode:"PY"},{name:"Punjab",shortCode:"PB"},{name:"Rajasthan",shortCode:"RJ"},{name:"Sikkim",shortCode:"WK"},{name:"Tamil Nadu",shortCode:"TN"},{name:"Telangana",shortCode:"TG"},{name:"Tripura",shortCode:"TR"},{name:"Uttarakhand",shortCode:"UT"},{name:"Uttar Pradesh",shortCode:"UP"},{name:"West Bengal",shortCode:"WB"}]},{countryName:"Indonesia",countryShortCode:"ID",regions:[{name:"Aceh",shortCode:"AC"},{name:"Bali",shortCode:"BA"},{name:"Bangka Belitung",shortCode:"BB"},{name:"Banten",shortCode:"BT"},{name:"Bengkulu",shortCode:"BE"},{name:"Gorontalo",shortCode:"GO"},{name:"Jakarta Raya",shortCode:"JK"},{name:"Jambi",shortCode:"JA"},{name:"Jawa Barat",shortCode:"JB"},{name:"Jawa Tengah",shortCode:"JT"},{name:"Jawa Timur",shortCode:"JI"},{name:"Kalimantan Barat",shortCode:"KB"},{name:"Kalimantan Selatan",shortCode:"KS"},{name:"Kalimantan Tengah",shortCode:"KT"},{name:"Kalimantan Timur",shortCode:"KI"},{name:"Kalimantan Utara",shortCode:"KU"},{name:"Kepulauan Riau",shortCode:"KR"},{name:"Lampung",shortCode:"LA"},{name:"Maluku",shortCode:"MA"},{name:"Maluku Utara",shortCode:"MU"},{name:"Nusa Tenggara Barat",shortCode:"NB"},{name:"Nusa Tenggara Timur",shortCode:"NT"},{name:"Papua",shortCode:"PA"},{name:"Papua Barat",shortCode:"PB"},{name:"Riau",shortCode:"RI"},{name:"Sulawesi Selatan",shortCode:"SR"},{name:"Sulawesi Tengah",shortCode:"ST"},{name:"Sulawesi Tenggara",shortCode:"SG"},{name:"Sulawesi Utara",shortCode:"SA"},{name:"Sumatera Barat",shortCode:"SB"},{name:"Sumatera Selatan",shortCode:"SS"},{name:"Sumatera Utara",shortCode:"SU"},{name:"Yogyakarta",shortCode:"YO"}]},{countryName:"Iran, Islamic Republic of",countryShortCode:"IR",regions:[{name:"Alborz",shortCode:"32"},{name:"Ardabīl",shortCode:"03"},{name:"Āz̄arbāyjān-e Gharbī",shortCode:"02"},{name:"Āz̄arbāyjān-e Sharqī",shortCode:"01"},{name:"Būshehr",shortCode:"06"},{name:"Chahār Maḩāl va Bakhtīārī",shortCode:"08"},{name:"Eşfahān",shortCode:"04"},{name:"Fārs",shortCode:"14"},{name:"Gīlān",shortCode:"19"},{name:"Golestān",shortCode:"27"},{name:"Hamadān",shortCode:"24"},{name:"Hormozgān",shortCode:"23"},{name:"Īlām",shortCode:"05"},{name:"Kermān",shortCode:"15"},{name:"Kermānshāh",shortCode:"17"},{name:"Khorāsān-e Jonūbī",shortCode:"29"},{name:"Khorāsān-e Raẕavī",shortCode:"30"},{name:"Khorāsān-e Shomālī",shortCode:"61"},{name:"Khūzestān",shortCode:"10"},{name:"Kohgīlūyeh va Bowyer Aḩmad",shortCode:"18"},{name:"Kordestān",shortCode:"16"},{name:"Lorestān",shortCode:"20"},{name:"Markazi",shortCode:"22"},{name:"Māzandarān",shortCode:"21"},{name:"Qazvīn",shortCode:"28"},{name:"Qom",shortCode:"26"},{name:"Semnān",shortCode:"12"},{name:"Sīstān va Balūchestān",shortCode:"13"},{name:"Tehrān",shortCode:"07"},{name:"Yazd",shortCode:"25"},{name:"Zanjān",shortCode:"11"}]},{countryName:"Iraq",countryShortCode:"IQ",regions:[{name:"Al Anbār",shortCode:"AN"},{name:"Al Başrah",shortCode:"BA"},{name:"Al Muthanná",shortCode:"MU"},{name:"Al Qādisīyah",shortCode:"QA"},{name:"An Najaf",shortCode:"NA"},{name:"Arbīl",shortCode:"AR"},{name:"As Sulaymānīyah",shortCode:"SU"},{name:"Bābil",shortCode:"BB"},{name:"Baghdād",shortCode:"BG"},{name:"Dohuk",shortCode:"DA"},{name:"Dhī Qār",shortCode:"DQ"},{name:"Diyālá",shortCode:"DI"},{name:"Karbalā'",shortCode:"KA"},{name:"Kirkuk",shortCode:"KI"},{name:"Maysān",shortCode:"MA"},{name:"Nīnawá",shortCode:"NI"},{name:"Şalāḩ ad Dīn",shortCode:"SD"},{name:"Wāsiţ",shortCode:"WA"}]},{countryName:"Ireland",countryShortCode:"IE",regions:[{name:"Carlow",shortCode:"CW"},{name:"Cavan",shortCode:"CN"},{name:"Clare",shortCode:"CE"},{name:"Cork",shortCode:"CO"},{name:"Donegal",shortCode:"DL"},{name:"Dublin",shortCode:"D"},{name:"Galway",shortCode:"G"},{name:"Kerry",shortCode:"KY"},{name:"Kildare",shortCode:"KE"},{name:"Kilkenny",shortCode:"KK"},{name:"Laois",shortCode:"LS"},{name:"Leitrim",shortCode:"LM"},{name:"Limerick",shortCode:"LK"},{name:"Longford",shortCode:"LD"},{name:"Louth",shortCode:"LH"},{name:"Mayo",shortCode:"MO"},{name:"Meath",shortCode:"MH"},{name:"Monaghan",shortCode:"MN"},{name:"Offaly",shortCode:"OY"},{name:"Roscommon",shortCode:"RN"},{name:"Sligo",shortCode:"SO"},{name:"Tipperary",shortCode:"TA"},{name:"Waterford",shortCode:"WD"},{name:"Westmeath",shortCode:"WH"},{name:"Wexford",shortCode:"WX"},{name:"Wicklow",shortCode:"WW"}]},{countryName:"Isle of Man",countryShortCode:"IM",regions:[{name:"Isle of Man"}]},{countryName:"Israel",countryShortCode:"IL",regions:[{name:"HaDarom",shortCode:"D"},{name:"HaMerkaz",shortCode:"M"},{name:"HaTsafon",shortCode:"Z"},{name:"H̱efa",shortCode:"HA"},{name:"Tel-Aviv",shortCode:"TA"},{name:"Yerushalayim",shortCode:"JM"}]},{countryName:"Italy",countryShortCode:"IT",regions:[{name:"Abruzzo",shortCode:"65"},{name:"Basilicata",shortCode:"77"},{name:"Calabria",shortCode:"78"},{name:"Campania",shortCode:"72"},{name:"Emilia-Romagna",shortCode:"45"},{name:"Friuli-Venezia Giulia",shortCode:"36"},{name:"Lazio",shortCode:"62"},{name:"Liguria",shortCode:"42"},{name:"Lombardia",shortCode:"25"},{name:"Marche",shortCode:"57"},{name:"Molise",shortCode:"67"},{name:"Piemonte",shortCode:"21"},{name:"Puglia",shortCode:"75"},{name:"Sardegna",shortCode:"88"},{name:"Sicilia",shortCode:"82"},{name:"Toscana",shortCode:"52"},{name:"Trentino-Alto Adige",shortCode:"32"},{name:"Umbria",shortCode:"55"},{name:"Valle d'Aosta",shortCode:"23"},{name:"Veneto",shortCode:"34"}]},{countryName:"Jamaica",countryShortCode:"JM",regions:[{name:"Clarendon",shortCode:"13"},{name:"Hanover",shortCode:"09"},{name:"Kingston",shortCode:"01"},{name:"Manchester",shortCode:"12"},{name:"Portland",shortCode:"04"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint Ann",shortCode:"06"},{name:"Saint Catherine",shortCode:"14"},{name:"Saint Elizabeth",shortCode:"11"},{name:"Saint James",shortCode:"08"},{name:"Saint Mary",shortCode:"05"},{name:"Saint Thomas",shortCode:"03"},{name:"Trelawny",shortCode:"07"},{name:"Westmoreland",shortCode:"10"}]},{countryName:"Japan",countryShortCode:"JP",regions:[{name:"Aichi",shortCode:"23"},{name:"Akita",shortCode:"05"},{name:"Aomori",shortCode:"02"},{name:"Chiba",shortCode:"12"},{name:"Ehime",shortCode:"38"},{name:"Fukui",shortCode:"18"},{name:"Fukuoka",shortCode:"40"},{name:"Fukushima",shortCode:"07"},{name:"Gifu",shortCode:"21"},{name:"Gunma",shortCode:"10"},{name:"Hiroshima",shortCode:"34"},{name:"Hokkaido",shortCode:"01"},{name:"Hyogo",shortCode:"28"},{name:"Ibaraki",shortCode:"08"},{name:"Ishikawa",shortCode:"17"},{name:"Iwate",shortCode:"03"},{name:"Kagawa",shortCode:"37"},{name:"Kagoshima",shortCode:"46"},{name:"Kanagawa",shortCode:"14"},{name:"Kochi",shortCode:"39"},{name:"Kumamoto",shortCode:"43"},{name:"Kyoto",shortCode:"26"},{name:"Mie",shortCode:"24"},{name:"Miyagi",shortCode:"04"},{name:"Miyazaki",shortCode:"45"},{name:"Nagano",shortCode:"20"},{name:"Nagasaki",shortCode:"42"},{name:"Nara",shortCode:"29"},{name:"Niigata",shortCode:"15"},{name:"Oita",shortCode:"44"},{name:"Okayama",shortCode:"33"},{name:"Okinawa",shortCode:"47"},{name:"Osaka",shortCode:"27"},{name:"Saga",shortCode:"41"},{name:"Saitama",shortCode:"11"},{name:"Shiga",shortCode:"25"},{name:"Shimane",shortCode:"32"},{name:"Shizuoka",shortCode:"22"},{name:"Tochigi",shortCode:"09"},{name:"Tokushima",shortCode:"36"},{name:"Tokyo",shortCode:"13"},{name:"Tottori",shortCode:"31"},{name:"Toyama",shortCode:"16"},{name:"Wakayama",shortCode:"30"},{name:"Yamagata",shortCode:"06"},{name:"Yamaguchi",shortCode:"35"},{name:"Yamanashi",shortCode:"19"}]},{countryName:"Jersey",countryShortCode:"JE",regions:[{name:"Jersey"}]},{countryName:"Jordan",countryShortCode:"JO",regions:[{name:"‘Ajlūn",shortCode:"AJ"},{name:"Al 'Aqabah",shortCode:"AQ"},{name:"Al Balqā’",shortCode:"BA"},{name:"Al Karak",shortCode:"KA"},{name:"Al Mafraq",shortCode:"MA"},{name:"Al ‘A̅şimah",shortCode:"AM"},{name:"Aţ Ţafīlah",shortCode:"AT"},{name:"Az Zarqā’",shortCode:"AZ"},{name:"Irbid",shortCode:"IR"},{name:"Jarash",shortCode:"JA"},{name:"Ma‘ān",shortCode:"MN"},{name:"Mādabā",shortCode:"MD"}]},{countryName:"Kazakhstan",countryShortCode:"KZ",regions:[{name:"Almaty",shortCode:"ALA"},{name:"Aqmola",shortCode:"AKM"},{name:"Aqtobe",shortCode:"AKT"},{name:"Astana",shortCode:"AST"},{name:"Atyrau",shortCode:"ATY"},{name:"Batys Qazaqstan",shortCode:"ZAP"},{name:"Bayqongyr"},{name:"Mangghystau",shortCode:"MAN"},{name:"Ongtustik Qazaqstan",shortCode:"YUZ"},{name:"Pavlodar",shortCode:"PAV"},{name:"Qaraghandy",shortCode:"KAR"},{name:"Qostanay",shortCode:"KUS"},{name:"Qyzylorda",shortCode:"KZY"},{name:"Shyghys Qazaqstan",shortCode:"VOS"},{name:"Soltustik Qazaqstan",shortCode:"SEV"},{name:"Zhambyl",shortCode:"ZHA"}]},{countryName:"Kenya",countryShortCode:"KE",regions:[{name:"Baringo",shortCode:"01"},{name:"Bomet",shortCode:"02"},{name:"Bungoma",shortCode:"03"},{name:"Busia",shortCode:"04"},{name:"Eleyo/Marakwet",shortCode:"05"},{name:"Embu",shortCode:"06"},{name:"Garissa",shortCode:"07"},{name:"Homa Bay",shortCode:"08"},{name:"Isiolo",shortCode:"09"},{name:"Kajiado",shortCode:"10"},{name:"Kakamega",shortCode:"11"},{name:"Kericho",shortCode:"12"},{name:"Kiambu",shortCode:"13"},{name:"Kilifi",shortCode:"14"},{name:"Kirinyaga",shortCode:"15"},{name:"Kisii",shortCode:"16"},{name:"Kisumu",shortCode:"17"},{name:"Kitui",shortCode:"18"},{name:"Kwale",shortCode:"19"},{name:"Laikipia",shortCode:"20"},{name:"Lamu",shortCode:"21"},{name:"Machakos",shortCode:"22"},{name:"Makueni",shortCode:"23"},{name:"Mandera",shortCode:"24"},{name:"Marsabit",shortCode:"25"},{name:"Meru",shortCode:"26"},{name:"Migori",shortCode:"27"},{name:"Mombasa",shortCode:"28"},{name:"Murang'a",shortCode:"29"},{name:"Nairobi City",shortCode:"30"},{name:"Nakuru",shortCode:"31"},{name:"Nandi",shortCode:"32"},{name:"Narok",shortCode:"33"},{name:"Nyamira",shortCode:"34"},{name:"Nyandarua",shortCode:"35"},{name:"Nyeri",shortCode:"36"},{name:"Samburu",shortCode:"37"},{name:"Siaya",shortCode:"38"},{name:"Taita/Taveta",shortCode:"39"},{name:"Tana River",shortCode:"40"},{name:"Tharaka-Nithi",shortCode:"41"},{name:"Trans Nzoia",shortCode:"42"},{name:"Turkana",shortCode:"43"},{name:"Uasin Gishu",shortCode:"44"},{name:"Vihiga",shortCode:"45"},{name:"Wajir",shortCode:"46"},{name:"West Pokot",shortCode:"47"}]},{countryName:"Kiribati",countryShortCode:"KI",regions:[{name:"Abaiang"},{name:"Abemama"},{name:"Aranuka"},{name:"Arorae"},{name:"Banaba"},{name:"Beru"},{name:"Butaritari"},{name:"Central Gilberts"},{name:"Gilbert Islands",shortCode:"G"},{name:"Kanton"},{name:"Kiritimati"},{name:"Kuria"},{name:"Line Islands",shortCode:"L"},{name:"Maiana"},{name:"Makin"},{name:"Marakei"},{name:"Nikunau"},{name:"Nonouti"},{name:"Northern Gilberts"},{name:"Onotoa"},{name:"Phoenix Islands",shortCode:"P"},{name:"Southern Gilberts"},{name:"Tabiteuea"},{name:"Tabuaeran"},{name:"Tamana"},{name:"Tarawa"},{name:"Teraina"}]},{countryName:"Korea, Democratic People's Republic of",countryShortCode:"KP",regions:[{name:"Chagang-do (Chagang Province)",shortCode:"04"},{name:"Hamgyong-bukto (North Hamgyong Province)",shortCode:"09"},{name:"Hamgyong-namdo (South Hamgyong Province)",shortCode:"08"},{name:"Hwanghae-bukto (North Hwanghae Province)",shortCode:"06"},{name:"Hwanghae-namdo (South Hwanghae Province)",shortCode:"05"},{name:"Kangwon-do (Kangwon Province)",shortCode:"07"},{name:"Nasŏn (Najin-Sŏnbong)",shortCode:"13"},{name:"P'yongan-bukto (North P'yongan Province)",shortCode:"03"},{name:"P'yongan-namdo (South P'yongan Province)",shortCode:"02"},{name:"P'yongyang-si (P'yongyang City)",shortCode:"01"},{name:"Yanggang-do (Yanggang Province)",shortCode:"10"}]},{countryName:"Korea, Republic of",countryShortCode:"KR",regions:[{name:"Ch'ungch'ongbuk-do",shortCode:"43"},{name:"Ch'ungch'ongnam-do",shortCode:"44"},{name:"Cheju-do",shortCode:"49"},{name:"Chollabuk-do",shortCode:"45"},{name:"Chollanam-do",shortCode:"46"},{name:"Inch'on-Kwangyokhi",shortCode:"28"},{name:"Kang-won-do",shortCode:"42"},{name:"Kwangju-Kwangyokshi",shortCode:"28"},{name:"Kyonggi-do",shortCode:"41"},{name:"Kyongsangbuk-do",shortCode:"47"},{name:"Kyongsangnam-do",shortCode:"48"},{name:"Pusan-Kwangyokshi",shortCode:"26"},{name:"Seoul-T'ukpyolshi",shortCode:"11"},{name:"Sejong",shortCode:"50"},{name:"Taegu-Kwangyokshi",shortCode:"27"},{name:"Taejon-Kwangyokshi",shortCode:"30"},{name:"Ulsan-Kwangyokshi",shortCode:"31"}]},{countryName:"Kuwait",countryShortCode:"KW",regions:[{name:"Al Aḩmadi",shortCode:"AH"},{name:"Al Farwānīyah",shortCode:"FA"},{name:"Al Jahrā’",shortCode:"JA"},{name:"Al ‘Āşimah",shortCode:"KU"},{name:"Ḩawallī",shortCode:"HA"},{name:"Mubārak al Kabir",shortCode:"MU"}]},{countryName:"Kyrgyzstan",countryShortCode:"KG",regions:[{name:"Batken Oblasty",shortCode:"B"},{name:"Bishkek Shaary",shortCode:"GB"},{name:"Chuy Oblasty (Bishkek)",shortCode:"C"},{name:"Jalal-Abad Oblasty",shortCode:"J"},{name:"Naryn Oblasty",shortCode:"N"},{name:"Osh Oblasty",shortCode:"O"},{name:"Talas Oblasty",shortCode:"T"},{name:"Ysyk-Kol Oblasty (Karakol)",shortCode:"Y"}]},{countryName:"Laos",countryShortCode:"LA",regions:[{name:"Attapu",shortCode:"AT"},{name:"Bokèo",shortCode:"BK"},{name:"Bolikhamxai",shortCode:"BL"},{name:"Champasak",shortCode:"CH"},{name:"Houaphan",shortCode:"HO"},{name:"Khammouan",shortCode:"KH"},{name:"Louang Namtha",shortCode:"LM"},{name:"Louangphabang",shortCode:"LP"},{name:"Oudômxai",shortCode:"OU"},{name:"Phôngsali",shortCode:"PH"},{name:"Salavan",shortCode:"SL"},{name:"Savannakhét",shortCode:"SV"},{name:"Vientiane",shortCode:"VI"},{name:"Xaignabouli",shortCode:"XA"},{name:"Xékong",shortCode:"XE"},{name:"Xaisomboun",shortCode:"XS"},{name:"Xiangkhouang",shortCode:"XI"}]},{countryName:"Latvia",countryShortCode:"LV",regions:[{name:"Aglona",shortCode:"001"},{name:"Aizkraukle",shortCode:"002"},{name:"Aizpute",shortCode:"003"},{name:"Aknīste",shortCode:"004"},{name:"Aloja",shortCode:"005"},{name:"Alsunga",shortCode:"06"},{name:"Alūksne",shortCode:"007"},{name:"Amata",shortCode:"008"},{name:"Ape",shortCode:"009"},{name:"Auce",shortCode:"010"},{name:"Ādaži",shortCode:"011"},{name:"Babīte",shortCode:"012"},{name:"Baldone",shortCode:"013"},{name:"Baltinava",shortCode:"014"},{name:"Balvi",shortCode:"015"},{name:"Bauska",shortCode:"016"},{name:"Beverīna",shortCode:"017"},{name:"Brocēni",shortCode:"018"},{name:"Burtnieki",shortCode:"019"},{name:"Carnikava",shortCode:"020"},{name:"Cesvaine",shortCode:"021"},{name:"Cēsis",shortCode:"022"},{name:"Cibla",shortCode:"023"},{name:"Dagda",shortCode:"024"},{name:"Daugavpils",shortCode:"025"},{name:"Daugavpils (City)",shortCode:"DGV"},{name:"Dobele",shortCode:"026"},{name:"Dundaga",shortCode:"027"},{name:"Durbe",shortCode:"028"},{name:"Engure",shortCode:"029"},{name:"Ērgļi",shortCode:"030"},{name:"Garkalne",shortCode:"031"},{name:"Grobiņa",shortCode:"032"},{name:"Gulbene",shortCode:"033"},{name:"Iecava",shortCode:"034"},{name:"Ikšķile",shortCode:"035"},{name:"Ilūkste",shortCode:"036"},{name:"Inčukalns",shortCode:"037"},{name:"Jaunjelgava",shortCode:"038"},{name:"Jaunpiebalga",shortCode:"039"},{name:"Jaunpils",shortCode:"040"},{name:"Jelgava",shortCode:"041"},{name:"Jelgava (City)",shortCode:"JEL"},{name:"Jēkabpils",shortCode:"042"},{name:"Jēkabpils (City)",shortCode:"JKB"},{name:"Jūrmala (City)",shortCode:"JUR"},{name:"Kandava",shortCode:"043"},{name:"Kārsava",shortCode:"044"},{name:"Kocēni",shortCode:"045"},{name:"Koknese",shortCode:"046"},{name:"Krāslava",shortCode:"047"},{name:"Krimulda",shortCode:"048"},{name:"Krustpils",shortCode:"049"},{name:"Kuldīga",shortCode:"050"},{name:"Ķegums",shortCode:"051"},{name:"Ķekava",shortCode:"052"},{name:"Lielvārde",shortCode:"053"},{name:"Liepāja",shortCode:"LPX"},{name:"Limbaži",shortCode:"054"},{name:"Līgatne",shortCode:"055"},{name:"Līvāni",shortCode:"056"},{name:"Lubāna",shortCode:"057"},{name:"Ludza",shortCode:"058"},{name:"Madona",shortCode:"059"},{name:"Mazsalaca",shortCode:"060"},{name:"Mālpils",shortCode:"061"},{name:"Mārupe",shortCode:"062"},{name:"Mērsrags",shortCode:"063"},{name:"Naukšēni",shortCode:"064"},{name:"Nereta",shortCode:"065"},{name:"Nīca",shortCode:"066"},{name:"Ogre",shortCode:"067"},{name:"Olaine",shortCode:"068"},{name:"Ozolnieki",shortCode:"069"},{name:"Pārgauja",shortCode:"070"},{name:"Pāvilosta",shortCode:"071"},{name:"Pļaviņas",shortCode:"072"},{name:"Preiļi",shortCode:"073"},{name:"Priekule",shortCode:"074"},{name:"Priekuļi",shortCode:"075"},{name:"Rauna",shortCode:"076"},{name:"Rēzekne",shortCode:"077"},{name:"Rēzekne (City)",shortCode:"REZ"},{name:"Riebiņi",shortCode:"078"},{name:"Rīga",shortCode:"RIX"},{name:"Roja",shortCode:"079"},{name:"Ropaži",shortCode:"080"},{name:"Rucava",shortCode:"081"},{name:"Rugāji",shortCode:"082"},{name:"Rundāle",shortCode:"083"},{name:"Rūjiena",shortCode:"084"},{name:"Sala",shortCode:"085"},{name:"Salacgrīva",shortCode:"086"},{name:"Salaspils",shortCode:"087"},{name:"Saldus",shortCode:"088"},{name:"Saulkrasti",shortCode:"089"},{name:"Sēja",shortCode:"090"},{name:"Sigulda",shortCode:"091"},{name:"Skrīveri",shortCode:"092"},{name:"Skrunda",shortCode:"093"},{name:"Smiltene",shortCode:"094"},{name:"Stopiņi",shortCode:"095"},{name:"Strenči",shortCode:"096"},{name:"Talsi",shortCode:"097"},{name:"Tērvete",shortCode:"098"},{name:"Tukums",shortCode:"099"},{name:"Vaiņode",shortCode:"100"},{name:"Valka",shortCode:"101"},{name:"Valmiera",shortCode:"VMR"},{name:"Varakļāni",shortCode:"102"},{name:"Vārkava",shortCode:"103"},{name:"Vecpiebalga",shortCode:"104"},{name:"Vecumnieki",shortCode:"105"},{name:"Ventspils",shortCode:"106"},{name:"Ventspils (City)",shortCode:"VEN"},{name:"Viesīte",shortCode:"107"},{name:"Viļaka",shortCode:"108"},{name:"Viļāni",shortCode:"109"},{name:"Zilupe",shortCode:"110"}]},{countryName:"Lebanon",countryShortCode:"LB",regions:[{name:"Aakkâr",shortCode:"AK"},{name:"Baalbelk-Hermel",shortCode:"BH"},{name:"Béqaa",shortCode:"BI"},{name:"Beyrouth",shortCode:"BA"},{name:"Liban-Nord",shortCode:"AS"},{name:"Liban-Sud",shortCode:"JA"},{name:"Mont-Liban",shortCode:"JL"},{name:"Nabatîyé",shortCode:"NA"}]},{countryName:"Lesotho",countryShortCode:"LS",regions:[{name:"Berea",shortCode:"D"},{name:"Butha-Buthe",shortCode:"B"},{name:"Leribe",shortCode:"C"},{name:"Mafeteng",shortCode:"E"},{name:"Maseru",shortCode:"A"},{name:"Mohales Hoek",shortCode:"F"},{name:"Mokhotlong",shortCode:"J"},{name:"Qacha's Nek",shortCode:"H"},{name:"Quthing",shortCode:"G"},{name:"Thaba-Tseka",shortCode:"K"}]},{countryName:"Liberia",countryShortCode:"LR",regions:[{name:"Bomi",shortCode:"BM"},{name:"Bong",shortCode:"BG"},{name:"Gbarpolu",shortCode:"GP"},{name:"Grand Bassa",shortCode:"GB"},{name:"Grand Cape Mount",shortCode:"CM"},{name:"Grand Gedeh",shortCode:"GG"},{name:"Grand Kru",shortCode:"GK"},{name:"Lofa",shortCode:"LO"},{name:"Margibi",shortCode:"MG"},{name:"Maryland",shortCode:"MY"},{name:"Montserrado",shortCode:"MO"},{name:"Nimba",shortCode:"NI"},{name:"River Cess",shortCode:"RI"},{name:"River Geee",shortCode:"RG"},{name:"Sinoe",shortCode:"SI"}]},{countryName:"Libya",countryShortCode:"LY",regions:[{name:"Al Buţnān",shortCode:"BU"},{name:"Al Jabal al Akhḑar",shortCode:"JA"},{name:"Al Jabal al Gharbī",shortCode:"JG"},{name:"Al Jafārah",shortCode:"JA"},{name:"Al Jufrah",shortCode:"JU"},{name:"Al Kufrah",shortCode:"FK"},{name:"Al Marj",shortCode:"MJ"},{name:"Al Marquab",shortCode:"MB"},{name:"Al Wāḩāt",shortCode:"WA"},{name:"An Nuqaţ al Khams",shortCode:"NQ"},{name:"Az Zāwiyah",shortCode:"ZA"},{name:"Banghāzī",shortCode:"BA"},{name:"Darnah",shortCode:"DR"},{name:"Ghāt",shortCode:"GH"},{name:"Mişrātah",shortCode:"MI"},{name:"Murzuq",shortCode:"MQ"},{name:"Nālūt",shortCode:"NL"},{name:"Sabhā",shortCode:"SB"},{name:"Surt",shortCode:"SR"},{name:"Ţarābulus",shortCode:"TB"},{name:"Yafran",shortCode:"WD"},{name:"Wādī ash Shāţiʾ",shortCode:"WS"}]},{countryName:"Liechtenstein",countryShortCode:"LI",regions:[{name:"Balzers",shortCode:"01"},{name:"Eschen",shortCode:"02"},{name:"Gamprin",shortCode:"03"},{name:"Mauren",shortCode:"04"},{name:"Planken",shortCode:"05"},{name:"Ruggell",shortCode:"06"},{name:"Schaan",shortCode:"07"},{name:"Schellenberg",shortCode:"08"},{name:"Triesen",shortCode:"09"},{name:"Triesenberg",shortCode:"10"},{name:"Vaduz",shortCode:"11"}]},{countryName:"Lithuania",countryShortCode:"LT",regions:[{name:"Alytaus",shortCode:"AL"},{name:"Kauno",shortCode:"KU"},{name:"Klaipėdos",shortCode:"KL"},{name:"Marijampolės",shortCode:"MR"},{name:"Panevėžio",shortCode:"PN"},{name:"Šiaulių",shortCode:"SA"},{name:"Tauragės",shortCode:"TA"},{name:"Telšių",shortCode:"TE"},{name:"Utenos",shortCode:"UT"},{name:"Vilniaus",shortCode:"VL"}]},{countryName:"Luxembourg",countryShortCode:"LU",regions:[{name:"Capellen",shortCode:"CA"},{name:"Clevaux",shortCode:"CL"},{name:"Diekirch",shortCode:"DI"},{name:"Echternach",shortCode:"EC"},{name:"Esch-sur-Alzette",shortCode:"ES"},{name:"Grevenmacher",shortCode:"GR"},{name:"Luxembourg",shortCode:"LU"},{name:"Mersch",shortCode:"ME"},{name:"Redange",shortCode:"RD"},{name:"Remich",shortCode:"RM"},{name:"Vianden",shortCode:"VD"},{name:"Wiltz",shortCode:"WI"}]},{countryName:"Macao",countryShortCode:"MO",regions:[{name:"Macao"}]},{countryName:"Macedonia, Republic of",countryShortCode:"MK",regions:[{name:"Aračinovo",shortCode:"02"},{name:"Berovo",shortCode:"03"},{name:"Bitola",shortCode:"04"},{name:"Bogdanci",shortCode:"05"},{name:"Bogovinje",shortCode:"06"},{name:"Bosilovo",shortCode:"07"},{name:"Brvenica",shortCode:"08"},{name:"Centar Župa",shortCode:"78"},{name:"Čaška",shortCode:"08"},{name:"Češinovo-Obleševo",shortCode:"81"},{name:"Čučer Sandevo",shortCode:"82"},{name:"Debar",shortCode:"21"},{name:"Debarca",shortCode:"22"},{name:"Delčevo",shortCode:"23"},{name:"Demir Hisar",shortCode:"25"},{name:"Demir Kapija",shortCode:"24"},{name:"Doran",shortCode:"26"},{name:"Dolneni",shortCode:"27"},{name:"Gevgelija",shortCode:"18"},{name:"Gostivar",shortCode:"19"},{name:"Gradsko",shortCode:"20"},{name:"Ilinden",shortCode:"34"},{name:"Jegunovce",shortCode:"35"},{name:"Karbinci",shortCode:"37"},{name:"Kavadarci",shortCode:"36"},{name:"Kičevo",shortCode:"40"},{name:"Kočani",shortCode:"42"},{name:"Konče",shortCode:"41"},{name:"Kratovo",shortCode:"43"},{name:"Kriva Palanka",shortCode:"44"},{name:"Krivogaštani",shortCode:"45"},{name:"Kruševo",shortCode:"46"},{name:"Kumanovo",shortCode:"47"},{name:"Lipkovo",shortCode:"48"},{name:"Lozovo",shortCode:"49"},{name:"Makedonska Kamenica",shortCode:"51"},{name:"Makedonski Brod",shortCode:"52"},{name:"Mavrovo i Rostuša",shortCode:"50"},{name:"Mogila",shortCode:"53"},{name:"Negotino",shortCode:"54"},{name:"Novaci",shortCode:"55"},{name:"Novo Selo",shortCode:"56"},{name:"Ohrid",shortCode:"58"},{name:"Pehčevo",shortCode:"60"},{name:"Petrovec",shortCode:"59"},{name:"Plasnica",shortCode:"61"},{name:"Prilep",shortCode:"62"},{name:"Probištip",shortCode:"63"},{name:"Radoviš",shortCode:""},{name:"Rankovce",shortCode:"65"},{name:"Resen",shortCode:"66"},{name:"Rosoman",shortCode:"67"},{name:"Skopje",shortCode:"85"},{name:"Sopište",shortCode:"70"},{name:"Staro Nagoričane",shortCode:"71"},{name:"Struga",shortCode:"72"},{name:"Strumica",shortCode:"73"},{name:"Studeničani",shortCode:"74"},{name:"Sveti Nikole",shortCode:"69"},{name:"Štip",shortCode:"83"},{name:"Tearce",shortCode:"75"},{name:"Tetovo",shortCode:"76"},{name:"Valandovo",shortCode:"10"},{name:"Vasilevo",shortCode:"11"},{name:"Veles",shortCode:"13"},{name:"Vevčani",shortCode:"12"},{name:"Vinica",shortCode:"14"},{name:"Vrapčište",shortCode:"16"},{name:"Zelenikovo",shortCode:"32"},{name:"Zrnovci",shortCode:"33"},{name:"Želino",shortCode:"30"}]},{countryName:"Madagascar",countryShortCode:"MG",regions:[{name:"Antananarivo",shortCode:"T"},{name:"Antsiranana",shortCode:"D"},{name:"Fianarantsoa",shortCode:"F"},{name:"Mahajanga",shortCode:"M"},{name:"Toamasina",shortCode:"A"},{name:"Toliara",shortCode:"U"}]},{countryName:"Malawi",countryShortCode:"MW",regions:[{name:"Balaka",shortCode:"BA"},{name:"Blantyre",shortCode:"BL"},{name:"Chikwawa",shortCode:"CK"},{name:"Chiradzulu",shortCode:"CR"},{name:"Chitipa",shortCode:"CT"},{name:"Dedza",shortCode:"DE"},{name:"Dowa",shortCode:"DO"},{name:"Karonga",shortCode:"KR"},{name:"Kasungu",shortCode:"KS"},{name:"Likoma",shortCode:"LK"},{name:"Lilongwe",shortCode:"LI"},{name:"Machinga",shortCode:"MH"},{name:"Mangochi",shortCode:"MG"},{name:"Mchinji",shortCode:"MC"},{name:"Mulanje",shortCode:"MU"},{name:"Mwanza",shortCode:"MW"},{name:"Mzimba",shortCode:"MZ"},{name:"Nkhata Bay",shortCode:"NE"},{name:"Nkhotakota",shortCode:"NB"},{name:"Nsanje",shortCode:"NS"},{name:"Ntcheu",shortCode:"NU"},{name:"Ntchisi",shortCode:"NI"},{name:"Phalombe",shortCode:"PH"},{name:"Rumphi",shortCode:"RU"},{name:"Salima",shortCode:"SA"},{name:"Thyolo",shortCode:"TH"},{name:"Zomba",shortCode:"ZO"}]},{countryName:"Malaysia",countryShortCode:"MY",regions:[{name:"Johor",shortCode:"01"},{name:"Kedah",shortCode:"02"},{name:"Kelantan",shortCode:"03"},{name:"Melaka",shortCode:"04"},{name:"Negeri Sembilan",shortCode:"05"},{name:"Pahang",shortCode:"06"},{name:"Perak",shortCode:"08"},{name:"Perlis",shortCode:"09"},{name:"Pulau Pinang",shortCode:"07"},{name:"Sabah",shortCode:"12"},{name:"Sarawak",shortCode:"13"},{name:"Selangor",shortCode:"10"},{name:"Terengganu",shortCode:"11"},{name:"Wilayah Persekutuan (Kuala Lumpur)",shortCode:"14"},{name:"Wilayah Persekutuan (Labuan)",shortCode:"15"},{name:"Wilayah Persekutuan (Putrajaya)",shortCode:"16"}]},{countryName:"Maldives",countryShortCode:"MV",regions:[{name:"Alifu Alifu",shortCode:"02"},{name:"Alifu Dhaalu",shortCode:"00"},{name:"Baa",shortCode:"20"},{name:"Dhaalu",shortCode:"17"},{name:"Faafu",shortCode:"14"},{name:"Gaafu Alifu",shortCode:"27"},{name:"Gaafu Dhaalu",shortCode:"28"},{name:"Gnaviyani",shortCode:"29"},{name:"Haa Alifu",shortCode:"07"},{name:"Haa Dhaalu",shortCode:"23"},{name:"Kaafu",shortCode:"29"},{name:"Laamu",shortCode:"05"},{name:"Lhaviyani",shortCode:"03"},{name:"Malé",shortCode:"MLE"},{name:"Meemu",shortCode:"12"},{name:"Noonu",shortCode:"25"},{name:"Raa",shortCode:"13"},{name:"Seenu",shortCode:"01"},{name:"Shaviyani",shortCode:"24"},{name:"Thaa",shortCode:"08"},{name:"Vaavu",shortCode:"04"}]},{countryName:"Mali",countryShortCode:"ML",regions:[{name:"Bamako",shortCode:"BKO"},{name:"Gao",shortCode:"7"},{name:"Kayes",shortCode:"1"},{name:"Kidal",shortCode:"8"},{name:"Koulikoro",shortCode:"2"},{name:"Mopti",shortCode:"5"},{name:"Segou",shortCode:"4"},{name:"Sikasso",shortCode:"3"},{name:"Tombouctou",shortCode:"6"}]},{countryName:"Malta",countryShortCode:"MT",regions:[{name:"Attard",shortCode:"01"},{name:"Balzan",shortCode:"02"},{name:"Birgu",shortCode:"03"},{name:"Birkirkara",shortCode:"04"},{name:"Birżebbuġa",shortCode:"05"},{name:"Bormla",shortCode:"06"},{name:"Dingli",shortCode:"07"},{name:"Fgura",shortCode:"08"},{name:"Floriana",shortCode:"09"},{name:"Fontana",shortCode:"10"},{name:"Guda",shortCode:"11"},{name:"Gżira",shortCode:"12"},{name:"Għajnsielem",shortCode:"13"},{name:"Għarb",shortCode:"14"},{name:"Għargħur",shortCode:"15"},{name:"Għasri",shortCode:"16"},{name:"Għaxaq",shortCode:"17"},{name:"Ħamrun",shortCode:"18"},{name:"Iklin",shortCode:"19"},{name:"Isla",shortCode:"20"},{name:"Kalkara",shortCode:"21"},{name:"Kerċem",shortCode:"22"},{name:"Kirkop",shortCode:"23"},{name:"Lija",shortCode:"24"},{name:"Luqa",shortCode:"25"},{name:"Marsa",shortCode:"26"},{name:"Marsaskala",shortCode:"27"},{name:"Marsaxlokk",shortCode:"28"},{name:"Mdina",shortCode:"29"},{name:"Mellieħa",shortCode:"30"},{name:"Mġarr",shortCode:"31"},{name:"Mosta",shortCode:"32"},{name:"Mqabba",shortCode:"33"},{name:"Msida",shortCode:"34"},{name:"Mtarfa",shortCode:"35"},{name:"Munxar",shortCode:"36"},{name:"Nadur",shortCode:"37"},{name:"Naxxar",shortCode:"38"},{name:"Paola",shortCode:"39"},{name:"Pembroke",shortCode:"40"},{name:"Pietà",shortCode:"41"},{name:"Qala",shortCode:"42"},{name:"Qormi",shortCode:"43"},{name:"Qrendi",shortCode:"44"},{name:"Rabat Għawdex",shortCode:"45"},{name:"Rabat Malta",shortCode:"46"},{name:"Safi",shortCode:"47"},{name:"San Ġiljan",shortCode:"48"},{name:"San Ġwann",shortCode:"49"},{name:"San Lawrenz",shortCode:"50"},{name:"San Pawl il-Baħar",shortCode:"51"},{name:"Sannat",shortCode:"52"},{name:"Santa Luċija",shortCode:"53"},{name:"Santa Venera",shortCode:"54"},{name:"Siġġiewi",shortCode:"55"},{name:"Sliema",shortCode:"56"},{name:"Swieqi",shortCode:"57"},{name:"Tai Xbiex",shortCode:"58"},{name:"Tarzien",shortCode:"59"},{name:"Valletta",shortCode:"60"},{name:"Xagħra",shortCode:"61"},{name:"Xewkija",shortCode:"62"},{name:"Xgħajra",shortCode:"63"},{name:"Żabbar",shortCode:"64"},{name:"Żebbuġ Għawde",shortCode:"65"},{name:"Żebbuġ Malta",shortCode:"66"},{name:"Żejtun",shortCode:"67"},{name:"Żurrieq",shortCode:"68"}]},{countryName:"Marshall Islands",countryShortCode:"MH",regions:[{name:"Ailinglaplap",shortCode:"ALL"},{name:"Ailuk",shortCode:"ALK"},{name:"Arno",shortCode:"ARN"},{name:"Aur",shortCode:"AUR"},{name:"Bikini and Kili",shortCode:"KIL"},{name:"Ebon",shortCode:"EBO"},{name:"Jabat",shortCode:"JAB"},{name:"Jaluit",shortCode:"JAL"},{name:"Kwajalein",shortCode:"KWA"},{name:"Lae",shortCode:"LAE"},{name:"Lib",shortCode:"LIB"},{name:"Likiep",shortCode:"LIK"},{name:"Majuro",shortCode:"MAJ"},{name:"Maloelap",shortCode:"MAL"},{name:"Mejit",shortCode:"MEJ"},{name:"Namdrik",shortCode:"NMK"},{name:"Namu",shortCode:"NMU"},{name:"Rongelap",shortCode:"RON"},{name:"Ujae",shortCode:"UJA"},{name:"Utrik",shortCode:"UTI"},{name:"Wotho",shortCode:"WTH"},{name:"Wotje",shortCode:"WTJ"}]},{countryName:"Martinique",countryShortCode:"MQ",regions:[{name:"Martinique"}]},{countryName:"Mauritania",countryShortCode:"MR",regions:[{name:"Adrar",shortCode:"07"},{name:"Assaba",shortCode:"03"},{name:"Brakna",shortCode:"05"},{name:"Dakhlet Nouadhibou",shortCode:"08"},{name:"Gorgol",shortCode:"04"},{name:"Guidimaka",shortCode:"10"},{name:"Hodh Ech Chargui",shortCode:"01"},{name:"Hodh El Gharbi",shortCode:"02"},{name:"Inchiri",shortCode:"12"},{name:"Nouakchott Nord",shortCode:"14"},{name:"Nouakchott Ouest",shortCode:"13"},{name:"Nouakchott Sud",shortCode:"15"},{name:"Tagant",shortCode:"09"},{name:"Tiris Zemmour",shortCode:"11"},{name:"Trarza",shortCode:"06"}]},{countryName:"Mauritius",countryShortCode:"MU",regions:[{name:"Agalega Islands",shortCode:"AG"},{name:"Beau Bassin-Rose Hill",shortCode:"BR"},{name:"Black River",shortCode:"BL"},{name:"Cargados Carajos Shoals",shortCode:"CC"},{name:"Curepipe",shortCode:"CU"},{name:"Flacq",shortCode:"FL"},{name:"Grand Port",shortCode:"GP"},{name:"Moka",shortCode:"MO"},{name:"Pamplemousses",shortCode:"PA"},{name:"Plaines Wilhems",shortCode:"PW"},{name:"Port Louis (City)",shortCode:"PU"},{name:"Port Louis",shortCode:"PL"},{name:"Riviere du Rempart",shortCode:"RR"},{name:"Rodrigues Island",shortCode:"RO"},{name:"Savanne",shortCode:"SA"},{name:"Vacoas-Phoenix",shortCode:"CP"}]},{countryName:"Mayotte",countryShortCode:"YT",regions:[{name:"Dzaoudzi",shortCode:"01"},{name:"Pamandzi",shortCode:"02"},{name:"Mamoudzou",shortCode:"03"},{name:"Dembeni",shortCode:"04"},{name:"Bandrélé",shortCode:"05"},{name:"Kani-Kéli",shortCode:"06"},{name:"Bouéni",shortCode:"07"},{name:"Chirongui",shortCode:"08"},{name:"Sada",shortCode:"09"},{name:"Ouangani",shortCode:"10"},{name:"Chiconi",shortCode:"11"},{name:"Tsingoni",shortCode:"12"},{name:"M'Tsangamouji",shortCode:"13"},{name:"Acoua",shortCode:"14"},{name:"Mtsamboro",shortCode:"15"},{name:"Bandraboua",shortCode:"16"},{name:"Koungou",shortCode:"17"}]},{countryName:"Mexico",countryShortCode:"MX",regions:[{name:"Aguascalientes",shortCode:"AGU"},{name:"Baja California",shortCode:"BCN"},{name:"Baja California Sur",shortCode:"BCS"},{name:"Campeche",shortCode:"CAM"},{name:"Ciudad de México",shortCode:"DIF"},{name:"Chiapas",shortCode:"CHP"},{name:"Chihuahua",shortCode:"CHH"},{name:"Coahuila de Zaragoza",shortCode:"COA"},{name:"Colima",shortCode:"COL"},{name:"Durango",shortCode:"DUR"},{name:"Estado de México",shortCode:"MEX"},{name:"Guanajuato",shortCode:"GUA"},{name:"Guerrero",shortCode:"GRO"},{name:"Hidalgo",shortCode:"HID"},{name:"Jalisco",shortCode:"JAL"},{name:"Michoacán de Ocampo",shortCode:"MIC"},{name:"Morelos",shortCode:"MOR"},{name:"Nayarit",shortCode:"NAY"},{name:"Nuevo León",shortCode:"NLE"},{name:"Oaxaca",shortCode:"OAX"},{name:"Puebla",shortCode:"PUE"},{name:"Querétaro de Arteaga",shortCode:"QUE"},{name:"Quintana Roo",shortCode:"ROO"},{name:"San Luis Potosí",shortCode:"SLP"},{name:"Sinaloa",shortCode:"SIN"},{name:"Sonora",shortCode:"SON"},{name:"Tabasco",shortCode:"TAB"},{name:"Tamaulipas",shortCode:"TAM"},{name:"Tlaxcala",shortCode:"TLA"},{name:"Veracruz",shortCode:"VER"},{name:"Yucatán",shortCode:"YUC"},{name:"Zacatecas",shortCode:"ZAC"}]},{countryName:"Micronesia, Federated States of",countryShortCode:"FM",regions:[{name:"Chuuk (Truk)",shortCode:"TRK"},{name:"Kosrae",shortCode:"KSA"},{name:"Pohnpei",shortCode:"PNI"},{name:"Yap",shortCode:"YAP"}]},{countryName:"Moldova",countryShortCode:"MD",regions:[{name:"Aenii Noi",shortCode:"AN"},{name:"Basarabeasca",shortCode:"BS"},{name:"Bălți",shortCode:"BA"},{name:"Bender",shortCode:"BD"},{name:"Briceni",shortCode:"BR"},{name:"Cahul",shortCode:"CA"},{name:"Cantemir",shortCode:"CT"},{name:"Călărași",shortCode:"CL"},{name:"Căușeni",shortCode:"CS"},{name:"Chișinău",shortCode:"CU"},{name:"Cimișlia",shortCode:"CM"},{name:"Criuleni",shortCode:"CR"},{name:"Dondușeni",shortCode:"DO"},{name:"Drochia",shortCode:"DR"},{name:"Dubăsari",shortCode:"DU"},{name:"Edineț",shortCode:"ED"},{name:"Fălești",shortCode:"FA"},{name:"Florești",shortCode:"FL"},{name:"Găgăuzia",shortCode:"GA"},{name:"Glodeni",shortCode:"GL"},{name:"Hîncești",shortCode:"HI"},{name:"Ialoveni",shortCode:"IA"},{name:"Leova",shortCode:"LE"},{name:"Nisporeni",shortCode:"NI"},{name:"Ocnița",shortCode:"OC"},{name:"Orhei",shortCode:"OR"},{name:"Rezina",shortCode:"RE"},{name:"Rîșcani",shortCode:"RI"},{name:"Sîngerei",shortCode:"SI"},{name:"Soroca",shortCode:"SO"},{name:"Stînga Nistrului",shortCode:"SN"},{name:"Strășeni",shortCode:"ST"},{name:"Șoldănești",shortCode:"SD"},{name:"Ștefan Vodă",shortCode:"SV"},{name:"Taraclia",shortCode:"TA"},{name:"Telenești",shortCode:"TE"},{name:"Ungheni",shortCode:"UN"}]},{countryName:"Monaco",countryShortCode:"MC",regions:[{name:"Colle",shortCode:"CL"},{name:"Condamine",shortCode:"CO"},{name:"Fontvieille",shortCode:"FO"},{name:"Gare",shortCode:"GA"},{name:"Jardin Exotique",shortCode:"JE"},{name:"Larvotto",shortCode:"LA"},{name:"Malbousquet",shortCode:"MA"},{name:"Monaco-Ville",shortCode:"MO"},{name:"Moneghetti",shortCode:"MG"},{name:"Monte-Carlo",shortCode:"MC"},{name:"Moulins",shortCode:"MU"},{name:"Port-Hercule",shortCode:"PH"},{name:"Saint-Roman",shortCode:"SR"},{name:"Sainte-Dévote",shortCode:"SD"},{name:"Source",shortCode:"SO"},{name:"Spélugues",shortCode:"SP"},{name:"Vallon de la Rousse",shortCode:"VR"}]},{countryName:"Mongolia",countryShortCode:"MN",regions:[{name:"Arhangay",shortCode:"073"},{name:"Bayan-Olgiy",shortCode:"071"},{name:"Bayanhongor",shortCode:"069"},{name:"Bulgan",shortCode:"067"},{name:"Darhan",shortCode:"037"},{name:"Dornod",shortCode:"061"},{name:"Dornogovi",shortCode:"063"},{name:"Dundgovi",shortCode:"059"},{name:"Dzavhan",shortCode:"065"},{name:"Govi-Altay",shortCode:"065"},{name:"Govi-Sumber",shortCode:"064"},{name:"Hovd",shortCode:"043"},{name:"Hovsgol",shortCode:"041"},{name:"Omnogovi",shortCode:"053"},{name:"Ovorhangay",shortCode:"055"},{name:"Selenge",shortCode:"049"},{name:"Suhbaatar",shortCode:"051"},{name:"Tov",shortCode:"047"},{name:"Ulaanbaatar",shortCode:"1"},{name:"Uvs",shortCode:"046"}]},{countryName:"Montenegro",countryShortCode:"ME",regions:[{name:"Andrijevica",shortCode:"01"},{name:"Bar",shortCode:"02"},{name:"Berane",shortCode:"03"},{name:"Bijelo Polje",shortCode:"04"},{name:"Budva",shortCode:"05"},{name:"Cetinje",shortCode:"06"},{name:"Danilovgrad",shortCode:"07"},{name:"Gusinje",shortCode:"22"},{name:"Herceg Novi",shortCode:"08"},{name:"Kolašin",shortCode:"09"},{name:"Kotor",shortCode:"10"},{name:"Mojkovac",shortCode:"11"},{name:"Nikšić",shortCode:"12"},{name:"Petnica",shortCode:"23"},{name:"Plav",shortCode:"13"},{name:"Plužine",shortCode:"14"},{name:"Pljevlja",shortCode:"15"},{name:"Podgorica",shortCode:"16"},{name:"Rožaje",shortCode:"17"},{name:"Šavnik",shortCode:"18"},{name:"Tivat",shortCode:"19"},{name:"Ulcinj",shortCode:"20"},{name:"Žabljak",shortCode:"21"}]},{countryName:"Montserrat",countryShortCode:"MS",regions:[{name:"Saint Anthony"},{name:"Saint Georges"},{name:"Saint Peter's"}]},{countryName:"Morocco",countryShortCode:"MA",regions:[{name:"Chaouia-Ouardigha",shortCode:"09"},{name:"Doukhala-Abda",shortCode:"10"},{name:"Fès-Boulemane",shortCode:"05"},{name:"Gharb-Chrarda-Beni Hssen",shortCode:"02"},{name:"Grand Casablanca",shortCode:"08"},{name:"Guelmim-Es Semara",shortCode:"14"},{name:"Laâyoune-Boujdour-Sakia el Hamra",shortCode:"15"},{name:"Marrakech-Tensift-Al Haouz",shortCode:"11"},{name:"Meknès-Tafilalet",shortCode:"06"},{name:"Oriental",shortCode:"04"},{name:"Oued ed Dahab-Lagouira",shortCode:"16"},{name:"Souss-Massa-Drâa",shortCode:"13"},{name:"Tadla-Azilal",shortCode:"12"},{name:"Tanger-Tétouan",shortCode:"01"},{name:"Taza-Al Hoceima-Taounate",shortCode:"03"}]},{countryName:"Mozambique",countryShortCode:"MZ",regions:[{name:"Cabo Delgado",shortCode:"P"},{name:"Gaza",shortCode:"G"},{name:"Inhambane",shortCode:"I"},{name:"Manica",shortCode:"B"},{name:"Maputo",shortCode:"L"},{name:"Maputo (City)",shortCode:"MPM"},{name:"Nampula",shortCode:"N"},{name:"Niassa",shortCode:"A"},{name:"Sofala",shortCode:"S"},{name:"Tete",shortCode:"T"},{name:"Zambezia",shortCode:"Q"}]},{countryName:"Myanmar",countryShortCode:"MM",regions:[{name:"Ayeyarwady",shortCode:"07"},{name:"Bago",shortCode:"02"},{name:"Chin",shortCode:"14"},{name:"Kachin",shortCode:"11"},{name:"Kayah",shortCode:"12"},{name:"Kayin",shortCode:"13"},{name:"Magway",shortCode:"03"},{name:"Mandalay",shortCode:"04"},{name:"Mon",shortCode:"15"},{name:"Nay Pyi Taw",shortCode:"18"},{name:"Rakhine",shortCode:"16"},{name:"Sagaing",shortCode:"01"},{name:"Shan",shortCode:"17"},{name:"Tanintharyi",shortCode:"05"},{name:"Yangon",shortCode:"06"}]},{countryName:"Namibia",countryShortCode:"NA",regions:[{name:"Erongo",shortCode:"ER"},{name:"Hardap",shortCode:"HA"},{name:"Kavango East",shortCode:"KE"},{name:"Kavango West",shortCode:"KW"},{name:"Karas",shortCode:"KA"},{name:"Khomas",shortCode:"KH"},{name:"Kunene",shortCode:"KU"},{name:"Ohangwena",shortCode:"OW"},{name:"Omaheke",shortCode:"OH"},{name:"Omusati",shortCode:"OS"},{name:"Oshana",shortCode:"ON"},{name:"Oshikoto",shortCode:"OT"},{name:"Otjozondjupa",shortCode:"OD"},{name:"Zambezi",shortCode:"CA"}]},{countryName:"Nauru",countryShortCode:"NR",regions:[{name:"Aiwo",shortCode:"01"},{name:"Anabar",shortCode:"02"},{name:"Anetan",shortCode:"03"},{name:"Anibare",shortCode:"04"},{name:"Baiti",shortCode:"05"},{name:"Boe",shortCode:"06"},{name:"Buada",shortCode:"07"},{name:"Denigomodu",shortCode:"08"},{name:"Ewa",shortCode:"09"},{name:"Ijuw",shortCode:"10"},{name:"Meneng",shortCode:"11"},{name:"Nibok",shortCode:"12"},{name:"Uaboe",shortCode:"13"},{name:"Yaren",shortCode:"14"}]},{countryName:"Nepal",countryShortCode:"NP",regions:[{name:"Bagmati",shortCode:"BA"},{name:"Bheri",shortCode:"BH"},{name:"Dhawalagiri",shortCode:"DH"},{name:"Gandaki",shortCode:"GA"},{name:"Janakpur",shortCode:"JA"},{name:"Karnali",shortCode:"KA"},{name:"Kosi",shortCode:"KO"},{name:"Lumbini",shortCode:"LU"},{name:"Mahakali",shortCode:"MA"},{name:"Mechi",shortCode:"ME"},{name:"Narayani",shortCode:"NA"},{name:"Rapti",shortCode:"RA"},{name:"Sagarmatha",shortCode:"SA"},{name:"Seti",shortCode:"SE"}]},{countryName:"Netherlands",countryShortCode:"NL",regions:[{name:"Drenthe",shortCode:"DR"},{name:"Flevoland",shortCode:"FL"},{name:"Friesland",shortCode:"FR"},{name:"Gelderland",shortCode:"GE"},{name:"Groningen",shortCode:"GR"},{name:"Limburg",shortCode:"LI"},{name:"Noord-Brabant",shortCode:"NB"},{name:"Noord-Holland",shortCode:"NH"},{name:"Overijssel",shortCode:"OV"},{name:"Utrecht",shortCode:"UT"},{name:"Zeeland",shortCode:"ZE"},{name:"Zuid-Holland",shortCode:"ZH"}]},{countryName:"New Caledonia",countryShortCode:"NC",regions:[{name:"Iles Loyaute"},{name:"Nord"},{name:"Sud"}]},{countryName:"New Zealand",countryShortCode:"NZ",regions:[{name:"Auckland",shortCode:"AUK"},{name:"Bay of Plenty",shortCode:"BOP"},{name:"Canterbury",shortCode:"CAN"},{name:"Gisborne",shortCode:"GIS"},{name:"Hawke's Bay",shortCode:"HKB"},{name:"Marlborough",shortCode:"MBH"},{name:"Manawatu-Wanganui",shortCode:"MWT"},{name:"Northland",shortCode:"NTL"},{name:"Nelson",shortCode:"NSN"},{name:"Otago",shortCode:"OTA"},{name:"Southland",shortCode:"STL"},{name:"Taranaki",shortCode:"TKI"},{name:"Tasman",shortCode:"TAS"},{name:"Waikato",shortCode:"WKO"},{name:"Wellington",shortCode:"WGN"},{name:"West Coast",shortCode:"WTC"},{name:"Chatham Islands Territory",shortCode:"CIT"}]},{countryName:"Nicaragua",countryShortCode:"NI",regions:[{name:"Boaco",shortCode:"BO"},{name:"Carazo",shortCode:"CA"},{name:"Chinandega",shortCode:"CI"},{name:"Chontales",shortCode:"CO"},{name:"Estelí",shortCode:"ES"},{name:"Granada",shortCode:"GR"},{name:"Jinotega",shortCode:"JI"},{name:"León",shortCode:"LE"},{name:"Madriz",shortCode:"MD"},{name:"Managua",shortCode:"MN"},{name:"Masaya",shortCode:"MS"},{name:"Matagalpa",shortCode:"MT"},{name:"Nueva Segovia",shortCode:"NS"},{name:"Río San Juan",shortCode:"SJ"},{name:"Rivas",shortCode:"RI"},{name:"Atlántico Norte",shortCode:"AN"},{name:"Atlántico Sur",shortCode:"AS"}]},{countryName:"Niger",countryShortCode:"NE",regions:[{name:"Agadez",shortCode:"1"},{name:"Diffa",shortCode:"2"},{name:"Dosso",shortCode:"3"},{name:"Maradi",shortCode:"4"},{name:"Niamey",shortCode:"8"},{name:"Tahoua",shortCode:"5"},{name:"Tillabéri",shortCode:"6"},{name:"Zinder",shortCode:"7"}]},{countryName:"Nigeria",countryShortCode:"NG",regions:[{name:"Abia",shortCode:"AB"},{name:"Abuja Federal Capital Territory",shortCode:"FC"},{name:"Adamawa",shortCode:"AD"},{name:"Akwa Ibom",shortCode:"AK"},{name:"Anambra",shortCode:"AN"},{name:"Bauchi",shortCode:"BA"},{name:"Bayelsa",shortCode:"BY"},{name:"Benue",shortCode:"BE"},{name:"Borno",shortCode:"BO"},{name:"Cross River",shortCode:"CR"},{name:"Delta",shortCode:"DE"},{name:"Ebonyi",shortCode:"EB"},{name:"Edo",shortCode:"ED"},{name:"Ekiti",shortCode:"EK"},{name:"Enugu",shortCode:"EN"},{name:"Gombe",shortCode:"GO"},{name:"Imo",shortCode:"IM"},{name:"Jigawa",shortCode:"JI"},{name:"Kaduna",shortCode:"KD"},{name:"Kano",shortCode:"KN"},{name:"Katsina",shortCode:"KT"},{name:"Kebbi",shortCode:"KE"},{name:"Kogi",shortCode:"KO"},{name:"Kwara",shortCode:"KW"},{name:"Lagos",shortCode:"LA"},{name:"Nassarawa",shortCode:"NA"},{name:"Niger",shortCode:"NI"},{name:"Ogun",shortCode:"OG"},{name:"Ondo",shortCode:"ON"},{name:"Osun",shortCode:"OS"},{name:"Oyo",shortCode:"OY"},{name:"Plateau",shortCode:"PL"},{name:"Rivers",shortCode:"RI"},{name:"Sokoto",shortCode:"SO"},{name:"Taraba",shortCode:"TA"},{name:"Yobe",shortCode:"YO"},{name:"Zamfara",shortCode:"ZA"}]},{countryName:"Niue",countryShortCode:"NU",regions:[{name:"Niue"}]},{countryName:"Norfolk Island",countryShortCode:"NF",regions:[{name:"Norfolk Island"}]},{countryName:"Northern Mariana Islands",countryShortCode:"MP",regions:[{name:"Northern Islands"},{name:"Rota"},{name:"Saipan"},{name:"Tinian"}]},{countryName:"Norway",countryShortCode:"NO",regions:[{name:"Akershus",shortCode:"02"},{name:"Aust-Agder",shortCode:"09"},{name:"Buskerud",shortCode:"06"},{name:"Finnmark",shortCode:"20"},{name:"Hedmark",shortCode:"04"},{name:"Hordaland",shortCode:"12"},{name:"Møre og Romsdal",shortCode:"15"},{name:"Nordland",shortCode:"18"},{name:"Nord-Trøndelag",shortCode:"17"},{name:"Oppland",shortCode:"05"},{name:"Oslo",shortCode:"03"},{name:"Rogaland",shortCode:"11"},{name:"Sogn og Fjordane",shortCode:"14"},{name:"Sør-Trøndelag",shortCode:"16"},{name:"Telemark",shortCode:"08"},{name:"Troms",shortCode:"19"},{name:"Vest-Agder",shortCode:"10"},{name:"Vestfold",shortCode:"07"},{name:"Østfold",shortCode:"01"},{name:"Jan Mayen",shortCode:"22"},{name:"Svalbard",shortCode:"21"}]},{countryName:"Oman",countryShortCode:"OM",regions:[{name:"Ad Dakhiliyah",shortCode:"DA"},{name:"Al Buraymi",shortCode:"BU"},{name:"Al Wusta",shortCode:"WU"},{name:"Az Zahirah",shortCode:"ZA"},{name:"Janub al Batinah",shortCode:"BS"},{name:"Janub ash Sharqiyah",shortCode:"SS"},{name:"Masqat",shortCode:"MA"},{name:"Musandam",shortCode:"MU"},{name:"Shamal al Batinah",shortCode:"BJ"},{name:"Shamal ash Sharqiyah",shortCode:"SJ"},{name:"Zufar",shortCode:"ZU"}]},{countryName:"Pakistan",countryShortCode:"PK",regions:[{name:"Āzād Kashmīr",shortCode:"JK"},{name:"Balōchistān",shortCode:"BA"},{name:"Gilgit-Baltistān",shortCode:"GB"},{name:"Islāmābād",shortCode:"IS"},{name:"Khaībar Pakhtūnkhwās",shortCode:"KP"},{name:"Punjāb",shortCode:"PB"},{name:"Sindh",shortCode:"SD"},{name:"Federally Administered Tribal Areas",shortCode:"TA"}]},{countryName:"Palau",countryShortCode:"PW",regions:[{name:"Aimeliik",shortCode:"002"},{name:"Airai",shortCode:"004"},{name:"Angaur",shortCode:"010"},{name:"Hatobohei",shortCode:"050"},{name:"Kayangel",shortCode:"100"},{name:"Koror",shortCode:"150"},{name:"Melekeok",shortCode:"212"},{name:"Ngaraard",shortCode:"214"},{name:"Ngarchelong",shortCode:"218"},{name:"Ngardmau",shortCode:"222"},{name:"Ngatpang",shortCode:"224"},{name:"Ngchesar",shortCode:"226"},{name:"Ngeremlengui",shortCode:"227"},{name:"Ngiwal",shortCode:"228"},{name:"Peleliu",shortCode:"350"},{name:"Sonsoral",shortCode:"350"}]},{countryName:"Palestine, State of",countryShortCode:"PS",regions:[{name:"Ak Khalīl",shortCode:"HBN"},{name:"Al Quds",shortCode:"JEM"},{name:"Arīḩā wal Aghwār",shortCode:"JRH"},{name:"Bayt Laḩm",shortCode:"BTH"},{name:"Dayr al Balaḩ",shortCode:"DEB"},{name:"Ghazzah",shortCode:"GZA"},{name:"Janīn",shortCode:"JEN"},{name:"Khān Yūnis",shortCode:"KYS"},{name:"Nāblus",shortCode:"NBS"},{name:"Qalqīyah",shortCode:"QQA"},{name:"Rafaḩ",shortCode:"RFH"},{name:"Rām Allāh wal Bīrah",shortCode:"RBH"},{name:"Salfīt",shortCode:"SLT"},{name:"Shamāl Ghazzah",shortCode:"NGZ"},{name:"Ţūbās",shortCode:"TBS"},{name:"Ţūlkarm",shortCode:"TKM"}]},{countryName:"Panama",countryShortCode:"PA",regions:[{name:"Bocas del Toro",shortCode:"1"},{name:"Chiriquí",shortCode:"4"},{name:"Coclé",shortCode:"2"},{name:"Colón",shortCode:"3"},{name:"Darién",shortCode:"5"},{name:"Emberá",shortCode:"EM"},{name:"Herrera",shortCode:"6"},{name:"Kuna Yala",shortCode:"KY"},{name:"Los Santos",shortCode:"7"},{name:"Ngäbe-Buglé",shortCode:"NB"},{name:"Panamá",shortCode:"8"},{name:"Panamá Oeste",shortCode:"10"},{name:"Veraguas",shortCode:"9"}]},{countryName:"Papua New Guinea",countryShortCode:"PG",regions:[{name:"Bougainville",shortCode:"NSB"},{name:"Central",shortCode:"CPM"},{name:"Chimbu",shortCode:"CPK"},{name:"East New Britain",shortCode:"EBR"},{name:"East Sepik",shortCode:"ESW"},{name:"Eastern Highlands",shortCode:"EHG"},{name:"Enga",shortCode:"EPW"},{name:"Gulf",shortCode:"GPK"},{name:"Hela",shortCode:"HLA"},{name:"Jiwaka",shortCode:"JWK"},{name:"Madang",shortCode:"MOM"},{name:"Manus",shortCode:"MRL"},{name:"Milne Bay",shortCode:"MBA"},{name:"Morobe",shortCode:"MPL"},{name:"Port Moresby",shortCode:"NCD"},{name:"New Ireland",shortCode:"NIK"},{name:"Northern",shortCode:"NPP"},{name:"Southern Highlands",shortCode:"SHM"},{name:"West New Britain",shortCode:"WBK"},{name:"West Sepik",shortCode:"SAN"},{name:"Western",shortCode:"WPD"},{name:"Western Highlands",shortCode:"WHM"}]},{countryName:"Paraguay",countryShortCode:"PY",regions:[{name:"Alto Paraguay",shortCode:"16"},{name:"Alto Parana",shortCode:"10"},{name:"Amambay",shortCode:"13"},{name:"Asuncion",shortCode:"ASU"},{name:"Caaguazu",shortCode:"5"},{name:"Caazapa",shortCode:"6"},{name:"Canindeyu",shortCode:"14"},{name:"Central",shortCode:"11"},{name:"Concepcion",shortCode:"1"},{name:"Cordillera",shortCode:"3"},{name:"Guaira",shortCode:"4"},{name:"Itapua",shortCode:"7"},{name:"Misiones",shortCode:"8"},{name:"Neembucu",shortCode:"12"},{name:"Paraguari",shortCode:"9"},{name:"Presidente Hayes",shortCode:"15"},{name:"San Pedro",shortCode:"2"}]},{countryName:"Peru",countryShortCode:"PE",regions:[{name:"Amazonas",shortCode:"AMA"},{name:"Ancash",shortCode:"ANC"},{name:"Apurimac",shortCode:"APU"},{name:"Arequipa",shortCode:"ARE"},{name:"Ayacucho",shortCode:"AYA"},{name:"Cajamarca",shortCode:"CAJ"},{name:"Callao",shortCode:"CAL"},{name:"Cusco",shortCode:"CUS"},{name:"Huancavelica",shortCode:"HUV"},{name:"Huanuco",shortCode:"HUC"},{name:"Ica",shortCode:"ICA"},{name:"Junin",shortCode:"JUN"},{name:"La Libertad",shortCode:"LAL"},{name:"Lambayeque",shortCode:"LAM"},{name:"Lima",shortCode:"LIM"},{name:"Loreto",shortCode:"LOR"},{name:"Madre de Dios",shortCode:"MDD"},{name:"Moquegua",shortCode:"MOQ"},{name:"Municipalidad Metropolitana de Lima",shortCode:"LMA"},{name:"Pasco",shortCode:"PAS"},{name:"Piura",shortCode:"PIU"},{name:"Puno",shortCode:"PUN"},{name:"San Martin",shortCode:"SAM"},{name:"Tacna",shortCode:"TAC"},{name:"Tumbes",shortCode:"TUM"},{name:"Ucayali",shortCode:"UCA"}]},{countryName:"Philippines",countryShortCode:"PH",regions:[{name:"Abra",shortCode:"ABR"},{name:"Agusan del Norte",shortCode:"AGN"},{name:"Agusan del Sur",shortCode:"AGS"},{name:"Aklan",shortCode:"AKL"},{name:"Albay",shortCode:"ALB"},{name:"Antique",shortCode:"ANT"},{name:"Apayao",shortCode:"APA"},{name:"Aurora",shortCode:"AUR"},{name:"Basilan",shortCode:"BAS"},{name:"Bataan",shortCode:"BAN"},{name:"Batanes",shortCode:"BTN"},{name:"Batangas",shortCode:"BTG"},{name:"Benguet",shortCode:"BEN"},{name:"Biliran",shortCode:"BIL"},{name:"Bohol",shortCode:"BOH"},{name:"Bukidnon",shortCode:"BUK"},{name:"Bulacan",shortCode:"BUL"},{name:"Cagayan",shortCode:"CAG"},{name:"Camarines Norte",shortCode:"CAN"},{name:"Camarines Sur",shortCode:"CAS"},{name:"Camiguin",shortCode:"CAM"},{name:"Capiz",shortCode:"CAP"},{name:"Catanduanes",shortCode:"CAT"},{name:"Cavite",shortCode:"CAV"},{name:"Cebu",shortCode:"CEB"},{name:"Compostela",shortCode:"COM"},{name:"Cotabato",shortCode:"NCO"},{name:"Davao del Norte",shortCode:"DAV"},{name:"Davao del Sur",shortCode:"DAS"},{name:"Davao Occidental",shortCode:"DVO"},{name:"Davao Oriental",shortCode:"DAO"},{name:"Dinagat Islands",shortCode:"DIN"},{name:"Eastern Samar",shortCode:"EAS"},{name:"Guimaras",shortCode:"GUI"},{name:"Ifugao",shortCode:"IFU"},{name:"Ilocos Norte",shortCode:"ILN"},{name:"Ilocos Sur",shortCode:"ILS"},{name:"Iloilo",shortCode:"ILI"},{name:"Isabela",shortCode:"ISA"},{name:"Kalinga",shortCode:"KAL"},{name:"La Union",shortCode:"LUN"},{name:"Laguna",shortCode:"LAG"},{name:"Lanao del Norte",shortCode:"LAN"},{name:"Lanao del Sur",shortCode:"LAS"},{name:"Leyte",shortCode:"LEY"},{name:"Maguindanao",shortCode:"MAG"},{name:"Masbate",shortCode:"MAS"},{name:"Metro Manila",shortCode:"00"},{name:"Mindoro Occidental",shortCode:"MDC"},{name:"Mindoro Oriental",shortCode:"MDR"},{name:"Misamis Occidental",shortCode:"MSC"},{name:"Misamis Oriental",shortCode:"MSR"},{name:"Mountain Province",shortCode:"MOU"},{name:"Negros Occidental",shortCode:"NEC"},{name:"Negros Oriental",shortCode:"NER"},{name:"Northern Samar",shortCode:"NSA"},{name:"Nueva Ecija",shortCode:"NUE"},{name:"Nueva Vizcaya",shortCode:"NUV"},{name:"Palawan",shortCode:"PLW"},{name:"Pampanga",shortCode:"PAM"},{name:"Pangasinan",shortCode:"PAN"},{name:"Quezon",shortCode:"QUE"},{name:"Quirino",shortCode:"QUI"},{name:"Rizal",shortCode:"RIZ"},{name:"Romblon",shortCode:"ROM"},{name:"Samar",shortCode:"WSA"},{name:"Sarangani",shortCode:"SAR"},{name:"Siquijor",shortCode:"SIG"},{name:"Sorsogon",shortCode:"SOR"},{name:"Southern Leyte",shortCode:"SLE"},{name:"Sultan Kudarat",shortCode:"AUK"},{name:"Sulu",shortCode:"SLU"},{name:"Surigao del Norte",shortCode:"SUN"},{name:"Surigao del Sur",shortCode:"SUR"},{name:"Tarlac",shortCode:"TAR"},{name:"Tawi-Tawi",shortCode:"TAW"},{name:"Zambales",shortCode:"ZMB"},{name:"Zamboanga del Norte",shortCode:"ZAN"},{name:"Zamboanga del Sur",shortCode:"ZAS"},{name:"Zamboanga Sibugay",shortCode:"ZSI"}]},{countryName:"Pitcairn",countryShortCode:"PN",regions:[{name:"Pitcairn Islands"}]},{countryName:"Poland",countryShortCode:"PL",regions:[{name:"Dolnośląskie",shortCode:"DS"},{name:"Kujawsko-pomorskie",shortCode:"KP"},{name:"Łódzkie",shortCode:"LD"},{name:"Lubelskie",shortCode:"LU"},{name:"Lubuskie",shortCode:"LB"},{name:"Malopolskie",shortCode:"MA"},{name:"Mazowieckie",shortCode:"MZ"},{name:"Opolskie",shortCode:"OP"},{name:"Podkarpackie",shortCode:"PK"},{name:"Podlaskie",shortCode:"PD"},{name:"Pomorskie",shortCode:"PM"},{name:"Śląskie",shortCode:"SL"},{name:"Świętokrzyskie",shortCode:"SK"},{name:"Warmińsko-mazurskie",shortCode:"WN"},{name:"Wielkopolskie",shortCode:"WP"},{name:"Zachodniopomorskie",shortCode:"ZP"}]},{countryName:"Portugal",countryShortCode:"PT",regions:[{name:"Açores",shortCode:"20"},{name:"Aveiro",shortCode:"01"},{name:"Beja",shortCode:"02"},{name:"Braga",shortCode:"03"},{name:"Bragança",shortCode:"04"},{name:"Castelo Branco",shortCode:"05"},{name:"Coimbra",shortCode:"06"},{name:"Évora",shortCode:"07"},{name:"Faro",shortCode:"08"},{name:"Guarda",shortCode:"09"},{name:"Leiria",shortCode:"10"},{name:"Lisboa",shortCode:"11"},{name:"Madeira",shortCode:"30"},{name:"Portalegre",shortCode:"12"},{name:"Porto",shortCode:"13"},{name:"Santarém",shortCode:"14"},{name:"Setúbal",shortCode:"15"},{name:"Viana do Castelo",shortCode:"16"},{name:"Vila Real",shortCode:"17"},{name:"Viseu",shortCode:"18"}]},{countryName:"Puerto Rico",countryShortCode:"PR",regions:[{name:"Adjuntas",shortCode:"AD"},{name:"Aguada",shortCode:"AG"},{name:"Aguadilla",shortCode:"AU"},{name:"Aguas Buenas",shortCode:"AB"},{name:"Aibonito",shortCode:"AI"},{name:"Anasco",shortCode:"AN"},{name:"Arecibo",shortCode:"AR"},{name:"Arroyo",shortCode:"AO"},{name:"Barceloneta",shortCode:"BA"},{name:"Barranquitas",shortCode:"BR"},{name:"Bayamon",shortCode:"BY"},{name:"Cabo Rojo",shortCode:"CR"},{name:"Caguas",shortCode:"CA"},{name:"Camuy",shortCode:"CM"},{name:"Canovanas",shortCode:"CN"},{name:"Carolina",shortCode:"CL"},{name:"Cat",shortCode:"CT"},{name:"Ceiba",shortCode:"CB"},{name:"Ciales",shortCode:"CE"},{name:"Cidra",shortCode:"CD"},{name:"Coamo",shortCode:"CO"},{name:"Comerio",shortCode:"CI"},{name:"Corozal",shortCode:"CZ"},{name:"Culebra",shortCode:"CU"},{name:"Dorado",shortCode:"DO"},{name:"Fajardo",shortCode:"FA"},{name:"Florida",shortCode:"FL"},{name:"Guanica",shortCode:"GA"},{name:"Guayama",shortCode:"GY"},{name:"Guayanilla",shortCode:"GN"},{name:"Guaynabo",shortCode:"GU"},{name:"Gurabo",shortCode:"GB"},{name:"Hatillo",shortCode:"HT"},{name:"Hormigueros",shortCode:"HO"},{name:"Humacao",shortCode:"HM"},{name:"Isabe",shortCode:"IS"},{name:"Juana Diaz",shortCode:"JD"},{name:"Juncos",shortCode:"JU"},{name:"Lajas",shortCode:"LJ"},{name:"Lares",shortCode:"LR"},{name:"Las Marias",shortCode:"LM"},{name:"Las oiza",shortCode:"LO"},{name:"Luquillo",shortCode:"LQ"},{name:"Manati",shortCode:"MN"},{name:"Maricao",shortCode:"MR"},{name:"Maunabo",shortCode:"MU"},{name:"Mayaguez",shortCode:"MY"},{name:"Moca",shortCode:"MO"},{name:"Morovis",shortCode:"MV"},{name:"Naguabo",shortCode:"NG"},{name:"Naranjito",shortCode:"NR"},{name:"Orocovis",shortCode:"OC"},{name:"Patillas",shortCode:"PT"},{name:"Penuelas",shortCode:"PU"},{name:"Ponce",shortCode:"PO"},{name:"Quebradillas",shortCode:"QB"},{name:"Rincon",shortCode:"RN"},{name:"Rio Grande",shortCode:"RG"},{name:"Sabana linas",shortCode:"SL"},{name:"San German",shortCode:"SG"},{name:"San Juan",shortCode:"SJ"},{name:"San Lorenzo",shortCode:"SN"},{name:"San Sebastian",shortCode:"SS"},{name:"Santa Isabel",shortCode:"SI"},{name:"Toa Alta",shortCode:"TA"},{name:"Toa Baja",shortCode:"TB"},{name:"Trujillo Alto",shortCode:"TJ"},{name:"Utuado",shortCode:"UT"},{name:"Vega Alta",shortCode:"VA"},{name:"Vega ues",shortCode:"VU"},{name:"Villalba",shortCode:"VI"},{name:"Yabucoa",shortCode:"YB"},{name:"Yauco",shortCode:"YA"}]},{countryName:"Qatar",countryShortCode:"QA",regions:[{name:"Ad Dawḩah",shortCode:"DA"},{name:"Al Khawr wa adh Dhakhīrah",shortCode:"KH"},{name:"Al Wakrah",shortCode:"WA"},{name:"Ar Rayyān",shortCode:"RA"},{name:"Ash Shamāl",shortCode:"MS"},{name:"Az̧ Za̧`āyin",shortCode:"ZA"},{name:"Umm Şalāl",shortCode:"US"}]},{countryName:"Réunion",countryShortCode:"RE",regions:[{name:"Réunion"}]},{countryName:"Romania",countryShortCode:"RO",regions:[{name:"Alba",shortCode:"AB"},{name:"Arad",shortCode:"AR"},{name:"Arges",shortCode:"AG"},{name:"Bacau",shortCode:"BC"},{name:"Bihor",shortCode:"BH"},{name:"Bistrita-Nasaud",shortCode:"BN"},{name:"Botosani",shortCode:"BT"},{name:"Braila",shortCode:"BR"},{name:"Brasov",shortCode:"BV"},{name:"Bucuresti",shortCode:"B"},{name:"Buzau",shortCode:"BZ"},{name:"Calarasi",shortCode:"CL"},{name:"Caras-Severin",shortCode:"CS"},{name:"Cluj",shortCode:"CJ"},{name:"Constanta",shortCode:"CT"},{name:"Covasna",shortCode:"CV"},{name:"Dambovita",shortCode:"DB"},{name:"Dolj",shortCode:"DJ"},{name:"Galati",shortCode:"GL"},{name:"Giurgiu",shortCode:"GR"},{name:"Gorj",shortCode:"GJ"},{name:"Harghita",shortCode:"HR"},{name:"Hunedoara",shortCode:"HD"},{name:"Ialomita",shortCode:"IL"},{name:"Iasi",shortCode:"IS"},{name:"Maramures",shortCode:"MM"},{name:"Mehedinti",shortCode:"MH"},{name:"Mures",shortCode:"MS"},{name:"Neamt",shortCode:"NT"},{name:"Olt",shortCode:"OT"},{name:"Prahova",shortCode:"PH"},{name:"Salaj",shortCode:"SJ"},{name:"Satu Mare",shortCode:"SM"},{name:"Sibiu",shortCode:"SB"},{name:"Suceava",shortCode:"SV"},{name:"Teleorman",shortCode:"TR"},{name:"Timis",shortCode:"TM"},{name:"Tulcea",shortCode:"TL"},{name:"Valcea",shortCode:"VL"},{name:"Vaslui",shortCode:"VS"},{name:"Vrancea",shortCode:"VN"}]},{countryName:"Russian Federation",countryShortCode:"RU",regions:[{name:"Republic of Adygea",shortCode:"AD"},{name:"Republic of Altai (Gorno-Altaysk)",shortCode:"AL"},{name:"Altai Krai",shortCode:"ALT"},{name:"Amur Oblast",shortCode:"AMU"},{name:"Arkhangelsk Oblast",shortCode:"ARK"},{name:"Astrakhan Oblast",shortCode:"AST"},{name:"Republic of Bashkortostan",shortCode:"BA"},{name:"Belgorod Oblast",shortCode:"BEL"},{name:"Bryansk Oblast",shortCode:"BRY"},{name:"Republic of Buryatia",shortCode:"BU"},{name:"Chechen Republic",shortCode:"CE"},{name:"Chelyabinsk Oblast",shortCode:"CHE"},{name:"Chukotka Autonomous Okrug",shortCode:"CHU"},{name:"Chuvash Republic",shortCode:"CU"},{name:"Republic of Dagestan",shortCode:"DA"},{name:"Republic of Ingushetia",shortCode:"IN"},{name:"Irkutsk Oblast",shortCode:"IRK"},{name:"Ivanovo Oblast",shortCode:"IVA"},{name:"Jewish Autonomous Oblast",shortCode:"JEW"},{name:"Kabardino-Balkar Republic",shortCode:"KB"},{name:"Kaliningrad Oblast",shortCode:"KLN"},{name:"Republic of Kalmykia",shortCode:"KL"},{name:"Kaluga Oblast",shortCode:"KLU"},{name:"Kamchatka Krai",shortCode:"KAM"},{name:"Karachay-Cherkess Republic",shortCode:"KC"},{name:"Republic of Karelia",shortCode:"KR"},{name:"Khabarovsk Krai",shortCode:"KHA"},{name:"Republic of Khakassia",shortCode:"KK"},{name:"Khanty-Mansi Autonomous Okrug - Yugra",shortCode:"KHM"},{name:"Kemerovo Oblast",shortCode:"KEM"},{name:"Kirov Oblast",shortCode:"KIR"},{name:"Komi Republic",shortCode:"KO"},{name:"Kostroma Oblast",shortCode:"KOS"},{name:"Krasnodar Krai",shortCode:"KDA"},{name:"Krasnoyarsk Krai",shortCode:"KYA"},{name:"Kurgan Oblast",shortCode:"KGN"},{name:"Kursk Oblast",shortCode:"KRS"},{name:"Leningrad Oblast",shortCode:"LEN"},{name:"Lipetsk Oblast",shortCode:"LIP"},{name:"Magadan Oblast",shortCode:"MAG"},{name:"Mari El Republic",shortCode:"ME"},{name:"Republic of Mordovia",shortCode:"MO"},{name:"Moscow Oblast",shortCode:"MOS"},{name:"Moscow",shortCode:"MOW"},{name:"Murmansk Oblast",shortCode:"MU"},{name:"Nenets Autonomous Okrug",shortCode:"NEN"},{name:"Nizhny Novgorod Oblast",shortCode:"NIZ"},{name:"Novgorod Oblast",shortCode:"NGR"},{name:"Novosibirsk Oblast",shortCode:"NVS"},{name:"Omsk Oblast",shortCode:"OMS"},{name:"Orenburg Oblast",shortCode:"ORE"},{name:"Oryol Oblast",shortCode:"ORL"},{name:"Penza Oblast",shortCode:"PNZ"},{name:"Perm Krai",shortCode:"PER"},{name:"Primorsky Krai",shortCode:"PRI"},{name:"Pskov Oblast",shortCode:"PSK"},{name:"Rostov Oblast",shortCode:"ROS"},{name:"Ryazan Oblast",shortCode:"RYA"},{name:"Saint Petersburg",shortCode:"SPE"},{name:"Sakha (Yakutia) Republic",shortCode:"SA"},{name:"Sakhalin Oblast",shortCode:"SAK"},{name:"Samara Oblast",shortCode:"SAM"},{name:"Saratov Oblast",shortCode:"SAR"},{name:"Republic of North Ossetia-Alania",shortCode:"NOA"},{name:"Smolensk Oblast",shortCode:"SMO"},{name:"Stavropol Krai",shortCode:"STA"},{name:"Sverdlovsk Oblast",shortCode:"SVE"},{name:"Tambov Oblast",shortCode:"TAM"},{name:"Republic of Tatarstan",shortCode:"TA"},{name:"Tomsk Oblast",shortCode:"TOM"},{name:"Tuva Republic",shortCode:"TU"},{name:"Tula Oblast",shortCode:"TUL"},{name:"Tver Oblast",shortCode:"TVE"},{name:"Tyumen Oblast",shortCode:"TYU"},{name:"Udmurt Republic",shortCode:"UD"},{name:"Ulyanovsk Oblast",shortCode:"ULY"},{name:"Vladimir Oblast",shortCode:"VLA"},{name:"Volgograd Oblast",shortCode:"VGG"},{name:"Vologda Oblast",shortCode:"VLG"},{name:"Voronezh Oblast",shortCode:"VOR"},{name:"Yamalo-Nenets Autonomous Okrug",shortCode:"YAN"},{name:"Yaroslavl Oblast",shortCode:"YAR"},{name:"Zabaykalsky Krai",shortCode:"ZAB"}]},{countryName:"Rwanda",countryShortCode:"RW",regions:[{name:"Kigali",shortCode:"01"},{name:"Eastern",shortCode:"02"},{name:"Northern",shortCode:"03"},{name:"Western",shortCode:"04"},{name:"Southern",shortCode:"05"}]},{countryName:"Saint Barthélemy",countryShortCode:"BL",regions:[{name:"Au Vent",shortCode:"02"},{name:"Sous le Vent",shortCode:"01"}]},{countryName:"Saint Helena, Ascension and Tristan da Cunha",countryShortCode:"SH",regions:[{name:"Ascension",shortCode:"AC"},{name:"Saint Helena",shortCode:"HL"},{name:"Tristan da Cunha",shortCode:"TA"}]},{countryName:"Saint Kitts and Nevis",countryShortCode:"KN",regions:[{name:"Saint Kitts",shortCode:"K"},{name:"Nevis",shortCode:"N"}]},{countryName:"Saint Lucia",countryShortCode:"LC",regions:[{name:"Anse-la-Raye",shortCode:"01"},{name:"Canaries",shortCode:"12"},{name:"Castries",shortCode:"02"},{name:"Choiseul",shortCode:"03"},{name:"Dennery",shortCode:"05"},{name:"Gros Islet",shortCode:"06"},{name:"Laborie",shortCode:"07"},{name:"Micoud",shortCode:"08"},{name:"Soufriere",shortCode:"10"},{name:"Vieux Fort",shortCode:"11"}]},{countryName:"Saint Martin",countryShortCode:"MF",regions:[{name:"Saint Martin"}]},{countryName:"Saint Pierre and Miquelon",countryShortCode:"PM",regions:[{name:"Miquelon"},{name:"Saint Pierre"}]},{countryName:"Saint Vincent and the Grenadines",countryShortCode:"VC",regions:[{name:"Charlotte",shortCode:"01"},{name:"Grenadines",shortCode:"06"},{name:"Saint Andrew",shortCode:"02"},{name:"Saint David",shortCode:"03"},{name:"Saint George",shortCode:"04"},{name:"Saint Patrick",shortCode:"05"}]},{countryName:"Samoa",countryShortCode:"WS",regions:[{name:"A'ana",shortCode:"AA"},{name:"Aiga-i-le-Tai",shortCode:"AL"},{name:"Atua",shortCode:"AT"},{name:"Fa'asaleleaga",shortCode:"FA"},{name:"Gaga'emauga",shortCode:"GE"},{name:"Gagaifomauga",shortCode:"GI"},{name:"Palauli",shortCode:"PA"},{name:"Satupa'itea",shortCode:"SA"},{name:"Tuamasaga",shortCode:"TU"},{name:"Va'a-o-Fonoti",shortCode:"VF"},{name:"Vaisigano",shortCode:"VS"}]},{countryName:"San Marino",countryShortCode:"SM",regions:[{name:"Acquaviva",shortCode:"01"},{name:"Borgo Maggiore",shortCode:"06"},{name:"Chiesanuova",shortCode:"02"},{name:"Domagnano",shortCode:"03"},{name:"Faetano",shortCode:"04"},{name:"Fiorentino",shortCode:"05"},{name:"Montegiardino",shortCode:"08"},{name:"San Marino",shortCode:"07"},{name:"Serravalle",shortCode:"09"}]},{countryName:"Sao Tome and Principe",countryShortCode:"ST",regions:[{name:"Principe",shortCode:"P"},{name:"Sao Tome",shortCode:"S"}]},{countryName:"Saudi Arabia",countryShortCode:"SA",regions:[{name:"'Asir",shortCode:"14"},{name:"Al Bahah",shortCode:"11"},{name:"Al Hudud ash Shamaliyah",shortCode:"08"},{name:"Al Jawf",shortCode:"12"},{name:"Al Madinah al Munawwarah",shortCode:"03"},{name:"Al Qasim",shortCode:"05"},{name:"Ar Riyad",shortCode:"01"},{name:"Ash Sharqiyah",shortCode:"04"},{name:"Ha'il",shortCode:"06"},{name:"Jazan",shortCode:"09"},{name:"Makkah al Mukarramah",shortCode:"02"},{name:"Najran",shortCode:"10"},{name:"Tabuk",shortCode:"07"}]},{countryName:"Senegal",countryShortCode:"SN",regions:[{name:"Dakar",shortCode:"DK"},{name:"Diourbel",shortCode:"DB"},{name:"Fatick",shortCode:"FK"},{name:"Kaffrine",shortCode:"KA"},{name:"Kaolack",shortCode:"KL"},{name:"Kedougou",shortCode:"KE"},{name:"Kolda",shortCode:"KD"},{name:"Louga",shortCode:"LG"},{name:"Matam",shortCode:"MT"},{name:"Saint-Louis",shortCode:"SL"},{name:"Sedhiou",shortCode:"SE"},{name:"Tambacounda",shortCode:"TC"},{name:"Thies",shortCode:"TH"},{name:"Ziguinchor",shortCode:"ZG"}]},{countryName:"Serbia",countryShortCode:"RS",regions:[{name:"Beograd (Belgrade)",shortCode:"00"},{name:"Borski",shortCode:"14"},{name:"Braničevski",shortCode:"11"},{name:"Jablanički",shortCode:"23"},{name:"Južnobački",shortCode:"06"},{name:"Južnobanatski",shortCode:"04"},{name:"Kolubarski",shortCode:"09"},{name:"Kosovski",shortCode:"25"},{name:"Kosovsko-Mitrovački",shortCode:"28"},{name:"Kosovsko-Pomoravski",shortCode:"29"},{name:"Mačvanski",shortCode:"08"},{name:"Moravički",shortCode:"17"},{name:"Nišavski",shortCode:"20"},{name:"Pčinjski",shortCode:"24"},{name:"Pećki",shortCode:"26"},{name:"Pirotski",shortCode:"22"},{name:"Podunavski",shortCode:"10"},{name:"Pomoravski",shortCode:"13"},{name:"Prizrenski",shortCode:"27"},{name:"Rasinski",shortCode:"19"},{name:"Raški",shortCode:"18"},{name:"Severnobački",shortCode:"01"},{name:"Severnobanatski",shortCode:"03"},{name:"Srednjebanatski",shortCode:"02"},{name:"Sremski",shortCode:"07"},{name:"Šumadijski",shortCode:"12"},{name:"Toplički",shortCode:"21"},{name:"Zaječarski",shortCode:"15"},{name:"Zapadnobački",shortCode:"05"},{name:"Zlatiborski",shortCode:"16"}]},{countryName:"Seychelles",countryShortCode:"SC",regions:[{name:"Anse aux Pins",shortCode:"01"},{name:"Anse Boileau",shortCode:"02"},{name:"Anse Etoile",shortCode:"03"},{name:"Anse Royale",shortCode:"05"},{name:"Anu Cap",shortCode:"04"},{name:"Baie Lazare",shortCode:"06"},{name:"Baie Sainte Anne",shortCode:"07"},{name:"Beau Vallon",shortCode:"08"},{name:"Bel Air",shortCode:"09"},{name:"Bel Ombre",shortCode:"10"},{name:"Cascade",shortCode:"11"},{name:"Glacis",shortCode:"12"},{name:"Grand'Anse Mahe",shortCode:"13"},{name:"Grand'Anse Praslin",shortCode:"14"},{name:"La Digue",shortCode:"15"},{name:"La Riviere Anglaise",shortCode:"16"},{name:"Les Mamelles",shortCode:"24"},{name:"Mont Buxton",shortCode:"17"},{name:"Mont Fleuri",shortCode:"18"},{name:"Plaisance",shortCode:"19"},{name:"Pointe La Rue",shortCode:"20"},{name:"Port Glaud",shortCode:"21"},{name:"Roche Caiman",shortCode:"25"},{name:"Saint Louis",shortCode:"22"},{name:"Takamaka",shortCode:"23"}]},{countryName:"Sierra Leone",countryShortCode:"SL",regions:[{name:"Eastern",shortCode:"E"},{name:"Northern",shortCode:"N"},{name:"Southern",shortCode:"S"},{name:"Western",shortCode:"W"}]},{countryName:"Singapore",countryShortCode:"SG",regions:[{name:"Central Singapore",shortCode:"01"},{name:"North East",shortCode:"02"},{name:"North West",shortCode:"03"},{name:"South East",shortCode:"04"},{name:"South West",shortCode:"05"}]},{countryName:"Sint Maarten (Dutch part)",countryShortCode:"SX",regions:[{name:"Sint Maarten"}]},{countryName:"Slovakia",countryShortCode:"SK",regions:[{name:"Banskobystricky",shortCode:"BC"},{name:"Bratislavsky",shortCode:"BL"},{name:"Kosicky",shortCode:"KI"},{name:"Nitriansky",shortCode:"NI"},{name:"Presovsky",shortCode:"PV"},{name:"Trenciansky",shortCode:"TC"},{name:"Trnavsky",shortCode:"TA"},{name:"Zilinsky",shortCode:"ZI"}]},{countryName:"Slovenia",countryShortCode:"SI",regions:[{name:"Ajdovscina",shortCode:"001"},{name:"Apace",shortCode:"195"},{name:"Beltinci",shortCode:"002"},{name:"Benedikt",shortCode:"148"},{name:"Bistrica ob Sotli",shortCode:"149"},{name:"Bled",shortCode:"003"},{name:"Bloke",shortCode:"150"},{name:"Bohinj",shortCode:"004"},{name:"Borovnica",shortCode:"005"},{name:"Bovec",shortCode:"006"},{name:"Braslovce",shortCode:"151"},{name:"Brda",shortCode:"007"},{name:"Brezice",shortCode:"009"},{name:"Brezovica",shortCode:"008"},{name:"Cankova",shortCode:"152"},{name:"Celje",shortCode:"011"},{name:"Cerklje na Gorenjskem",shortCode:"012"},{name:"Cerknica",shortCode:"013"},{name:"Cerkno",shortCode:"014"},{name:"Cerkvenjak",shortCode:"153"},{name:"Cirkulane",shortCode:"196"},{name:"Crensovci",shortCode:"015"},{name:"Crna na Koroskem",shortCode:"016"},{name:"Crnomelj",shortCode:"017"},{name:"Destrnik",shortCode:"018"},{name:"Divaca",shortCode:"019"},{name:"Dobje",shortCode:"154"},{name:"Dobrepolje",shortCode:"020"},{name:"Dobrna",shortCode:"155"},{name:"Dobrova-Polhov Gradec",shortCode:"021"},{name:"Dobrovnik",shortCode:"156"},{name:"Dol pri Ljubljani",shortCode:"022"},{name:"Dolenjske Toplice",shortCode:"157"},{name:"Domzale",shortCode:"023"},{name:"Dornava",shortCode:"024"},{name:"Dravograd",shortCode:"025"},{name:"Duplek",shortCode:"026"},{name:"Gorenja Vas-Poljane",shortCode:"027"},{name:"Gorisnica",shortCode:"028"},{name:"Gorje",shortCode:"207"},{name:"Gornja Radgona",shortCode:"029"},{name:"Gornji Grad",shortCode:"030"},{name:"Gornji Petrovci",shortCode:"031"},{name:"Grad",shortCode:"158"},{name:"Grosuplje",shortCode:"032"},{name:"Hajdina",shortCode:"159"},{name:"Hoce-Slivnica",shortCode:"160"},{name:"Hodos",shortCode:"161"},{name:"Horjul",shortCode:"162"},{name:"Hrastnik",shortCode:"034"},{name:"Hrpelje-Kozina",shortCode:"035"},{name:"Idrija",shortCode:"036"},{name:"Ig",shortCode:"037"},{name:"Ilirska Bistrica",shortCode:"038"},{name:"Ivancna Gorica",shortCode:"039"},{name:"Izola",shortCode:"040s"},{name:"Jesenice",shortCode:"041"},{name:"Jursinci",shortCode:"042"},{name:"Kamnik",shortCode:"043"},{name:"Kanal",shortCode:"044"},{name:"Kidricevo",shortCode:"045"},{name:"Kobarid",shortCode:"046"},{name:"Kobilje",shortCode:"047"},{name:"Kocevje",shortCode:"048"},{name:"Komen",shortCode:"049"},{name:"Komenda",shortCode:"164"},{name:"Koper",shortCode:"050"},{name:"Kodanjevica na Krki",shortCode:"197"},{name:"Kostel",shortCode:"165"},{name:"Kozje",shortCode:"051"},{name:"Kranj",shortCode:"052"},{name:"Kranjska Gora",shortCode:"053"},{name:"Krizevci",shortCode:"166"},{name:"Krsko",shortCode:"054"},{name:"Kungota",shortCode:"055"},{name:"Kuzma",shortCode:"056"},{name:"Lasko",shortCode:"057"},{name:"Lenart",shortCode:"058"},{name:"Lendava",shortCode:"059"},{name:"Litija",shortCode:"068"},{name:"Ljubljana",shortCode:"061"},{name:"Ljubno",shortCode:"062"},{name:"Ljutomer",shortCode:"063"},{name:"Log-Dragomer",shortCode:"208"},{name:"Logatec",shortCode:"064"},{name:"Loska Dolina",shortCode:"065"},{name:"Loski Potok",shortCode:"066"},{name:"Lovrenc na Pohorju",shortCode:"167"},{name:"Lukovica",shortCode:"068"},{name:"Luce",shortCode:"067"},{name:"Majsperk",shortCode:"069"},{name:"Makole",shortCode:"198"},{name:"Maribor",shortCode:"070"},{name:"Markovci",shortCode:"168"},{name:"Medvode",shortCode:"071"},{name:"Menges",shortCode:"072"},{name:"Metlika",shortCode:"073"},{name:"Mezica",shortCode:"074"},{name:"Miklavz na Dravskem Polju",shortCode:"169"},{name:"Miren-Kostanjevica",shortCode:"075"},{name:"Mirna",shortCode:"212"},{name:"Mirna Pec",shortCode:"170"},{name:"Mislinja",shortCode:"076"},{name:"Mokronog-Trebelno",shortCode:"199"},{name:"Moravce",shortCode:"077"},{name:"Moravske Toplice",shortCode:"078"},{name:"Mozirje",shortCode:"079"},{name:"Murska Sobota",shortCode:"080"},{name:"Naklo",shortCode:"082"},{name:"Nazarje",shortCode:"083"},{name:"Nova Gorica",shortCode:"084"},{name:"Novo Mesto",shortCode:"085"},{name:"Odranci",shortCode:"086"},{name:"Ormoz",shortCode:"087"},{name:"Osilnica",shortCode:"088"},{name:"Pesnica",shortCode:"089"},{name:"Piran",shortCode:"090"},{name:"Pivka",shortCode:"091"},{name:"Podcetrtek",shortCode:"092"},{name:"Podlehnik",shortCode:"172"},{name:"Podvelka",shortCode:"093"},{name:"Poljcane",shortCode:"200"},{name:"Postojna",shortCode:"094"},{name:"Prebold",shortCode:"174"},{name:"Preddvor",shortCode:"095"},{name:"Prevalje",shortCode:"175"},{name:"Ptuj",shortCode:"096"},{name:"Race-Fram",shortCode:"098"},{name:"Radece",shortCode:"099"},{name:"Radenci",shortCode:"100"},{name:"Radlje ob Dravi",shortCode:"101"},{name:"Radovljica",shortCode:"102"},{name:"Ravne na Koroskem",shortCode:"103"},{name:"Razkrizje",shortCode:"176"},{name:"Recica ob Savinji",shortCode:"209"},{name:"Rence-Vogrsko",shortCode:"201"},{name:"Ribnica",shortCode:"104"},{name:"Ribnica na Poboriu",shortCode:"177"},{name:"Rogaska Slatina",shortCode:"106"},{name:"Rogasovci",shortCode:"105"},{name:"Rogatec",shortCode:"107"},{name:"Ruse",shortCode:"108"},{name:"Salovci",shortCode:"033"},{name:"Selnica ob Dravi",shortCode:"178"},{name:"Semic",shortCode:"109"},{name:"Sempeter-Vrtojba",shortCode:"183"},{name:"Sencur",shortCode:"117"},{name:"Sentilj",shortCode:"118"},{name:"Sentjernej",shortCode:"119"},{name:"Sentjur",shortCode:"120"},{name:"Sentrupert",shortCode:"211"},{name:"Sevnica",shortCode:"110"},{name:"Sezana",shortCode:"111"},{name:"Skocjan",shortCode:"121"},{name:"Skofja Loka",shortCode:"122"},{name:"Skofljica",shortCode:"123"},{name:"Slovenj Gradec",shortCode:"112"},{name:"Slovenska Bistrica",shortCode:"113"},{name:"Slovenske Konjice",shortCode:"114"},{name:"Smarje pri elsah",shortCode:"124"},{name:"Smarjeske Toplice",shortCode:"206"},{name:"Smartno ob Paki",shortCode:"125"},{name:"Smartno pri Litiji",shortCode:"194"},{name:"Sodrazica",shortCode:"179"},{name:"Solcava",shortCode:"180"},{name:"Sostanj",shortCode:"126"},{name:"Sredisce ob Dravi",shortCode:"202"},{name:"Starse",shortCode:"115"},{name:"Store",shortCode:"127"},{name:"Straza",shortCode:"203"},{name:"Sveta Ana",shortCode:"181"},{name:"Sveta Trojica v Slovenskih Goricah",shortCode:"204"},{name:"Sveta Andraz v Slovenskih Goricah",shortCode:"182"},{name:"Sveti Jurij",shortCode:"116"},{name:"Sveti Jurij v Slovenskih Goricah",shortCode:"210"},{name:"Sveti Tomaz",shortCode:"205"},{name:"Tabor",shortCode:"184"},{name:"Tisina",shortCode:"128"},{name:"Tolmin",shortCode:"128"},{name:"Trbovlje",shortCode:"129"},{name:"Trebnje",shortCode:"130"},{name:"Trnovska Vas",shortCode:"185"},{name:"Trzin",shortCode:"186"},{name:"Trzic",shortCode:"131"},{name:"Turnisce",shortCode:"132"},{name:"Velenje",shortCode:"133"},{name:"Velika Polana",shortCode:"187"},{name:"Velike Lasce",shortCode:"134"},{name:"Verzej",shortCode:"188"},{name:"Videm",shortCode:"135"},{name:"Vipava",shortCode:"136"},{name:"Vitanje",shortCode:"137"},{name:"Vodice",shortCode:"138"},{name:"Vojnik",shortCode:"139"},{name:"Vransko",shortCode:"189"},{name:"Vrhnika",shortCode:"140"},{name:"Vuzenica",shortCode:"141"},{name:"Zagorje ob Savi",shortCode:"142"},{name:"Zavrc",shortCode:"143"},{name:"Zrece",shortCode:"144"},{name:"Zalec",shortCode:"190"},{name:"Zelezniki",shortCode:"146"},{name:"Zetale",shortCode:"191"},{name:"Ziri",shortCode:"147"},{name:"Zirovnica",shortCode:"192"},{name:"Zuzemberk",shortCode:"193"}]},{countryName:"Solomon Islands",countryShortCode:"SB",regions:[{name:"Central",shortCode:"CE"},{name:"Choiseul",shortCode:"CH"},{name:"Guadalcanal",shortCode:"GU"},{name:"Honiara",shortCode:"CT"},{name:"Isabel",shortCode:"IS"},{name:"Makira-Ulawa",shortCode:"MK"},{name:"Malaita",shortCode:"ML"},{name:"Rennell and Bellona",shortCode:"RB"},{name:"Temotu",shortCode:"TE"},{name:"Western",shortCode:"WE"}]},{countryName:"Somalia",countryShortCode:"SO",regions:[{name:"Awdal",shortCode:"AW"},{name:"Bakool",shortCode:"BK"},{name:"Banaadir",shortCode:"BN"},{name:"Bari",shortCode:"BR"},{name:"Bay",shortCode:"BY"},{name:"Galguduud",shortCode:"GA"},{name:"Gedo",shortCode:"GE"},{name:"Hiiraan",shortCode:"HI"},{name:"Jubbada Dhexe",shortCode:"JD"},{name:"Jubbada Hoose",shortCode:"JH"},{name:"Mudug",shortCode:"MU"},{name:"Nugaal",shortCode:"NU"},{name:"Sanaag",shortCode:"SA"},{name:"Shabeellaha Dhexe",shortCode:"SD"},{name:"Shabeellaha Hoose",shortCode:"SH"},{name:"Sool",shortCode:"SO"},{name:"Togdheer",shortCode:"TO"},{name:"Woqooyi Galbeed",shortCode:"WO"}]},{countryName:"South Africa",countryShortCode:"ZA",regions:[{name:"Eastern Cape",shortCode:"EC"},{name:"Free State",shortCode:"FS"},{name:"Gauteng",shortCode:"GT"},{name:"KwaZulu-Natal",shortCode:"NL"},{name:"Limpopo",shortCode:"LP"},{name:"Mpumalanga",shortCode:"MP"},{name:"Northern Cape",shortCode:"NC"},{name:"North West",shortCode:"NW"},{name:"Western Cape",shortCode:"WC"}]},{countryName:"South Georgia and South Sandwich Islands",countryShortCode:"GS",regions:[{name:"Bird Island"},{name:"Bristol Island"},{name:"Clerke Rocks"},{name:"Montagu Island"},{name:"Saunders Island"},{name:"South Georgia"},{name:"Southern Thule"},{name:"Traversay Islands"}]},{countryName:"South Sudan",countryShortCode:"SS",regions:[{name:"Central Equatoria",shortCode:"CE"},{name:"Eastern Equatoria",shortCode:"EE"},{name:"Jonglei",shortCode:"JG"},{name:"Lakes",shortCode:"LK"},{name:"Northern Bahr el Ghazal",shortCode:"BN"},{name:"Unity",shortCode:"UY"},{name:"Upper Nile",shortCode:"NU"},{name:"Warrap",shortCode:"WR"},{name:"Western Bahr el Ghazal",shortCode:"BW"},{name:"Western Equatoria",shortCode:"EW"}]},{countryName:"Spain",countryShortCode:"ES",regions:[{name:"Albacete",shortCode:"CM"},{name:"Alicante",shortCode:"VC"},{name:"Almería",shortCode:"AN"},{name:"Araba/Álava",shortCode:"VI"},{name:"Asturias",shortCode:"O"},{name:"Ávila",shortCode:"AV"},{name:"Badajoz",shortCode:"BA"},{name:"Barcelona",shortCode:"B"},{name:"Bizkaia",shortCode:"BI"},{name:"Burgos",shortCode:"BU"},{name:"Cáceres",shortCode:"CC"},{name:"Cádiz",shortCode:"CA"},{name:"Cantabria",shortCode:"S"},{name:"Castellón",shortCode:"CS"},{name:"Cueta",shortCode:"CU"},{name:"Ciudad Real",shortCode:"CR"},{name:"Córdoba",shortCode:"CO"},{name:"A Coruña",shortCode:"C"},{name:"Cuenca",shortCode:"CU"},{name:"Gipuzkoa",shortCode:"SS"},{name:"Girona",shortCode:"GI"},{name:"Granada",shortCode:"GR"},{name:"Guadalajara",shortCode:"GU"},{name:"Huelva",shortCode:"H"},{name:"Huesca",shortCode:"HU"},{name:"Illes Balears",shortCode:"PM"},{name:"Jaén",shortCode:"J"},{name:"León",shortCode:"LE"},{name:"Lleida",shortCode:"L"},{name:"Lugo",shortCode:"LU"},{name:"Madrid",shortCode:"M"},{name:"Málaga",shortCode:"MA"},{name:"Melilla",shortCode:"ML"},{name:"Murcia",shortCode:"MU"},{name:"Navarre",shortCode:"NA"},{name:"Ourense",shortCode:"OR"},{name:"Palencia",shortCode:"P"},{name:"Las Palmas",shortCode:"GC"},{name:"Pontevedra",shortCode:"PO"},{name:"La Rioja",shortCode:"LO"},{name:"Salamanca",shortCode:"SA"},{name:"Santa Cruz de Tenerife",shortCode:"TF"},{name:"Segovia",shortCode:"SG"},{name:"Sevilla",shortCode:"SE"},{name:"Soria",shortCode:"SO"},{name:"Tarragona",shortCode:"T"},{name:"Teruel",shortCode:"TE"},{name:"Toledo",shortCode:"TO"},{name:"Valencia",shortCode:"V"},{name:"Valladolid",shortCode:"VA"},{name:"Zamora",shortCode:"ZA"},{name:"Zaragoza",shortCode:"Z"}]},{countryName:"Sri Lanka",countryShortCode:"LK",regions:[{name:"Basnahira",shortCode:"1"},{name:"Dakunu",shortCode:"3"},{name:"Madhyama",shortCode:"2"},{name:"Naegenahira",shortCode:"5"},{name:"Sabaragamuwa",shortCode:"9"},{name:"Uturu",shortCode:"4"},{name:"Uturumaeda",shortCode:"7"},{name:"Vayamba",shortCode:"6"},{name:"Uva",shortCode:"8"}]},{countryName:"Sudan",countryShortCode:"SD",regions:[{name:"Al Bahr al Ahmar",shortCode:"RS"},{name:"Al Jazirah",shortCode:"GZ"},{name:"Al Khartum",shortCode:"KH"},{name:"Al Qadarif",shortCode:"GD"},{name:"An Nil al Abyad",shortCode:"NW"},{name:"An Nil al Azraq",shortCode:"NB"},{name:"Ash Shamaliyah",shortCode:"NO"},{name:"Gharb Darfur",shortCode:"DW"},{name:"Gharb Kurdufan",shortCode:"GK"},{name:"Janub Darfur",shortCode:"DS"},{name:"Janub Kurdufan",shortCode:"KS"},{name:"Kassala",shortCode:"KA"},{name:"Nahr an Nil",shortCode:"NR"},{name:"Shamal Darfur",shortCode:"DN"},{name:"Sharq Darfur",shortCode:"DE"},{name:"Shiamal Kurdufan",shortCode:"KN"},{name:"Sinnar",shortCode:"SI"},{name:"Wasat Darfur Zalinjay",shortCode:"DC"}]},{countryName:"Suriname",countryShortCode:"SR",regions:[{name:"Brokopondo",shortCode:"BR"},{name:"Commewijne",shortCode:"CM"},{name:"Coronie",shortCode:"CR"},{name:"Marowijne",shortCode:"MA"},{name:"Nickerie",shortCode:"NI"},{name:"Para",shortCode:"PR"},{name:"Paramaribo",shortCode:"PM"},{name:"Saramacca",shortCode:"SA"},{name:"Sipaliwini",shortCode:"SI"},{name:"Wanica",shortCode:"WA"}]},{countryName:"Swaziland",countryShortCode:"SZ",regions:[{name:"Hhohho",shortCode:"HH"},{name:"Lubombo",shortCode:"LU"},{name:"Manzini",shortCode:"MA"},{name:"Shiselweni",shortCode:"SH"}]},{countryName:"Sweden",countryShortCode:"SE",regions:[{name:"Blekinge",shortCode:"K"},{name:"Dalarna",shortCode:"W"},{name:"Gävleborg",shortCode:"X"},{name:"Gotland",shortCode:"I"},{name:"Halland",shortCode:"N"},{name:"Jämtland",shortCode:"Z"},{name:"Jönköping",shortCode:"F"},{name:"Kalmar",shortCode:"H"},{name:"Kronoberg",shortCode:"G"},{name:"Norrbotten",shortCode:"BD"},{name:"Örebro",shortCode:"T"},{name:"Östergötland",shortCode:"E"},{name:"Skåne",shortCode:"M"},{name:"Södermanland",shortCode:"D"},{name:"Stockholm",shortCode:"AB"},{name:"Uppsala",shortCode:"C"},{name:"Värmland",shortCode:"S"},{name:"Västerbotten",shortCode:"AC"},{name:"Västernorrland",shortCode:"Y"},{name:"Västmanland",shortCode:"U"},{name:"Västra Götaland",shortCode:"O"}]},{countryName:"Switzerland",countryShortCode:"CH",regions:[{name:"Aargau",shortCode:"AG"},{name:"Appenzell Ausserrhoden",shortCode:"AR"},{name:"Appenzell Innerhoden",shortCode:"AI"},{name:"Basel-Landschaft",shortCode:"BL"},{name:"Basel-Stadt",shortCode:"BS"},{name:"Bern",shortCode:"BE"},{name:"Fribourg",shortCode:"FR"},{name:"Genève",shortCode:"GE"},{name:"Glarus",shortCode:"GL"},{name:"Graubünden",shortCode:"GR"},{name:"Jura",shortCode:"JU"},{name:"Luzern",shortCode:"LU"},{name:"Neuchâtel",shortCode:"NE"},{name:"Nidwalden",shortCode:"NW"},{name:"Obwalden",shortCode:"OW"},{name:"Sankt Gallen",shortCode:"SG"},{name:"Schaffhausen",shortCode:"SH"},{name:"Schwyz",shortCode:"SZ"},{name:"Solothurn",shortCode:"SO"},{name:"Thurgau",shortCode:"TG"},{name:"Ticino",shortCode:"TI"},{name:"Uri",shortCode:"UR"},{name:"Valais",shortCode:"VS"},{name:"Vaud",shortCode:"VD"},{name:"Zug",shortCode:"ZG"},{name:"Zürich",shortCode:"ZH"}]},{countryName:"Syrian Arab Republic",countryShortCode:"SY",regions:[{name:"Al Hasakah",shortCode:"HA"},{name:"Al Ladhiqiyah",shortCode:"LA"},{name:"Al Qunaytirah",shortCode:"QU"},{name:"Ar Raqqah",shortCode:"RA"},{name:"As Suwayda'",shortCode:"SU"},{name:"Dar'a",shortCode:"DR"},{name:"Dayr az Zawr",shortCode:"DY"},{name:"Dimashq",shortCode:"DI"},{name:"Halab",shortCode:"HL"},{name:"Hamah",shortCode:"HM"},{name:"Hims",shortCode:"HI"},{name:"Idlib",shortCode:"ID"},{name:"Rif Dimashq",shortCode:"RD"},{name:"Tartus",shortCode:"TA"}]},{countryName:"Taiwan",countryShortCode:"TW",regions:[{name:"Chang-hua",shortCode:"CHA"},{name:"Chia-i",shortCode:"CYQ"},{name:"Hsin-chu",shortCode:"HSQ"},{name:"Hua-lien",shortCode:"HUA"},{name:"Kao-hsiung",shortCode:"KHH"},{name:"Keelung",shortCode:"KEE"},{name:"Kinmen",shortCode:"KIN"},{name:"Lienchiang",shortCode:"LIE"},{name:"Miao-li",shortCode:"MIA"},{name:"Nan-t'ou",shortCode:"NAN"},{name:"P'eng-hu",shortCode:"PEN"},{name:"New Taipei",shortCode:"NWT"},{name:"P'ing-chung",shortCode:"PIF"},{name:"T'ai-chung",shortCode:"TXG"},{name:"T'ai-nan",shortCode:"TNN"},{name:"T'ai-pei",shortCode:"TPE"},{name:"T'ai-tung",shortCode:"TTT"},{name:"T'ao-yuan",shortCode:"TAO"},{name:"Yi-lan",shortCode:"ILA"},{name:"Yun-lin",shortCode:"YUN"}]},{countryName:"Tajikistan",countryShortCode:"TJ",regions:[{name:"Dushanbe",shortCode:"DU"},{name:"Kŭhistoni Badakhshon",shortCode:"GB"},{name:"Khatlon",shortCode:"KT"},{name:"Sughd",shortCode:"SU"}]},{countryName:"Tanzania, United Republic of",countryShortCode:"TZ",regions:[{name:"Arusha",shortCode:"01"},{name:"Coast",shortCode:"19"},{name:"Dar es Salaam",shortCode:"02"},{name:"Dodoma",shortCode:"03"},{name:"Iringa",shortCode:"04"},{name:"Kagera",shortCode:"05"},{name:"Kigoma",shortCode:"08"},{name:"Kilimanjaro",shortCode:"09"},{name:"Lindi",shortCode:"12"},{name:"Manyara",shortCode:"26"},{name:"Mara",shortCode:"13"},{name:"Mbeya",shortCode:"14"},{name:"Morogoro",shortCode:"16"},{name:"Mtwara",shortCode:"17"},{name:"Mwanza",shortCode:"18"},{name:"Pemba North",shortCode:"06"},{name:"Pemba South",shortCode:"10"},{name:"Rukwa",shortCode:"20"},{name:"Ruvuma",shortCode:"21"},{name:"Shinyanga",shortCode:"22"},{name:"Singida",shortCode:"23"},{name:"Tabora",shortCode:"24"},{name:"Tanga",shortCode:"25"},{name:"Zanzibar North",shortCode:"07"},{name:"Zanzibar Central/South",shortCode:"11"},{name:"Zanzibar Urban/West",shortCode:"15"}]},{countryName:"Thailand",countryShortCode:"TH",regions:[{name:"Amnat Charoen",shortCode:"37"},{name:"Ang Thong",shortCode:"15"},{name:"Bueng Kan",shortCode:"38"},{name:"Buri Ram",shortCode:"31"},{name:"Chachoengsao",shortCode:"24"},{name:"Chai Nat",shortCode:"18"},{name:"Chaiyaphum",shortCode:"36"},{name:"Chanthaburi",shortCode:"22"},{name:"Chiang Mai",shortCode:"50"},{name:"Chiang Rai",shortCode:"57"},{name:"Chon Buri",shortCode:"20"},{name:"Chumphon",shortCode:"86"},{name:"Kalasin",shortCode:"46"},{name:"Kamphaeng Phet",shortCode:"62"},{name:"Kanchanaburi",shortCode:"71"},{name:"Khon Kaen",shortCode:"40"},{name:"Krabi",shortCode:"81"},{name:"Krung Thep Mahanakhon (Bangkok)",shortCode:"10"},{name:"Lampang",shortCode:"52"},{name:"Lamphun",shortCode:"51"},{name:"Loei",shortCode:"42"},{name:"Lop Buri",shortCode:"16"},{name:"Mae Hong Son",shortCode:"58"},{name:"Maha Sarakham",shortCode:"44"},{name:"Mukdahan",shortCode:"49"},{name:"Nakhon Nayok",shortCode:"26"},{name:"Nakhon Phathom",shortCode:"73"},{name:"Nakhon Phanom",shortCode:"48"},{name:"Nakhon Ratchasima",shortCode:"30"},{name:"Nakhon Sawan",shortCode:"60"},{name:"Nakhon Si Thammarat",shortCode:"80"},{name:"Nan",shortCode:"55"},{name:"Narathiwat",shortCode:"96"},{name:"Nong Bua Lam Phu",shortCode:"39"},{name:"Nong Khai",shortCode:"43"},{name:"Nonthaburi",shortCode:"12"},{name:"Pathum Thani",shortCode:"13"},{name:"Pattani",shortCode:"94"},{name:"Phangnga",shortCode:"82"},{name:"Phatthalung",shortCode:"93"},{name:"Phayao",shortCode:"56"},{name:"Phetchabun",shortCode:"76"},{name:"Phetchaburi",shortCode:"76"},{name:"Phichit",shortCode:"66"},{name:"Phitsanulok",shortCode:"65"},{name:"Phra Nakhon Si Ayutthaya",shortCode:"14"},{name:"Phrae",shortCode:"54"},{name:"Phuket",shortCode:"83"},{name:"Prachin Buri",shortCode:"25"},{name:"Prachuap Khiri Khan",shortCode:"77"},{name:"Ranong",shortCode:"85"},{name:"Ratchaburi",shortCode:"70"},{name:"Rayong",shortCode:"21"},{name:"Roi Et",shortCode:"45"},{name:"Sa Kaeo",shortCode:"27"},{name:"Sakon Nakhon",shortCode:"47"},{name:"Samut Prakan",shortCode:"11"},{name:"Samut Sakhon",shortCode:"74"},{name:"Samut Songkhram",shortCode:"75"},{name:"Saraburi",shortCode:"19"},{name:"Satun",shortCode:"91"},{name:"Sing Buri",shortCode:"17"},{name:"Si Sa ket",shortCode:"33"},{name:"Songkhla",shortCode:"90"},{name:"Sukhothai",shortCode:"64"},{name:"Suphan Buri",shortCode:"72"},{name:"Surat Thani",shortCode:"84"},{name:"Surin",shortCode:"32"},{name:"Tak",shortCode:"63"},{name:"Trang",shortCode:"92"},{name:"Trat",shortCode:"23"},{name:"Ubon Ratchathani",shortCode:"34"},{name:"Udon Thani",shortCode:"41"},{name:"Uthai Thani",shortCode:"61"},{name:"Uttaradit",shortCode:"53"},{name:"Yala",shortCode:"95"},{name:"Yasothon",shortCode:"35"}]},{countryName:"Timor-Leste",countryShortCode:"TL",regions:[{name:"Aileu",shortCode:"AL"},{name:"Ainaro",shortCode:"AN"},{name:"Baucau",shortCode:"BA"},{name:"Bobonaro",shortCode:"BO"},{name:"Cova Lima",shortCode:"CO"},{name:"Dili",shortCode:"DI"},{name:"Ermera",shortCode:"ER"},{name:"Lautem",shortCode:"LA"},{name:"Liquica",shortCode:"LI"},{name:"Manatuto",shortCode:"MT"},{name:"Manufahi",shortCode:"MF"},{name:"Oecussi",shortCode:"OE"},{name:"Viqueque",shortCode:"VI"}]},{countryName:"Togo",countryShortCode:"TG",regions:[{name:"Centre",shortCode:"C"},{name:"Kara",shortCode:"K"},{name:"Maritime",shortCode:"M"},{name:"Plateaux",shortCode:"P"},{name:"Savannes",shortCode:"S"}]},{countryName:"Tokelau",countryShortCode:"TK",regions:[{name:"Atafu"},{name:"Fakaofo"},{name:"Nukunonu"}]},{countryName:"Tonga",countryShortCode:"TO",regions:[{name:"'Eua",shortCode:"01"},{name:"Ha'apai",shortCode:"02"},{name:"Niuas",shortCode:"03"},{name:"Tongatapu",shortCode:"04"},{name:"Vava'u",shortCode:"05"}]},{countryName:"Trinidad and Tobago",countryShortCode:"TT",regions:[{name:"Arima",shortCode:"ARI"},{name:"Chaguanas",shortCode:"CHA"},{name:"Couva-Tabaquite-Talparo",shortCode:"CTT"},{name:"Diefo Martin",shortCode:"DMN"},{name:"Mayaro-Rio Claro",shortCode:"MRC"},{name:"Penal-Debe",shortCode:"PED"},{name:"Point Fortin",shortCode:"PTF"},{name:"Port-of-Spain",shortCode:"POS"},{name:"Princes Town",shortCode:"PRT"},{name:"San Fernando",shortCode:"SFO"},{name:"San Juan-Laventille",shortCode:"SJL"},{name:"Sangre Grande",shortCode:"SGE"},{name:"Siparia",shortCode:"SIP"},{name:"Tobago",shortCode:"TOB"},{name:"Tunapuna-Piarco",shortCode:"TUP"}]},{countryName:"Tunisia",countryShortCode:"TN",regions:[{name:"Ariana",shortCode:"12"},{name:"Beja",shortCode:"31"},{name:"Ben Arous",shortCode:"13"},{name:"Bizerte",shortCode:"23"},{name:"Gabes",shortCode:"81"},{name:"Gafsa",shortCode:"71"},{name:"Jendouba",shortCode:"32"},{name:"Kairouan",shortCode:"41"},{name:"Kasserine",shortCode:"42"},{name:"Kebili",shortCode:"73"},{name:"Kef",shortCode:"33"},{name:"Mahdia",shortCode:"53"},{name:"Medenine",shortCode:"82"},{name:"Monastir",shortCode:"52"},{name:"Nabeul",shortCode:"21"},{name:"Sfax",shortCode:"61"},{name:"Sidi Bouzid",shortCode:"43"},{name:"Siliana",shortCode:"34"},{name:"Sousse",shortCode:"51"},{name:"Tataouine",shortCode:"83"},{name:"Tozeur",shortCode:"72"},{name:"Tunis",shortCode:"11"},{name:"Zaghouan",shortCode:"22"}]},{countryName:"Turkey",countryShortCode:"TR",regions:[{name:"Adana",shortCode:"01"},{name:"Adiyaman",shortCode:"02"},{name:"Afyonkarahisar",shortCode:"03"},{name:"Agri",shortCode:"04"},{name:"Aksaray",shortCode:"68"},{name:"Amasya",shortCode:"05"},{name:"Ankara",shortCode:"06"},{name:"Antalya",shortCode:"07"},{name:"Ardahan",shortCode:"75"},{name:"Artvin",shortCode:"08"},{name:"Aydin",shortCode:"09"},{name:"Balikesir",shortCode:"10"},{name:"Bartin",shortCode:"74"},{name:"Batman",shortCode:"72"},{name:"Bayburt",shortCode:"69"},{name:"Bilecik",shortCode:"11"},{name:"Bingol",shortCode:"12"},{name:"Bitlis",shortCode:"13"},{name:"Bolu",shortCode:"14"},{name:"Burdur",shortCode:"15"},{name:"Bursa",shortCode:"16"},{name:"Canakkale",shortCode:"17"},{name:"Cankiri",shortCode:"18"},{name:"Corum",shortCode:"19"},{name:"Denizli",shortCode:"20"},{name:"Diyarbakir",shortCode:"21"},{name:"Duzce",shortCode:"81"},{name:"Edirne",shortCode:"22"},{name:"Elazig",shortCode:"23"},{name:"Erzincan",shortCode:"24"},{name:"Erzurum",shortCode:"25"},{name:"Eskisehir",shortCode:"26"},{name:"Gaziantep",shortCode:"27"},{name:"Giresun",shortCode:"28"},{name:"Gumushane",shortCode:"29"},{name:"Hakkari",shortCode:"30"},{name:"Hatay",shortCode:"31"},{name:"Igdir",shortCode:"76"},{name:"Isparta",shortCode:"32"},{name:"Istanbul",shortCode:"34"},{name:"Izmir",shortCode:"35"},{name:"Kahramanmaras",shortCode:"46"},{name:"Karabuk",shortCode:"78"},{name:"Karaman",shortCode:"70"},{name:"Kars",shortCode:"36"},{name:"Kastamonu",shortCode:"37"},{name:"Kayseri",shortCode:"38"},{name:"Kilis",shortCode:"79"},{name:"Kirikkale",shortCode:"71"},{name:"Kirklareli",shortCode:"39"},{name:"Kirsehir",shortCode:"40"},{name:"Kocaeli",shortCode:"41"},{name:"Konya",shortCode:"42"},{name:"Kutahya",shortCode:"43"},{name:"Malatya",shortCode:"44"},{name:"Manisa",shortCode:"45"},{name:"Mardin",shortCode:"47"},{name:"Mersin",shortCode:"33"},{name:"Mugla",shortCode:"48"},{name:"Mus",shortCode:"49"},{name:"Nevsehir",shortCode:"50"},{name:"Nigde",shortCode:"51"},{name:"Ordu",shortCode:"52"},{name:"Osmaniye",shortCode:"80"},{name:"Rize",shortCode:"53"},{name:"Sakarya",shortCode:"54"},{name:"Samsun",shortCode:"55"},{name:"Sanliurfa",shortCode:"63"},{name:"Siirt",shortCode:"56"},{name:"Sinop",shortCode:"57"},{name:"Sirnak",shortCode:"73"},{name:"Sivas",shortCode:"58"},{name:"Tekirdag",shortCode:"59"},{name:"Tokat",shortCode:"60"},{name:"Trabzon",shortCode:"61"},{name:"Tunceli",shortCode:"62"},{name:"Usak",shortCode:"64"},{name:"Van",shortCode:"65"},{name:"Yalova",shortCode:"77"},{name:"Yozgat",shortCode:"66"},{name:"Zonguldak",shortCode:"67"}]},{countryName:"Turkmenistan",countryShortCode:"TM",regions:[{name:"Ahal",shortCode:"A"},{name:"Asgabat",shortCode:"S"},{name:"Balkan",shortCode:"B"},{name:"Dashoguz",shortCode:"D"},{name:"Lebap",shortCode:"L"},{name:"Mary",shortCode:"M"}]},{countryName:"Turks and Caicos Islands",countryShortCode:"TC",regions:[{name:"Turks and Caicos Islands"}]},{countryName:"Tuvalu",countryShortCode:"TV",regions:[{name:"Funafuti",shortCode:"FUN"},{name:"Nanumanga",shortCode:"NMG"},{name:"Nanumea",shortCode:"NMA"},{name:"Niutao",shortCode:"NIT"},{name:"Nui",shortCode:"NUI"},{name:"Nukufetau",shortCode:"NKF"},{name:"Nukulaelae",shortCode:"NKL"},{name:"Vaitupu",shortCode:"VAU"}]},{countryName:"Uganda",countryShortCode:"UG",regions:[{name:"Abim",shortCode:"317"},{name:"Adjumani",shortCode:"301"},{name:"Amolatar",shortCode:"314"},{name:"Amuria",shortCode:"216"},{name:"Amuru",shortCode:"319"},{name:"Apac",shortCode:"302"},{name:"Arua",shortCode:"303"},{name:"Budaka",shortCode:"217"},{name:"Bududa",shortCode:"223"},{name:"Bugiri",shortCode:"201"},{name:"Bukedea",shortCode:"224"},{name:"Bukwa",shortCode:"218"},{name:"Buliisa",shortCode:"419"},{name:"Bundibugyo",shortCode:"401"},{name:"Bushenyi",shortCode:"402"},{name:"Busia",shortCode:"202"},{name:"Butaleja",shortCode:"219"},{name:"Dokolo",shortCode:"318"},{name:"Gulu",shortCode:"304"},{name:"Hoima",shortCode:"403"},{name:"Ibanda",shortCode:"416"},{name:"Iganga",shortCode:"203"},{name:"Isingiro",shortCode:"417"},{name:"Jinja",shortCode:"204"},{name:"Kaabong",shortCode:"315"},{name:"Kabale",shortCode:"404"},{name:"Kabarole",shortCode:"405"},{name:"Kaberamaido",shortCode:"213"},{name:"Kalangala",shortCode:"101"},{name:"Kaliro",shortCode:"220"},{name:"Kampala",shortCode:"102"},{name:"Kamuli",shortCode:"205"},{name:"Kamwenge",shortCode:"413"},{name:"Kanungu",shortCode:"414"},{name:"Kapchorwa",shortCode:"206"},{name:"Kasese",shortCode:"406"},{name:"Katakwi",shortCode:"207"},{name:"Kayunga",shortCode:"112"},{name:"Kibaale",shortCode:"407"},{name:"Kiboga",shortCode:"103"},{name:"Kiruhura",shortCode:"418"},{name:"Kisoro",shortCode:"408"},{name:"Kitgum",shortCode:"305"},{name:"Koboko",shortCode:"316"},{name:"Kotido",shortCode:"306"},{name:"Kumi",shortCode:"208"},{name:"Kyenjojo",shortCode:"415"},{name:"Lira",shortCode:"307"},{name:"Luwero",shortCode:"104"},{name:"Lyantonde",shortCode:"116"},{name:"Manafwa",shortCode:"221"},{name:"Maracha",shortCode:"320"},{name:"Masaka",shortCode:"105"},{name:"Masindi",shortCode:"409"},{name:"Mayuge",shortCode:"214"},{name:"Mbale",shortCode:"209"},{name:"Mbarara",shortCode:"410"},{name:"Mityana",shortCode:"114"},{name:"Moroto",shortCode:"308"},{name:"Moyo",shortCode:"309"},{name:"Mpigi",shortCode:"106"},{name:"Mubende",shortCode:"107"},{name:"Mukono",shortCode:"108"},{name:"Nakapiripirit",shortCode:"311"},{name:"Nakaseke",shortCode:"115"},{name:"Nakasongola",shortCode:"109"},{name:"Namutumba",shortCode:"222"},{name:"Nebbi",shortCode:"310"},{name:"Ntungamo",shortCode:"411"},{name:"Oyam",shortCode:"321"},{name:"Pader",shortCode:"312"},{name:"Pallisa",shortCode:"210"},{name:"Rakai",shortCode:"110"},{name:"Rukungiri",shortCode:"412"},{name:"Sembabule",shortCode:"111"},{name:"Sironko",shortCode:"215"},{name:"Soroti",shortCode:"211"},{name:"Tororo",shortCode:"212"},{name:"Wakiso",shortCode:"113"},{name:"Yumbe",shortCode:"313"}]},{countryName:"Ukraine",countryShortCode:"UA",regions:[{name:"Cherkasy",shortCode:"71"},{name:"Chernihiv",shortCode:"74"},{name:"Chernivtsi",shortCode:"77"},{name:"Dnipropetrovsk",shortCode:"12"},{name:"Donetsk",shortCode:"14"},{name:"Ivano-Frankivsk",shortCode:"26"},{name:"Kharkiv",shortCode:"63"},{name:"Kherson",shortCode:"65"},{name:"Khmelnytskyi",shortCode:"68"},{name:"Kiev",shortCode:"32"},{name:"Kirovohrad",shortCode:"35"},{name:"Luhansk",shortCode:"09"},{name:"Lviv",shortCode:"46"},{name:"Mykolaiv",shortCode:"48"},{name:"Odessa",shortCode:"51"},{name:"Poltava",shortCode:"53"},{name:"Rivne",shortCode:"56"},{name:"Sumy",shortCode:"59"},{name:"Ternopil",shortCode:"61"},{name:"Vinnytsia",shortCode:"05"},{name:"Volyn",shortCode:"07"},{name:"Zakarpattia",shortCode:"21"},{name:"Zaporizhia",shortCode:"23"},{name:"Zhytomyr",shortCode:"18"},{name:"Avtonomna Respublika Krym",shortCode:"43"},{name:"Kyïv",shortCode:"30"},{name:"Sevastopol",shortCode:"40"}]},{countryName:"United Arab Emirates",countryShortCode:"AE",regions:[{name:"Abu Dhabi",shortCode:"AZ"},{name:"Ajman",shortCode:"AJ"},{name:"Dubai",shortCode:"DU"},{name:"Fujairah",shortCode:"FU"},{name:"Ras al Khaimah",shortCode:"RK"},{name:"Sharjah",shortCode:"SH"},{name:"Umm Al Quwain",shortCode:"UQ"}]},{countryName:"United Kingdom",countryShortCode:"GB",regions:[{name:"Avon",shortCode:"AVN"},{name:"Bedfordshire",shortCode:"BDF"},{name:"Berkshire",shortCode:"BRK"},{name:"Bristol, City of",shortCode:"COB"},{name:"Buckinghamshire",shortCode:"BKM"},{name:"Cambridgeshire",shortCode:"CAM"},{name:"Cheshire",shortCode:"CHS"},{name:"Cleveland",shortCode:"CLV"},{name:"Cornwall",shortCode:"CON"},{name:"Cumbria",shortCode:"CMA"},{name:"Derbyshire",shortCode:"DBY"},{name:"Devon",shortCode:"DEV"},{name:"Dorset",shortCode:"DOR"},{name:"Durham",shortCode:"DUR"},{name:"East Sussex",shortCode:"SXE"},{name:"Essex",shortCode:"ESS"},{name:"Gloucestershire",shortCode:"GLS"},{name:"Greater London",shortCode:"LND"},{name:"Greater Manchester",shortCode:"GTM"},{name:"Hampshire",shortCode:"HAM"},{name:"Hereford and Worcester",shortCode:"HWR"},{name:"Herefordshire",shortCode:"HEF"},{name:"Hertfordshire",shortCode:"HRT"},{name:"Isle of Wight",shortCode:"IOW"},{name:"Kent",shortCode:"KEN"},{name:"Lancashire",shortCode:"LAN"},{name:"Leicestershire",shortCode:"LEI"},{name:"Lincolnshire",shortCode:"LIN"},{name:"London",shortCode:"LDN"},{name:"Merseyside",shortCode:"MSY"},{name:"Middlesex",shortCode:"MDX"},{name:"Norfolk",shortCode:"NFK"},{name:"Northamptonshire",shortCode:"NTH"},{name:"Northumberland",shortCode:"NBL"},{name:"North Humberside",shortCode:"NHM"},{name:"North Yorkshire",shortCode:"NYK"},{name:"Nottinghamshire",shortCode:"NTT"},{name:"Oxfordshire",shortCode:"OXF"},{name:"Rutland",shortCode:"RUT"},{name:"Shropshire",shortCode:"SAL"},{name:"Somerset",shortCode:"SOM"},{name:"South Humberside",shortCode:"SHM"},{name:"South Yorkshire",shortCode:"SYK"},{name:"Staffordshire",shortCode:"STS"},{name:"Suffolk",shortCode:"SFK"},{name:"Surrey",shortCode:"SRY"},{name:"Tyne and Wear",shortCode:"TWR"},{name:"Warwickshire",shortCode:"WAR"},{name:"West Midlands",shortCode:"WMD"},{name:"West Sussex",shortCode:"SXW"},{name:"West Yorkshire",shortCode:"WYK"},{name:"Wiltshire",shortCode:"WIL"},{name:"Worcestershire",shortCode:"WOR"},{name:"Antrim",shortCode:"ANT"},{name:"Armagh",shortCode:"ARM"},{name:"Belfast, City of",shortCode:"BLF"},{name:"Down",shortCode:"DOW"},{name:"Fermanagh",shortCode:"FER"},{name:"Londonderry",shortCode:"LDY"},{name:"Derry, City of",shortCode:"DRY"},{name:"Tyrone",shortCode:"TYR"},{name:"Aberdeen, City of",shortCode:"AN"},{name:"Aberdeenshire",shortCode:"ABD"},{name:"Angus (Forfarshire)",shortCode:"ANS"},{name:"Argyll",shortCode:"AGB"},{name:"Ayrshire",shortCode:"ARG"},{name:"Banffshire",shortCode:"BAN"},{name:"Berwickshire",shortCode:"BEW"},{name:"Bute",shortCode:"BUT"},{name:"Caithness",shortCode:"CAI"},{name:"Clackmannanshire",shortCode:"CLK"},{name:"Cromartyshire",shortCode:"COC"},{name:"Dumfriesshire",shortCode:"DFS"},{name:"Dunbartonshire (Dumbarton)",shortCode:"DNB"},{name:"Dundee, City of",shortCode:"DD"},{name:"East Lothian (Haddingtonshire)",shortCode:"ELN"},{name:"Edinburgh, City of",shortCode:"EB"},{name:"Fife",shortCode:"FIF"},{name:"Glasgow, City of",shortCode:"GLA"},{name:"Inverness-shire",shortCode:"INV"},{name:"Kincardineshire",shortCode:"KCD"},{name:"Kinross-shire",shortCode:"KRS"},{name:"Kirkcudbrightshire",shortCode:"KKD"},{name:"Lanarkshire",shortCode:"LKS"},{name:"Midlothian (County of Edinburgh)",shortCode:"MLN"},{name:"Moray (Elginshire)",shortCode:"MOR"},{name:"Nairnshire",shortCode:"NAI"},{name:"Orkney",shortCode:"OKI"},{name:"Peeblesshire",shortCode:"PEE"},{name:"Perthshire",shortCode:"PER"},{name:"Renfrewshire",shortCode:"RFW"},{name:"Ross and Cromarty",shortCode:"ROC"},{name:"Ross-shire",shortCode:"ROS"},{name:"Roxburghshire",shortCode:"ROX"},{name:"Selkirkshire",shortCode:"SEL"},{name:"Shetland (Zetland)",shortCode:"SHI"},{name:"Stirlingshire",shortCode:"STI"},{name:"Sutherland",shortCode:"SUT"},{name:"West Lothian (Linlithgowshire)",shortCode:"WLN"},{name:"Wigtownshire",shortCode:"WIG"},{name:"Clwyd",shortCode:"CWD"},{name:"Dyfed",shortCode:"DFD"},{name:"Gwent",shortCode:"GNT"},{name:"Gwynedd",shortCode:"GWN"},{name:"Mid Glamorgan",shortCode:"MGM"},{name:"Powys",shortCode:"POW"},{name:"South Glamorgan",shortCode:"SGM"},{name:"West Glamorgan",shortCode:"WGM"}]},{countryName:"United States",countryShortCode:"US",regions:[{name:"Alabama",shortCode:"AL"},{name:"Alaska",shortCode:"AK"},{name:"American Samoa",shortCode:"AS"},{name:"Arizona",shortCode:"AZ"},{name:"Arkansas",shortCode:"AR"},{name:"California",shortCode:"CA"},{name:"Colorado",shortCode:"CO"},{name:"Connecticut",shortCode:"CT"},{name:"Delaware",shortCode:"DE"},{name:"District of Columbia",shortCode:"DC"},{name:"Micronesia",shortCode:"FM"},{name:"Florida",shortCode:"FL"},{name:"Georgia",shortCode:"GA"},{name:"Guam",shortCode:"GU"},{name:"Hawaii",shortCode:"HI"},{name:"Idaho",shortCode:"ID"},{name:"Illinois",shortCode:"IL"},{name:"Indiana",shortCode:"IN"},{name:"Iowa",shortCode:"IA"},{name:"Kansas",shortCode:"KS"},{name:"Kentucky",shortCode:"KY"},{name:"Louisiana",shortCode:"LA"},{name:"Maine",shortCode:"ME"},{name:"Marshall Islands",shortCode:"MH"},{name:"Maryland",shortCode:"MD"},{name:"Massachusetts",shortCode:"MA"},{name:"Michigan",shortCode:"MI"},{name:"Minnesota",shortCode:"MN"},{name:"Mississippi",shortCode:"MS"},{name:"Missouri",shortCode:"MO"},{name:"Montana",shortCode:"MT"},{name:"Nebraska",shortCode:"NE"},{name:"Nevada",shortCode:"NV"},{name:"New Hampshire",shortCode:"NH"},{name:"New Jersey",shortCode:"NJ"},{name:"New Mexico",shortCode:"NM"},{name:"New York",shortCode:"NY"},{name:"North Carolina",shortCode:"NC"},{name:"North Dakota",shortCode:"ND"},{name:"Northern Mariana Islands",shortCode:"MP"},{name:"Ohio",shortCode:"OH"},{name:"Oklahoma",shortCode:"OK"},{name:"Oregon",shortCode:"OR"},{name:"Palau",shortCode:"PW"},{name:"Pennsylvania",shortCode:"PA"},{name:"Puerto Rico",shortCode:"PR"},{name:"Rhode Island",shortCode:"RI"},{name:"South Carolina",shortCode:"SC"},{name:"South Dakota",shortCode:"SD"},{name:"Tennessee",shortCode:"TN"},{name:"Texas",shortCode:"TX"},{name:"Utah",shortCode:"UT"},{name:"Vermont",shortCode:"VT"},{name:"Virgin Islands",shortCode:"VI"},{name:"Virginia",shortCode:"VA"},{name:"Washington",shortCode:"WA"},{name:"West Virginia",shortCode:"WV"},{name:"Wisconsin",shortCode:"WI"},{name:"Wyoming",shortCode:"WY"},{name:"Armed Forces Americas",shortCode:"AA"},{name:"Armed Forces Europe, Canada, Africa and Middle East",shortCode:"AE"},{name:"Armed Forces Pacific",shortCode:"AP"}]},{countryName:"United States Minor Outlying Islands",countryShortCode:"UM",regions:[{name:"Baker Island",shortCode:"81"},{name:"Howland Island",shortCode:"84"},{name:"Jarvis Island",shortCode:"86"},{name:"Johnston Atoll",shortCode:"67"},{name:"Kingman Reef",shortCode:"89"},{name:"Midway Islands",shortCode:"71"},{name:"Navassa Island",shortCode:"76"},{name:"Palmyra Atoll",shortCode:"95"},{name:"Wake Island",shortCode:"79"},{name:"Bajo Nuevo Bank",shortCode:"BN"},{name:"Serranilla Bank",shortCode:"SB"}]},{countryName:"Uruguay",countryShortCode:"UY",regions:[{name:"Artigas",shortCode:"AR"},{name:"Canelones",shortCode:"CA"},{name:"Cerro Largo",shortCode:"CL"},{name:"Colonia",shortCode:"CO"},{name:"Durazno",shortCode:"DU"},{name:"Flores",shortCode:"FS"},{name:"Florida",shortCode:"FD"},{name:"Lavalleja",shortCode:"LA"},{name:"Maldonado",shortCode:"MA"},{name:"Montevideo",shortCode:"MO"},{name:"Paysandú",shortCode:"PA"},{name:"Río Negro",shortCode:"RN"},{name:"Rivera",shortCode:"RV"},{name:"Rocha",shortCode:"RO"},{name:"Salto",shortCode:"SA"},{name:"San José",shortCode:"SJ"},{name:"Soriano",shortCode:"SO"},{name:"Tacuarembó",shortCode:"TA"},{name:"Treinta y Tres",shortCode:"TT"}]},{countryName:"Uzbekistan",countryShortCode:"UZ",regions:[{name:"Toshkent shahri",shortCode:"TK"},{name:"Andijon",shortCode:"AN"},{name:"Buxoro",shortCode:"BU"},{name:"Farg‘ona",shortCode:"FA"},{name:"Jizzax",shortCode:"JI"},{name:"Namangan",shortCode:"NG"},{name:"Navoiy",shortCode:"NW"},{name:"Qashqadaryo (Qarshi)",shortCode:"QA"},{name:"Samarqand",shortCode:"SA"},{name:"Sirdaryo (Guliston)",shortCode:"SI"},{name:"Surxondaryo (Termiz)",shortCode:"SU"},{name:"Toshkent wiloyati",shortCode:"TO"},{name:"Xorazm (Urganch)",shortCode:"XO"},{name:"Qoraqalpog‘iston Respublikasi (Nukus)",shortCode:"QR"}]},{countryName:"Vanuatu",countryShortCode:"VU",regions:[{name:"Malampa",shortCode:"MAP"},{name:"Pénama",shortCode:"PAM"},{name:"Sanma",shortCode:"SAM"},{name:"Shéfa",shortCode:"SEE"},{name:"Taféa",shortCode:"TAE"},{name:"Torba",shortCode:"TOB"}]},{countryName:"Venezuela, Bolivarian Republic of",countryShortCode:"VE",regions:[{name:"Dependencias Federales",shortCode:"W"},{name:"Distrito Federal",shortCode:"A"},{name:"Amazonas",shortCode:"Z"},{name:"Anzoátegui",shortCode:"B"},{name:"Apure",shortCode:"C"},{name:"Aragua",shortCode:"D"},{name:"Barinas",shortCode:"E"},{name:"Bolívar",shortCode:"F"},{name:"Carabobo",shortCode:"G"},{name:"Cojedes",shortCode:"H"},{name:"Delta Amacuro",shortCode:"Y"},{name:"Falcón",shortCode:"I"},{name:"Guárico",shortCode:"J"},{name:"Lara",shortCode:"K"},{name:"Mérida",shortCode:"L"},{name:"Miranda",shortCode:"M"},{name:"Monagas",shortCode:"N"},{name:"Nueva Esparta",shortCode:"O"},{name:"Portuguesa",shortCode:"P"},{name:"Sucre",shortCode:"R"},{name:"Táchira",shortCode:"S"},{name:"Trujillo",shortCode:"T"},{name:"Vargas",shortCode:"X"},{name:"Yaracuy",shortCode:"U"},{name:"Zulia",shortCode:"V"}]},{countryName:"Vietnam",countryShortCode:"VN",regions:[{name:"Đồng Nai",shortCode:"39"},{name:"Đồng Tháp",shortCode:"45"},{name:"Gia Lai",shortCode:"30"},{name:"Hà Giang",shortCode:"03"},{name:"Hà Nam",shortCode:"63"},{name:"Hà Tây",shortCode:"15"},{name:"Hà Tĩnh",shortCode:"23"},{name:"Hải Dương",shortCode:"61"},{name:"Hậu Giang",shortCode:"73"},{name:"Hòa Bình",shortCode:"14"},{name:"Hưng Yên",shortCode:"66"},{name:"Khánh Hòa",shortCode:"34"},{name:"Kiên Giang",shortCode:"47"},{name:"Kon Tum",shortCode:"28"},{name:"Lai Châu",shortCode:"01"},{name:"Lâm Đồng",shortCode:"35"},{name:"Lạng Sơn",shortCode:"09"},{name:"Lào Cai",shortCode:"02"},{name:"Long An",shortCode:"41"},{name:"Nam Định",shortCode:"67"},{name:"Nghệ An",shortCode:"22"},{name:"Ninh Bình",shortCode:"18"},{name:"Ninh Thuận",shortCode:"36"},{name:"Phú Thọ",shortCode:"68"},{name:"Phú Yên",shortCode:"32"},{name:"Quảng Bình",shortCode:"24"},{name:"Quảng Nam",shortCode:"27"},{name:"Quảng Ngãi",shortCode:"29"},{name:"Quảng Ninh",shortCode:"13"},{name:"Quảng Trị",shortCode:"25"},{name:"Sóc Trăng",shortCode:"52"},{name:"Sơn La",shortCode:"05"},{name:"Tây Ninh",shortCode:"37"},{name:"Thái Bình",shortCode:"20"},{name:"Thái Nguyên",shortCode:"69"},{name:"Thanh Hóa",shortCode:"21"},{name:"Thừa Thiên–Huế",shortCode:"26"},{name:"Tiền Giang",shortCode:"46"},{name:"Trà Vinh",shortCode:"51"},{name:"Tuyên Quang",shortCode:"07"},{name:"Vĩnh Long",shortCode:"49"},{name:"Vĩnh Phúc",shortCode:"70"},{name:"Yên Bái",shortCode:"06"},{name:"Cần Thơ",shortCode:"CT"},{name:"Đà Nẵng",shortCode:"DN"},{name:"Hà Nội",shortCode:"HN"},{name:"Hải Phòng",shortCode:"HP"},{name:"Hồ Chí Minh (Sài Gòn)",shortCode:"SG"}]},{countryName:"Virgin Islands, British",countryShortCode:"VG",regions:[{name:"Anegada",shortCode:"ANG"},{name:"Jost Van Dyke",shortCode:"JVD"},{name:"Tortola",shortCode:"TTA"},{name:"Virgin Gorda",shortCode:"VGD"}]},{countryName:"Virgin Islands, U.S.",countryShortCode:"VI",regions:[{name:"St. Thomas",shortCode:"STH"},{name:"St. John",shortCode:"SJO"},{name:"St. Croix",shortCode:"SCR"}]},{countryName:"Wallis and Futuna",countryShortCode:"WF",regions:[{name:"Alo",shortCode:"ALO"},{name:"Sigave",shortCode:"SIG"},{name:"Wallis",shortCode:"WAL"}]},{countryName:"Western Sahara",countryShortCode:"EH",regions:[{name:"Es Smara",shortCode:"ESM"},{name:"Boujdour",shortCode:"BOD"},{name:"Laâyoune",shortCode:"LAA"},{name:"Aousserd",shortCode:"AOU"},{name:"Oued ed Dahab",shortCode:"OUD"}]},{countryName:"Yemen",countryShortCode:"YE",regions:[{name:"Abyān",shortCode:"AB"},{name:"'Adan",shortCode:"AD"},{name:"Aḑ Ḑāli'",shortCode:"DA"},{name:"Al Bayḑā'",shortCode:"BA"},{name:"Al Ḩudaydah",shortCode:"HU"},{name:"Al Jawf",shortCode:"JA"},{name:"Al Mahrah",shortCode:"MR"},{name:"Al Maḩwīt",shortCode:"MW"},{name:"'Amrān",shortCode:"AM"},{name:"Dhamār",shortCode:"DH"},{name:"Ḩaḑramawt",shortCode:"HD"},{name:"Ḩajjah",shortCode:"HJ"},{name:"Ibb",shortCode:"IB"},{name:"Laḩij",shortCode:"LA"},{name:"Ma'rib",shortCode:"MA"},{name:"Raymah",shortCode:"RA"},{name:"Şā‘dah",shortCode:"SD"},{name:"Şan‘ā'",shortCode:"SN"},{name:"Shabwah",shortCode:"SH"},{name:"Tā‘izz",shortCode:"TA"}]},{countryName:"Zambia",countryShortCode:"ZM",regions:[{name:"Central",shortCode:"02"},{name:"Copperbelt",shortCode:"08"},{name:"Eastern",shortCode:"03"},{name:"Luapula",shortCode:"04"},{name:"Lusaka",shortCode:"09"},{name:"Northern",shortCode:"05"},{name:"North-Western",shortCode:"06"},{name:"Southern",shortCode:"07"},{name:"Western",shortCode:"01"}]},{countryName:"Zimbabwe",countryShortCode:"ZW",regions:[{name:"Bulawayo",shortCode:"BU"},{name:"Harare",shortCode:"HA"},{name:"Manicaland",shortCode:"MA"},{name:"Mashonaland Central",shortCode:"MC"},{name:"Mashonaland East",shortCode:"ME"},{name:"Mashonaland West",shortCode:"MW"},{name:"Masvingo",shortCode:"MV"},{name:"Matabeleland North",shortCode:"MN"},{name:"Matabeleland South",shortCode:"MS"},{name:"Midlands",shortCode:"MI"}]}]),d={name:"CountrySelect",props:{country:String,countryName:Boolean,whiteList:Array,blackList:Array,className:String,shortCodeDropdown:Boolean,autocomplete:Boolean,topCountry:{type:String,default:""},placeholder:{type:String,default:"Select Country"},disablePlaceholder:{type:Boolean,default:!1},removePlaceholder:{type:Boolean,default:!1},usei18n:{type:Boolean,default:!0}},data:function(){return{ran:!1}},computed:{countries:function(){var e=this,o=s.filter((function(o){return e.countryName?o.countryName!==e.firstCountry:o.countryShortCode!==e.firstCountry}));if(this.whiteList&&(o=o.filter((function(o){return e.whiteList.includes(o.countryShortCode)}))),this.blackList&&(o=o.filter((function(o){return!e.blackList.includes(o.countryShortCode)}))),this.$i18n&&this.usei18n&&(o=o.map((function(o){var a=Object.assign({},o);return a.countryName=e.$t(o.countryName),a})),o.sort((function(e,o){return e.countryName>o.countryName?1:-1}))),this.removePlaceholder){var a=this.firstCountry||o[0][this.valueType];this.onChange(a)}return o},firstCountry:function(){var e=this;if(this.countryName){if(2===this.topCountry.length){var o=s.find((function(o){return o.countryShortCode===e.topCountry}));return o.countryName}return this.topCountry}return this.topCountry?this.topCountry:""},name:function(){return this.name},value:function(){return this.country},valueType:function(){return this.countryName?"countryName":"countryShortCode"},autocompleteAttr:function(){var e=function(e){return e?"country-name":"country"};return this.autocomplete?e(this.countryName):"off"}},methods:{onChange:function(e){this.$emit("input",e)},topCountryName:function(){var e=this,o=s.find((function(o){return e.countryName?o.countryName===e.firstCountry:o.countryShortCode===e.firstCountry}));return this.$i18n&&this.usei18n?this.$t(o.countryName):this.shortCodeDropdown?o.countryShortCode:o.countryName}}},h=d;function m(e,o,a,n,r,t,s,d){var h,m="function"===typeof e?e.options:e;if(o&&(m.render=o,m.staticRenderFns=a,m._compiled=!0),n&&(m.functional=!0),t&&(m._scopeId="data-v-"+t),s?(h=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"===typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),r&&r.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(s)},m._ssrRegister=h):r&&(h=d?function(){r.call(this,(m.functional?this.parent:this).$root.$options.shadowRoot)}:r),h)if(m.functional){m._injectStyles=h;var C=m.render;m.render=function(e,o){return h.call(o),C(e,o)}}else{var i=m.beforeCreate;m.beforeCreate=i?[].concat(i,h):[h]}return{exports:e,options:m}}var C=m(h,r,t,!1,null,null,null),i=C.exports,u=function(){var e=this,o=e.$createElement,a=e._self._c||o;return a("select",{class:e.className,attrs:{autocomplete:e.autocompleteAttr},on:{change:function(o){return e.onChange(o.target.value)}}},[e.disablePlaceholder||e.removePlaceholder?e._e():a("option",{attrs:{value:""}},[e._v(e._s(e.placeholder))]),e.disablePlaceholder&&!e.removePlaceholder?a("option",{attrs:{value:"",disabled:"",selected:""}},[e._v(e._s(e.placeholder))]):e._e(),e._l(e.shownRegions,(function(o,n){return a("option",{key:n,domProps:{value:""!==o[e.valueType]?o[e.valueType]:o.name.substring(0,3),selected:e.region===o[e.valueType]}},[e._v(e._s(e.shortCodeDropdown?o.shortCode:o.name))])}))],2)},l=[],c={name:"RegionSelect",props:{country:String,region:String,defaultRegion:String,countryName:Boolean,whiteList:Array,blackList:Array,regionName:Boolean,className:String,shortCodeDropdown:Boolean,placeholder:{type:String,default:"Select Region"},disablePlaceholder:{type:Boolean,default:!1},removePlaceholder:{type:Boolean,default:!1},usei18n:{type:Boolean,default:!0}},data:function(){return{shownRegions:[],regions:s,ran:!1}},mounted:function(){if(this.country)this.getRegionWithCountry();else{var e="";e=this.countryName?this.defaultRegion?this.defaultRegion:"United States":this.defaultRegion?this.defaultRegion:"US",this.getRegionWithCountry(e)}},computed:{name:function(){return this.name},value:function(){return this.region},valueType:function(){return this.regionName?"name":"shortCode"},autocompleteAttr:function(){return this.autocomplete?"address-level1":"off"}},methods:{onChange:function(e){this.$emit("input",e)},getRegionWithCountry:function(e){var o=this;e=e||this.country;var a=s.find((function(a){return o.countryName?a.countryName===e:a.countryShortCode===e})).regions;this.$i18n&&this.usei18n&&(a=a.map((function(e){var a=Object.assign({},e);return a.name=o.$t(e.name),a})),a.sort((function(e,o){return e.name>o.name?1:-1}))),this.whiteList&&(a=a.filter((function(e){return o.whiteList.includes(e.shortCode)}))),this.blackList&&(a=a.filter((function(e){return!o.blackList.includes(e.shortCode)}))),this.shownRegions=a,this.disablePlaceholder&&this.ran&&this.onChange(this.shownRegions[0][this.valueType]),this.removePlaceholder&&this.onChange(this.shownRegions[0][this.valueType]),this.ran=!0}},watch:{country:function(e,o){""!==o&&this.onChange(""),this.country?this.getRegionWithCountry():this.shownRegions=[]}}},S=c,g=m(S,u,l,!1,null,null,null),y=g.exports,A=function(e){var o={CountrySelect:i,RegionSelect:y};Object.keys(o).forEach((function(a){e.component(a,o[a])}))},N={CountrySelect:i,RegionSelect:y,install:A},M=N;o["default"]=M}})}));
 //# sourceMappingURL=vueCountryRegionSelect.umd.min.js.map
 
 /***/ }),
@@ -42131,8 +42249,8 @@ function normalizeComponent (
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /*!
-  * vue-router v3.3.4
-  * (c) 2020 Evan You
+  * vue-router v3.5.1
+  * (c) 2021 Evan You
   * @license MIT
   */
 /*  */
@@ -42149,19 +42267,280 @@ function warn (condition, message) {
   }
 }
 
-function isError (err) {
-  return Object.prototype.toString.call(err).indexOf('Error') > -1
-}
-
-function isRouterError (err, errorType) {
-  return isError(err) && err._isRouter && (errorType == null || err.type === errorType)
-}
-
 function extend (a, b) {
   for (var key in b) {
     a[key] = b[key];
   }
   return a
+}
+
+/*  */
+
+var encodeReserveRE = /[!'()*]/g;
+var encodeReserveReplacer = function (c) { return '%' + c.charCodeAt(0).toString(16); };
+var commaRE = /%2C/g;
+
+// fixed encodeURIComponent which is more conformant to RFC3986:
+// - escapes [!'()*]
+// - preserve commas
+var encode = function (str) { return encodeURIComponent(str)
+    .replace(encodeReserveRE, encodeReserveReplacer)
+    .replace(commaRE, ','); };
+
+function decode (str) {
+  try {
+    return decodeURIComponent(str)
+  } catch (err) {
+    if (true) {
+      warn(false, ("Error decoding \"" + str + "\". Leaving it intact."));
+    }
+  }
+  return str
+}
+
+function resolveQuery (
+  query,
+  extraQuery,
+  _parseQuery
+) {
+  if ( extraQuery === void 0 ) extraQuery = {};
+
+  var parse = _parseQuery || parseQuery;
+  var parsedQuery;
+  try {
+    parsedQuery = parse(query || '');
+  } catch (e) {
+     true && warn(false, e.message);
+    parsedQuery = {};
+  }
+  for (var key in extraQuery) {
+    var value = extraQuery[key];
+    parsedQuery[key] = Array.isArray(value)
+      ? value.map(castQueryParamValue)
+      : castQueryParamValue(value);
+  }
+  return parsedQuery
+}
+
+var castQueryParamValue = function (value) { return (value == null || typeof value === 'object' ? value : String(value)); };
+
+function parseQuery (query) {
+  var res = {};
+
+  query = query.trim().replace(/^(\?|#|&)/, '');
+
+  if (!query) {
+    return res
+  }
+
+  query.split('&').forEach(function (param) {
+    var parts = param.replace(/\+/g, ' ').split('=');
+    var key = decode(parts.shift());
+    var val = parts.length > 0 ? decode(parts.join('=')) : null;
+
+    if (res[key] === undefined) {
+      res[key] = val;
+    } else if (Array.isArray(res[key])) {
+      res[key].push(val);
+    } else {
+      res[key] = [res[key], val];
+    }
+  });
+
+  return res
+}
+
+function stringifyQuery (obj) {
+  var res = obj
+    ? Object.keys(obj)
+      .map(function (key) {
+        var val = obj[key];
+
+        if (val === undefined) {
+          return ''
+        }
+
+        if (val === null) {
+          return encode(key)
+        }
+
+        if (Array.isArray(val)) {
+          var result = [];
+          val.forEach(function (val2) {
+            if (val2 === undefined) {
+              return
+            }
+            if (val2 === null) {
+              result.push(encode(key));
+            } else {
+              result.push(encode(key) + '=' + encode(val2));
+            }
+          });
+          return result.join('&')
+        }
+
+        return encode(key) + '=' + encode(val)
+      })
+      .filter(function (x) { return x.length > 0; })
+      .join('&')
+    : null;
+  return res ? ("?" + res) : ''
+}
+
+/*  */
+
+var trailingSlashRE = /\/?$/;
+
+function createRoute (
+  record,
+  location,
+  redirectedFrom,
+  router
+) {
+  var stringifyQuery = router && router.options.stringifyQuery;
+
+  var query = location.query || {};
+  try {
+    query = clone(query);
+  } catch (e) {}
+
+  var route = {
+    name: location.name || (record && record.name),
+    meta: (record && record.meta) || {},
+    path: location.path || '/',
+    hash: location.hash || '',
+    query: query,
+    params: location.params || {},
+    fullPath: getFullPath(location, stringifyQuery),
+    matched: record ? formatMatch(record) : []
+  };
+  if (redirectedFrom) {
+    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery);
+  }
+  return Object.freeze(route)
+}
+
+function clone (value) {
+  if (Array.isArray(value)) {
+    return value.map(clone)
+  } else if (value && typeof value === 'object') {
+    var res = {};
+    for (var key in value) {
+      res[key] = clone(value[key]);
+    }
+    return res
+  } else {
+    return value
+  }
+}
+
+// the starting route that represents the initial state
+var START = createRoute(null, {
+  path: '/'
+});
+
+function formatMatch (record) {
+  var res = [];
+  while (record) {
+    res.unshift(record);
+    record = record.parent;
+  }
+  return res
+}
+
+function getFullPath (
+  ref,
+  _stringifyQuery
+) {
+  var path = ref.path;
+  var query = ref.query; if ( query === void 0 ) query = {};
+  var hash = ref.hash; if ( hash === void 0 ) hash = '';
+
+  var stringify = _stringifyQuery || stringifyQuery;
+  return (path || '/') + stringify(query) + hash
+}
+
+function isSameRoute (a, b, onlyPath) {
+  if (b === START) {
+    return a === b
+  } else if (!b) {
+    return false
+  } else if (a.path && b.path) {
+    return a.path.replace(trailingSlashRE, '') === b.path.replace(trailingSlashRE, '') && (onlyPath ||
+      a.hash === b.hash &&
+      isObjectEqual(a.query, b.query))
+  } else if (a.name && b.name) {
+    return (
+      a.name === b.name &&
+      (onlyPath || (
+        a.hash === b.hash &&
+      isObjectEqual(a.query, b.query) &&
+      isObjectEqual(a.params, b.params))
+      )
+    )
+  } else {
+    return false
+  }
+}
+
+function isObjectEqual (a, b) {
+  if ( a === void 0 ) a = {};
+  if ( b === void 0 ) b = {};
+
+  // handle null value #1566
+  if (!a || !b) { return a === b }
+  var aKeys = Object.keys(a).sort();
+  var bKeys = Object.keys(b).sort();
+  if (aKeys.length !== bKeys.length) {
+    return false
+  }
+  return aKeys.every(function (key, i) {
+    var aVal = a[key];
+    var bKey = bKeys[i];
+    if (bKey !== key) { return false }
+    var bVal = b[key];
+    // query values can be null and undefined
+    if (aVal == null || bVal == null) { return aVal === bVal }
+    // check nested equality
+    if (typeof aVal === 'object' && typeof bVal === 'object') {
+      return isObjectEqual(aVal, bVal)
+    }
+    return String(aVal) === String(bVal)
+  })
+}
+
+function isIncludedRoute (current, target) {
+  return (
+    current.path.replace(trailingSlashRE, '/').indexOf(
+      target.path.replace(trailingSlashRE, '/')
+    ) === 0 &&
+    (!target.hash || current.hash === target.hash) &&
+    queryIncludes(current.query, target.query)
+  )
+}
+
+function queryIncludes (current, target) {
+  for (var key in target) {
+    if (!(key in current)) {
+      return false
+    }
+  }
+  return true
+}
+
+function handleRouteEntered (route) {
+  for (var i = 0; i < route.matched.length; i++) {
+    var record = route.matched[i];
+    for (var name in record.instances) {
+      var instance = record.instances[name];
+      var cbs = record.enteredCbs[name];
+      if (!instance || !cbs) { continue }
+      delete record.enteredCbs[name];
+      for (var i$1 = 0; i$1 < cbs.length; i$1++) {
+        if (!instance._isBeingDestroyed) { cbs[i$1](instance); }
+      }
+    }
+  }
 }
 
 var View = {
@@ -42262,10 +42641,15 @@ var View = {
       ) {
         matched.instances[name] = vnode.componentInstance;
       }
+
+      // if the route transition has already been confirmed then we weren't
+      // able to call the cbs during confirmation as the component was not
+      // registered yet, so we call it here.
+      handleRouteEntered(route);
     };
 
     var configProps = matched.props && matched.props[name];
-    // save route and configProps in cachce
+    // save route and configProps in cache
     if (configProps) {
       extend(cache[name], {
         route: route,
@@ -42314,239 +42698,6 @@ function resolveProps (route, config) {
         );
       }
   }
-}
-
-/*  */
-
-var encodeReserveRE = /[!'()*]/g;
-var encodeReserveReplacer = function (c) { return '%' + c.charCodeAt(0).toString(16); };
-var commaRE = /%2C/g;
-
-// fixed encodeURIComponent which is more conformant to RFC3986:
-// - escapes [!'()*]
-// - preserve commas
-var encode = function (str) { return encodeURIComponent(str)
-  .replace(encodeReserveRE, encodeReserveReplacer)
-  .replace(commaRE, ','); };
-
-var decode = decodeURIComponent;
-
-function resolveQuery (
-  query,
-  extraQuery,
-  _parseQuery
-) {
-  if ( extraQuery === void 0 ) extraQuery = {};
-
-  var parse = _parseQuery || parseQuery;
-  var parsedQuery;
-  try {
-    parsedQuery = parse(query || '');
-  } catch (e) {
-     true && warn(false, e.message);
-    parsedQuery = {};
-  }
-  for (var key in extraQuery) {
-    parsedQuery[key] = extraQuery[key];
-  }
-  return parsedQuery
-}
-
-function parseQuery (query) {
-  var res = {};
-
-  query = query.trim().replace(/^(\?|#|&)/, '');
-
-  if (!query) {
-    return res
-  }
-
-  query.split('&').forEach(function (param) {
-    var parts = param.replace(/\+/g, ' ').split('=');
-    var key = decode(parts.shift());
-    var val = parts.length > 0
-      ? decode(parts.join('='))
-      : null;
-
-    if (res[key] === undefined) {
-      res[key] = val;
-    } else if (Array.isArray(res[key])) {
-      res[key].push(val);
-    } else {
-      res[key] = [res[key], val];
-    }
-  });
-
-  return res
-}
-
-function stringifyQuery (obj) {
-  var res = obj ? Object.keys(obj).map(function (key) {
-    var val = obj[key];
-
-    if (val === undefined) {
-      return ''
-    }
-
-    if (val === null) {
-      return encode(key)
-    }
-
-    if (Array.isArray(val)) {
-      var result = [];
-      val.forEach(function (val2) {
-        if (val2 === undefined) {
-          return
-        }
-        if (val2 === null) {
-          result.push(encode(key));
-        } else {
-          result.push(encode(key) + '=' + encode(val2));
-        }
-      });
-      return result.join('&')
-    }
-
-    return encode(key) + '=' + encode(val)
-  }).filter(function (x) { return x.length > 0; }).join('&') : null;
-  return res ? ("?" + res) : ''
-}
-
-/*  */
-
-var trailingSlashRE = /\/?$/;
-
-function createRoute (
-  record,
-  location,
-  redirectedFrom,
-  router
-) {
-  var stringifyQuery = router && router.options.stringifyQuery;
-
-  var query = location.query || {};
-  try {
-    query = clone(query);
-  } catch (e) {}
-
-  var route = {
-    name: location.name || (record && record.name),
-    meta: (record && record.meta) || {},
-    path: location.path || '/',
-    hash: location.hash || '',
-    query: query,
-    params: location.params || {},
-    fullPath: getFullPath(location, stringifyQuery),
-    matched: record ? formatMatch(record) : []
-  };
-  if (redirectedFrom) {
-    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery);
-  }
-  return Object.freeze(route)
-}
-
-function clone (value) {
-  if (Array.isArray(value)) {
-    return value.map(clone)
-  } else if (value && typeof value === 'object') {
-    var res = {};
-    for (var key in value) {
-      res[key] = clone(value[key]);
-    }
-    return res
-  } else {
-    return value
-  }
-}
-
-// the starting route that represents the initial state
-var START = createRoute(null, {
-  path: '/'
-});
-
-function formatMatch (record) {
-  var res = [];
-  while (record) {
-    res.unshift(record);
-    record = record.parent;
-  }
-  return res
-}
-
-function getFullPath (
-  ref,
-  _stringifyQuery
-) {
-  var path = ref.path;
-  var query = ref.query; if ( query === void 0 ) query = {};
-  var hash = ref.hash; if ( hash === void 0 ) hash = '';
-
-  var stringify = _stringifyQuery || stringifyQuery;
-  return (path || '/') + stringify(query) + hash
-}
-
-function isSameRoute (a, b) {
-  if (b === START) {
-    return a === b
-  } else if (!b) {
-    return false
-  } else if (a.path && b.path) {
-    return (
-      a.path.replace(trailingSlashRE, '') === b.path.replace(trailingSlashRE, '') &&
-      a.hash === b.hash &&
-      isObjectEqual(a.query, b.query)
-    )
-  } else if (a.name && b.name) {
-    return (
-      a.name === b.name &&
-      a.hash === b.hash &&
-      isObjectEqual(a.query, b.query) &&
-      isObjectEqual(a.params, b.params)
-    )
-  } else {
-    return false
-  }
-}
-
-function isObjectEqual (a, b) {
-  if ( a === void 0 ) a = {};
-  if ( b === void 0 ) b = {};
-
-  // handle null value #1566
-  if (!a || !b) { return a === b }
-  var aKeys = Object.keys(a);
-  var bKeys = Object.keys(b);
-  if (aKeys.length !== bKeys.length) {
-    return false
-  }
-  return aKeys.every(function (key) {
-    var aVal = a[key];
-    var bVal = b[key];
-    // check nested equality
-    if (typeof aVal === 'object' && typeof bVal === 'object') {
-      return isObjectEqual(aVal, bVal)
-    }
-    return String(aVal) === String(bVal)
-  })
-}
-
-function isIncludedRoute (current, target) {
-  return (
-    current.path.replace(trailingSlashRE, '/').indexOf(
-      target.path.replace(trailingSlashRE, '/')
-    ) === 0 &&
-    (!target.hash || current.hash === target.hash) &&
-    queryIncludes(current.query, target.query)
-  )
-}
-
-function queryIncludes (current, target) {
-  for (var key in target) {
-    if (!(key in current)) {
-      return false
-    }
-  }
-  return true
 }
 
 /*  */
@@ -43157,6 +43308,10 @@ var eventTypes = [String, Array];
 
 var noop = function () {};
 
+var warnedCustomSlot;
+var warnedTagProp;
+var warnedEventProp;
+
 var Link = {
   name: 'RouterLink',
   props: {
@@ -43168,7 +43323,9 @@ var Link = {
       type: String,
       default: 'a'
     },
+    custom: Boolean,
     exact: Boolean,
+    exactPath: Boolean,
     append: Boolean,
     replace: Boolean,
     activeClass: String,
@@ -43217,8 +43374,8 @@ var Link = {
       ? createRoute(null, normalizeLocation(route.redirectedFrom), null, router)
       : route;
 
-    classes[exactActiveClass] = isSameRoute(current, compareTarget);
-    classes[activeClass] = this.exact
+    classes[exactActiveClass] = isSameRoute(current, compareTarget, this.exactPath);
+    classes[activeClass] = this.exact || this.exactPath
       ? classes[exactActiveClass]
       : isIncludedRoute(current, compareTarget);
 
@@ -43257,16 +43414,37 @@ var Link = {
       });
 
     if (scopedSlot) {
+      if ( true && !this.custom) {
+        !warnedCustomSlot && warn(false, 'In Vue Router 4, the v-slot API will by default wrap its content with an <a> element. Use the custom prop to remove this warning:\n<router-link v-slot="{ navigate, href }" custom></router-link>\n');
+        warnedCustomSlot = true;
+      }
       if (scopedSlot.length === 1) {
         return scopedSlot[0]
       } else if (scopedSlot.length > 1 || !scopedSlot.length) {
         if (true) {
           warn(
             false,
-            ("RouterLink with to=\"" + (this.to) + "\" is trying to use a scoped slot but it didn't provide exactly one child. Wrapping the content with a span element.")
+            ("<router-link> with to=\"" + (this.to) + "\" is trying to use a scoped slot but it didn't provide exactly one child. Wrapping the content with a span element.")
           );
         }
         return scopedSlot.length === 0 ? h() : h('span', {}, scopedSlot)
+      }
+    }
+
+    if (true) {
+      if ('tag' in this.$options.propsData && !warnedTagProp) {
+        warn(
+          false,
+          "<router-link>'s tag prop is deprecated and has been removed in Vue Router 4. Use the v-slot API to remove this warning: https://next.router.vuejs.org/guide/migration/#removal-of-event-and-tag-props-in-router-link."
+        );
+        warnedTagProp = true;
+      }
+      if ('event' in this.$options.propsData && !warnedEventProp) {
+        warn(
+          false,
+          "<router-link>'s event prop is deprecated and has been removed in Vue Router 4. Use the v-slot API to remove this warning: https://next.router.vuejs.org/guide/migration/#removal-of-event-and-tag-props-in-router-link."
+        );
+        warnedEventProp = true;
       }
     }
 
@@ -43405,7 +43583,8 @@ function createRouteMap (
   routes,
   oldPathList,
   oldPathMap,
-  oldNameMap
+  oldNameMap,
+  parentRoute
 ) {
   // the path list is used to control path matching priority
   var pathList = oldPathList || [];
@@ -43415,7 +43594,7 @@ function createRouteMap (
   var nameMap = oldNameMap || Object.create(null);
 
   routes.forEach(function (route) {
-    addRouteRecord(pathList, pathMap, nameMap, route);
+    addRouteRecord(pathList, pathMap, nameMap, route, parentRoute);
   });
 
   // ensure wildcard routes are always at the end
@@ -43464,6 +43643,14 @@ function addRouteRecord (
         path || name
       )) + " cannot be a " + "string id. Use an actual component instead."
     );
+
+    warn(
+      // eslint-disable-next-line no-control-regex
+      !/[^\u0000-\u007F]+/.test(path),
+      "Route with path \"" + path + "\" contains unencoded characters, make sure " +
+        "your path is correctly encoded before passing it to the router. Use " +
+        "encodeURI to encode static segments of your path."
+    );
   }
 
   var pathToRegexpOptions =
@@ -43478,7 +43665,13 @@ function addRouteRecord (
     path: normalizedPath,
     regex: compileRouteRegex(normalizedPath, pathToRegexpOptions),
     components: route.components || { default: route.component },
+    alias: route.alias
+      ? typeof route.alias === 'string'
+        ? [route.alias]
+        : route.alias
+      : [],
     instances: {},
+    enteredCbs: {},
     name: name,
     parent: parent,
     matchAs: matchAs,
@@ -43611,6 +43804,28 @@ function createMatcher (
 
   function addRoutes (routes) {
     createRouteMap(routes, pathList, pathMap, nameMap);
+  }
+
+  function addRoute (parentOrRoute, route) {
+    var parent = (typeof parentOrRoute !== 'object') ? nameMap[parentOrRoute] : undefined;
+    // $flow-disable-line
+    createRouteMap([route || parentOrRoute], pathList, pathMap, nameMap, parent);
+
+    // add aliases of parent
+    if (parent) {
+      createRouteMap(
+        // $flow-disable-line route is defined if parent is
+        parent.alias.map(function (alias) { return ({ path: alias, children: [route] }); }),
+        pathList,
+        pathMap,
+        nameMap,
+        parent
+      );
+    }
+  }
+
+  function getRoutes () {
+    return pathList.map(function (path) { return pathMap[path]; })
   }
 
   function match (
@@ -43759,6 +43974,8 @@ function createMatcher (
 
   return {
     match: match,
+    addRoute: addRoute,
+    getRoutes: getRoutes,
     addRoutes: addRoutes
   }
 }
@@ -43778,10 +43995,9 @@ function matchRoute (
 
   for (var i = 1, len = m.length; i < len; ++i) {
     var key = regex.keys[i - 1];
-    var val = typeof m[i] === 'string' ? decodeURIComponent(m[i]) : m[i];
     if (key) {
       // Fix #1994: using * with props: true generates a param named 0
-      params[key.name || 'pathMatch'] = val;
+      params[key.name || 'pathMatch'] = typeof m[i] === 'string' ? decode(m[i]) : m[i];
     }
   }
 
@@ -43971,7 +44187,17 @@ function scrollToPosition (shouldScroll, position) {
   }
 
   if (position) {
-    window.scrollTo(position.x, position.y);
+    // $flow-disable-line
+    if ('scrollBehavior' in document.documentElement.style) {
+      window.scrollTo({
+        left: position.x,
+        top: position.y,
+        // $flow-disable-line
+        behavior: shouldScroll.behavior
+      });
+    } else {
+      window.scrollTo(position.x, position.y);
+    }
   }
 }
 
@@ -44034,6 +44260,89 @@ function runQueue (queue, fn, cb) {
     }
   };
   step(0);
+}
+
+// When changing thing, also edit router.d.ts
+var NavigationFailureType = {
+  redirected: 2,
+  aborted: 4,
+  cancelled: 8,
+  duplicated: 16
+};
+
+function createNavigationRedirectedError (from, to) {
+  return createRouterError(
+    from,
+    to,
+    NavigationFailureType.redirected,
+    ("Redirected when going from \"" + (from.fullPath) + "\" to \"" + (stringifyRoute(
+      to
+    )) + "\" via a navigation guard.")
+  )
+}
+
+function createNavigationDuplicatedError (from, to) {
+  var error = createRouterError(
+    from,
+    to,
+    NavigationFailureType.duplicated,
+    ("Avoided redundant navigation to current location: \"" + (from.fullPath) + "\".")
+  );
+  // backwards compatible with the first introduction of Errors
+  error.name = 'NavigationDuplicated';
+  return error
+}
+
+function createNavigationCancelledError (from, to) {
+  return createRouterError(
+    from,
+    to,
+    NavigationFailureType.cancelled,
+    ("Navigation cancelled from \"" + (from.fullPath) + "\" to \"" + (to.fullPath) + "\" with a new navigation.")
+  )
+}
+
+function createNavigationAbortedError (from, to) {
+  return createRouterError(
+    from,
+    to,
+    NavigationFailureType.aborted,
+    ("Navigation aborted from \"" + (from.fullPath) + "\" to \"" + (to.fullPath) + "\" via a navigation guard.")
+  )
+}
+
+function createRouterError (from, to, type, message) {
+  var error = new Error(message);
+  error._isRouter = true;
+  error.from = from;
+  error.to = to;
+  error.type = type;
+
+  return error
+}
+
+var propertiesToLog = ['params', 'query', 'hash'];
+
+function stringifyRoute (to) {
+  if (typeof to === 'string') { return to }
+  if ('path' in to) { return to.path }
+  var location = {};
+  propertiesToLog.forEach(function (key) {
+    if (key in to) { location[key] = to[key]; }
+  });
+  return JSON.stringify(location, null, 2)
+}
+
+function isError (err) {
+  return Object.prototype.toString.call(err).indexOf('Error') > -1
+}
+
+function isNavigationFailure (err, errorType) {
+  return (
+    isError(err) &&
+    err._isRouter &&
+    (errorType == null || err.type === errorType)
+  )
 }
 
 /*  */
@@ -44145,73 +44454,6 @@ function once (fn) {
   }
 }
 
-var NavigationFailureType = {
-  redirected: 1,
-  aborted: 2,
-  cancelled: 3,
-  duplicated: 4
-};
-
-function createNavigationRedirectedError (from, to) {
-  return createRouterError(
-    from,
-    to,
-    NavigationFailureType.redirected,
-    ("Redirected when going from \"" + (from.fullPath) + "\" to \"" + (stringifyRoute(
-      to
-    )) + "\" via a navigation guard.")
-  )
-}
-
-function createNavigationDuplicatedError (from, to) {
-  return createRouterError(
-    from,
-    to,
-    NavigationFailureType.duplicated,
-    ("Avoided redundant navigation to current location: \"" + (from.fullPath) + "\".")
-  )
-}
-
-function createNavigationCancelledError (from, to) {
-  return createRouterError(
-    from,
-    to,
-    NavigationFailureType.cancelled,
-    ("Navigation cancelled from \"" + (from.fullPath) + "\" to \"" + (to.fullPath) + "\" with a new navigation.")
-  )
-}
-
-function createNavigationAbortedError (from, to) {
-  return createRouterError(
-    from,
-    to,
-    NavigationFailureType.aborted,
-    ("Navigation aborted from \"" + (from.fullPath) + "\" to \"" + (to.fullPath) + "\" via a navigation guard.")
-  )
-}
-
-function createRouterError (from, to, type, message) {
-  var error = new Error(message);
-  error._isRouter = true;
-  error.from = from;
-  error.to = to;
-  error.type = type;
-
-  return error
-}
-
-var propertiesToLog = ['params', 'query', 'hash'];
-
-function stringifyRoute (to) {
-  if (typeof to === 'string') { return to }
-  if ('path' in to) { return to.path }
-  var location = {};
-  propertiesToLog.forEach(function (key) {
-    if (key in to) { location[key] = to[key]; }
-  });
-  return JSON.stringify(location, null, 2)
-}
-
 /*  */
 
 var History = function History (router, base) {
@@ -44253,11 +44495,21 @@ History.prototype.transitionTo = function transitionTo (
 ) {
     var this$1 = this;
 
-  var route = this.router.match(location, this.current);
+  var route;
+  // catch redirect option https://github.com/vuejs/vue-router/issues/3201
+  try {
+    route = this.router.match(location, this.current);
+  } catch (e) {
+    this.errorCbs.forEach(function (cb) {
+      cb(e);
+    });
+    // Exception should still be thrown
+    throw e
+  }
+  var prev = this.current;
   this.confirmTransition(
     route,
     function () {
-      var prev = this$1.current;
       this$1.updateRoute(route);
       onComplete && onComplete(route);
       this$1.ensureURL();
@@ -44278,16 +44530,14 @@ History.prototype.transitionTo = function transitionTo (
         onAbort(err);
       }
       if (err && !this$1.ready) {
-        this$1.ready = true;
-        // Initial redirection should still trigger the onReady onSuccess
+        // Initial redirection should not mark the history as ready yet
+        // because it's triggered by the redirection instead
         // https://github.com/vuejs/vue-router/issues/3225
-        if (!isRouterError(err, NavigationFailureType.redirected)) {
+        // https://github.com/vuejs/vue-router/issues/3331
+        if (!isNavigationFailure(err, NavigationFailureType.redirected) || prev !== START) {
+          this$1.ready = true;
           this$1.readyErrorCbs.forEach(function (cb) {
             cb(err);
-          });
-        } else {
-          this$1.readyCbs.forEach(function (cb) {
-            cb(route);
           });
         }
       }
@@ -44299,11 +44549,12 @@ History.prototype.confirmTransition = function confirmTransition (route, onCompl
     var this$1 = this;
 
   var current = this.current;
+  this.pending = route;
   var abort = function (err) {
     // changed after adding errors with
     // https://github.com/vuejs/vue-router/pull/3047 before that change,
     // redirect and aborted navigation would produce an err == null
-    if (!isRouterError(err) && isError(err)) {
+    if (!isNavigationFailure(err) && isError(err)) {
       if (this$1.errorCbs.length) {
         this$1.errorCbs.forEach(function (cb) {
           cb(err);
@@ -44348,7 +44599,6 @@ History.prototype.confirmTransition = function confirmTransition (route, onCompl
     resolveAsyncComponents(activated)
   );
 
-  this.pending = route;
   var iterator = function (hook, next) {
     if (this$1.pending !== route) {
       return abort(createNavigationCancelledError(current, route))
@@ -44385,11 +44635,9 @@ History.prototype.confirmTransition = function confirmTransition (route, onCompl
   };
 
   runQueue(queue, iterator, function () {
-    var postEnterCbs = [];
-    var isValid = function () { return this$1.current === route; };
     // wait until async components are resolved before
     // extracting in-component enter guards
-    var enterGuards = extractEnterGuards(activated, postEnterCbs, isValid);
+    var enterGuards = extractEnterGuards(activated);
     var queue = enterGuards.concat(this$1.router.resolveHooks);
     runQueue(queue, iterator, function () {
       if (this$1.pending !== route) {
@@ -44399,9 +44647,7 @@ History.prototype.confirmTransition = function confirmTransition (route, onCompl
       onComplete(route);
       if (this$1.router.app) {
         this$1.router.app.$nextTick(function () {
-          postEnterCbs.forEach(function (cb) {
-            cb();
-          });
+          handleRouteEntered(route);
         });
       }
     });
@@ -44417,11 +44663,18 @@ History.prototype.setupListeners = function setupListeners () {
   // Default implementation is empty
 };
 
-History.prototype.teardownListeners = function teardownListeners () {
+History.prototype.teardown = function teardown () {
+  // clean up event listeners
+  // https://github.com/vuejs/vue-router/issues/2341
   this.listeners.forEach(function (cleanupListener) {
     cleanupListener();
   });
   this.listeners = [];
+
+  // reset current history route
+  // https://github.com/vuejs/vue-router/issues/3294
+  this.current = START;
+  this.pending = null;
 };
 
 function normalizeBase (base) {
@@ -44507,15 +44760,13 @@ function bindGuard (guard, instance) {
 }
 
 function extractEnterGuards (
-  activated,
-  cbs,
-  isValid
+  activated
 ) {
   return extractGuards(
     activated,
     'beforeRouteEnter',
     function (guard, _, match, key) {
-      return bindEnterGuard(guard, match, key, cbs, isValid)
+      return bindEnterGuard(guard, match, key)
     }
   )
 }
@@ -44523,42 +44774,18 @@ function extractEnterGuards (
 function bindEnterGuard (
   guard,
   match,
-  key,
-  cbs,
-  isValid
+  key
 ) {
   return function routeEnterGuard (to, from, next) {
     return guard(to, from, function (cb) {
       if (typeof cb === 'function') {
-        cbs.push(function () {
-          // #750
-          // if a router-view is wrapped with an out-in transition,
-          // the instance may not have been registered at this time.
-          // we will need to poll for registration until current route
-          // is no longer valid.
-          poll(cb, match.instances, key, isValid);
-        });
+        if (!match.enteredCbs[key]) {
+          match.enteredCbs[key] = [];
+        }
+        match.enteredCbs[key].push(cb);
       }
       next(cb);
     })
-  }
-}
-
-function poll (
-  cb, // somehow flow cannot infer this is a function
-  instances,
-  key,
-  isValid
-) {
-  if (
-    instances[key] &&
-    !instances[key]._isBeingDestroyed // do not reuse being destroyed instance
-  ) {
-    cb(instances[key]);
-  } else if (isValid()) {
-    setTimeout(function () {
-      poll(cb, instances, key, isValid);
-    }, 16);
   }
 }
 
@@ -44655,7 +44882,7 @@ var HTML5History = /*@__PURE__*/(function (History) {
 }(History));
 
 function getLocation (base) {
-  var path = decodeURI(window.location.pathname);
+  var path = window.location.pathname;
   if (base && path.toLowerCase().indexOf(base.toLowerCase()) === 0) {
     path = path.slice(base.length);
   }
@@ -44795,18 +45022,6 @@ function getHash () {
   if (index < 0) { return '' }
 
   href = href.slice(index + 1);
-  // decode the hash but not the search or hash
-  // as search(query) is already decoded
-  // https://github.com/vuejs/vue-router/issues/2708
-  var searchIndex = href.indexOf('?');
-  if (searchIndex < 0) {
-    var hashIndex = href.indexOf('#');
-    if (hashIndex > -1) {
-      href = decodeURI(href.slice(0, hashIndex)) + href.slice(hashIndex);
-    } else { href = decodeURI(href); }
-  } else {
-    href = decodeURI(href.slice(0, searchIndex)) + href.slice(searchIndex);
-  }
 
   return href
 }
@@ -44885,11 +45100,15 @@ var AbstractHistory = /*@__PURE__*/(function (History) {
     this.confirmTransition(
       route,
       function () {
+        var prev = this$1.current;
         this$1.index = targetIndex;
         this$1.updateRoute(route);
+        this$1.router.afterHooks.forEach(function (hook) {
+          hook && hook(route, prev);
+        });
       },
       function (err) {
-        if (isRouterError(err, NavigationFailureType.duplicated)) {
+        if (isNavigationFailure(err, NavigationFailureType.duplicated)) {
           this$1.index = targetIndex;
         }
       }
@@ -44910,8 +45129,6 @@ var AbstractHistory = /*@__PURE__*/(function (History) {
 
 /*  */
 
-
-
 var VueRouter = function VueRouter (options) {
   if ( options === void 0 ) options = {};
 
@@ -44924,7 +45141,8 @@ var VueRouter = function VueRouter (options) {
   this.matcher = createMatcher(options.routes || [], this);
 
   var mode = options.mode || 'hash';
-  this.fallback = mode === 'history' && !supportsPushState && options.fallback !== false;
+  this.fallback =
+    mode === 'history' && !supportsPushState && options.fallback !== false;
   if (this.fallback) {
     mode = 'hash';
   }
@@ -44952,11 +45170,7 @@ var VueRouter = function VueRouter (options) {
 
 var prototypeAccessors = { currentRoute: { configurable: true } };
 
-VueRouter.prototype.match = function match (
-  raw,
-  current,
-  redirectedFrom
-) {
+VueRouter.prototype.match = function match (raw, current, redirectedFrom) {
   return this.matcher.match(raw, current, redirectedFrom)
 };
 
@@ -44967,11 +45181,12 @@ prototypeAccessors.currentRoute.get = function () {
 VueRouter.prototype.init = function init (app /* Vue component instance */) {
     var this$1 = this;
 
-   true && assert(
-    install.installed,
-    "not installed. Make sure to call `Vue.use(VueRouter)` " +
-    "before creating root instance."
-  );
+   true &&
+    assert(
+      install.installed,
+      "not installed. Make sure to call `Vue.use(VueRouter)` " +
+        "before creating root instance."
+    );
 
   this.apps.push(app);
 
@@ -44985,11 +45200,7 @@ VueRouter.prototype.init = function init (app /* Vue component instance */) {
     // we do not release the router so it can be reused
     if (this$1.app === app) { this$1.app = this$1.apps[0] || null; }
 
-    if (!this$1.app) {
-      // clean up event listeners
-      // https://github.com/vuejs/vue-router/issues/2341
-      this$1.history.teardownListeners();
-    }
+    if (!this$1.app) { this$1.history.teardown(); }
   });
 
   // main app previously initialized
@@ -45003,10 +45214,24 @@ VueRouter.prototype.init = function init (app /* Vue component instance */) {
   var history = this.history;
 
   if (history instanceof HTML5History || history instanceof HashHistory) {
-    var setupListeners = function () {
-      history.setupListeners();
+    var handleInitialScroll = function (routeOrError) {
+      var from = history.current;
+      var expectScroll = this$1.options.scrollBehavior;
+      var supportsScroll = supportsPushState && expectScroll;
+
+      if (supportsScroll && 'fullPath' in routeOrError) {
+        handleScroll(this$1, routeOrError, from, false);
+      }
     };
-    history.transitionTo(history.getCurrentLocation(), setupListeners, setupListeners);
+    var setupListeners = function (routeOrError) {
+      history.setupListeners();
+      handleInitialScroll(routeOrError);
+    };
+    history.transitionTo(
+      history.getCurrentLocation(),
+      setupListeners,
+      setupListeners
+    );
   }
 
   history.listen(function (route) {
@@ -45083,11 +45308,14 @@ VueRouter.prototype.getMatchedComponents = function getMatchedComponents (to) {
   if (!route) {
     return []
   }
-  return [].concat.apply([], route.matched.map(function (m) {
-    return Object.keys(m.components).map(function (key) {
-      return m.components[key]
+  return [].concat.apply(
+    [],
+    route.matched.map(function (m) {
+      return Object.keys(m.components).map(function (key) {
+        return m.components[key]
+      })
     })
-  }))
+  )
 };
 
 VueRouter.prototype.resolve = function resolve (
@@ -45096,12 +45324,7 @@ VueRouter.prototype.resolve = function resolve (
   append
 ) {
   current = current || this.history.current;
-  var location = normalizeLocation(
-    to,
-    current,
-    append,
-    this
-  );
+  var location = normalizeLocation(to, current, append, this);
   var route = this.match(location, current);
   var fullPath = route.redirectedFrom || route.fullPath;
   var base = this.history.base;
@@ -45116,7 +45339,21 @@ VueRouter.prototype.resolve = function resolve (
   }
 };
 
+VueRouter.prototype.getRoutes = function getRoutes () {
+  return this.matcher.getRoutes()
+};
+
+VueRouter.prototype.addRoute = function addRoute (parentOrRoute, route) {
+  this.matcher.addRoute(parentOrRoute, route);
+  if (this.history.current !== START) {
+    this.history.transitionTo(this.history.getCurrentLocation());
+  }
+};
+
 VueRouter.prototype.addRoutes = function addRoutes (routes) {
+  if (true) {
+    warn(false, 'router.addRoutes() is deprecated and has been removed in Vue Router 4. Use router.addRoute() instead.');
+  }
   this.matcher.addRoutes(routes);
   if (this.history.current !== START) {
     this.history.transitionTo(this.history.getCurrentLocation());
@@ -45139,7 +45376,10 @@ function createHref (base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '3.3.4';
+VueRouter.version = '3.5.1';
+VueRouter.isNavigationFailure = isNavigationFailure;
+VueRouter.NavigationFailureType = NavigationFailureType;
+VueRouter.START_LOCATION = START;
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
@@ -45159,8 +45399,8 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.11
- * (c) 2014-2019 Evan You
+ * Vue.js v2.6.12
+ * (c) 2014-2020 Evan You
  * Released under the MIT License.
  */
 
@@ -50599,7 +50839,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.11';
+Vue.version = '2.6.12';
 
 /*  */
 
@@ -52805,7 +53045,7 @@ function updateDOMProps (oldVnode, vnode) {
       // skip the update if old and new VDOM state is the same.
       // `value` is handled separately because the DOM value may be temporarily
       // out of sync with VDOM state due to focus, composition and modifiers.
-      // This  #4521 by skipping the unnecesarry `checked` update.
+      // This  #4521 by skipping the unnecessary `checked` update.
       cur !== oldProps[key]
     ) {
       // some property updates can throw
@@ -55050,7 +55290,7 @@ function parse (
       }
     },
     comment: function comment (text, start, end) {
-      // adding anyting as a sibling to the root node is forbidden
+      // adding anything as a sibling to the root node is forbidden
       // comments should still be allowed, but ignored
       if (currentParent) {
         var child = {
@@ -57154,8 +57394,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
 /*!
- * vuex v3.6.0
- * (c) 2020 Evan You
+ * vuex v3.6.2
+ * (c) 2021 Evan You
  * @license MIT
  */
 function applyMixin (Vue) {
@@ -58120,7 +58360,7 @@ var mapState = normalizeNamespace(function (namespace, states) {
 /**
  * Reduce the code which written in Vue.js for committing the mutation
  * @param {String} [namespace] - Module's namespace
- * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept anthor params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept another params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
  * @return {Object}
  */
 var mapMutations = normalizeNamespace(function (namespace, mutations) {
@@ -58385,7 +58625,7 @@ function pad (num, maxLength) {
 var index = {
   Store: Store,
   install: install,
-  version: '3.6.0',
+  version: '3.6.2',
   mapState: mapState,
   mapMutations: mapMutations,
   mapGetters: mapGetters,
@@ -59307,7 +59547,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ejay010/Documents/Code/Homestead/cheyketo/resources/js/components/admin/app.js */"./resources/js/components/admin/app.js");
+module.exports = __webpack_require__(/*! /Users/ejay010/Documents/Brown Sugar Factory/Code/brownsugarfactory/resources/js/components/admin/app.js */"./resources/js/components/admin/app.js");
 
 
 /***/ })

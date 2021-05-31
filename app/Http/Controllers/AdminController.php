@@ -25,7 +25,7 @@ class AdminController extends Controller
         )) {
             return redirect()->intended(route('admin.home'));
         } else {
-            return redirect()->back()->with('error', 'Invalid login credentials');
+            return back()->withErrors(['invalid' => 'Credentials Invalid']);
         }
     }
 

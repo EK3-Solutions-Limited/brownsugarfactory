@@ -35,6 +35,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6 offset-3">
+                        @if($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                            @foreach($errors->all() as $error)
+                                <li><p>{{ $error}}</p></li>
+                            @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <div class="card text-center">
                             <div class="card-body">
                                 <h4>Admin Login</h4>

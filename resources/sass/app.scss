@@ -4,6 +4,8 @@
 // Variables
 @import 'variables';
 
+$primary: $brown;
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -13,3 +15,7 @@
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
+
+// .title {
+//     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+// }

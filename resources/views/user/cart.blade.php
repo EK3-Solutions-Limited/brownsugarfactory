@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <h2>
-                    My Keto Kart <i class="fas fa-shopping-cart"></i></h2>
+                    My Sugar Kart <i class="fas fa-shopping-cart"></i></h2>
                     @if(count($items) > 0)
                     <div class="card">
                         <div class="list-group">

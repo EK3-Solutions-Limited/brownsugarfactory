@@ -85,7 +85,7 @@
             <div class="col-md-6">
                 <form method="POST" action="{{route('create_order')}}">
                     @csrf
-                <h3>My Keto Kart <i class="fas fa-shopping-cart"></i></h3>
+                <h3>My Sugar Kart <i class="fas fa-shopping-cart"></i></h3>
                     @if(count($items) > 0)
                     <div class="card">
                         <div class="list-group">
