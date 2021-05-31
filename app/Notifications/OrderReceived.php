@@ -43,7 +43,7 @@ class OrderReceived extends Notification
             ->greeting('New Order Receieved')
             ->line($this->order->user->name . ' placed a new order.')
             ->action('View Order', url(route('admin.viewOrder', $this->order->id)))
-            ->line('God Got You!');
+            ->line('Thank you!');
     }
 
     /**

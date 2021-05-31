@@ -47,7 +47,7 @@ class OrderStatusUpdated extends Notification
             ->line('Order ' . $this->order->id . ' has been updated.')
             ->line('It\'s status is: ' . $this->order->status)
             ->action('View Order', url('/'))
-            ->line('Thank you for using Keto Konnect 242!');
+            ->line('Thank you for choosing The Brown Sugar Factory Bahamas!');
     }
 
     /**
