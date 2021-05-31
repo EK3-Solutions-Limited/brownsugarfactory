@@ -94,7 +94,7 @@
                     {{session('fail')}}
                 </div>
             @endif
-        <main class="py-4">
+        <main class="py-4" id="customer">
             @yield('content')
         </main>
 
