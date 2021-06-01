@@ -6,6 +6,15 @@
 
     <div class="row">
         <div class="col-lg-12">
+            <div class="container-fluid shadow mb-5 p-1">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{{ asset('images/logo.png') }}" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                  </div>
+            </div>
 
             <div class="row">
 
