@@ -39,6 +39,11 @@ Route::prefix('admin')->group(function () {
     Route::get('products/{product}/available', 'AdminController@available')->middleware('auth.admin')->name('admin.products.available');
     Route::get('products/{product}/delete', 'AdminController@delete')->middleware('auth.admin')->name('admin.product.delete');
 
+    Route::get('admanager', 'AdManager@index')->middleware('auth.admin')->name('admin.admanager');
+    Route::post('admanager', 'AdManager@store')->middleware('auth.admin')->name('admin.admanager.store');
+    Route::get('admanager/{id}/delete', 'AdManager@destroy')->middleware('auth.admin')->name('admin.admanager.delete');
+
+
     Route::get('orders/{order}', 'AdminController@viewOrder')->middleware('auth.admin')->name('admin.viewOrder');
     Route::get('orders', 'AdminController@allOrders')->middleware('auth.admin')->name('admin.allOrders');
     Route::get('orders/{order}/update_status', 'AdminController@updateOrderStatus')->middleware('auth.admin')->name('admin.updateOrderStatus');

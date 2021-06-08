@@ -9,9 +9,14 @@
             <div class="container-fluid shadow mb-5 p-1">
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="{{ asset('images/logo.png') }}" class="d-block w-100" alt="...">
-                      </div>
+                        <div class="carousel-item active">
+                            <img src="{{ asset('images/logo.png') }}" class="d-block w-100" alt="...">
+                          </div>
+                        @foreach($ads as $ad)
+                        <div class="carousel-item">
+                            <img src="/{{ $ad->filename }}" class="d-block w-100" alt="...">
+                        </div>
+                        @endforeach
                     </div>
                   </div>
             </div>

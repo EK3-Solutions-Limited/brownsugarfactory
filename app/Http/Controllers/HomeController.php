@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ad;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
@@ -40,9 +41,10 @@ class HomeController extends Controller
     public function landing()
     {
         $products = Product::all();
+        $ads = Ad::all();
         $unavailableProducts = $products->where('status', 'unavailable');
         $availableProducts = $products->where('status', 'available');
-        return view('welcome', compact('products', 'unavailableProducts', 'availableProducts'));
+        return view('welcome', compact('products', 'unavailableProducts', 'availableProducts', 'ads'));
     }
 
     function createAddress(Request $request)
