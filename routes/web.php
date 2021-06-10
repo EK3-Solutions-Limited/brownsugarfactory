@@ -19,6 +19,7 @@ Route::get('/', 'HomeController@landing')->name('storefront');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/myorders', 'HomeController@userOrders')->name('user.orders');
 Route::get('/myorders/{order}', 'HomeController@viewOrder')->name('user.viewOrder');

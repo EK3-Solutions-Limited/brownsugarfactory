@@ -18,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('landing');
+        $this->middleware('auth')->except(['landing', 'about']);
     }
 
     /**
@@ -36,6 +36,11 @@ class HomeController extends Controller
         # code...
         $orders = Auth::user()->orders;
         return view('user.orders', compact('orders'));
+    }
+
+    public function about()
+    {
+        return view('about');
     }
 
     public function landing()

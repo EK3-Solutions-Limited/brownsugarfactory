@@ -14,17 +14,16 @@
                 <h2>Payment Details</h2>
                 <div class="card mb-2">
                     <div class="card-body">
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" v-model="selected" value="pick-up" name="pay-with-cash" id="pick-up-cash">
-                                <label class="form-check-label" for="pick-up-cash">
-                                    Pay with cash at Pickup
-                                </label>
-                            </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" v-model="selected" value="delivery" name="pay-with-cash" id="delivery-cash">
                                 <label class="form-check-label" for="delivery-cash">
-                                    Pay with cash at Delivery
+                                    Cash on Delivery
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" v-model="selected" value="bank-transfer" name="bank-transfer" id="bank-transfer">
+                                <label class="form-check-label" for="bank-transfer">
+                                    Online Bank Transfer
                                 </label>
                             </div>
                             @if(auth()->user()->address != null)
@@ -44,7 +43,7 @@
                                 </div>
                                 @else
                                 <div v-if="selected === 'delivery'">
-                                    Delivery Details
+                                    {{-- Delivery Details
                                     <form class="form" method="POST" action="{{ route('address.create') }}">
                                         @csrf
                                         <div class="form-row mb-2">
@@ -68,15 +67,13 @@
                                             <textarea class="form-control" name="delivery_notes" rows="3" placeholder="If you are living on the family island please tell us which boat that you perfer."></textarea>
                                         </div>
                                         <button class="btn btn-primary btn-block mt-2" type="submit">Confirm Delivery Details</button>
-                                    </form>
+                                    </form> --}}
+                                    Send your location via
+                                    <a href="https://wa.me/message/S3KDFRJOMKJHI1" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">
+                                        <i class="fab fa-whatsapp"></i> WhatsApp
+                                    </a>
                                 </div>
                             @endif
-
-                            <div v-if="selected === 'pick-up'">
-                                <div class="alert alert-primary">
-                                You will receive a call on {{auth()->user()->phone_number }} with further instructions when everything is ready.
-                                </div>
-                            </div>
                     </div>
                 </div>
             </div>

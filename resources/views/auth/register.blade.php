@@ -8,6 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -80,9 +81,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <p>By registering you agree to our <a href="{{route('about', '#terms')}}">terms of service</a> and <a href="{{ route('about', '#policy') }}">privacy policy</a></p>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
