@@ -44,11 +44,14 @@ class Order extends Model
     function getPaymentMethodAttribute($value)
     {
         switch ($value) {
-            case 'pick-up':
+            case 'pickup-cash':
                 return 'Cash upon Pick-up';
                 break;
             case 'delivery':
                 return 'Cash upon Delivery';
+                break;
+            case 'bank-transfer':
+                return 'Bank Transfer';
                 break;
             default:
                 return 'N/A';
