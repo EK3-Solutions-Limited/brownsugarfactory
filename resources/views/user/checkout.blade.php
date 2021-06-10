@@ -17,17 +17,23 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" v-model="selected" value="delivery" name="pay-with-cash" id="delivery-cash">
                                 <label class="form-check-label" for="delivery-cash">
-                                    Cash on Delivery
+                                    Cash on Delivery (Send location via WhatsApp)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" v-model="selected" value="pickup-cash" name="pickup-cash" id="pickup-cash">
+                                <label class="form-check-label" for="pickup-cash">
+                                    Cash during Pick-UP (Receive Details via WhatsApp)
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" v-model="selected" value="bank-transfer" name="bank-transfer" id="bank-transfer">
                                 <label class="form-check-label" for="bank-transfer">
-                                    Online Bank Transfer
+                                    Online Bank Transfer (Receive Details via WhatsApp)
                                 </label>
                             </div>
                             @if(auth()->user()->address != null)
-                                <div v-if="selected === 'delivery'">
+                                {{-- <div v-if="selected === 'delivery'">
                                     <div>
                                         <h5>Saved Address</h5>
                                     <Address id="address" class="alert alert-info">
@@ -40,8 +46,9 @@
                                     </Address>
                                     <button class="btn btn-primary" data-toggle="modal" data-target="#address_update_form">Update Address</button>
                                     </div>
-                                </div>
-                                @else
+                                </div> --}}
+
+
                                 <div v-if="selected === 'delivery'">
                                     {{-- Delivery Details
                                     <form class="form" method="POST" action="{{ route('address.create') }}">
@@ -69,6 +76,37 @@
                                         <button class="btn btn-primary btn-block mt-2" type="submit">Confirm Delivery Details</button>
                                     </form> --}}
                                     Send your location via
+                                    <a href="https://wa.me/message/S3KDFRJOMKJHI1" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">
+                                        <i class="fab fa-whatsapp"></i> WhatsApp
+                                    </a>
+                                </div>
+                                @else
+                                <div v-if="(selected === 'delivery') || (selected === 'pickup-cash') || (selected === 'bank-transfer')">
+                                    {{-- Delivery Details
+                                    <form class="form" method="POST" action="{{ route('address.create') }}">
+                                        @csrf
+                                        <div class="form-row mb-2">
+                                            <div class="col-md">
+                                                <input type="text" class="form-control" placeholder="Street Address" name="street_address" required>
+                                            </div>
+                                            <div class="col-md">
+                                                <input type="text" class="form-control" placeholder="City" name="city" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mb-2">
+                                            <div class="col-md">
+                                                <region-select v-model="region" name="island" :country="country" :region="region" region-name="true" class="form-control"  placeholder="Select Island" required />
+                                            </div>
+                                            <div class="col-md">
+                                                <country-select v-model="country" :country="country" topCountry="US" class="form-control" disabled="true" name="country"  />
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <label for="delivery_notes" class="label">Delivery Instructions</label>
+                                            <textarea class="form-control" name="delivery_notes" rows="3" placeholder="If you are living on the family island please tell us which boat that you perfer."></textarea>
+                                        </div>
+                                        <button class="btn btn-primary btn-block mt-2" type="submit">Confirm Delivery Details</button>
+                                    </form> --}}
                                     <a href="https://wa.me/message/S3KDFRJOMKJHI1" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">
                                         <i class="fab fa-whatsapp"></i> WhatsApp
                                     </a>
