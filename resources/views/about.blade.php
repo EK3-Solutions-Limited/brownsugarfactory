@@ -14,7 +14,7 @@
                     delivered at your doorstep or to the recipient. “Love it, choose it get it” without leaving the
                     comfort of your home. Our payment options include Cash on Delivery (COD) or Online bank transfers.
                     We pride ourselves on providing fast and efficient customer service and look forward to serving you
-                    soon. Take care sugar! (Brown heart)
+                    soon. Take care sugar! <i class="fas fa-heart text-primary"></i>
                 </p>
             </section>
             <hr>

@@ -17,13 +17,13 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" v-model="selected" value="delivery" name="pay-with-cash" id="delivery-cash">
                                 <label class="form-check-label" for="delivery-cash">
-                                    Cash on Delivery (Send location via WhatsApp)
+                                    Cash on Delivery (Send location via WhatsApp $5 Delivery Fee)
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" v-model="selected" value="pickup-cash" name="pickup-cash" id="pickup-cash">
                                 <label class="form-check-label" for="pickup-cash">
-                                    Cash during Pick-UP (Receive Details via WhatsApp)
+                                    Cash during Pick-UP (Off Fox Hill round about-Scheduled)
                                 </label>
                             </div>
                             <div class="form-check">
@@ -147,10 +147,16 @@
                     </div>
                     <div class="card-footer">
                         <div class="text-center mb-2">
-                            <h6>
-                                Subtotal: ${{ number_format(\Cart::session(Auth::user()->id)->getSubTotal(), 2, '.', ',' ) }}
-                            </h6>
                             <h4>
+                                Subtotal: ${{ number_format(\Cart::session(Auth::user()->id)->getSubTotal(), 2, '.', ',' ) }}
+                            </h4>
+                            {{-- <h4 v-if="selected === 'delivery'">
+                                Delivery: $5.00
+                            </h4> --}}
+                            <h4 v-if="selected === 'delivery'">
+                                Total: ${{ number_format((\Cart::session(Auth::user()->id)->getTotal()), 2, '.', ',' )}}
+                            </h4>
+                            <h4 v-else>
                                 Total: ${{ number_format(\Cart::session(Auth::user()->id)->getTotal(), 2, '.', ',' ) }}
                             </h4>
                         </div>
